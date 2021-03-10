@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=sans-serif:300,300italic,400,400italic,700,700italic%7CUbuntu:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7C'Open+Sans':300,300italic,400,400italic,700,700italic%7C'Microsoft+YaHei':300,300italic,400,400italic,700,700italic%7Csans-serif;:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https:/ShuYuMo2003.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="第一天的题都是好题啊 QAQ!!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「比赛总结」实验舱 Round 1">
+<meta property="og:url" content="%E3%80%8C%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93%E3%80%8D%E5%AE%9E%E9%AA%8C%E8%88%B1-Round-1/index.html">
+<meta property="og:site_name" content="Shu Yu Mo&#39;s blog">
+<meta property="og:description" content="第一天的题都是好题啊 QAQ!!">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-10T03:40:46.000Z">
+<meta property="article:modified_time" content="2021-03-10T09:28:13.999Z">
+<meta property="article:author" content="舒雨墨">
+<meta property="article:tag" content="dp">
+<meta property="article:tag" content="异或">
+<meta property="article:tag" content="分组思想">
+<meta property="article:tag" content="贡献转化">
+<meta property="article:tag" content="dp优化">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="「比赛总结」实验舱-Round-1/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>「比赛总结」实验舱 Round 1 | Shu Yu Mo's blog</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Shu Yu Mo's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">远行者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-latex-syntax"><a href="/LaTeX-syntax.html" rel="section"><i class="fa fa-heart fa-fw"></i>LaTeX-syntax</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+
+
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+
+          <hr/>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%88%96"><span class="nav-number">1.</span> <span class="nav-text">异或</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">计数</span></a></li></ol></div>
+
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">63</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="/「比赛总结」实验舱-Round-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="舒雨墨">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shu Yu Mo's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「比赛总结」实验舱 Round 1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-03-10 11:40:46 / 修改时间：17:28:13" itemprop="dateCreated datePublished" datetime="2021-03-10T11:40:46+08:00">2021-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/比赛总结/" itemprop="url" rel="index"><span itemprop="name">比赛总结</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <a id="encryption" class="btn" style="display: block; width: 82px; margin: auto; height: 29px; text-align: center; line-height: 29px; font-size: 16px; border-radius: 2px;">
+            解密
+          </a>
+          <script src="/js/crypto-js.js"></script>
+          <script>
+            var __decrypt = function(data, key) {
+              const fixkey = (key) => key.toString().substr(0, 15).padEnd(32, 'a');
+              return CryptoJS.AES.decrypt(data, CryptoJS.enc.Utf8.parse(fixkey(key)), {
+                mode: CryptoJS.mode.ECB,
+                padding: CryptoJS.pad.Pkcs7
+              }).toString(CryptoJS.enc.Utf8);
+            }
+            var encryption = function(pd){
+              var password;
+              if(pd) password = pd; else password = prompt('输入解密密钥：');
+              var pass;
+              try{
+                var content = (__decrypt(
+                  `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`
+                , password));
+                pass = true;
+              }
+              catch(err) {
+                console.log('error!')
+                pass = false;
+              }
+              if(!pass || !content) alert('密码错误！');
+              else {
+                window.sessionStorage.setItem("__password", password);
+                return content;
+              }
+            }
+            var target = document.getElementById('encryption');
+            target.onclick = () => { var t = encryption(); if(t) location.reload(); };
+            if(window.sessionStorage.getItem('__password')){
+              var target = document.getElementsByClassName('post-body')[0];
+              target.innerHTML = encryption(window.sessionStorage.getItem('__password'));
+            }
+          </script>
+        
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/dp/" rel="tag"># dp</a>
+              <a href="/tags/异或/" rel="tag"># 异或</a>
+              <a href="/tags/分组思想/" rel="tag"># 分组思想</a>
+              <a href="/tags/贡献转化/" rel="tag"># 贡献转化</a>
+              <a href="/tags/dp优化/" rel="tag"># dp优化</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/「比赛总结」正睿省选失恋测-Round-8/" rel="prev" title="「比赛总结」正睿省选失恋测 Round 8">
+                  <i class="fa fa-chevron-left"></i> 「比赛总结」正睿省选失恋测 Round 8
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/「比赛总结」实验舱-Round-2/" rel="next" title="「比赛总结」实验舱 Round 2">
+                  「比赛总结」实验舱 Round 2 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">舒雨墨</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'none'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('.gitalk-container', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5d4b0a361ccf7199b58f',
+      clientSecret: 'ff21340eedfb4a1c940eaddf8e180f0260c33088',
+      repo        : 'ShuYuMo2003.github.io',
+      owner       : 'ShuYuMo2003',
+      admin       : ['ShuYuMo2003'],
+      id          : '9d6b71881265137a115a552fc638923c',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render(document.querySelector('.gitalk-container'));
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
