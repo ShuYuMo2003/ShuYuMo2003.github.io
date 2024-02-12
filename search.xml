@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>吾輩は猫である</title>
+    <url>/2024/02/12/catcatcat/</url>
+    <content><![CDATA[<p>这是一个新博客。</p>
+<p>为了和之前搞 OI 时写的博客做一个区分，应该会写点更有意思的东西吧。</p>
+<p>feature picture 是我在大学图书馆拍的夕阳。</p>
+<p><a href="/oi-blog">原先的博客仍然保留在本站</a>。</p>
+<p>然后给大家看点我的猫猫。</p>
+<p><br/> <br/> <br/></p>
+<p><img src="/img/catcat/cat001.jpg" /> <img src="/img/catcat/cat002.jpg" /> <img src="/img/catcat/cat003.jpg" /> <img src="/img/catcat/cat004.jpg" /> <img src="/img/catcat/cat005.jpg" /></p>
+]]></content>
+      <tags>
+        <tag>cat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>整数模 n 乘法群</title>
+    <url>/2024/02/12/test-by-old-page/</url>
+    <content><![CDATA[<p>老文章，加到新博客里面测试一下数学公式渲染。过段时间删掉。</p>
+<h2 id="几点补充">几点补充</h2>
+<h3 id="欧拉函数">欧拉函数</h3>
+<p><span class="math inline">\(n=\prod \limits{p_i^{e_i}}\)</span></p>
+<p><span class="math display">\[
+\varphi(n) = \prod\limits{p_i^{e_i-1}(p_i-1)}
+\]</span></p>
+<p><strong>欧拉函数</strong>是一个经典的积性函数。</p>
+<h3 id="群的直积">群的直积</h3>
+<p>又名 <strong>笛卡尔（Descartes）积</strong> ，其定义如下：</p>
+<p>设 <span class="math inline">\((G_1, *) \times (G_2, \cdot) = (G, \oplus)\)</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(\times\)</span> 为两个群的笛卡尔积。</li>
+<li><span class="math inline">\(G = \{(a, b)\ | \ a \in G_1, b\in G_2\}\)</span></li>
+<li><span class="math inline">\(\oplus\)</span> 定义为 <span class="math inline">\((a_1, b_1) \oplus (a_2, b_2) =(a_1 * a_2, b_1 \cdot b_2)\)</span></li>
+</ul>
+<h3 id="原根"><a href="/「学习总结」数论">原根</a></h3>
+<p>若 <span class="math inline">\(g\)</span> 为 <span class="math inline">\(n\)</span> 的原根，等价于 <span class="math inline">\(g \perp n, g^0 \sim g^{\varphi(n)-1} \mod n\)</span> 互不相同，等价于 <span class="math inline">\(g \perp n,\ \forall i \in [1, \varphi(n)-1], g^i \not = 1\)</span>. （<span class="math inline">\(x \perp y\)</span> 表示 <span class="math inline">\(x, y\)</span> 互质）</p>
+<p>一个数 <span class="math inline">\(n\)</span> 有原根当且仅当 <span class="math inline">\(n = 2,4,p^k, 2p^k\)</span> 其中 <span class="math inline">\(p\)</span> 为奇素数。</p>
+<p>小结论：若一个正整数 <span class="math inline">\(n\)</span> 有原根，则其原根数量恰好为 <span class="math inline">\(\varphi(\varphi(n))\)</span> 。</p>
+<h3 id="阶"><a href="/「学习总结」数论">阶</a></h3>
+<p>若 $a n $，则使 $a^k  n $ 成立的 <strong>最小</strong> 正整数 <span class="math inline">\(k\)</span>，称为 <span class="math inline">\(a\)</span> 模 <span class="math inline">\(n\)</span> 意义下的阶，记作 <span class="math inline">\(\text{ord}_n(a)\)</span>。 可以发现若 <span class="math inline">\(g\)</span> 为模 <span class="math inline">\(n\)</span> 意义下原根，那么 <span class="math inline">\(\operatorname{ord}_n(g) = \varphi(n)\)</span>。</p>
+<h2 id="整数模-n-乘法群">整数模 <span class="math inline">\(n\)</span> 乘法群</h2>
+<h3 id="定义">定义</h3>
+<p>对于 <strong>任意</strong> 一个正整数 <span class="math inline">\(n\)</span> ，<span class="math inline">\(1 \sim n\)</span> 中与 <span class="math inline">\(n\)</span> 互质的 <span class="math inline">\(\varphi(n)\)</span> 个数字组成的集合记作 <span class="math inline">\(\mathbb{Z}^*_n\)</span>。</p>
+<p>事实上，由 <span class="math inline">\(\mathbb{Z}_n^*\)</span> 和模 <span class="math inline">\(n\)</span> 意义下的乘法组成的代数系统 <span class="math inline">\((\mathbb{Z}^*_n, \times )\)</span> 是一个<a href="/「学习总结」群%20置换群">群</a>。</p>
+<p>这一点可以考虑 <span class="math inline">\(\mathbb{Z}^*_n\)</span> 中元素所包含的质因子，可以发现是显然的。</p>
+<p>因为任意一个处于 <span class="math inline">\(n\)</span> 的剩余系中且不与 <span class="math inline">\(n\)</span> 互质的元素 <span class="math inline">\(x\)</span>，都可以除掉 <span class="math inline">\(\gcd(x, n)\)</span> 放到 <span class="math inline">\(\frac{n}{\gcd(n, x)}\)</span> 的剩余系内考虑，所以这里只讨论 <span class="math inline">\(n\)</span> 的剩余系中与 <span class="math inline">\(n\)</span> 互质的元素组成的集合，即 <span class="math inline">\(\mathbb{Z}_n^*\)</span>（称其为 <span class="math inline">\(n\)</span> 的简化剩余系），当然也因为 <del>我不会</del> <span class="math inline">\(\mathbb{Z}_n^*\)</span> 的性质实在是太美了。</p>
+<h3 id="离散对数">离散对数</h3>
+<p>若 <span class="math inline">\(n\)</span> 存在原根，取任意一个 <span class="math inline">\(n\)</span> 的原根 <span class="math inline">\(g\)</span> ，则对于 <span class="math inline">\(\mathbb{Z}^*_n\)</span> 中的一个每个元素 <span class="math inline">\(x\)</span> ，都存在唯一的 <span class="math inline">\(k \in [0, \varphi(n)-1]\)</span> ，使得 <span class="math inline">\(g^k =x\)</span>。</p>
+<p>可以得出 <span class="math inline">\([0, \varphi(n)-1] \cap \mathbb{Z}\)</span> 中的元素与 <span class="math inline">\(\mathbb{Z}_n^*\)</span> 中的元素之间一一对应。</p>
+<p>可以建立函数 <span class="math inline">\(f(x)\)</span> 表示 <span class="math inline">\(\mathbb{Z}_n^*\)</span> 向 <span class="math inline">\([0, \varphi(n)-1] \cap \mathbb{Z}\)</span> 的映射。可以形象的称 <span class="math inline">\(f(x)\)</span> 为 <strong>离散对数</strong>。这里满足很多实数定义下对数的性质。需要注意离散对数间的运算是定义在 <span class="math inline">\(\mod \varphi(n)\)</span> 意义下的。</p>
+<h3 id="原根不存在的剩余系下离散对数的定义">原根不存在的剩余系下离散对数的定义</h3>
+<p>离散对数的取值依赖于原根的选取，所以只有 <span class="math inline">\(n\)</span> 存在原根时， <span class="math inline">\(\mathbb{Z}_n^*\)</span> 中的元素才存在 <strong>直接的</strong> 的离散对数。</p>
+<p>可以利用类似于中国剩余定理的一般思想，将 <span class="math inline">\(n\)</span> 分解为质数幂的形式，分别求出 <span class="math inline">\(x\)</span> 在每个 <span class="math inline">\(p_i^k\)</span> 剩余系下的离散对数 <span class="math inline">\(a_i\)</span>，则可以用 <span class="math inline">\((a_0, a_1, a_2,\cdots )\)</span> 这样的 "坐标" 来类似地定义 <span class="math inline">\(x\)</span> 在 <span class="math inline">\(n\)</span> 剩余系下的 “离散对数”。根据中国剩余定理，可以发现这样的 “坐标” 是能够实现和原数一一对应的。</p>
+<p>可以先考虑原根存在的 <span class="math inline">\(\mathbb{Z}_n^*\)</span>，对 <span class="math inline">\(\mathbb{Z}_n^*\)</span> 中的每一个元素取离散对数（不妨设这里的原根取最小的原根）放入一个集合 <span class="math inline">\(G\)</span>，然后重新定义群 乘法运算为模 <span class="math inline">\(\varphi(n)\)</span> 意义下的 <strong>加法</strong>，这样 <span class="math inline">\((G, \times)\)</span> 也能够形成一个群。不妨用 <span class="math inline">\(G_n\)</span> 来表示这个群。</p>
+<p>类似地定义原根不存在的 <span class="math inline">\(\mathbb{Z}_m^*\)</span>，</p>
+<p>设 <span class="math inline">\(m=\prod_{i=1}^{s}\limits{P_i^{e_i}}\)</span> 。他们的 “离散对数” 形成的群可以表示为 <span class="math inline">\(G_{P_1^{e_1}}\times G_{P_2^{e_2}} \times G_{P_3^{e_3}}\times\cdots\times G_{P_s^{e_s}}\)</span> ，其中 <span class="math inline">\(\times\)</span> 为定义在群上的直积。</p>
+<p>值得一提的是：可以发现，两个群做直积，得到的群的阶为之前两个群的阶的乘积，可以发现，这和欧拉函数的积性是相符的。</p>
+<p>这好像没有什么用，只是可以帮助理解或者得到一些小结论吧。</p>
+<h3 id="模-2kk2-意义下的离散对数">模 <span class="math inline">\(2^k(k&gt;2)\)</span> 意义下的离散对数</h3>
+<p>注意到，<span class="math inline">\(2^k(k&gt;2)\)</span> 也是没有原根的。</p>
+<p>定义 <span class="math inline">\(2^k (k &gt; 2)\)</span> 意义下的 “离散对数” 需要如下两个结论</p>
+<p><span class="math display">\[
+\operatorname{ord}_{2^k}(5)=2^{k-2}
+\]</span></p>
+<p>而且对于任意一个 <span class="math inline">\(2^k\)</span> 的简化剩余系下能表示成形如 <span class="math inline">\(5^\alpha\)</span> 的元素 <span class="math inline">\(x\)</span>，<span class="math inline">\(-x\)</span> 一定不能表示成形如 <span class="math inline">\(5^\alpha\)</span> 的元素。</p>
+<p><strong>一个栗子</strong></p>
+<p>当 <span class="math inline">\(k=4\)</span> 时，即 <span class="math inline">\(16=2^4\)</span>。</p>
+<p><span class="math inline">\(\mathbb{Z}_{16}^*=\{1, 3, 5, 7, 9, 11, 13, 15\}\)</span></p>
+<p><span class="math inline">\(5^0=1, 5^1=5, 5^2=9, 5^3=13, 5^4=1\)</span></p>
+<p><span class="math inline">\(\operatorname{ord}_{16}(5)=4=2^{k-2}=2^2\)</span></p>
+<p>且 <span class="math inline">\(-1\equiv 15, -5\equiv 11, -9\equiv 7, -15\equiv 2\)</span> 这些数字都没有在上面出现过。</p>
+<p>简单来说就是 <span class="math inline">\(2^k\)</span> 的简化剩余系下（大小为 <span class="math inline">\(2^{k-1}\)</span>），有恰好一半的数字可以表示成 <span class="math inline">\(5^\alpha \mod 2^k\)</span>，恰好一半不可以，这两部分元素一一对应，互为剩余系下的相反数。</p>
+<p>所以，可以把模 <span class="math inline">\(2^k (k&gt;2)\)</span> 意义下的循环群看成是两个原根为 <span class="math inline">\(5\)</span> 和 <span class="math inline">\(-1\)</span> 的乘法群的直积。</p>
+<p>其中的元素 <span class="math inline">\(x\)</span> 的离散对数形如 <span class="math inline">\((a, b)\)</span> 表示 <span class="math inline">\(5^a \times (-1)^b\)</span>。</p>
+<h3 id="从乘法群的角度考虑原根和阶">从乘法群的角度考虑原根和阶</h3>
+<p>对于任意正整数 <span class="math inline">\(n\)</span> ，<span class="math inline">\(n\)</span> 的简化剩余系中的取任意一个数字 <span class="math inline">\(x\)</span>。</p>
+<p>设 <span class="math inline">\(S_x=\{x^0, x^1, x^2,\cdots\}\)</span> ，可以发现如果定义集合 <span class="math inline">\(S\)</span> 的乘法运算为模 <span class="math inline">\(n\)</span> 意义下的乘法，那么这东西就是 <span class="math inline">\((\mathbb{Z}_n^*, \times)\)</span> 的一个子群…这里 <span class="math inline">\(|S_x|\)</span> （群 <span class="math inline">\((S_x, \times)\)</span> 的阶）就可以称为 <span class="math inline">\(x\)</span> 在模 <span class="math inline">\(n\)</span> 意义下的阶。</p>
+<p>把剩余系的环和群的环结合着理解一下，可以发现这个定义和原先的定义是等价的。</p>
+<p>根据这个东西，不难发现： <span class="math display">\[
+|S_x|=\frac{\varphi(n)}{\gcd(f(x), \varphi(n))}
+\]</span></p>
+<p>这里的 <span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(x\)</span> 在任意原根意义下的离散对数。</p>
+<p>存在一个显然的事实：一个常数 <span class="math inline">\(x\)</span> 的所有倍数模 <span class="math inline">\(m\)</span> 能够取到所有形如 <span class="math inline">\(k\cdot\gcd(x, m)\)</span> 的数（<span class="math inline">\(k \in \mathbb{Z^*}\)</span>）。</p>
+<p>从 <span class="math inline">\(n\)</span> 的某个原根意义下离散对数的角度考虑， <span class="math inline">\(S_x\)</span> 可以看作 “所有离散对数为 <span class="math inline">\(\gcd(f(x), \varphi(n))\)</span> 的倍数的元素” 组成的集合，这样的数字显然有 <span class="math inline">\(\frac{\varphi(n)}{\gcd(f(x), \varphi(n))}\)</span> 个，也就是循环子群的阶数。</p>
+<p>之后的问题中，如果不好考虑某个引理，可以转化为选取一个原根后，对每个元素，求其离散对数，然后扔到一个剩余系环上考虑。即使是关于原根本身的引理，也可以用这样的方法证明。</p>
+<p>可以发现，我们想要的原根 <span class="math inline">\(x\)</span>，满足 <span class="math inline">\(x\)</span> 的循环子群能够取遍原来群中所有元素，即 <span class="math inline">\(f(x) \perp \varphi(n)\)</span> 。</p>
+<p>考虑一下原根的数量，对于任意一个正整数 <span class="math inline">\(n\)</span> ，其简化剩余系阶为 <span class="math inline">\(\varphi(n)\)</span> ，每个数字取离散对数，指数和 <span class="math inline">\(\varphi(n)\)</span> 互质的即可成为原根，这样的数字有 <span class="math inline">\(\varphi(\varphi(n))\)</span> 个。事实上，这是原根数量的精确值。</p>
+<p>对于 <strong>任意</strong> 一个正整数 <span class="math inline">\(n\)</span> ，若其剩余系存在原根，则原根数恰好为 <span class="math inline">\(\varphi(\varphi(n))\)</span>.</p>
+<h2 id="实现上的相关问题">实现上的相关问题</h2>
+<p>什么求原根、求阶和求离散对数之类的人间烟火，可以查看 <a href="/「学习总结」数论">「学习总结」数论</a></p>
+<h2 id="相关栗题">相关栗题</h2>
+<h3 id="debris">debris</h3>
+<p>给定素数 <span class="math inline">\(P\)</span>，求满足 <span class="math inline">\(1 \le n, m\le P(P-1)\)</span> 且 <span class="math inline">\(n^m \equiv m^n \pmod{P}\)</span> 的数对 <span class="math inline">\((n, m)\)</span> 个数。</p>
+<p>答案对素数 <span class="math inline">\(M\)</span> 取模。 数据组数 <span class="math inline">\(T \le 100, P \le 10^{12}, M \le 10^9\)</span></p>
+<p>如果 <span class="math inline">\(n, m\)</span> 一个为 <span class="math inline">\(P\)</span> 的倍数，另一个不是，那么显然这些方案都不合法。</p>
+<p>分两种情况：</p>
+<p>如果 <span class="math inline">\(n, m\)</span> 都是 <span class="math inline">\(P\)</span> 的倍数，那么这一部分的贡献是平凡的，就是 <span class="math inline">\((P-1)^2\)</span>。</p>
+<p>如果 <span class="math inline">\(n, m\)</span> 都不是 <span class="math inline">\(P\)</span> 的倍数，可以取其离散对数： <span class="math display">\[
+n =g^a\pmod{P} \\
+m =g^b\pmod{P} \\
+n =c\pmod{P-1} \\
+m =d\pmod{P-1}
+\]</span></p>
+<p>定义 <span class="math inline">\(n=(a, c),m=(b, d)\)</span>。任何一个数字 <span class="math inline">\(n,m\)</span> 都可以用形如 <span class="math inline">\((x, y)\)</span> 的数对表示。同时，<span class="math inline">\(\forall x,y \in [0, P-2]\ \ (x, y)\)</span> 的数对都唯一的对应一个在 <span class="math inline">\([1, P(P-1)]\)</span> 的数字。</p>
+<p>原式化简： <span class="math display">\[
+\begin{split}
+\ &amp;n^m &amp;\equiv m^n &amp;\pmod{P} \\
+\Rightarrow\ &amp;g^{am} &amp;\equiv g^{bn} &amp;\pmod{P}\\
+\Rightarrow\ &amp;{am} &amp;\equiv {bn} &amp;\pmod{\varphi(P)}\\
+\Rightarrow\ &amp;{ad} &amp;\equiv {bc} &amp;\pmod{P-1}\\
+\end{split}
+\]</span></p>
+<p>问题转化为：</p>
+<p>若 <span class="math inline">\(a, b, c, d\)</span> 可以在 <span class="math inline">\([0, P-1)\)</span> 内任取 ，方程 <span class="math inline">\(ad\equiv bc \pmod{P-1}\)</span> 的解 <span class="math inline">\((a, b, c, d)\)</span> 的数量。</p>
+<p>根据乘法群的理论，把 <span class="math inline">\((\mathbb{Z}_{P-1}^*, \times)\)</span> 拆分成多个 <span class="math inline">\(p^k\)</span> 的群的直积。“坐标” 每一维行为独立。</p>
+<p>分别求出每一个 <span class="math inline">\(ad\equiv bc \pmod{p^k}\)</span> 的解数量相乘即可。</p>
+<p>考虑如何求出形如 <span class="math inline">\(ab\equiv bc \pmod{p^k}\)</span> 的方程解数量。</p>
+<p>仍然可以分两种情况：</p>
+<ul>
+<li>方程两边都与 <span class="math inline">\(p\)</span> 互质，这样答案也是平凡的可以考虑其中三个数字任取，然后最后一个数字算逆元即可，答案就是 <span class="math inline">\(\varphi(p^k)^3\)</span>。</li>
+<li>方程两边与 <span class="math inline">\(p\)</span> 不互质，可以考虑方程一边的取值个数，考虑枚举 <span class="math inline">\(a, b\)</span> 中 <span class="math inline">\(p\)</span> 的次数，同时除去这个值，转化为互质的情况。需要注意如果其次数和大于 <span class="math inline">\(p^k\)</span> 两边 <span class="math inline">\(p\)</span> 的幂次没必要相等。</li>
+</ul>
+<h3 id="子">子</h3>
+<p>求 <span class="math inline">\(x^k \bmod m\)</span> (<span class="math inline">\(x\)</span> 为非负整数)的不同值个数，答案对 <span class="math inline">\(10^9 + 7\)</span> 取模。</p>
+<p><span class="math inline">\(m=\prod_{i=1}^{m_s}\limits{p_i^{a_i}}\)</span></p>
+<p><span class="math inline">\(k=\prod_{i=1}^{k_s}\limits{q_i^{b_i}}\)</span></p>
+<p><span class="math inline">\(m_s, k_s\le 2\times 10^5, p_i,q_i \le10^7, 1\le a_i,b_i \le 10^9\)</span></p>
+<p>下辈子再学。</p>
+<h3 id="小a与两位神仙"><a href="https://www.luogu.com.cn/problem/P5605">小A与两位神仙</a></h3>
+<p>给定一个奇质数次幂 <span class="math inline">\(m\)</span>。</p>
+<p><span class="math inline">\(n\)</span> 组询问，每组给定 <span class="math inline">\((x, y)\)</span> 满足 <span class="math inline">\(x\perp m, y\perp m\)</span></p>
+<p>判定是否存在 <span class="math inline">\(x^a\equiv y\pmod{m}\)</span></p>
+<p><span class="math inline">\(n \le 2\times 10^4,m\le 10^{18}\)</span></p>
+<p>显然求离散对数非常舒服，直接算倍数即可。只可惜 <span class="math inline">\(m\)</span> 有亿点点大。</p>
+<p>但是可以通过离散对数考虑，设 <span class="math inline">\(u, v\)</span> 分别为 <span class="math inline">\(x, y\)</span> 的离散对数。</p>
+<p>显然我们希望： <span class="math display">\[
+t \in \mathbb{Z}\ \ \  \text{s.t.}\ \  ut=v \pmod{\varphi(m)}
+\]</span></p>
+<p>即： <span class="math display">\[
+\gcd(u, \varphi(m)) | v
+\]</span> 其等价于： <span class="math display">\[
+\gcd(u, \varphi(m)) | \gcd(v, \varphi(m))
+\]</span> 由上面乘法群的推论： <span class="math display">\[
+|S_x|=\frac{\varphi(m)}{\gcd(\varphi(m), f(x))}
+\]</span></p>
+<p>于是可以转化为： <span class="math display">\[
+\frac{\varphi(m)}{|S_x|} \mid \frac{\varphi(m)}{|S_y|}
+\]</span> 即： <span class="math display">\[
+|S_y| \ \ \ \ \ \ |  \ \ \ \ \ \ |S_x|
+\]</span> 所以只需要对原数 <span class="math inline">\(x, y\)</span> 分别求阶，然后判断 <span class="math inline">\(\operatorname{ord}_m(y) | \operatorname{ord}_m(x)\)</span> 即可。</p>
+]]></content>
+      <tags>
+        <tag>数论</tag>
+      </tags>
+  </entry>
+</search>

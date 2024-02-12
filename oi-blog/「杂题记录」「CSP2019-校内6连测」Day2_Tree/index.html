@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/oi-blog/images/apple-touch-icon-next.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/oi-blog/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/oi-blog/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/oi-blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/oi-blog/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=sans-serif:300,300italic,400,400italic,700,700italic%7CUbuntu:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7C'Open+Sans':300,300italic,400,400italic,700,700italic%7C'Microsoft+YaHei':300,300italic,400,400italic,700,700italic%7Csans-serif;:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https:/ShuYuMo2003.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="一道趣题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「CSP2019 校内6连测」Day2_Tree">
+<meta property="og:url" content="%E3%80%8C%E6%9D%82%E9%A2%98%E8%AE%B0%E5%BD%95%E3%80%8D%E3%80%8CCSP2019-%E6%A0%A1%E5%86%856%E8%BF%9E%E6%B5%8B%E3%80%8DDay2_Tree/index.html">
+<meta property="og:site_name" content="Shu Yu Mo&#39;s blog">
+<meta property="og:description" content="一道趣题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-1258548314.cos.ap-beijing.myqcloud.com/PIC.jpg">
+<meta property="og:image" content="https://img-1258548314.cos.ap-beijing.myqcloud.com/pic2.jpg">
+<meta property="article:published_time" content="2019-11-10T02:02:00.000Z">
+<meta property="article:modified_time" content="2021-08-27T11:42:44.027Z">
+<meta property="article:author" content="舒雨墨">
+<meta property="article:tag" content="树上问题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-1258548314.cos.ap-beijing.myqcloud.com/PIC.jpg">
+
+
+<link rel="canonical" href="「杂题记录」「CSP2019-校内6连测」Day2_Tree/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>「CSP2019 校内6连测」Day2_Tree | Shu Yu Mo's blog</title>
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/oi-blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Shu Yu Mo's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">远行者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/oi-blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/oi-blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/oi-blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/oi-blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/oi-blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-latex-syntax"><a href="/oi-blog/LaTeX-syntax.html" rel="section"><i class="fa fa-heart fa-fw"></i>LaTeX-syntax</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+
+
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+
+          <hr/>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%A1%E5%86%856%E8%BF%9E%E6%B5%8Bday2"><span class="nav-number">1.</span> <span class="nav-text">校内6连测Day2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tree"><span class="nav-number">1.1.</span> <span class="nav-text">Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#subtask1"><span class="nav-number">1.1.1.</span> <span class="nav-text">subtask1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#subtask4"><span class="nav-number">2.</span> <span class="nav-text">subtask4</span></a></li></ol></div>
+
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+
+
+
+<div class="post-block">
+
+
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="/oi-blog/「杂题记录」「CSP2019-校内6连测」Day2_Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/oi-blog/images/avatar.jpg">
+      <meta itemprop="name" content="舒雨墨">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shu Yu Mo's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「CSP2019 校内6连测」Day2_Tree
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-11-10 10:02:00" itemprop="dateCreated datePublished" datetime="2019-11-10T10:02:00+08:00">2019-11-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 19:42:44" itemprop="dateModified" datetime="2021-08-27T19:42:44+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/oi-blog/categories/杂题记录/" itemprop="url" rel="index"><span itemprop="name">杂题记录</span></a>
+        </span>
+    </span>
+
+
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+
+
+
+    <div class="post-body" itemprop="articleBody">
+          <p>一道趣题。 <a id="more"></a></p>
+<h1 id="校内6连测day2">校内6连测Day2</h1>
+<h2 id="tree">Tree</h2>
+<p><a target="_blank" rel="noopener" href="https://shuyumo-1258548314.cos.ap-beijing.myqcloud.com/OI/Contest/20191107/problem_day1.pdf">原题</a></p>
+<p><img src="https://img-1258548314.cos.ap-beijing.myqcloud.com/PIC.jpg" /> 面向数据编程：</p>
+<h3 id="subtask1">subtask1</h3>
+<p>由于题目没有给定根，所以第一个想法就是枚举根，然后在每个点检查子树是否包含每一个颜色，更新答案。<br />
+具体可以状压啊，（暴力统计也能过），需要注意的是状态压缩时，设置状态中<code>1 &lt;&lt; 50</code>这样的语句时不可以的。(应该为<code>1LL &lt;&lt; 50</code>)；<br />
+### subtask2 只有一种颜色，找一个最长的链即可，就是树的直径。 ### subtask3 发现要是想要<code>AC</code>这道题，枚举根肯定是没前途的，除非可以确定一个根，然后直接<span class="math inline">\(O(1)\)</span>猜答案。</p>
+<p>先随便找一个点作为临时的根，然后对于我们枚举到的一个点，我们考虑它作为 LCA的时候的最优答案，显然真正的根有两种情况： - 在当前点为根的子树中。 - 不在他的子树内。 对于这几种情况，我们都算一个最远的那个点离他多远，把最远的那个合法的点作为根就可以。</p>
+<p>比如， 右边这个图，当真正的根是 <strong>6</strong>，当前点是<strong>3</strong>的时候，我们就需要知道，他的子树的点集 <strong>T={1,2,3,5,9,8}</strong>这个集合里面是否包含了每种颜色的点。</p>
+<p><img src="https://img-1258548314.cos.ap-beijing.myqcloud.com/pic2.jpg" /></p>
+<p>这是正解的弱化版本，树形<code>DP</code>， <code>f[i][j]</code>表示在树上结点<code>i</code>，颜色<code>j</code>的数量。</p>
+<p>那么我们就可以用 <code>f[1]-f[4]</code>算得 <code>T</code> 中包含的每种颜色的点的个数。 我们对于每个点，枚举根在哪个方向， 算这个方向上最远的点， 复杂度是 <span class="math inline">\(O(n)\)</span>的。</p>
+<p>算<span class="math inline">\(f[i][j]\)</span>的总复杂度是 <span class="math inline">\(O(nm)\)</span>的， 枚举根方向再算合不合法，复杂度也是 <span class="math inline">\(O(nm)\)</span>。所以总复杂度是 <span class="math inline">\(O(nm)\)</span>.</p>
+<h1 id="subtask4">subtask4</h1>
+<p>归纳上一个<code>subtask3</code>发现其实对于每一个点，只需要知道两个信息即可： - 这个点为根的子树是否包含所有的颜色 - 整棵树抛去这个点为根的子树是否包含所有的颜色（称之为这个点为根的子树的反树）</p>
+<p>还是先选一个临时的根，分开考虑两种情况 - 到一个点之后判断 以 这个点为根的子树是否包含所有的颜色。设以某个点<span class="math inline">\(i\)</span>为根的子树所包含的元素种类数为<span class="math inline">\(W_i\)</span><br />
+考虑一个点对这个点到根这条链上的贡献，每个点都会使得这个点到根这条链上的点所有点<span class="math inline">\(j\)</span>的<span class="math inline">\(W_j + 1\)</span>。 但是考虑两个相同颜色的点，对答案贡献之后，会使这两个点的<code>LCA</code>到根这条路径上的点都被<strong>加重复</strong>了一次。所以这条路径上的点都需要再<span class="math inline">\(-1\)</span>。<br />
+树上的路径操作——树上差分即可完成。注意，需要对同一种颜色的点按照<code>DFS</code>序排序，然后两两求<code>LCA</code>可以发现，只有这样做才是对的。<br />
+对这个树进行差分，然后能在<code>DFS</code>的过程中求得每个点为根的子树中的颜色种类数量。如果颜色种类数量为<span class="math inline">\(m\)</span>那就说明这个子树已经包含了所有的颜色，那么这个点就是题目要求的<code>LCA</code>之一，然后用向上最长链（可以预处理出来，其实不是向上的最长链，只要这条链的终点不在当前子树中即可，也就是选取这个链的终点当作真正的根）更新答案。 - 如何判断一个点为根的的子树的反树包含了所有的点。其实可以反过来想，一个反树包含所有的颜色，也就是某一种颜色并没有被当前子树全部包含。求出每种颜色全部点的<code>LCA</code>。显然，选取的能够更新答案的点不是这些<code>LCA</code>的祖先。 预处理每一个种颜色所有点的<code>LCA</code>，然后进行在那个点打标记。最后dfs上传标记即可，设当前点为<span class="math inline">\(now\)</span>，儿子结点为<span class="math inline">\(to\)</span>，那么标记数组<span class="math inline">\(f[i]\)</span>就等于<span class="math inline">\(f[now] |= f[to]\)</span>。 最后检查每一个没被打过标记的点，用向下最长链（可以预处理，也就是这个点往下和一个最深的叶子结点的距离，也就是选取这个最深的叶子结点当真正的根）更新答案。</p>
+<p>这两种情况更新完答案就做完了</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include&lt;cstdio&gt;
+#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cmath&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#define _R register
+using namespace std;
+const int _N &#x3D; 1e6 + 100;
+const int _M &#x3D; 2e6 + 100;
+inline int read()
+&#123;
+    char c &#x3D; getchar(); int sign &#x3D; 1; int x &#x3D; 0;
+    while(c &gt; &#39;9&#39; || c &lt; &#39;0&#39;) &#123; if(c&#x3D;&#x3D;&#39;-&#39;)sign &#x3D; -1; c &#x3D; getchar(); &#125;
+    while(c &lt;&#x3D; &#39;9&#39; &amp;&amp; c &gt;&#x3D; &#39;0&#39;) &#123; x *&#x3D; 10; x +&#x3D; c - &#39;0&#39;; c &#x3D; getchar(); &#125;
+    return x * sign;
+&#125;
+int head[_N];
+struct edges&#123;
+	int node;
+	int nxt;
+&#125;edge[_M];
+int tot &#x3D; 0;
+void add(int u, int v)&#123;
+	edge[++tot].nxt &#x3D; head[u];
+	head[u] &#x3D; tot;
+	edge[tot].node &#x3D; v;
+&#125;
+int n, m;
+int col[_N];
+int root;
+int MaxDeep[_N];
+int MaxUp[_N];
+void dfs1(int now, int fa)&#123;
+	int Maxdp &#x3D; -1;
+	for(_R int i &#x3D; head[now];i;i &#x3D; edge[i].nxt)&#123;
+		int to &#x3D; edge[i].node;
+		if(to &#x3D;&#x3D; fa) continue;
+		dfs1(to, now);
+		Maxdp &#x3D; max(Maxdp, MaxDeep[to]);
+	&#125;
+	MaxDeep[now] &#x3D; Maxdp + 1;
+&#125;
+void dfs2(int now, int fa)
+&#123;
+	int MaxVal1 &#x3D; -1;int MaxNode1;
+	int MaxVal2 &#x3D; -1;int MaxNode2;
+	for(_R int i &#x3D; head[now];i;i &#x3D; edge[i].nxt)&#123;
+		int to &#x3D; edge[i].node;
+		if(to &#x3D;&#x3D; fa) continue;
+		if(MaxVal1 &lt; MaxDeep[to]) &#123;
+			MaxVal2 &#x3D; MaxVal1;MaxNode2 &#x3D; MaxNode1;
+			MaxVal1 &#x3D; MaxDeep[to];MaxNode1 &#x3D; to;
+		&#125; else MaxVal2 &#x3D; max(MaxVal2, MaxDeep[to]);
+	&#125;
+	for(_R int i &#x3D; head[now];i;i &#x3D; edge[i].nxt)&#123;
+		int to &#x3D; edge[i].node;
+		if(to &#x3D;&#x3D; fa) continue;
+		MaxUp[to] &#x3D; max((MaxDeep[to] &#x3D;&#x3D; MaxVal1 ? MaxVal2 + 2 : MaxVal1 + 2), MaxUp[now] + 1);
+	&#125;
+	for(_R int i &#x3D; head[now];i;i &#x3D; edge[i].nxt)&#123;
+		int to &#x3D; edge[i].node;
+		if(to &#x3D;&#x3D; fa) continue;
+		dfs2(to, now);
+	&#125;
+&#125;
+namespace LCA&#123;
+	const int Log &#x3D; 20;
+	int anc[_N][Log + 5];
+	int deep[_N];
+	void dfs(int now, int fa, int dp)&#123;
+		anc[now][0] &#x3D; fa;
+		deep[now] &#x3D; dp;
+		for(_R int i &#x3D; head[now];i;i &#x3D; edge[i].nxt)&#123;
+			int to &#x3D; edge[i].node;
+			if(to &#x3D;&#x3D; fa) continue;
+			dfs(to, now, dp + 1);
+		&#125;
+	&#125;
+	void work()
+	&#123;
+		dfs(root, root, 1);
+		for(_R int j &#x3D; 1;j &lt;&#x3D; Log;j++)&#123;
+			for(_R int i &#x3D; 1;i &lt;&#x3D; n;i++)&#123;
+				anc[i][j] &#x3D; anc[anc[i][j - 1]][j - 1];
+			&#125;
+		&#125;
+	&#125;
+	int query(int x, int y)&#123;
+		if(deep[x] &lt; deep[y]) swap(x, y);
+		int dis &#x3D; deep[x] - deep[y];
+		int now &#x3D; 0;
+		while(dis !&#x3D; 0)&#123;
+			if(dis &amp; 1) x &#x3D; anc[x][now];
+			now ++;
+			dis &gt;&gt;&#x3D; 1;
+		&#125;
+		if(x &#x3D;&#x3D; y) return x;
+		for(_R int i &#x3D; Log;i &gt;&#x3D; 0;i--)&#123;
+			if(anc[x][i] &#x3D;&#x3D; anc[y][i])continue;
+			x &#x3D; anc[x][i];
+			y &#x3D; anc[y][i];
+		&#125;
+		return anc[x][0];
+	&#125;
+&#125;
+
+int tar[_N];
+int colorLCA[_N];
+int ans &#x3D; 0;
+namespace Status1&#123;
+	int S[_N];
+	int LCnd[_N];
+	vector&lt;pair&lt;int, int&gt; &gt;dfn[_N];&#x2F;&#x2F;DFN Id
+	int tot &#x3D; 0;
+	void dfs_pre(int now, int fa)&#123;
+		dfn[col[now]].push_back(make_pair(++tot, now));
+		for(_R int i &#x3D; head[now];i;i &#x3D; edge[i].nxt)&#123;
+			int to &#x3D; edge[i].node;
+			if(to &#x3D;&#x3D; fa) continue;
+			dfs_pre(to, now);
+		&#125;
+	&#125;
+	int dfs(int now, int fa)&#123;
+		int v &#x3D; S[now];
+		for(_R int i &#x3D; head[now];i;i &#x3D; edge[i].nxt)&#123;
+			int to &#x3D; edge[i].node;
+			if(to &#x3D;&#x3D; fa) continue;
+			v +&#x3D; dfs(to, now);
+		&#125;
+		if(v &#x3D;&#x3D; m) ans &#x3D; max(ans, MaxUp[now] + 1);
+		return v;
+	&#125;
+	void work()&#123;
+		dfs_pre(root, root);
+		for(_R int i &#x3D; 1;i &lt;&#x3D; m;i++) sort(dfn[i].begin(), dfn[i].end());
+		for(_R int i &#x3D; 1;i &lt;&#x3D; m;i++)&#123;
+			S[dfn[i][0].second] ++;
+			for(_R int j &#x3D; 1;j &lt; dfn[i].size();j++)&#123;
+				S[LCA::query(dfn[i][j - 1].second, dfn[i][j].second)] --;
+				S[dfn[i][j].second] ++;
+			&#125;
+		&#125;
+		dfs(root, root);
+	&#125;
+&#125;
+
+namespace Status2&#123;
+	void dfs(int now, int fa)&#123;
+		for(_R int i &#x3D; head[now];i;i &#x3D; edge[i].nxt)&#123;
+			int to &#x3D; edge[i].node;
+			if(to &#x3D;&#x3D; fa) continue;
+			dfs(to, now);tar[now] |&#x3D; tar[to];
+		&#125;
+	&#125;
+	void work()&#123;
+		dfs(root, root);
+		for(_R int i &#x3D; 1;i &lt;&#x3D; n;i++)&#123;
+			if(tar[i] &#x3D;&#x3D; 0)&#123;&#x2F;&#x2F;反树 包含全集；
+				ans &#x3D; max(ans, MaxDeep[i] + 2);
+			&#125;
+		&#125;
+	&#125;
+&#125;
+signed main()
+&#123;
+	n &#x3D; read(), m &#x3D; read();
+	int maxx &#x3D; -1;
+	for(_R int i &#x3D; 1;i &lt;&#x3D; n;i++) col[i] &#x3D; read(), maxx &#x3D; max(maxx, col[i]);
+	for(_R int i &#x3D; 1;i &lt; n;i++)&#123;
+		int tmpx &#x3D; read(), tmpy &#x3D; read();
+		add(tmpx, tmpy);
+		add(tmpy, tmpx);
+	&#125;
+	root &#x3D; 1;
+	dfs1(root, root);
+	dfs2(root, root);
+	LCA::work();
+	for(_R int i &#x3D; 1;i &lt;&#x3D; n;i++)&#123;
+		int &amp;cl &#x3D; colorLCA[col[i]];
+		if(cl &#x3D;&#x3D; 0) cl &#x3D; i;
+		else cl &#x3D; LCA::query(cl, i);
+	&#125;
+	for(_R int i &#x3D; 1;i &lt;&#x3D; m;i++) tar[colorLCA[i]] &#x3D; 1;
+
+	Status1::work();
+
+	Status2::work();
+
+	cout &lt;&lt; ans &lt;&lt; endl;
+	return 0;
+ &#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/oi-blog/tags/树上问题/" rel="tag"># 树上问题</a>
+          </div>
+
+
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/oi-blog/「杂题记录」「YuGu-P6623」「省选联考-2020-A-卷」-树/" rel="next" title="「杂题记录」「YuGu P6623」「省选联考 2020 A 卷」 树">
+                  「杂题记录」「YuGu P6623」「省选联考 2020 A 卷」 树 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 –
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">舒雨墨</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="/oi-blog/js/utils.js"></script><script src="/oi-blog/js/schemes/muse.js"></script><script src="/oi-blog/js/next-boot.js"></script>
+
+
+<script src="/oi-blog/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('.gitalk-container', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5d4b0a361ccf7199b58f',
+      clientSecret: 'ff21340eedfb4a1c940eaddf8e180f0260c33088',
+      repo        : 'ShuYuMo2003.github.io',
+      owner       : 'ShuYuMo2003',
+      admin       : ['ShuYuMo2003'],
+      id          : '5ba459c8f86804ebcdb10d4d01f7f75b',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render(document.querySelector('.gitalk-container'));
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

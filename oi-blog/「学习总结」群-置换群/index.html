@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/oi-blog/images/apple-touch-icon-next.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/oi-blog/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/oi-blog/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/oi-blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/oi-blog/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=sans-serif:300,300italic,400,400italic,700,700italic%7CUbuntu:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7C'Open+Sans':300,300italic,400,400italic,700,700italic%7C'Microsoft+YaHei':300,300italic,400,400italic,700,700italic%7Csans-serif;:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https:/ShuYuMo2003.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="群，一种特殊的代数结构，满足封闭性、结合律、存在幺元和对于每个元素存在逆元的四种性质。 置换群，一种特殊的群，其中的元素描述了一种交换操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「学习总结」群 置换群">
+<meta property="og:url" content="%E3%80%8C%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E3%80%8D%E7%BE%A4-%E7%BD%AE%E6%8D%A2%E7%BE%A4/index.html">
+<meta property="og:site_name" content="Shu Yu Mo&#39;s blog">
+<meta property="og:description" content="群，一种特殊的代数结构，满足封闭性、结合律、存在幺元和对于每个元素存在逆元的四种性质。 置换群，一种特殊的群，其中的元素描述了一种交换操作。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="/oi-blog/post_images/qun_0.png">
+<meta property="og:image" content="/oi-blog/post_images/qun_1.png">
+<meta property="og:image" content="/oi-blog/post_images/qun_2.png">
+<meta property="og:image" content="/oi-blog/post_images/qun_3.png">
+<meta property="article:published_time" content="2020-12-28T23:09:41.000Z">
+<meta property="article:modified_time" content="2021-08-27T11:42:44.027Z">
+<meta property="article:author" content="舒雨墨">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="群论">
+<meta property="article:tag" content="计数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/oi-blog/post_images/qun_0.png">
+
+
+<link rel="canonical" href="「学习总结」群-置换群/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>「学习总结」群 置换群 | Shu Yu Mo's blog</title>
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/oi-blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Shu Yu Mo's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">远行者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/oi-blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/oi-blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/oi-blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/oi-blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/oi-blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-latex-syntax"><a href="/oi-blog/LaTeX-syntax.html" rel="section"><i class="fa fa-heart fa-fw"></i>LaTeX-syntax</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+
+
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+
+          <hr/>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E6%A0%97%E5%AD%90"><span class="nav-number">1.</span> <span class="nav-text">几个栗子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%B1%BB%E7%89%B9%E6%AE%8A%E7%9A%84%E7%BE%A4"><span class="nav-number">2.</span> <span class="nav-text">一类特殊的群</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%AE%E6%8D%A2%E7%BE%A4"><span class="nav-number"></span> <span class="nav-text">置换群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%B8%A5%E8%B0%A8%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">不严谨定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#burnside-%E5%BC%95%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">burnside 引理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-number">2.1.</span> <span class="nav-text">简化定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E5%AE%9A%E4%B9%89"><span class="nav-number">2.2.</span> <span class="nav-text">完整定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E4%BA%8E%E7%AB%8B%E4%BD%93%E5%9B%BE%E5%BD%A2%E7%9A%84-burnside-%E5%BC%95%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">适用于立体图形的 burnside 引理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E5%8D%81%E4%BA%8C%E9%9D%A2%E4%BD%93%E6%9F%93%E8%89%B2"><span class="nav-number">2.3.1.</span> <span class="nav-text">正十二面体染色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B6%B3%E7%90%83%E7%9A%84%E7%BD%AE%E6%8D%A2%E7%BE%A4"><span class="nav-number">2.3.2.</span> <span class="nav-text">足球的置换群</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%8B%E9%A2%98"><span class="nav-number"></span> <span class="nav-text">例题：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E5%A4%96%E8%AF%9D"><span class="nav-number"></span> <span class="nav-text">题外话</span></a></div>
+
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+
+
+
+<div class="post-block">
+
+
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="/oi-blog/「学习总结」群-置换群/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/oi-blog/images/avatar.jpg">
+      <meta itemprop="name" content="舒雨墨">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shu Yu Mo's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「学习总结」群 置换群
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-29 07:09:41" itemprop="dateCreated datePublished" datetime="2020-12-29T07:09:41+08:00">2020-12-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 19:42:44" itemprop="dateModified" datetime="2021-08-27T19:42:44+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/oi-blog/categories/学习总结/" itemprop="url" rel="index"><span itemprop="name">学习总结</span></a>
+        </span>
+    </span>
+
+
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+
+
+
+    <div class="post-body" itemprop="articleBody">
+          <p>群，一种特殊的代数结构，满足封闭性、结合律、存在幺元和对于每个元素存在逆元的四种性质。</p>
+<p>置换群，一种特殊的群，其中的元素描述了一种交换操作。 <a id="more"></a> # 群论简介 ## 定义 称 集合 <span class="math inline">\(S\)</span> 和 <span class="math inline">\(S\)</span> 上运算 <span class="math inline">\(\cdot\)</span>，共同构成得代数结构记作 <span class="math inline">\((S, \cdot)\)</span>，为一个群，当且仅当其满足如下性质：</p>
+<ul>
+<li><span class="math inline">\(S \not = \varnothing\)</span></li>
+<li>封闭性：<span class="math inline">\(\forall a, b\in S, a\cdot b \in S\)</span></li>
+<li>结合律：<span class="math inline">\(\forall a, b, c\in S, a \cdot (b \cdot c)= (a \cdot b) \cdot c\)</span></li>
+<li>幺元：<span class="math inline">\(\exists e \in S, \forall a \in S, e \cdot a = a \cdot e= a\)</span></li>
+<li>逆元：<span class="math inline">\(\forall a \in S, \exists b \in S, a \cdot b = e\)</span></li>
+</ul>
+<h2 id="几个栗子">几个栗子</h2>
+<ul>
+<li>实数集与实数间的乘法 <span class="math inline">\((\mathbb{R}, \times)\)</span> 不是群，元素 <span class="math inline">\(0 \in \mathbb{R}\)</span>，但是 <span class="math inline">\(0\)</span> 不存在逆元。</li>
+<li><span class="math inline">\((\mathbb{R&#39;}, \times)\)</span> 是一个群，幺元为 <span class="math inline">\(1\)</span>。 其中 <span class="math inline">\(\mathbb{R&#39;} = \\{\ x\ |\ x\in \mathbb{R}\ \land \ x \not = 0\ \\}\)</span></li>
+<li><span class="math inline">\((\mathbb{Z}, +)\)</span> 是一个群，幺元是 <span class="math inline">\(0\)</span>。</li>
+<li><span class="math inline">\((\mathbb{R}, +)\)</span> 是一个群，幺元是 <span class="math inline">\(0\)</span>。</li>
+<li><span class="math inline">\((\mathbb{P}, \times)\)</span> 是一个群，幺元是 <span class="math inline">\(1\)</span> ，其中 <span class="math inline">\(P\)</span> 为某个质数的剩余系。</li>
+</ul>
+<h2 id="一类特殊的群">一类特殊的群</h2>
+<ul>
+<li><strong>阿贝尔群</strong>：除了满足群的性质，还需要满足 <span class="math inline">\(a \cdot b = b \cdot a\)</span> 即 <strong>交换律</strong>。</li>
+</ul>
+<h1 id="置换群">置换群</h1>
+<h2 id="不严谨定义">不严谨定义</h2>
+<p>把 <span class="math inline">\(1\)</span> ~ <span class="math inline">\(n\)</span> 个对象 进行交换操作的群，置换群中集合的元素描述了一种交换操作。 对应的，置换群的运算就是分别执行两种交换操作。</p>
+<div class="note info"><p>一种描述交换操作（置换）的记号。</p>
+<p><strong>举个栗子：</strong> 给执行交换操作前的元素依次编号为 <span class="math inline">\(1, 2, 3, 4\)</span>（对编号后，编号为 <span class="math inline">\(i\)</span> 元素简称元素 i） ，交换操作后变为 <span class="math inline">\(3, 1, 2, 4\)</span>。</p>
+<p>可以描述成 <span class="math inline">\((1, 2, 3)(4)\)</span>，读作：将元素 <span class="math inline">\(1\)</span> 换到位置 <span class="math inline">\(2\)</span>，将元素 <span class="math inline">\(2\)</span>，换到位置 <span class="math inline">\(3\)</span>，将元素 <span class="math inline">\(3\)</span> 换至位置 <span class="math inline">\(1\)</span>，将元素 <span class="math inline">\(4\)</span> 换至位置 <span class="math inline">\(4\)</span>。</p>
+<p><strong>可以考虑成：</strong> 一张包含 <span class="math inline">\(n\)</span> 个点的图，然后使 点<span class="math inline">\(i\)</span> 与 点<span class="math inline">\(a_i\)</span> 有边相连。对于每个连通块来说，图的形态一定是一个环，从环上一个点开始按照任意方向遍历图，得到的遍历顺序就是上面描述中的一个括号内的内容。联通块的个数就是上面描述中的括号数量，其实这个可以被称为轨道数。</p>
+<p><strong>交换群的栗子</strong>： 一个对 <span class="math inline">\(3\)</span> 个元素的交换群：<span class="math inline">\(\\{e,(1,2)(3),(1,3)(2),(1,2,3),(1,3,2),(2,3)(1)\\}\)</span></p>
+<p><span class="math inline">\((1)(2) \cdots (n)\)</span> 简记为 <span class="math inline">\(e\)</span> 即 对原元素不做交换。</p>
+</div>
+<h2 id="burnside-引理">burnside 引理</h2>
+<details class="note danger"><summary><p>QAQ</p>
+</summary>
+<p><img src="/oi-blog/post_images/qun_0.png" /> <img src="/oi-blog/post_images/qun_1.png" /></p>
+
+</details>
+<h3 id="简化定义">简化定义</h3>
+<p>设要对 <span class="math inline">\(n\)</span> 个元素用 <span class="math inline">\(m\)</span> 种颜色染色，对应置换群为 <span class="math inline">\(S\)</span>，在该置换群下任意一种得到的相同方案算同一种方案。求本质不同的染色方案数。</p>
+<p>根据 burnside 引理，其答案为。 <span class="math display">\[
+\begin{equation}
+   ANS = \frac{1}{|S|}\sum_{s \in S}\limits{m^{\eta(s)}} \label{bns}
+\end{equation}
+\]</span> 其中 <span class="math inline">\(\eta(s)\)</span> 为置换方案 <span class="math inline">\(s\)</span> 的轨道数。 这是关于 burnside 引理的一个<strong>简化版</strong>定义。</p>
+<div class="note info"><p><strong>一个栗题</strong>： <span class="math inline">\(n\)</span> 个排成一圈的点用 <span class="math inline">\(m\)</span> 种颜色染色，问方案数（旋转前后的方案为一种方案）.</p>
+</div>
+<details class="note success"><summary><p>solution</p>
+</summary>
+<p>显然需要解决两个问题： - 置换群的构造. - 置换群元素轨道数目.</p>
+<p>考虑这个置换群的置换集合可以是什么： (假设 <span class="math inline">\(n\)</span> 为 <span class="math inline">\(6\)</span>). <span class="math display">\[
+\begin{equation*}
+S = \begin{Bmatrix}
+(1)(2)(3)(4)(5)(6), \\\\
+(1, 2, 3, 4, 5, 6), \\\\
+(1, 3, 5) (2, 4, 6) \\\\
+(1, 4) (2, 5) (3, 6) \\\\
+(1, 5, 3) (2, 6, 4) \\\\
+(1, 6, 5, 4, 3, 2) \\\\
+\end{Bmatrix}
+\end{equation*}
+\]</span> 分别对应转动的位置个数为 <span class="math inline">\(0\)</span> ~ <span class="math inline">\(n - 1\)</span>。稍微模拟一下这个过程，显然移动 <span class="math inline">\(k\)</span> 个位置的方案，轨道数为 <span class="math inline">\(\operatorname{gcd}(k, n)\)</span>. 然后就一般化了.</p>
+
+</details>
+<h3 id="完整定义">完整定义</h3>
+<div class="note danger"><p>设 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 为有限集合，<span class="math inline">\(X = B^A\)</span> 表示从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的映射。<span class="math inline">\(G\)</span> 是 <span class="math inline">\(A\)</span> 上置换群，<span class="math inline">\(X / G\)</span> 表示 <span class="math inline">\(G\)</span> 作用在 <span class="math inline">\(X\)</span> 上产生的所有等价类集合，若存在两种映射经过 <span class="math inline">\(G\)</span> 的置换作用后是相同的，则将两种映射视为同一种。 burnside 引理指出： <span class="math display">\[
+\begin{equation}
+|X / G| = \frac{1}{|G|}\sum_{g \in G} \limits{|X^g|} \label{burnside}
+\end{equation}
+\]</span> 其中 <span class="math inline">\(X^g\)</span> 表示在映射集合 <span class="math inline">\(X\)</span> 中有多少元素可以经过 <span class="math inline">\(g\)</span> 的变化，变成一样的。</p>
+</div>
+<p>考虑与之前定义 <span class="math inline">\((\ref{bns})\)</span> 的联系： - 一种染色方案可以看成 元素 和 颜色 的映射。 - 对于置换 <span class="math inline">\(s\)</span> ，如果要保证其作用前后映射方案相同，必须要保证其同轨道内的元素被映射到了同一元素，即 染成了相同的颜色。 - 那么考虑置换 <span class="math inline">\(s\)</span> 的每一条轨道 <span class="math inline">\(\eta\)</span>，每一条轨道颜色相同的方案数就是 <span class="math inline">\(m^{\eta(s)}\)</span> - 这与 <span class="math inline">\((\ref{burnside})\)</span> 的定义是相符的。</p>
+<div class="note info"><p><strong>一道例题</strong> 众所周知，小葱同学擅长计算，尤其擅长计算组合数，但这个题和组合数没什么关系。</p>
+<p>现在有一个迷宫，这个迷宫是由若干个正 <span class="math inline">\(n(=4,6)\)</span> 边形组成的k层迷宫。如果 <span class="math inline">\(k=1\)</span> ，那么该迷宫就由单独一个正 <span class="math inline">\(n\)</span> 边形组成；如果 <span class="math inline">\(k&gt;1\)</span>，则在 <span class="math inline">\(k−1\)</span> 层的基础上，沿着所有最外层的边增加一个正 <span class="math inline">\(n\)</span> 边形，新增加的正 <span class="math inline">\(n\)</span> 边形若有重叠，则保留其中一个即可。具体可以参考下图：</p>
+<p><img src="/oi-blog/post_images/qun_2.png" /></p>
+<p>现在为了打破迷宫的结界，你需要在迷宫的某些边上开一扇门。你总共需要开 <span class="math inline">\(r\)</span> 扇门，每条边最多打开一扇门。但是如果两种开门的方案通过旋转相同，那么视为同一种方案。以及由于是死亡迷宫，所以死了也是可以的，所以你并不需要保证你开门的方案能够让你走出去。求总共的方案数。</p>
+</div>
+<details class="note success"><summary><p>solution</p>
+</summary>
+<p>现在可以简化一下描述一种操作的语言，burnside 引理 不关心置换的具体对象，只关心置换的大小和出现次数。可以用简写 <span class="math inline">\((a)^b\)</span> 表示：有 <span class="math inline">\(b\)</span> 个长度为 <span class="math inline">\(a\)</span> 的轨道。 先特殊考虑一下 <span class="math inline">\(k = 2\)</span> 的情况，一共有 <span class="math inline">\(16\)</span> 条边。可以分为转 <span class="math inline">\(0^o,90^o,180^o, 270^o\)</span>. - 转 <span class="math inline">\(0^o\)</span> 的置换，可以描述为 <span class="math inline">\((1)^{16}\)</span>. - 转 <span class="math inline">\(90^o\)</span> 的置换，可以描述为 <span class="math inline">\((4)^4\)</span>. - 转 <span class="math inline">\(180^o\)</span> 的置换，可以描述为 <span class="math inline">\((2)^8\)</span>. - 转 <span class="math inline">\(270^o\)</span> 的置换，可以描述为 <span class="math inline">\((4)^4\)</span>.</p>
+<p>特殊化一下，不难发现就是：（一共有 <span class="math inline">\(4k^2\)</span> 条边）</p>
+<ul>
+<li>转 <span class="math inline">\(0^o\)</span> 的置换，可以描述为 <span class="math inline">\((1)^{4k^2}\)</span>.</li>
+<li>转 <span class="math inline">\(90^o\)</span> 的置换，可以描述为 <span class="math inline">\((4)^{k^2}\)</span>.</li>
+<li>转 <span class="math inline">\(180^o\)</span> 的置换，可以描述为 <span class="math inline">\((2)^{2k^2}\)</span>.</li>
+<li>转 <span class="math inline">\(270^o\)</span> 的置换，可以描述为 <span class="math inline">\((4)^{k^2}\)</span>.</li>
+</ul>
+<p>根据 <span class="math inline">\(X^g\)</span> 的定义——表示在映射集合 <span class="math inline">\(X\)</span> 中有多少元素可以经过 <span class="math inline">\(g\)</span> 的变化，变成一样的。我们始终要保证对于一种置换，同一轨道的元素完全相同. 所以对于第一种置换，贡献就是在轨道数中选出 <span class="math inline">\(r\)</span> 个让他们都变成 “有门存在” 的状态，即 <span class="math inline">\(\dbinom{4k^2}{r}\)</span>. 其余的同理，答案就是。 <span class="math display">\[
+\begin{equation}
+   \frac{1}{4}\sum_{g\in G}\limits{\dbinom{\eta(g)}{\frac{r}{t}}}
+\end{equation}
+\]</span> 其中 <span class="math inline">\(t\)</span> 为 轨道 <span class="math inline">\(g\)</span> 的循环长度。 当 <span class="math inline">\(\frac{r}{t}\)</span> 不是整数的时候，贡献为 <span class="math inline">\(0\)</span> ，因为 不存在某种染色方法，使得这种置换中同轨道的元素颜色相同.</p>
+
+</details>
+<h3 id="适用于立体图形的-burnside-引理">适用于立体图形的 burnside 引理</h3>
+<p>包括对正 <span class="math inline">\(n\)</span> 面体和足球的 面，点或棱染色。 #### 立方体面染色 首先讨论置换群： 考虑正方体有 <span class="math inline">\(12\)</span> 条棱，<span class="math inline">\(6\)</span> 个面，<span class="math inline">\(8\)</span> 个点。</p>
+<table>
+<thead>
+<tr class="header">
+<th>旋转轴类型</th>
+<th>角度</th>
+<th>数量</th>
+<th>置换</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>不转</td>
+<td><span class="math inline">\(0^o\)</span></td>
+<td>1</td>
+<td><span class="math inline">\((1)^6\)</span></td>
+</tr>
+<tr class="even">
+<td>面面</td>
+<td><span class="math inline">\(90^o\)</span></td>
+<td>3</td>
+<td><span class="math inline">\((1)^2(4)^1\)</span></td>
+</tr>
+<tr class="odd">
+<td>面面</td>
+<td><span class="math inline">\(180^o\)</span></td>
+<td>3</td>
+<td><span class="math inline">\((1)^2(2)^2\)</span></td>
+</tr>
+<tr class="even">
+<td>面面</td>
+<td><span class="math inline">\(270^o\)</span></td>
+<td>3</td>
+<td><span class="math inline">\((1)^2 (4)^1\)</span></td>
+</tr>
+<tr class="odd">
+<td>棱棱</td>
+<td><span class="math inline">\(180^o\)</span></td>
+<td>6</td>
+<td><span class="math inline">\((2)^3\)</span></td>
+</tr>
+<tr class="even">
+<td>点点</td>
+<td><span class="math inline">\(120^o\)</span></td>
+<td>4</td>
+<td><span class="math inline">\((3)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td>点点</td>
+<td><span class="math inline">\(240^o\)</span></td>
+<td>4</td>
+<td><span class="math inline">\((3)^2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>关于角度的确定：观察旋转轴图形周围的形状。数量为总数的一半。</p>
+<h4 id="正十二面体染色">正十二面体染色</h4>
+<p><span class="math inline">\(20\)</span> 个点，<span class="math inline">\(12\)</span> 个面，<span class="math inline">\(30\)</span> 条棱，面为五边形。 <div class="note warning"><p>循环节：即对于一种置换方案的轨道长度。简单理解为转多少次能够转到原来的位置。</p>
+</div> | 旋转轴类型 | 角度 | 循环节 | 数量 | 面染色置换群 | 边染色置换群 | 点染色置换群 | | ---------- | ------- | ------ | ------ | ------------ | --------------- | ------------ | | 不转 | <span class="math inline">\(0^o\)</span> | 1 | 1 | <span class="math inline">\((1)^{12}\)</span> | <span class="math inline">\((1)^{30}\)</span> | <span class="math inline">\((1)^{20}\)</span> | | 面面轴 | <span class="math inline">\(72^o\)</span> | 5 | 6 | <span class="math inline">\((1)^2(5)^2\)</span> | <span class="math inline">\((5)^6\)</span> | <span class="math inline">\((5)^4\)</span> | | 面面轴 | <span class="math inline">\(144^o\)</span> | 5 | 6 | <span class="math inline">\((1)^2(5)^2\)</span> | <span class="math inline">\((5)^6\)</span> | <span class="math inline">\((5)^4\)</span> | | 面面轴 | <span class="math inline">\(216^o\)</span> | 5 | 6 | <span class="math inline">\((1)^2(5)^2\)</span> | <span class="math inline">\((5)^6\)</span> | <span class="math inline">\((5)^4\)</span> | | 点点轴 | <span class="math inline">\(120^o\)</span> | 3 | 10 | <span class="math inline">\((3)^4\)</span> | <span class="math inline">\((3)^{10}\)</span> | <span class="math inline">\((1)^2(3)^6\)</span> | | 点点轴 | <span class="math inline">\(240^o\)</span> | 3 | 10 | <span class="math inline">\((3)^4\)</span> | <span class="math inline">\((3)^{10}\)</span> | <span class="math inline">\((1)^2(3)^6\)</span> | | 棱棱轴 | <span class="math inline">\(180^o\)</span> | 2 | 15 | <span class="math inline">\((2)^6\)</span> | <span class="math inline">\((1)^2(2)^{14}\)</span> | <span class="math inline">\((2)^{10}\)</span> |</p>
+<p>以某个对象为旋转轴，其置换群中必然有两个长度为 <span class="math inline">\(1\)</span> 的轨道，作为旋转轴的对象，旋转前后应该是重叠的。 然后剩下的根据轨道循环节直接算出即可。 可以发现这是一个无脑的工作</p>
+<h4 id="足球的置换群">足球的置换群</h4>
+<details class="note warning"><summary><p>qaq</p>
+</summary>
+<p>实在不想写了…… 足球的点数不好求，但是可以根据立体图形外角和公式求出： 立体图形外角和为 <span class="math inline">\(720^o\)</span> 。 即 <span class="math inline">\(\text{点数} \times \text{外角度} = 720^o\)</span>.</p>
+
+</details>
+<h1 id="例题">例题：</h1>
+<p>待填。</p>
+<h1 id="题外话">题外话</h1>
+<details class="note danger"><summary><p>呵呵</p>
+</summary>
+<p><img src="/oi-blog/post_images/qun_3.png" /></p>
+
+</details>
+
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/oi-blog/tags/数学/" rel="tag"># 数学</a>
+              <a href="/oi-blog/tags/群论/" rel="tag"># 群论</a>
+              <a href="/oi-blog/tags/计数/" rel="tag"># 计数</a>
+          </div>
+
+
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/oi-blog/「学习总结」数论/" rel="prev" title="「学习总结」数论">
+                  <i class="fa fa-chevron-left"></i> 「学习总结」数论
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/oi-blog/「学习总结」基本卷积算法/" rel="next" title="「学习总结」基本卷积算法">
+                  「学习总结」基本卷积算法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 –
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">舒雨墨</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="/oi-blog/js/utils.js"></script><script src="/oi-blog/js/schemes/muse.js"></script><script src="/oi-blog/js/next-boot.js"></script>
+
+
+<script src="/oi-blog/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('.gitalk-container', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5d4b0a361ccf7199b58f',
+      clientSecret: 'ff21340eedfb4a1c940eaddf8e180f0260c33088',
+      repo        : 'ShuYuMo2003.github.io',
+      owner       : 'ShuYuMo2003',
+      admin       : ['ShuYuMo2003'],
+      id          : '862b6a7154dfe9af533d2a7044a2f6bb',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render(document.querySelector('.gitalk-container'));
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

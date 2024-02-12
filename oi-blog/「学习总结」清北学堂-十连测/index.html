@@ -1,0 +1,2604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/oi-blog/images/apple-touch-icon-next.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/oi-blog/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/oi-blog/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/oi-blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/oi-blog/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=sans-serif:300,300italic,400,400italic,700,700italic%7CUbuntu:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7C'Open+Sans':300,300italic,400,400italic,700,700italic%7C'Microsoft+YaHei':300,300italic,400,400italic,700,700italic%7Csans-serif;:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https:/ShuYuMo2003.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="济南 清北学堂，NOIP考前十连测，题目整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「学习总结」清北学堂 十连测">
+<meta property="og:url" content="%E3%80%8C%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E3%80%8D%E6%B8%85%E5%8C%97%E5%AD%A6%E5%A0%82-%E5%8D%81%E8%BF%9E%E6%B5%8B/index.html">
+<meta property="og:site_name" content="Shu Yu Mo&#39;s blog">
+<meta property="og:description" content="济南 清北学堂，NOIP考前十连测，题目整理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="/oi-blog/post_images/qbxt_Round0_C.png">
+<meta property="article:published_time" content="2020-12-01T01:16:52.000Z">
+<meta property="article:modified_time" content="2021-08-27T11:42:44.027Z">
+<meta property="article:author" content="舒雨墨">
+<meta property="article:tag" content="Shu Yu Mo&#39;s blog">
+<meta property="article:tag" content="Blog">
+<meta property="article:tag" content="OI">
+<meta property="article:tag" content="Dr_OldSu">
+<meta property="article:tag" content="舒阳">
+<meta property="article:tag" content="life">
+<meta property="article:tag" content="生活">
+<meta property="article:tag" content="信息竞赛">
+<meta property="article:tag" content="Shu_Yu_Mo">
+<meta property="article:tag" content="ShuYuMo">
+<meta property="article:tag" content="东营市第一中学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/oi-blog/post_images/qbxt_Round0_C.png">
+
+
+<link rel="canonical" href="「学习总结」清北学堂-十连测/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>「学习总结」清北学堂 十连测 | Shu Yu Mo's blog</title>
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/oi-blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Shu Yu Mo's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">远行者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/oi-blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/oi-blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/oi-blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/oi-blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/oi-blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-latex-syntax"><a href="/oi-blog/LaTeX-syntax.html" rel="section"><i class="fa fa-heart fa-fw"></i>LaTeX-syntax</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+
+
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+
+          <hr/>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#round-1"><span class="nav-number">1.</span> <span class="nav-text">Round 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a.-yist"><span class="nav-number">1.1.</span> <span class="nav-text">A. yist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b.-ernd"><span class="nav-number">1.2.</span> <span class="nav-text">B. ernd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c.-sanrd"><span class="nav-number">1.3.</span> <span class="nav-text">C. sanrd</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E4%BA%8B%E5%AE%9E"><span class="nav-number">1.3.1.</span> <span class="nav-text">
+几个事实
+</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d.-sith"><span class="nav-number">1.4.</span> <span class="nav-text">D. sith</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#round-2"><span class="nav-number">2.</span> <span class="nav-text">Round 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a.-one"><span class="nav-number">2.1.</span> <span class="nav-text">A. one</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b.-two"><span class="nav-number">2.2.</span> <span class="nav-text">B. two</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c.-three"><span class="nav-number">2.3.</span> <span class="nav-text">C. three</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%80%E7%B1%BB%E7%89%B9%E6%AE%8A%E6%A0%87%E8%AE%B0"><span class="nav-number">2.3.1.</span> <span class="nav-text">定义一类特殊标记</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d.-four"><span class="nav-number">2.4.</span> <span class="nav-text">D. four</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#round-3"><span class="nav-number">3.</span> <span class="nav-text">Round 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a.-diyiti"><span class="nav-number">3.1.</span> <span class="nav-text">A. diyiti</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b.-dierti"><span class="nav-number">3.2.</span> <span class="nav-text">B. dierti</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c.-disanti"><span class="nav-number">3.3.</span> <span class="nav-text">C. disanti</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#statement"><span class="nav-number">3.3.1.</span> <span class="nav-text">statement</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d.-disiti"><span class="nav-number">3.4.</span> <span class="nav-text">D. disiti</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#round-4"><span class="nav-number">4.</span> <span class="nav-text">Round 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a.-%E4%B8%80"><span class="nav-number">4.1.</span> <span class="nav-text">A. 一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c.-%E4%B8%89"><span class="nav-number">4.2.</span> <span class="nav-text">C. 三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d.-%E5%9B%9B"><span class="nav-number">4.3.</span> <span class="nav-text">D. 四</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#round-5"><span class="nav-number">5.</span> <span class="nav-text">Round 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a.-%E4%B8%80-1"><span class="nav-number">5.1.</span> <span class="nav-text">A. 一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b.-%E4%BA%8C"><span class="nav-number">5.2.</span> <span class="nav-text">B. 二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c.-%E4%B8%89-1"><span class="nav-number">5.3.</span> <span class="nav-text">C. 三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d.-%E5%9B%9B-1"><span class="nav-number">5.4.</span> <span class="nav-text">D. 四</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#round-6"><span class="nav-number">6.</span> <span class="nav-text">Round 6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a.-%E4%B8%80-2"><span class="nav-number">6.1.</span> <span class="nav-text">A. 一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b.-%E4%BA%8C-1"><span class="nav-number">6.2.</span> <span class="nav-text">B. 二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c.-%E4%B8%89-2"><span class="nav-number">6.3.</span> <span class="nav-text">C. 三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d.-%E5%9B%9B-2"><span class="nav-number">6.4.</span> <span class="nav-text">D. 四</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#round-7"><span class="nav-number">7.</span> <span class="nav-text">Round 7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#d.-%E5%9B%9B-3"><span class="nav-number">7.1.</span> <span class="nav-text">D. 四</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#round-8"><span class="nav-number">8.</span> <span class="nav-text">Round 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a.-%E5%8F%8C%E6%8C%82"><span class="nav-number">8.1.</span> <span class="nav-text">A. 双挂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b.-ddl%E9%80%89%E6%89%8B"><span class="nav-number">8.2.</span> <span class="nav-text">B. DDL选手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c.-%E7%BA%A6%E6%95%B0%E9%93%BE"><span class="nav-number">8.3.</span> <span class="nav-text">C. 约数链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d.-%E8%BF%9E%E9%80%9A"><span class="nav-number">8.4.</span> <span class="nav-text">D. 连通</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#round-9"><span class="nav-number">9.</span> <span class="nav-text">Round 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#b.-%E7%B4%A7%E6%80%A5%E5%87%BA%E5%8F%A3"><span class="nav-number">9.1.</span> <span class="nav-text">B. 紧急出口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%80%8D%E5%A2%9Edp"><span class="nav-number">9.1.1.</span> <span class="nav-text">倍增DP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%94%E6%9D%BF%E6%B3%95"><span class="nav-number">9.1.2.</span> <span class="nav-text">
+隔板法
+</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c.-%E5%90%88%E5%BD%B1"><span class="nav-number">9.2.</span> <span class="nav-text">C. 合影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d.-%E8%B7%AF%E5%BE%84"><span class="nav-number">9.3.</span> <span class="nav-text">D. 路径</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%81%9A%E6%B3%95%E4%B8%80%E6%A0%91%E5%89%96-stdset-%E7%BB%B4%E6%8A%A4%E6%A0%87%E8%AE%B0-%E6%A0%87%E8%AE%B0%E6%B0%B8%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="nav-number">9.3.1.</span> <span class="nav-text">做法一：树剖 + std::set 维护标记 标记永久化线段树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%81%9A%E6%B3%95%E4%BA%8C%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%B4%E6%8A%A4%E8%B7%AF%E5%BE%84%E4%BA%A4%E9%9B%86-%E4%BA%8C%E5%88%86%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="nav-number">9.3.2.</span> <span class="nav-text">
+做法二：线段树维护路径交集 + 二分最小值
+</span></a></li></ol></li></ol></li></ol></div>
+
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+
+
+
+<div class="post-block">
+
+
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="/oi-blog/「学习总结」清北学堂-十连测/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/oi-blog/images/avatar.jpg">
+      <meta itemprop="name" content="舒雨墨">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shu Yu Mo's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「学习总结」清北学堂 十连测
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-01 09:16:52" itemprop="dateCreated datePublished" datetime="2020-12-01T09:16:52+08:00">2020-12-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 19:42:44" itemprop="dateModified" datetime="2021-08-27T19:42:44+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/oi-blog/categories/学习总结/" itemprop="url" rel="index"><span itemprop="name">学习总结</span></a>
+        </span>
+    </span>
+
+
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+
+
+
+    <div class="post-body" itemprop="articleBody">
+          <p>济南 清北学堂，NOIP考前十连测，题目整理。 <a id="more"></a> # 清北学堂 10 连测</p>
+<h2 id="round-1">Round 1</h2>
+<h3 id="a.-yist">A. yist</h3>
+<div class="note info"><p>给出 <span class="math inline">\(n\)</span> 求 <span class="math inline">\(n! \operatorname{mod} 2^{32}\)</span>。</p>
+</div>
+<details class="note warning"><summary><p>Code</p>
+</summary>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int main()&#123;
+	A[0] &#x3D; 1; rep(i, 1, 50) A[i] &#x3D; (A[i - 1] * i) % MOD;
+	int T &#x3D; read();
+	while(T--)&#123;
+		int x &#x3D; read();
+		if(x &lt;&#x3D; 50) printf(&quot;%llu\n&quot;, A[x]);
+		else puts(&quot;0&quot;);
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h3 id="b.-ernd">B. ernd</h3>
+<div class="note info"><p>有一个 <span class="math inline">\(n\times m\)</span> 的网格，网格上的数字都在 <span class="math inline">\([1,nm]\)</span> 之间且两两不同。</p>
+<p>有个限制，直观描述是位置左、上的格子必须比右、下的格子小，精确地说：<span class="math inline">\(A_{i,j} &lt; A_{i+1,j},A_{i,j} &lt; A_{i,j+1}\)</span> 必须成立，如果不等式中的两个位置都在网格内的话。</p>
+<p>你想知道对于一个 <span class="math inline">\(k\)</span>，有多少个格子的值可以是 <span class="math inline">\(k\)</span>（即存在一种网格，使得它的值是 <span class="math inline">\(k\)</span>）。</p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+考虑每个位置 <span class="math inline">\((i, j)\)</span> 能填哪些数字，这个位置到 <span class="math inline">\((1, 1)\)</span> 形成的矩形中的值都要大于 <span class="math inline">\((i, j)\)</span> 的值，这个位置到 <span class="math inline">\(n, m\)</span> 同理。
+<details class="note warning">
+<summary>
+<p>
+Code
+</p>
+<p></summary> <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int ans[_T], C[_T];
+void work(int n, int  m)&#123;
+	memset(C, 0, sizeof(C));
+	rep(i, 1, n) rep(j, 1, m)&#123;
+		int L &#x3D; i * j, R &#x3D; n * m - ((n - i + 1) * (m - j + 1) - 1);
+		C[L]++; C[R + 1]--;
+	&#125;
+	int now &#x3D; 0;
+	rep(i, 1, n * m) now +&#x3D; C[i], ans[i] &#x3D; now;
+	int q &#x3D; read();
+	while(q--) printf(&quot;%d\n&quot;, ans[read()]);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+</details>
+
+</details>
+<h3 id="c.-sanrd">C. sanrd</h3>
+<div class="note info"><p>小Y有一个排列 <span class="math inline">\(P_{1..n}\)</span>，作为强迫症患者，她想要把排列排好序。共有 3 种操作。</p>
+<p>花费 <span class="math inline">\(a\)</span> 的代价交换相邻两个数。</p>
+<p>花费 <span class="math inline">\(b\)</span> 的代价翻转整个排列。</p>
+<p>花费 <span class="math inline">\(c\)</span> 的代价打乱整个排列，新排列随机生成。</p>
+<p>小Y需要知道，在最优策略下，她需要花费多大的代价呢？</p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+最优的操作，显然是先打乱排列（如果有），再翻转排列（如果有），最后交换相邻两个数（如果有）。
+<div class="note danger">
+<h4 id="几个事实">
+几个事实
+</h4>
+<ul>
+<li>
+<span class="math inline">(A_i &gt; A_j, i + 1 = j)</span> 是交换相邻两个数字的必要条件。
+</li>
+<li>
+执行一次交换操作逆序对数量会减少且仅减少一。
+</li>
+<li>
+答案只与逆序对数量有关。
+</li>
+<li>
+打乱后随机生成的代价就是 <span class="math inline">(c)</span> + 长度为 <span class="math inline">(n)</span> 的所有排列排好代价的平均值。只要使用最后一种操作，那么他们的答案一定相同。
+</li>
+</ul>
+</div>
+<p>
+设排列 <span class="math inline">([P])</span> 的逆序对数为 <span class="math inline">(x)</span> ，如果只使用前两种操作， 代价就是 <span class="math inline">({( - x) a + b, x a})</span>。 把 <span class="math inline">([p])</span> 的所有排列按照只用前两种操作的花费排好序，那么可能使用最后一种操作的一定是一段后缀。
+</p>
+<p>
+以 <span class="math inline">([p])</span> 的所有排列按照只用前两种操作的花费排好序的下标为 <span class="math inline">(x)</span> 轴，代价为 <span class="math inline">(y)</span> 轴，那么只用前两种操作就是绿色的图像。 如果对某些排列使用第三种操作，可以用橙色的图像表示。 <img src="/oi-blog/post_images/qbxt_Round0_C.png" alt="Round0_C.png" /> 其中被函数值压平的部分就是 <span class="math inline">(c)</span> + 所有排列代价的平均值。 枚举是多长的后缀被压平（使用第三种操作）。然后解方程解出函数值平均值，选取最小的平均值即可。
+</p>
+<p>
+如果排列数比较多，无法一个一个的算出来，可以通过 dp 求出长度为 <span class="math inline">(n)</span> 的排列，逆序对个数为 <span class="math inline">(k)</span> 的排列数。可以注意到，逆序对数相同的排列，答案一定是一样的，可以把逆序对是相同的排列捆绑计算，逆序对数一共有 <span class="math inline">( + 1)</span> 种取值。
+</p>
+<details class="note warning">
+<summary>
+<p>
+我的代码只能通过 70% 的数据
+</p>
+<p></summary> <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;cmath&gt;
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+#include &lt;algorithm&gt;
+#include &lt;climits&gt;
+#include &lt;assert.h&gt;
+#include &lt;vector&gt;
+#define LL long long
+#define int long long
+#define rep(i, l, r) for(int i &#x3D; (l), ___ &#x3D; (r); i &lt;&#x3D; ___; i++)
+#define per(i, l, r) for(int i &#x3D; (r), ___ &#x3D; (l); i &gt;&#x3D; ___; i--)
+using namespace std;
+struct Read_t&#123;
+	template&lt;typename T&gt; const Read_t &amp; operator() ( T &amp; target ) const &#123;
+		T x &#x3D; 0; int sign &#x3D; 1; char c &#x3D; getchar();
+		while(c &lt; &#39;0&#39; || c &gt; &#39;9&#39;) &#123; if(c &#x3D;&#x3D; &#39;-&#39;) sign &#x3D; -1; c &#x3D; getchar(); &#125;
+		while(c &lt;&#x3D; &#39;9&#39; &amp;&amp; c &gt;&#x3D; &#39;0&#39;) &#123; x &#x3D; (x &lt;&lt; 1) + (x &lt;&lt; 3); x +&#x3D; c - &#39;0&#39;; c &#x3D; getchar(); &#125;
+		target &#x3D; x * sign; return *this;
+	&#125;
+&#125; Read;
+#warning dont forget enable int_64
+const int _N &#x3D; 500;
+const int _S &#x3D; 500;
+LL gcd(LL a, LL b)&#123; return b &#x3D;&#x3D; 0 ? a : gcd(b,  a % b); &#125;
+LL dp[_N][_S];
+LL n, a, b, c, d;
+#define pb push_back
+#define mp make_pair
+#define fi first
+#define se second
+pair&lt;LL, LL&gt; Val[_S];
+bool operator &gt; (pair&lt;LL, LL&gt; A, pair&lt;LL, LL&gt; B)&#123; return (A.fi * B.se &gt; A.se * B.fi); &#125;
+LL A[_S];
+void doit()&#123;
+	Read(n)(a)(b)(c)(d); vector&lt;pair&lt;LL, LL&gt; &gt; V; V.clear();
+	rep(i, 0, (n) * (n - 1) &#x2F; 2) V.pb(mp(min(i * a, ((n * (n - 1) &#x2F; 2) - i) * a + b), dp[n][i]));
+	sort(V.begin(), V.end());
+	int tot &#x3D; 0;
+	rep(L, 0, V.size() - 1)&#123;
+		int R &#x3D; L; while(V[R + 1].fi &#x3D;&#x3D; V[L].fi &amp;&amp; R + 1 &lt;&#x3D; (int)(V.size()) - 1) R++; LL sum &#x3D; 0;
+		rep(i, L, R) sum +&#x3D; V[i].se;
+
+		V[tot].fi &#x3D; V[L].fi; V[tot].se &#x3D; sum;
+		tot++;
+		L &#x3D; R;
+	&#125; LL S &#x3D; 0; rep(i, 0, tot - 1) S +&#x3D; V[i].se;
+	rep(i, 0, tot - 1)&#123;
+		LL cnt &#x3D; 0; rep(j, i, tot - 1) cnt +&#x3D; V[j].se;
+		LL A &#x3D; cnt * c;  rep(j, 0, i - 1) A +&#x3D; V[j].fi * V[j].se;
+		LL B &#x3D; S - cnt;
+		LL g &#x3D; gcd(A, B); Val[i] &#x3D; mp(A &#x2F; g, B &#x2F; g);
+	&#125;
+
+	int Mid &#x3D; 0; rep(i, 0, tot - 1) if(Val[Mid] &gt; Val[i]) Mid &#x3D; i;
+	pair&lt;LL, LL&gt; MAns &#x3D; Val[Mid]; MAns.fi +&#x3D; MAns.se * c; LL g &#x3D; gcd(MAns.fi, MAns.se); MAns.fi &#x2F;&#x3D; g; MAns.se &#x2F;&#x3D; g;
+	while(d--)&#123;
+		rep(i, 1, n) Read(A[i]);
+		LL ans &#x3D; 0;
+		rep(i, 1, n) rep(j, i + 1, n) ans +&#x3D; (A[i] &gt; A[j]);
+		ans &#x3D; min(ans * a, b + a * ((n * (n - 1) &#x2F; 2) - ans));
+		if(ans * MAns.se &lt; MAns.fi) printf(&quot;%lld&#x2F;1\n&quot;, ans);
+		else printf(&quot;%lld&#x2F;%lld\n&quot;, MAns.fi, MAns.se); assert(MAns.fi &gt; 0);  assert(MAns.se &gt; 0);
+	&#125;
+&#125;
+void Init(int n) &#123;
+	dp[1][0] &#x3D; 1;
+	rep(i, 2, n) &#123;
+		rep(j, 0, ((i) * (i - 1)) &#x2F; 2) &#123;
+			LL &amp;ans &#x3D; dp[i][j] &#x3D; 0;
+			rep(k, 0, min(i - 1, j)) ans +&#x3D; dp[i - 1][j - k];
+		&#125;
+	&#125;
+&#125;
+signed main()&#123; freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);
+	Init(17);
+	int T; Read(T);
+	while(T--) doit();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+</details>
+<details class="note warning">
+<summary>
+<p>
+官方标程
+</p>
+<p></summary> <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;bits&#x2F;stdc++.h&gt;
+#define fi first
+#define se second
+#define pb push_back
+#define mp make_pair
+#define SZ(x) ((int)x.size())
+#define ALL(x) x.begin(), x.end()
+#define L(i, u) for (register int i &#x3D; head[u]; i; i &#x3D; nxt[i])
+#define rep(i, a, b) for (register int i &#x3D; (a); i &lt;&#x3D; (b); i++)
+#define per(i, a, b) for (register int i &#x3D; (a); i &gt;&#x3D; (b); i--)
+using namespace std;
+typedef long double ld;
+typedef long long ll;
+typedef unsigned int ui;
+typedef pair&lt;ll, ll&gt; Pll;
+typedef vector&lt;int&gt; Vi;
+template &lt;class T&gt;
+inline void read(T &amp;x)&#123;x &#x3D; 0;char c &#x3D; getchar();int f &#x3D; 1; while (!isdigit(c)) &#123; if (c &#x3D;&#x3D; &#39;-&#39;) f &#x3D; -1; c &#x3D; getchar(); &#125; while (isdigit(c)) &#123; x &#x3D; x * 10 + c - &#39;0&#39;; c &#x3D; getchar(); &#125; x *&#x3D; f; &#125;
+template &lt;class T&gt;
+T gcd(T a, T b) &#123; return !b ? a : gcd(b, a % b); &#125;
+template &lt;class T&gt;
+inline void umin(T &amp;x, T y) &#123; x &#x3D; x &lt; y ? x : y; &#125;
+template &lt;class T&gt;
+inline void umax(T &amp;x, T y) &#123; x &#x3D; x &gt; y ? x : y; &#125;
+ll dp[1 &lt;&lt; 16 | 3][141];
+struct Yzr
+&#123;
+	int n;
+	ll gs[141];
+	void ini(int nn)
+	&#123;
+		n &#x3D; nn;
+		memset(dp, 0, sizeof(dp));
+		dp[0][0] &#x3D; 1;
+		rep(s, 0, (1 &lt;&lt; n) - 1) rep(i, 1, n) if (~s &gt;&gt; i - 1 &amp; 1)
+		&#123;
+			int del &#x3D; 0, cnt &#x3D; 0;
+			rep(j, i + 1, n) del +&#x3D; s &gt;&gt; j - 1 &amp; 1;
+			rep(j, 1, n) cnt +&#x3D; s &gt;&gt; j - 1 &amp; 1;
+			rep(k, 0, cnt * (cnt + 1) &gt;&gt; 1) dp[s | 1 &lt;&lt; i - 1][k + del] +&#x3D; dp[s][k];
+		&#125;
+		rep(k, 0, n * (n + 1) &gt;&gt; 1) gs[k] &#x3D; dp[(1 &lt;&lt; n) - 1][k];
+	&#125;
+&#125; yzr[17];
+bool cmp(Pll a, Pll b) &#123; return (ld)a.fi &#x2F; a.se &lt; (ld)b.fi &#x2F; b.se; &#125;
+ll n, a, b, c, d, qz[141], p[166];
+Pll s[166];
+ll calc(ll x) &#123; return min(x * a, (n * (n - 1) &#x2F; 2 - x) * a + b); &#125;
+int main()
+&#123;
+	freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);
+	rep(n, 2, 16) yzr[n].ini(n);
+	int T;
+	read(T);
+	while (T--)
+	&#123;
+		read(n); read(a); read(b); read(c); read(d);
+		Pll res(1e18, 1);
+		ll tot &#x3D; 1;
+		rep(i, 1, n) tot *&#x3D; i;
+		int len &#x3D; 0;
+		rep(i, 0, n * (n + 1) &#x2F; 2) if (yzr[n].gs[i]) s[++len] &#x3D; mp(calc(i), yzr[n].gs[i]);
+		sort(s + 1, s + len + 1);
+		static ll qz[166], hz[166];
+		rep(i, 1, len) qz[i] &#x3D; qz[i - 1] + s[i].fi * s[i].se;
+		hz[len + 1] &#x3D; 0;
+		per(i, len, 1) hz[i] &#x3D; hz[i + 1] + s[i].se;
+		rep(i, 1, len)
+		&#123;
+			Pll cur &#x3D; mp(qz[i] + hz[i + 1] * c, tot - hz[i + 1]);
+			if (cmp(cur, res))
+				res &#x3D; cur;
+		&#125;
+		pair&lt;ll, ll&gt; ans &#x3D; mp(res.fi + c * res.se, res.se);
+		cerr &lt;&lt; &quot;N &#x3D; &quot; &lt;&lt; n &lt;&lt; endl;
+		cout &lt;&lt; ans.fi &lt;&lt; &quot; &quot; &lt;&lt; ans.se &lt;&lt; endl;
+		while (d--)
+		&#123;
+			rep(i, 1, n) read(p[i]);
+			int nx &#x3D; 0;
+			rep(i, 1, n) rep(j, i + 1, n) nx +&#x3D; p[i] &gt; p[j];
+			Pll ans &#x3D; mp(calc(nx), 1);
+			if (cmp(mp(res.fi + c * res.se, res.se), ans))
+				ans &#x3D; mp(res.fi + c * res.se, res.se);
+			ll g &#x3D; gcd(ans.fi, ans.se);
+			ans.fi &#x2F;&#x3D; g;
+			ans.se &#x2F;&#x3D; g;
+			printf(&quot;%lld&#x2F;%lld\n&quot;, ans.fi, ans.se);
+		&#125;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+</details>
+
+</details>
+<h3 id="d.-sith">D. sith</h3>
+<div class="note info"><p>你有 <span class="math inline">\(k\)</span> 棵点数均为 <span class="math inline">\(n\)</span> 的树</p>
+<p>对于每对点 <span class="math inline">\(i,j\)</span>，你都需要求出，有多少个点 <span class="math inline">\(x\)</span>，满足在所有树中都在 <span class="math inline">\(i\leftrightarrow j\)</span> 的树链上（树链包含端点即 <span class="math inline">\(i,j\)</span>）。</p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>定义函数 <span class="math inline">\(\operatorname{dis_t}(x, y)\)</span> 为 <span class="math inline">\(x\)</span>，<span class="math inline">\(y\)</span> 这两个结点在树 <span class="math inline">\(t\)</span> 上的最短距离（简单路径长度）。</p>
+<p>对于一棵树 <span class="math inline">\(t\)</span> ，“<span class="math inline">\(\operatorname{dis_t}(i, j) = \operatorname{dis_t}(i, x) + \operatorname{dis_t}(x, j)\)</span>” 为 “点 <span class="math inline">\(x\)</span> 在 点<span class="math inline">\(i\)</span> <span class="math inline">\(\leftrightarrow\)</span> 点 <span class="math inline">\(j\)</span> 的树链上” 的充要条件。</p>
+<p>扩展一下可以发现</p>
+<p>对于森林 <span class="math inline">\(T\)</span>，“<span class="math inline">\(\sum_{t \in T}\limits{\operatorname{dis_t}(i, j)} = \sum_{t \in T}\limits{\operatorname{dis_t}(i, x)} + \sum_{t \in T}\limits{\operatorname{dis_t}(x, j)}\)</span>” 为 “对于每棵树 点 <span class="math inline">\(x\)</span> 在 点<span class="math inline">\(i\)</span> <span class="math inline">\(\leftrightarrow\)</span> 点 <span class="math inline">\(j\)</span> 的树链上” 的充要条件。</p>
+这样就可以分开算了，随便做就好了。
+<details class="note warning">
+<summary>
+<p>
+code
+</p>
+<p></summary> <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;bits&#x2F;stdc++.h&gt;
+#define fi first
+#define se second
+#define pb push_back
+#define mp make_pair
+#define SZ(x) ((int)x.size())
+#define ALL(x) x.begin(), x.end()
+#define L(i, u) for (register int i &#x3D; head[u]; i; i &#x3D; nxt[i])
+#define rep(i, a, b) for (register int i &#x3D; (a); i &lt;&#x3D; (b); i++)
+#define per(i, a, b) for (register int i &#x3D; (a); i &gt;&#x3D; (b); i--)
+using namespace std;
+typedef long double ld;
+typedef long long ll;
+typedef unsigned int ui;
+typedef pair&lt;int, int&gt; Pii;
+typedef vector&lt;int&gt; Vi;
+template &lt;class T&gt;
+inline void read(T &amp;x)&#123;x &#x3D; 0;char c &#x3D; getchar();int f &#x3D; 1;while (!isdigit(c))&#123;if (c &#x3D;&#x3D; &#39;-&#39;)f &#x3D; -1;c &#x3D; getchar();&#125;while (isdigit(c))&#123;x &#x3D; x * 10 + c - &#39;0&#39;;c &#x3D; getchar();&#125;x *&#x3D; f;&#125;
+template &lt;class T&gt;
+T gcd(T a, T b) &#123; return !b ? a : gcd(b, a % b); &#125;
+template &lt;class T&gt;
+inline void umin(T &amp;x, T y) &#123; x &#x3D; x &lt; y ? x : y; &#125;
+template &lt;class T&gt;
+inline void umax(T &amp;x, T y) &#123; x &#x3D; x &gt; y ? x : y; &#125;
+template &lt;class T&gt;
+inline T Abs(const T &amp;x) &#123; return x &gt; 0 ? x : -x; &#125;
+inline ui R()
+&#123;
+	static ui seed &#x3D; 613;
+	return seed ^&#x3D; seed &gt;&gt; 5, seed ^&#x3D; seed &lt;&lt; 17, seed ^&#x3D; seed &gt;&gt; 13;
+&#125;
+const int N &#x3D; 505;
+int n, k, dis[N][N];
+Vi e[N];
+void dfs(int s, int u, int fa, int dep)
+&#123;
+	dis[s][u] +&#x3D; dep;
+	for (int v : e[u])
+		if (v !&#x3D; fa)
+			dfs(s, v, u, dep + 1);
+&#125;
+int main()
+&#123;
+	read(n);read(k);
+	rep(tt, 1, k)&#123;
+		rep(i, 1, n) e[i].clear();
+		rep(i, 1, n - 1)&#123;
+			int u, v;read(u);read(v);
+			e[u].pb(v);e[v].pb(u);
+		&#125;
+		rep(i, 1, n) dfs(i, i, 0, 0);
+	&#125;
+	rep(i, 1, n) rep(j, 1, n)
+	&#123;
+		int ans &#x3D; 0;
+		rep(x, 1, n) ans +&#x3D; dis[i][x] + dis[j][x] &#x3D;&#x3D; dis[i][j];
+		printf(&quot;%d%c&quot;, ans, j &lt; n ? &#39; &#39; : &#39;\n&#39;);
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+</details>
+
+</details>
+<h2 id="round-2">Round 2</h2>
+<h3 id="a.-one">A. one</h3>
+<div class="note info"><p>给你一个长度为 <span class="math inline">\(n\)</span> 的数组，你需要将其划分为若干个连续段。对于一种划分，定义其权值为，求出每段的段内所有元素 xor 值，再把所有段的 xor 值相加即为权值。</p>
+<p>你需要计算对于所有划分，这个权值的最小、最大值分别是多少。 <span class="math inline">\(n \le 10^6\)</span></p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p><span class="math inline">\(A \operatorname{xor} B \le A + B\)</span></p>
+<p><span class="math inline">\(A \ \And B \le A\ |\ B \le A + B\)</span></p>
+<p>全部拆开最大，全部合并最小。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int main()&#123;
+	int n, MIN &#x3D; 0; LL MAX &#x3D; 0; Read(n);
+	rep(i, 1, n) &#123; int x; Read(x); MIN ^&#x3D; x; MAX +&#x3D; x; &#125;
+	printf(&quot;%d %lld&quot;, MIN, MAX);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details>
+<h3 id="b.-two">B. two</h3>
+<div class="note info"><p>有一个 <span class="math inline">\(1..n\)</span> 依次连成的环，有一个从 <span class="math inline">\(1\)</span> 开始移动的指针，每次指针所在位置有<span class="math inline">\(p\)</span>的概率消失并将这个位置对应的下标（在 <span class="math inline">\(1..n\)</span> 中）插入序列 <span class="math inline">\(B\)</span> 的末尾，然后指针移动一格（ <span class="math inline">\(1\)</span> 移到 <span class="math inline">\(2\)</span>，<span class="math inline">\(n\)</span> 移到 <span class="math inline">\(1\)</span> 这样，一个位置若已经消失则不会被移动到）。所有位置都消失时游戏结束。最后 <span class="math inline">\(B\)</span> 会是一个排列。</p>
+<p>这道题跟序列 <span class="math inline">\(B\)</span> 没什么关系，你只需要求出游戏期望进行几轮，答案对 <span class="math inline">\(998244353\)</span> 取模。</p>
+<p>读入描述： 一行三个整数 <span class="math inline">\(n,x,y\)</span>。概率 <span class="math inline">\(p=\frac x y\)</span></p>
+</div>
+<details class="note success"><summary><p>solution</p>
+</summary>
+<p>设 <span class="math inline">\(f[n]\)</span> 为 长度为 <span class="math inline">\(n\)</span> 还需要进行多少轮。</p>
+<p>易知 <span class="math inline">\(f[n] = 1 + p \times f[n - 1] + \left(1 - p \right) \times f[n]\)</span></p>
+<p>移项得 <span class="math inline">\(f[n] = n \times \frac{1}{p}\)</span> <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int main()&#123;
+	Read(n)(x)(y);
+	printf(&quot;%d&quot;, int(n *1ll* y % MOD *1ll* inv(x, MOD) % MOD));
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details>
+<h3 id="c.-three">C. three</h3>
+<div class="note info"><p>小Y拥有一个序列<span class="math inline">\(a_i\)</span>（从0开始标号）。</p>
+<p>小Y想要对序列进行<span class="math inline">\(Q\)</span>次操作，操作有下面几种：</p>
+<ul>
+<li><span class="math inline">\(t=0\)</span>：对区间<span class="math inline">\([l,r]\)</span>执行<span class="math inline">\(a_i=a_i+x\)</span></li>
+<li><span class="math inline">\(t=1\)</span>：对区间<span class="math inline">\([l,r]\)</span>执行<span class="math inline">\(a_i=\lfloor \frac {a_i} {x} \rfloor\)</span></li>
+<li><span class="math inline">\(t=2\)</span>：查询区间<span class="math inline">\([l,r]\)</span>的<span class="math inline">\(\max {a_i}\)</span></li>
+<li><span class="math inline">\(t=3\)</span>：把区间<span class="math inline">\([l,r]\)</span>的<span class="math inline">\(a_i\)</span>恢复为初始给出的<span class="math inline">\(a_i\)</span> <span class="math inline">\(a_i \le 10^8; n, Q \le 10^5\)</span></li>
+</ul>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<h4 id="定义一类特殊标记">定义一类特殊标记</h4>
+<p>记录标记 <span class="math inline">\(a, b, c\)</span> 表示 <span class="math inline">\(x\)</span> 变成 <span class="math inline">\(\lfloor \frac{x + a}{b} \rfloor + c\)</span>。 其中要求 <span class="math inline">\(a &lt; b\)</span>。 - 对于加法操作 <span class="math inline">\(c += x\)</span> 即可。 - 对于除法操作如果是除 <span class="math inline">\(d\)</span> ：<span class="math inline">\(\lfloor \frac{ \lfloor \frac{x + a}{b} \rfloor + c}{d} \rfloor = \lfloor \frac{ \lfloor \frac{x + a + bc}{b} \rfloor}{d} \rfloor = \lfloor \frac{x + a + bc}{bd} \rfloor\)</span> 然后优化一下 <span class="math inline">\(x + a + bc\)</span> 保持 <span class="math inline">\(a&#39; &lt; b&#39;\)</span>，类似于假分数换算带分数，保证不会爆<code>long long</code>。</p>
+<p>对于处理除数过大的情况： <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">if (fm &gt; inf) fz &#x3D; max(0ll, fz + (inf - fm)), fm &#x3D; inf;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 如果分母 <span class="math inline">\(&gt; \operatorname{inf}\)</span>，那么 <span class="math inline">\(\lfloor \frac{x + a}{b} \rfloor + c\)</span> 等价于 <span class="math inline">\([x \ge b - a] + c\)</span> 当分母很大时，可以使得 <span class="math inline">\(a, b\)</span> 同时减去一个常数使得 <span class="math inline">\(b\)</span> 不会溢出，对于 <span class="math inline">\([x \ge b - a] + c\)</span> 不影响取值。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;bits&#x2F;stdc++.h&gt;
+#define fi first
+#define se second
+#define pb push_back
+#define mp make_pair
+#define SZ(x) ((int)x.size())
+#define ALL(x) x.begin(), x.end()
+#define L(i, u) for (register int i &#x3D; head[u]; i; i &#x3D; nxt[i])
+#define rep(i, a, b) for (register int i &#x3D; (a); i &lt;&#x3D; (b); i++)
+#define per(i, a, b) for (register int i &#x3D; (a); i &gt;&#x3D; (b); i--)
+using namespace std;
+typedef long double ld;
+typedef long long ll;
+typedef unsigned int ui;
+typedef pair&lt;int, int&gt; Pii;
+typedef vector&lt;int&gt; Vi;
+template &lt;class T&gt;
+T gcd(T a, T b) &#123; return !b ? a : gcd(b, a % b); &#125;
+template &lt;class T&gt;
+inline void umin(T &amp;x, T y) &#123; x &#x3D; x &lt; y ? x : y; &#125;
+template &lt;class T&gt;
+inline void umax(T &amp;x, T y) &#123; x &#x3D; x &gt; y ? x : y; &#125;
+inline ui R()
+&#123;
+	static ui seed &#x3D; 416;
+	return seed ^&#x3D; seed &gt;&gt; 5, seed ^&#x3D; seed &lt;&lt; 17, seed ^&#x3D; seed &gt;&gt; 13;
+&#125;
+const int N &#x3D; 233333, inf &#x3D; 2e9 + 1e8;
+struct node
+&#123;
+	ll ans;
+	bool emp;
+	ll a, b, c, mx; &#x2F;&#x2F;(x+a)&#x2F;b+c (a&lt;b&lt;&#x3D;inf)
+	node() &#123; b &#x3D; 1; &#125;
+&#125; tree[N &lt;&lt; 2];
+inline void pushadd(int k, ll x) &#123;
+	tree[k].ans +&#x3D; x; tree[k].c +&#x3D; x;
+&#125;
+inline void pushdiv(int k, int d) &#123;
+	tree[k].ans &#x2F;&#x3D; d;
+	ll fm &#x3D; 1ll * tree[k].b * d, tmp &#x3D; (tree[k].a + 1ll * tree[k].b * tree[k].c) &#x2F; fm;
+	ll fz &#x3D; (tree[k].a + 1ll * tree[k].b * tree[k].c) - fm * tmp;
+	tree[k].c &#x3D; tmp;
+	if (fm &gt; inf) fz &#x3D; max(0ll, fz + (inf - fm)), fm &#x3D; inf;
+	tree[k].a &#x3D; fz, tree[k].b &#x3D; fm;
+	&#x2F;&#x2F;	printf(&quot;%d:%lld %lld %lld\n&quot;,k,tree[k].a,tree[k].b,tree[k].c);
+&#125;
+inline void pushemp(int k) &#123;
+	tree[k].emp &#x3D; 1;
+	tree[k].a &#x3D; tree[k].c &#x3D; 0;
+	tree[k].b &#x3D; 1;
+	tree[k].ans &#x3D; tree[k].mx;
+&#125;
+inline void pushdown(int k) &#123;
+	if (tree[k].emp) pushemp(k &lt;&lt; 1), pushemp(k &lt;&lt; 1 | 1), tree[k].emp &#x3D; 0;
+	if (tree[k].a) pushadd(k &lt;&lt; 1, tree[k].a), pushadd(k &lt;&lt; 1 | 1, tree[k].a), tree[k].a &#x3D; 0;
+	if (tree[k].b !&#x3D; 1) pushdiv(k &lt;&lt; 1, tree[k].b), pushdiv(k &lt;&lt; 1 | 1, tree[k].b), tree[k].b &#x3D; 1;
+	if (tree[k].c) pushadd(k &lt;&lt; 1, tree[k].c), pushadd(k &lt;&lt; 1 | 1, tree[k].c), tree[k].c &#x3D; 0;
+&#125;
+inline void upd(int k)&#123; tree[k].ans &#x3D; max(tree[k &lt;&lt; 1].ans, tree[k &lt;&lt; 1 | 1].ans); &#125;
+void mdy1(int k, int l, int r, int x, int L, int R) &#123;
+	if (l &#x3D;&#x3D; L &amp;&amp; r &#x3D;&#x3D; R) &#123; pushadd(k, x); return; &#125;
+	int mid &#x3D; (L + R) &gt;&gt; 1;
+	pushdown(k);
+	if (r &lt;&#x3D; mid) mdy1(k &lt;&lt; 1, l, r, x, L, mid);
+	else if (l &gt; mid) mdy1(k &lt;&lt; 1 | 1, l, r, x, mid + 1, R);
+	else mdy1(k &lt;&lt; 1, l, mid, x, L, mid), mdy1(k &lt;&lt; 1 | 1, mid + 1, r, x, mid + 1, R);
+	upd(k);
+&#125;
+void mdy2(int k, int l, int r, int x, int L, int R) &#123;
+	if (l &#x3D;&#x3D; L &amp;&amp; r &#x3D;&#x3D; R) &#123; pushdiv(k, x); return; &#125;
+	int mid &#x3D; (L + R) &gt;&gt; 1;
+	pushdown(k);
+	if (r &lt;&#x3D; mid) mdy2(k &lt;&lt; 1, l, r, x, L, mid);
+	else if (l &gt; mid) mdy2(k &lt;&lt; 1 | 1, l, r, x, mid + 1, R);
+	else mdy2(k &lt;&lt; 1, l, mid, x, L, mid), mdy2(k &lt;&lt; 1 | 1, mid + 1, r, x, mid + 1, R);
+	upd(k);
+&#125;
+void mdy3(int k, int l, int r, int x, int L, int R) &#123;
+	if (l &#x3D;&#x3D; L &amp;&amp; r &#x3D;&#x3D; R) &#123; pushemp(k); return; &#125;
+	int mid &#x3D; (L + R) &gt;&gt; 1;
+	pushdown(k);
+	if (r &lt;&#x3D; mid) mdy3(k &lt;&lt; 1, l, r, x, L, mid);
+	else if (l &gt; mid) mdy3(k &lt;&lt; 1 | 1, l, r, x, mid + 1, R);
+	else mdy3(k &lt;&lt; 1, l, mid, x, L, mid), mdy3(k &lt;&lt; 1 | 1, mid + 1, r, x, mid + 1, R);
+	upd(k);
+&#125;
+int qry(int k, int l, int r, int x, int L, int R)
+&#123;
+	if (l &#x3D;&#x3D; L &amp;&amp; r &#x3D;&#x3D; R) return tree[k].ans;
+	int mid &#x3D; (L + R) &gt;&gt; 1;
+	pushdown(k);
+	if (r &lt;&#x3D; mid)
+		return qry(k &lt;&lt; 1, l, r, x, L, mid);
+	else if (l &gt; mid)
+		return qry(k &lt;&lt; 1 | 1, l, r, x, mid + 1, R);
+	return max(qry(k &lt;&lt; 1, l, mid, x, L, mid), qry(k &lt;&lt; 1 | 1, mid + 1, r, x, mid + 1, R));
+&#125;
+int n, q, a[N];
+void build(int k, int l, int r)
+&#123;
+	if (l &#x3D;&#x3D; r) &#123; tree[k].mx &#x3D; tree[k].ans &#x3D; a[l]; return; &#125;
+	int mid &#x3D; (l + r) &gt;&gt; 1;
+	build(k &lt;&lt; 1, l, mid);
+	build(k &lt;&lt; 1 | 1, mid + 1, r);
+	tree[k].mx &#x3D; tree[k].ans &#x3D; max(tree[k &lt;&lt; 1].mx, tree[k &lt;&lt; 1 | 1].mx);
+&#125;
+int main()
+&#123;
+	read(n); read(q); rep(i, 0, n - 1) read(a[i]);
+	build(1, 0, n - 1);
+	while (q--)
+	&#123;
+		int op, l, r, x;
+		read(op); read(l); read(r); read(x);
+		if (op &#x3D;&#x3D; 0) mdy1(1, l, r, x, 0, n - 1);
+		else if (op &#x3D;&#x3D; 1) mdy2(1, l, r, x, 0, n - 1);
+		else if (op &#x3D;&#x3D; 2) printf(&quot;%d\n&quot;, qry(1, l, r, 0, 0, n - 1));
+		else mdy3(1, l, r, x, 0, n - 1);
+	&#125;
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> #### 浮点数运算控制精度 直接全部转化成浮点数运算，三标记线段树。</p>
+<p>考虑到浮点数自带精度损失，对于较大的除数，自动使得原数变成零，<code>long double</code> 的精度可以支持。</p>
+<div class="note warning">
+<p>
+爆零小技巧：<code>ST</code>表空间开一倍 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int ST[_][LOG + 3], Log[_];
+void init_query()&#123;
+	rep(i, 1, n) ST[i][0] &#x3D; A[i];
+	rep(j, 1, LOG) rep(i, 1, n) ST[i][j] &#x3D; max(ST[i][j - 1], ST[i + (1 &lt;&lt; (j - 1))][j - 1]); &#x2F;&#x2F; ST[i + (1 &lt;&lt; (j - 1))][j - 1] 会访问 O( 2 * N )
+	Log[1] &#x3D; 0; rep(i, 2, n) Log[i] &#x3D; Log[i &gt;&gt; 1] + 1;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</p>
+</div>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const int _ &#x3D; 2e5 + 100;
+int n, q; LL A[_];
+namespace Acceptable_Solution&#123;
+	const int _ &#x3D; 2e5 + 100;
+	const int LOG &#x3D; 17;
+	int ST[_][LOG + 3], Log[_];
+	void init_query()&#123;
+		rep(i, 1, n) ST[i][0] &#x3D; A[i];
+		rep(j, 1, LOG) rep(i, 1, n) ST[i][j] &#x3D; max(ST[i][j - 1], ST[i + (1 &lt;&lt; (j - 1))][j - 1]);
+		Log[1] &#x3D; 0; rep(i, 2, n) Log[i] &#x3D; Log[i &gt;&gt; 1] + 1;
+	&#125;
+	int Query_Max(int L, int R) &#123; int Lg &#x3D; Log[R - L + 1]; int Len &#x3D; (1 &lt;&lt; Lg); return max(ST[L][Lg], ST[R - Len + 1][Lg]); &#125;
+	#define LB long double
+	LB eps;
+	void print(LB x) &#123; printf(&quot;%.20Lf\n&quot;, x); &#125;
+	namespace SegmentTree&#123;
+		bool same(LB x, LB y) &#123; return fabs(x - y) &lt;&#x3D; 1e-12; &#125;
+		const int _ &#x3D; 6e5 + 100;
+		int ch[_][2], tot &#x3D; 0;
+		LB v[_], tag_add[_], tag_mul[_];
+		bool tag_ret[_];
+		#define ls(o) (ch[o][0])
+		#define rs(o) (ch[o][1])
+		#define maintain(o) (v[o] &#x3D; max(v[ls(o)], v[rs(o)]))
+		#define make (tot++, ch[tot][0] &#x3D; ch[tot][1] &#x3D; 0, tag_add[tot] &#x3D; 0, tag_mul[tot] &#x3D; 1, tag_ret[tot] &#x3D; 0, tot)
+		int Groot()&#123; return make; &#125;
+		void build(int o, int L, int R)&#123;
+			if(L &#x3D;&#x3D; R) return (void)(v[o] &#x3D; A[L]);
+			int mid &#x3D; (L + R) &gt;&gt; 1; ls(o) &#x3D; make; rs(o) &#x3D; make;
+			build(ls(o), L, mid); build(rs(o), mid + 1, R);
+			maintain(o);
+		&#125;
+		void tar_ret(int o, int L, int R)&#123;
+			v[o] &#x3D; Query_Max(L, R);
+			tag_add[o] &#x3D; 0; tag_mul[o] &#x3D; 1;
+			tag_ret[o] &#x3D; 1;
+		&#125;
+		void push_ret(int o, int L, int R)&#123;
+			if(!tag_ret[o]) return ;
+			int mid &#x3D; (L + R) &gt;&gt; 1;
+			tar_ret(ls(o), L, mid); tar_ret(rs(o), mid + 1, R);
+			tag_ret[o] &#x3D; 0;
+		&#125;
+		void tar_add(int o, LB Val, int L, int R)&#123;
+			push_ret(o, L, R);
+			v[o] +&#x3D; Val;
+			tag_add[o] +&#x3D; Val;
+		&#125;
+		void tar_mul(int o, LB Val, int L, int R) &#123;
+			push_ret(o, L, R);
+			v[o] *&#x3D; Val;
+			tag_mul[o] *&#x3D; Val;
+			tag_add[o] *&#x3D; Val;
+		&#125;
+		void push(int o, int L, int R)&#123;
+			push_ret(o, L, R);
+			int mid &#x3D; (L + R) &gt;&gt; 1;
+			if(!same(tag_mul[o], 1)) &#123;
+				tar_mul(ls(o), tag_mul[o], L, mid);
+				tar_mul(rs(o), tag_mul[o], mid + 1, R);
+				tag_mul[o] &#x3D; 1;
+			&#125;
+			if(!same(tag_add[o], 0))&#123;
+				tar_add(ls(o), tag_add[o], L, mid);
+				tar_add(rs(o), tag_add[o], mid + 1, R);
+				tag_add[o] &#x3D; 0;
+			&#125;
+		&#125;
+		void update_add(int o, int nowl, int nowr, int L, int R, int Val)&#123;
+			if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return tar_add(o, Val, nowl, nowr);
+			int mid &#x3D; (nowl + nowr) &gt;&gt; 1;
+			push(o, nowl, nowr);
+			if(L &lt;&#x3D; mid) update_add(ls(o), nowl, mid, L, R, Val);
+			if(R  &gt; mid) update_add(rs(o), mid + 1, nowr, L, R, Val);
+			maintain(o);
+		&#125;
+		void update_mul(int o, int nowl, int nowr, int L, int R, LB Val)&#123;
+			if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return tar_mul(o, Val, nowl, nowr);
+			int mid &#x3D; (nowl + nowr) &gt;&gt; 1;
+			push(o, nowl, nowr);
+			if(L &lt;&#x3D; mid) update_mul(ls(o), nowl, mid, L, R, Val);
+			if(R  &gt; mid) update_mul(rs(o), mid + 1, nowr, L, R, Val);
+			maintain(o);
+		&#125;
+		void update_ret(int o, int nowl, int nowr, int L, int R)&#123;
+			if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return tar_ret(o, nowl, nowr);
+			int mid &#x3D; (nowl + nowr) &gt;&gt; 1;
+			push(o, nowl, nowr);
+			if(L &lt;&#x3D; mid) update_ret(ls(o), nowl, mid, L, R);
+			if(R  &gt; mid) update_ret(rs(o), mid + 1, nowr, L, R);
+			maintain(o);
+		&#125;
+		LB query(int o, int nowl, int nowr, int L, int R)&#123;
+			if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return v[o];
+			int mid &#x3D; (nowl + nowr) &gt;&gt; 1;
+			push(o, nowl, nowr);
+			LB ans &#x3D; LLONG_MIN;
+			if(L &lt;&#x3D; mid) ans &#x3D; max(ans, query(ls(o), nowl, mid, L, R));
+			if(R  &gt; mid) ans &#x3D; max(ans, query(rs(o), mid + 1, nowr, L, R));
+			return ans;
+		&#125;
+	&#125;using SegmentTree::build;       using SegmentTree::query;       using SegmentTree::update_add;
+	 using SegmentTree::update_mul;  using SegmentTree::update_ret;  using SegmentTree::Groot;
+	void work()&#123;
+		init_query();
+		int root &#x3D; Groot(); build(root, 1, n); LB one &#x3D; 1;
+		while(q--) &#123;
+			int t, L, R, x; Read(t)(L)(R)(x); L ++, R ++;
+			if(t &#x3D;&#x3D; 0) update_add(root, 1, n, L, R, x);
+			if(t &#x3D;&#x3D; 1) update_mul(root, 1, n, L, R, one &#x2F; x);
+			if(t &#x3D;&#x3D; 2) printf(&quot;%lld\n&quot;, (long long)(query(root, 1, n, L, R) + 1e-10));
+			if(t &#x3D;&#x3D; 3) update_ret(root, 1, n, L, R);
+		&#125;
+	&#125;
+&#125;
+int main()&#123; &#x2F;&#x2F;freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);
+	Read(n)(q); rep(i, 1, n) Read(A[i]);
+	Acceptable_Solution::work();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h3 id="d.-four">D. four</h3>
+<div class="note info"><p>你有 <span class="math inline">\(1..2n\)</span> 共 <span class="math inline">\(2n\)</span> 个数，有 <span class="math inline">\(n\)</span> 个人，你会给每个人分两个随机的数，这样就把 <span class="math inline">\(2n\)</span> 个数分完了，每个人获得的总数就是这两个数相加。这个随机过程可以认为是，先把 <span class="math inline">\(2n\)</span> 个数随机排列，将前2个数分给第一个人，将接下来前2个数分给第二个人……不难看出这个过程是没有歧义的</p>
+<p>你想知道有多大概率，使得总和最大的人唯一（不存在两个相同的最大值），答案模 <span class="math inline">\(998244353\)</span></p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>没听懂…。</p>
+
+</details>
+<h2 id="round-3">Round 3</h2>
+<h3 id="a.-diyiti">A. diyiti</h3>
+<div class="note info"><p>有 <span class="math inline">\(n\)</span> 个物品，每个物品价格 <span class="math inline">\(A_i\)</span> ，收益为 <span class="math inline">\(B_i\)</span> ，由于一些奥妙重重的原因，当你买了一些物品，总价格为选择的 <span class="math inline">\(A_i\)</span> 的按位或而不是代数相加!</p>
+<p>你身上只有 <span class="math inline">\(k\)</span> 元钱，你希望选择总价格不超过 <span class="math inline">\(k\)</span> 的一些物品，来获得最大的收益。</p>
+<p>对于所有数据，<span class="math inline">\(1\leq n\leq 10^5,0\leq k &lt; 2^{30},0 \leq A_i &lt; 2^{30},0 \leq B_i \leq 10^9\)</span>。</p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>一种天然的想法就是考虑枚举，每一个 <span class="math inline">\(i \le k\)</span> 然后累加所有可以被选的物品求最大值，显然能保证正确性。得到一个 <span class="math inline">\(\mathcal{O}(k n)\)</span> 的优秀做法。 发现这样枚举的每一个 <span class="math inline">\(i\)</span> 有很多没有必要的枚举。</p>
+<p>其实可以枚举放弃 <span class="math inline">\(k\)</span> 的哪一位 <code>1</code>。</p>
+<p>例如: 若 <span class="math inline">\(k = (1001101001)_2\)</span> 那么有意义的 <span class="math inline">\(i\)</span> 就可能是： - <span class="math inline">\((0111111111)_2\)</span> - <span class="math inline">\((1000111111)_2\)</span> - <span class="math inline">\((1001011111)_2\)</span> - <span class="math inline">\((1001100111)_2\)</span> - <span class="math inline">\((1001101001)_2\)</span></p>
+<p>也就是枚举某一位 <span class="math inline">\(1\)</span> 把这个 <span class="math inline">\(1\)</span> 变成 <span class="math inline">\(0\)</span>，然后把这后面的所有数字变成 <span class="math inline">\(1\)</span>。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n, k;
+int Lim[_], Pr[_];
+LL calc(int x)&#123;
+	LL ans &#x3D; 0;
+	rep(i, 1, n) if((x | Lim[i]) &#x3D;&#x3D; x) ans +&#x3D; Pr[i];
+	return ans;
+&#125;
+int main()&#123;
+	Read(n)(k); rep(i, 1, n) Read(Lim[i])(Pr[i]);
+	LL ans &#x3D; calc(k);
+	for(int i &#x3D; 30; i &gt;&#x3D; 0; i--)&#123;
+		if(k &amp; (1 &lt;&lt; i)) ; else continue;
+		int Lit &#x3D; k;
+		Lit ^&#x3D; (1 &lt;&lt; i); Lit |&#x3D; ((1 &lt;&lt; i) - 1);
+		ans &#x3D; max(calc(Lit), ans);
+	&#125;
+	printf(&quot;%lld&quot;, ans);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h3 id="b.-dierti">B. dierti</h3>
+<div class="note info"><p>给你一个长度为 <span class="math inline">\(n\)</span> 的数组 <span class="math inline">\(a_n\)</span>，你需要求出一个最长的子序列 <span class="math inline">\(C\)</span>，使得其相邻两项按位与的结果均非零 $(  i, C_i   C_{i+1} &gt; 0) $。</p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>这比第一题好想多了吧。 考虑 <span class="math inline">\(dp[n]\)</span> 表示 <span class="math inline">\([1, n]\)</span> 中强制 <span class="math inline">\(n\)</span> 一定选 符合要求的最长子序列，可以考虑枚举 <span class="math inline">\([1..n - 1]\)</span> 中上一个选择的是哪一个，即 <span class="math inline">\(dp[n] = 1 + \max_{i = 1}^{n - 1}\limits{dp[i][C_i \And C_n &gt; 0]}\)</span> 这样的复杂度是 <span class="math inline">\(\mathcal{O}(n^2)\)</span> 的。</p>
+<p>考虑如果满足 <span class="math inline">\(C_i \And C_j &gt; 0\)</span> 那么需要 <span class="math inline">\(C_i, C_j\)</span> 至少一个二进制位置相同。那就维护一个数组，<span class="math inline">\(Bmax[i]\)</span> 表示 <span class="math inline">\(C\)</span> 的第 <span class="math inline">\(i\)</span> 位为 <span class="math inline">\(1\)</span> 的所有 <span class="math inline">\(C_j\)</span> 最大的 <span class="math inline">\(dp[j]\)</span>，即可实现 <span class="math inline">\(\mathcal{O}(\log C_{max})\)</span> 转移。同时需要 <span class="math inline">\(\mathcal{O}(\log C_{max})\)</span> 维护数组 <span class="math inline">\(Bmax\)</span>。</p>
+<p>总复杂度 <span class="math inline">\(\mathcal{O}(n\log C_{max} )\)</span>。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n, A[_];
+int Bmax[60];
+int dp[_];
+int main()&#123;
+	n &#x3D; read(); rep(i, 1, n) Read(A[i]);
+	dp[1] &#x3D; 1; rep(j, 0, 30) if(A[1] &amp; (1 &lt;&lt; j)) Bmax[j] &#x3D; max(Bmax[j], dp[1]);
+	rep(i, 2, n)&#123;
+		int ans &#x3D; 0;
+		rep(j, 0, 30) if(A[i] &amp; (1 &lt;&lt; j)) ans &#x3D; max(ans, Bmax[j]);
+		dp[i] &#x3D; ans + 1;
+		rep(j, 0, 30) if(A[i] &amp; (1 &lt;&lt; j)) Bmax[j] &#x3D; max(Bmax[j], dp[i]);
+	&#125;
+	int ans &#x3D; 0; rep(i, 1, n) ans &#x3D; max(ans, dp[i]);
+	printf(&quot;%d&quot;, ans); cerr &lt;&lt; &quot;std&#39;s ans &#x3D; &quot; &lt;&lt; ans &lt;&lt; endl;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details>
+<h3 id="c.-disanti">C. disanti</h3>
+<div class="note info"><h4 id="statement">statement</h4>
+<p>你有 <span class="math inline">\(n\)</span> 个 <span class="math inline">\(10\)</span> 进制下的位数为 <span class="math inline">\(m\)</span> 的数</p>
+<p>有些数字被抹去了，因此取值任意。</p>
+<p>你希望这 <span class="math inline">\(n\)</span> 个数单调递增，请求出所有满足这个条件的方案下，这 <span class="math inline">\(n\)</span> 个数之和的总和。</p>
+<p>答案对 <span class="math inline">\(998244353\)</span> 取模。</p>
+<p><span class="math inline">\(n,m\leq 30\)</span> #### input</p>
+<p>第一行两个整数 <span class="math inline">\(n,m(1\leq n,m\leq 50)\)</span></p>
+<p>接下来 <span class="math inline">\(n\)</span> 行，每行 <span class="math inline">\(m\)</span> 个字符，字符为 <span class="math inline">\(0..9\)</span> 的数字或者<code>?</code>。 <pre class="line-numbers language-none"><code class="language-none">INPUT0:
+4 1
+0
+?
+4
+8
+OUTPUT0:
+42<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> <pre class="line-numbers language-none"><code class="language-none">INPUT1:
+5 5
+?1234
+23333
+???66
+??666
+?233?
+OUTPUT1:
+819525655<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+</div>
+<div class="note danger"><p>没听懂… 待补。</p>
+</div>
+<h3 id="d.-disiti">D. disiti</h3>
+<div class="note info"><p>你有一堆<span class="math inline">\(n\)</span>个石子的石子堆，你想要把石子堆裂成<span class="math inline">\(n\)</span>个大小为<span class="math inline">\(1\)</span>的石子堆。为了达成这个目的，你每次可以进行如下操作：假设现在有<span class="math inline">\(k\)</span>堆石子，大小分别为<span class="math inline">\(a_1, a_2, ... ,a_k\)</span>，你可以指定一个非负整数序列<span class="math inline">\(b_1, b_2, ... ,b_k\)</span>，满足<span class="math inline">\(\sum b_i\leq m\)</span>，每堆石子就会分裂成两堆<span class="math inline">\(b_i, a_i-b_i\)</span>（如果为<span class="math inline">\(0\)</span>就认为不存在，显然还需要满足<span class="math inline">\(b_i \leq a_i\)</span>）。你想要知道最少几次操作可以达成目的。 对于所有数据，<span class="math inline">\(T\leq 1000,1\leq m\leq n\leq 10^9\)</span></p>
+</div>
+<div class="note danger"><p>没听懂… 待补。</p>
+</div>
+<h2 id="round-4">Round 4</h2>
+<h3 id="a.-一">A. 一</h3>
+<div class="note info"><div class="note danger">
+<p>
+你是能看到第一题的friends呢。 ——hja 众所周知，小葱同学擅长计算，尤其擅长计算组合数，但这个题和组合数没什么关系。
+</p>
+</div>
+<p>
+<p>现在我们要执行若干代码，代码为对于变量的操作，包含以下三种： - 1、变量名=变量值，变量名由小写字母组成，变量值有可能是正整数或者字符串（小写字母或者数字），例如：a=3,b="233"。 - 2、变量名，代表询问该变量的值，如果该变量未赋值，则输出no。 - 3、变量名+=值，如果该变量未定义，直接跳过该次操作。设该变量的值为x，加上的值为y，如果两者均为整数直接相加；如果x是整数y为字符串则跳过此次操作；如果x是字符串y是整数则将y转换为字符串进行字符串拼接；如果两者均为字符串直接进行字符串拼接。 -</p>
+</div> <details class="note success"><summary><p>code</p>
+</summary>
+<p>全程 STL。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">map&lt;string , string&gt; M;
+map&lt;string , bool &gt; Type; &#x2F;&#x2F; true for string , false for int
+string tmp;
+pair&lt;string , string&gt; Res;
+int split(string S)&#123;
+	if(S.find(&#39;&#x3D;&#39;) &gt;&#x3D; S.size() || S.find(&#39;&#x3D;&#39;) &lt; 0)&#123; &#x2F;&#x2F; TODO: check
+		return 2;
+	&#125; else &#123;
+		if(S.find(&#39;+&#39;) &lt; S.size() &amp;&amp; S.find(&#39;+&#39;) &gt;&#x3D; 0)&#123;
+			Res &#x3D; make_pair(S.substr(0, S.find(&#39;+&#39;)), S.substr(S.find(&#39;&#x3D;&#39;) + 1, S.size() - S.find(&#39;&#x3D;&#39;) - 1));
+			return 3;
+		&#125; else &#123;
+			Res &#x3D; make_pair(S.substr(0, S.find(&#39;&#x3D;&#39;)), S.substr(S.find(&#39;&#x3D;&#39;) + 1, S.size() - S.find(&#39;&#x3D;&#39;) - 1));
+			return 1;
+		&#125;
+	&#125;
+&#125;
+string calc(string A, string B)&#123;
+	long long ResA &#x3D; 0;
+	rep(i, 0, A.size() - 1)&#123;
+		ResA *&#x3D; 10;
+		ResA +&#x3D; A[i] - &#39;0&#39;;
+	&#125;
+	long long ResB &#x3D; 0;
+	rep(i, 0, B.size() - 1)&#123;
+		ResB *&#x3D; 10;
+		ResB +&#x3D; B[i] - &#39;0&#39;;
+	&#125;
+	ResA +&#x3D; ResB;
+	string Res, ans ; Res &#x3D; &quot;&quot;;
+	while(ResA) Res.push_back(ResA % 10 + &#39;0&#39;), ResA &#x2F;&#x3D; 10;
+	for(int i &#x3D; Res.size() - 1; i &gt;&#x3D; 0; i--) ans.push_back(Res[i]);
+	return ans;
+&#125;
+bool pdType(string &amp;S) &#123; return S[0] &#x3D;&#x3D; &#39;&quot;&#39;; &#125; &#x2F;&#x2F; true for string
+int main()&#123; &#x2F;&#x2F;freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin); freopen(&quot;out.txt&quot;, &quot;w&quot;, stdout);
+	ios::sync_with_stdio(false);
+	int q; cin &gt;&gt; q;
+	while(q--)&#123;
+		cin &gt;&gt; tmp;
+		int r &#x3D; split(tmp);
+		if(r &#x3D;&#x3D; 1)&#123;
+			int re &#x3D; pdType(Res.second); if(re) Res.second &#x3D; (Res.second.size() &#x3D;&#x3D; 2 ? string(&quot;&quot;) : Res.second.substr(1, Res.second.size() - 2));
+			M[Res.first] &#x3D; Res.second;
+			Type[Res.first] &#x3D; re;
+		&#125; else if(r &#x3D;&#x3D; 2)&#123;
+			if(M.count(tmp))  cout &lt;&lt; M[tmp] &lt;&lt; endl;
+			else cout &lt;&lt; &quot;no&quot; &lt;&lt; endl;
+		&#125; else &#123;
+			if(M.count(Res.first)) ; else continue;
+			int ex_t &#x3D; pdType(Res.second); if(ex_t) Res.second &#x3D; Res.second.substr(1, Res.second.size() - 2);
+			int no_t &#x3D; Type[Res.first];
+			if( ex_t &amp;&amp;  no_t) M[Res.first] &#x3D; M[Res.first] + Res.second;
+			if( ex_t &amp;&amp; !no_t) &#123; continue; &#125;
+			if(!ex_t &amp;&amp;  no_t) M[Res.first] &#x3D; M[Res.first] + Res.second;
+			if(!ex_t &amp;&amp; !no_t) M[Res.first] &#x3D; calc(M[Res.first], Res.second);
+		&#125;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details> ### B. 二 <div class="note info"><p>你是能看到第二题的friends呢。 ——aoao</p>
+<p>众所周知，小葱同学擅长计算，尤其擅长计算组合数，但这个题和组合数没什么关系。 <span class="math inline">\(N\)</span> 个小写字母字符串， Alice 和 Bob 按照如下方法玩游戏： - 1、Alice选择一个字符串，并重新定义 <span class="math inline">\(26\)</span> 个字母的字典序，然后再将这个字符串内部字符按照任意顺序重排。 - 2、Bob从剩下的字符串中选择一个，并将这个字符串内部字符按照任意顺序重排。 他们的目标是使得自己字符串的字典序比对面小，谁的字符串字典序更小谁就赢了。问 Alice 有多少个可以选择的字符串能够使得自己获胜？ <span class="math inline">\(N \le 1000\)</span></p>
+</div> <details class="note success"><summary><p>Solution</p>
+</summary>
+<p>因为可以重新排列字符串，所以对于每个字符串来说，有用的信息就是每个字符串中每个字符的出现次数。</p>
+<p>可以考虑先枚举一个字符串，然后判断这个字符串是否能被 Alice 选。然后考虑确定字典序，可以以此考虑字典序最小的应该是哪个字符，确定了字典序最小的字符之后，可以排除掉一些字符串（字典序最小的字符在这些串中的出现次数 <span class="math inline">\(&lt;\)</span> 在枚举串中的出现次数），然后又转化成原来相同的问题。</p>
+<p>关键在于如何确定当前情况下字典序最小的字符。显然，理想的字典序最小的字符 在当前枚举到的字符串中的出现次数一定不少于在其他串中的出现次数。但是这样的字符可能有多个，应该选哪个？</p>
+<p>其实选哪个效果一样，本质上只是以此选择当前情况下字典序最小的字符，然后剔除一些字符串，但是剔除字符串的条件和剔除顺序无关。</p>
+<p>最后判断是否所有字符串都被剔除掉即可。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+#define rep(i, l, r) for(int i &#x3D; (l), __ &#x3D; (r); i &lt;&#x3D; __; i++)
+const int _ &#x3D; 1010;
+using namespace std;
+inline int idx(char c) &#123; return c - &#39;a&#39; + 1; &#125;
+int ch[_][30]; int n;
+char S[_];
+bool book[_];
+bool bch[200];
+int main()&#123;
+	scanf(&quot;%d&quot;, &amp;n); rep(i, 1, n) &#123; scanf(&quot;%s&quot;, S + 1); int k &#x3D; strlen(S + 1); rep(j, 1, k) ch[i][idx(S[j])] ++; &#125;
+	int ans &#x3D; 0;
+	rep(i, 1, n)&#123;
+		memset(book, 0, sizeof(book)); memset(bch, 0, sizeof(bch)); book[i] &#x3D; 1;
+		rep(j, 1, 26) &#123;
+			rep(k, &#39;a&#39;, &#39;z&#39;) &#123; if(bch[k]) continue;
+				bool pass &#x3D; true;
+				rep(l, 1, n) &#123;
+					if(book[l]) continue;
+					if(ch[l][idx(k)] &gt; ch[i][idx(k)]) &#123; pass &#x3D; false; break; &#125;
+				&#125;
+				if(pass)&#123;
+					bch[k] &#x3D; 1;
+					rep(l, 1, n) if(ch[l][idx(k)] &lt; ch[i][idx(k)]) book[l] &#x3D; 1;
+					break;
+				&#125;
+			&#125;
+		&#125;
+		bool pass &#x3D; true; rep(i, 1, n) if(book[i] !&#x3D; 1) &#123; pass &#x3D; false; break; &#125;
+		ans +&#x3D; pass;
+	&#125;
+	printf(&quot;%d&quot;, ans);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details></p>
+<h3 id="c.-三">C. 三</h3>
+<div class="note info"><p>你是能看到第三题的friends呢。 ——laekov 众所周知，小葱同学擅长计算，尤其擅长计算组合数，但这个题和组合数没什么关系。</p>
+<p>给定<span class="math inline">\(N\)</span>个数，设总共有<span class="math inline">\(M\)</span>个区间<span class="math inline">\(p_1=[l_1,r_1],p_2=[l_2,r_2 ],\cdots,p_M=[l_m,r_m]\)</span>的逆序对数量不少于<span class="math inline">\(K\)</span>个。定义函数<span class="math inline">\(f(p_i,p_j)\)</span>为计算两个区间的交集大小的函数（即共同覆盖了多少个数）。求 <span class="math inline">\(\sum_{i=1}^M\sum_{j=i+1}^M f(p_i,p_j)\)</span> <span class="math inline">\(N \le 10^6\)</span></p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>考虑每一个元素的贡献，不难发现，元素的贡献为 <span class="math inline">\(\binom{被覆盖的区间数}{2}\)</span> ，问题转化为怎么求每个元素被覆盖的次数。</p>
+<p>考虑对于每一个左端点 <span class="math inline">\(L\)</span>，合法的右端点取值一定是一段连续的区间，且 如果存在上界一定是 <span class="math inline">\(n\)</span> ，对于每个左端点，求出其对应的最小的右端点，这里可以使用 <code>two-point</code> 。值域树状数组统计逆序对数。</p>
+<p>考虑每个左端点为 <span class="math inline">\(L\)</span> 的区间对元素覆盖数的贡献，发现一定是一条平直线和一个下降直线，可以对差分数组的差分数组做修改，然后两次前缀和还原出原序列。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const int _ &#x3D; 2e6 + 100;
+const int inv2 &#x3D; 500000004;
+int n, k, A[_];
+namespace BIT&#123;
+	#define lowbit(x) (x &amp; (-x))
+	int C[_];
+	void add(int p, int x) &#123; if(p &#x3D;&#x3D; 0) return ; for(int i &#x3D; p; i &lt;&#x3D; n; i +&#x3D; lowbit(i)) C[i] +&#x3D; x; &#125;
+	int  query(int p) &#123; int ans &#x3D; 0; for(int i &#x3D; p; i &gt;&#x3D; 1; i -&#x3D; lowbit(i)) ans +&#x3D; C[i]; return ans; &#125;
+&#125; using BIT::add; using BIT::query;
+int L &#x3D; 0, R &#x3D; 0;
+int Rp[_];
+int C[_];
+int main()&#123;
+	Read(n)(k); rep(i, 1, n) Read(A[i]);
+	LL ans &#x3D; 0;
+	rep(L, 1, n)&#123;
+		if(L - 1 &gt; 0) add(A[L - 1], -1);
+		if(L - 1 &gt; 0) ans -&#x3D; query(A[L - 1] - 1);
+		while((R &lt; L) || (ans &lt; k &amp;&amp; R &lt;&#x3D; n)) &#123; if(R &#x3D;&#x3D; n) &#123; R++; break; &#125;; add(A[++R], 1); ans +&#x3D; query(n) - query(A[R]); &#125;
+		Rp[L] &#x3D; R;
+	&#125;
+	rep(L, 1, n)&#123;
+		if(Rp[L] &gt; n) continue; int cnt &#x3D; (n - Rp[L] + 1);
+		C[L] &#x3D; (C[L] +0ll+ cnt) % MOD; C[L + 1] &#x3D; (C[L + 1] +0ll+ (MOD -0ll- cnt) % MOD) % MOD;
+		C[Rp[L] + 1] &#x3D; (C[Rp[L] + 1] +0ll+ MOD - 1) % MOD;
+	&#125;
+	rep(i, 1, n) C[i] &#x3D; (C[i] +0ll+ C[i - 1]) % MOD;
+	rep(i, 1, n) C[i] &#x3D; (C[i] +0ll+ C[i - 1]) % MOD;
+	ans &#x3D; 0;
+	rep(i, 1, n) ans &#x3D; (ans +0ll+ (C[i] *1ll* (C[i] - 1) % MOD *1ll* inv2 % MOD)) % MOD;
+	printf(&quot;%lld&quot;, ans);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h3 id="d.-四">D. 四</h3>
+<div class="note info"><p>你是能看到第四题的 friends 呢。 ——laekov</p>
+<p>众所周知，小葱同学擅长计算，尤其擅长计算组合数，但这个题和组合数没什么关系。</p>
+<p>今天也是皮克敏们打工的一天，你有 <span class="math inline">\(N\)</span> 只皮克敏，每只皮克敏有一颗炸弹。现在有一颗 <span class="math inline">\(N\)</span> 个点的树，同时皮克敏们可以从 <span class="math inline">\(p_1\)</span> 或者 <span class="math inline">\(p_2\)</span> 两个点中的任意一个进入树。每次你需要派一只皮克敏去到某个点，然后将炸弹连同皮克敏和这个点一起炸掉。一个点被炸掉了之后皮克敏就再也不能通过了。现在你需要决定皮克敏们炸点的顺序，问 <span class="math inline">\(n!\)</span> 种炸点方案中有多少种能炸掉所有点。 <span class="math inline">\(N \le 1000\)</span></p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>考虑 <code>DP</code> 。</p>
+<p>首先考虑一个子树（子树内没有 <span class="math inline">\(p_1, p_2\)</span>）全部被清空应该是什么顺序，一定是每个儿子的子树先被清空然后清楚当前点。 这里可以使用树形 dp 处理。</p>
+<p>先考虑 <span class="math inline">\(p_1 \leftrightarrow p_2\)</span> 这一条链上的点应该是按照什么顺序被清空，任意时刻，被清空的点一定是链上的连续的一段，这里可以区间 <span class="math inline">\(dp\)</span> 统计答案，转移考虑最后一次删除是删干净了链上最右边的点还是最左边的点。</p>
+<p>然后和 <span class="math inline">\(p_1, p_2\)</span> 的每个不在链上的儿子合并答案，最后决策先删除 <span class="math inline">\(p_1\)</span> 还是 <span class="math inline">\(p_2\)</span>。 代码还没写。</p>
+
+</details>
+<h2 id="round-5">Round 5</h2>
+<h3 id="a.-一-1">A. 一</h3>
+<div class="note info"><p>现在有四种颜色的东西，各有<span class="math inline">\(n_1,n_2,n_3,n_4\)</span>个。你需要把他们放到一排里面，并且保证相邻的东西颜色不同，问方案数。 对于<span class="math inline">\(80\%\)</span>的数据，<span class="math inline">\(n_1+n_2+n_3+n_4\leq 10\)</span>。 对于另外<span class="math inline">\(10\%\)</span>的数据，<span class="math inline">\(n_1=0,n_2,n_3,n_4\leq 50\)</span>。 对于<span class="math inline">\(100\%\)</span>的数据，<span class="math inline">\(0\leq n_1,n_2\leq 200,0\leq n_3,n_4\leq50000\)</span>。</p>
+</div>
+<details class="note success"><summary><p>code</p>
+</summary>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">namespace subtask1&#123;
+	int dp[_][_][_][_][5];
+	void work()&#123;
+		memset(dp, 0, sizeof(dp));
+		dp[1][0][0][0][1] &#x3D; dp[0][1][0][0][2] &#x3D; dp[0][0][1][0][3] &#x3D; dp[0][0][0][1][4] &#x3D; 1;
+		rep(i, 0, A) rep(j, 0, B) rep(k, 0, C) rep(l, 0, D)&#123;
+			if(i + j + k + l &#x3D;&#x3D; 1) continue;
+			if(i &gt; 0) dp[i][j][k][l][1] &#x3D; (dp[i - 1][j][k][l][2] +0ll+ dp[i - 1][j][k][l][3] +0ll+  dp[i - 1][j][k][l][4]) % MOD;
+			if(j &gt; 0) dp[i][j][k][l][2] &#x3D; (dp[i][j - 1][k][l][1] +0ll+ dp[i][j - 1][k][l][3] +0ll+  dp[i][j - 1][k][l][4]) % MOD;
+			if(k &gt; 0) dp[i][j][k][l][3] &#x3D; (dp[i][j][k - 1][l][2] +0ll+ dp[i][j][k - 1][l][1] +0ll+  dp[i][j][k - 1][l][4]) % MOD;
+			if(l &gt; 0) dp[i][j][k][l][4] &#x3D; (dp[i][j][k][l - 1][2] +0ll+ dp[i][j][k][l - 1][3] +0ll+  dp[i][j][k][l - 1][1]) % MOD;
+		&#125;
+		printf(&quot;%d\n&quot;, ans1 &#x3D; int((1ll* dp[A][B][C][D][1] +  dp[A][B][C][D][2] +  dp[A][B][C][D][3] +  dp[A][B][C][D][4]) % MOD));
+	&#125;
+&#125;
+namespace subtask2&#123;
+	const int _ &#x3D; 53;
+	int dp[_][_][_][4];
+	void work()&#123;
+		memset(dp, 0, sizeof(dp));
+		dp[1][0][0][1] &#x3D; dp[0][1][0][2] &#x3D; dp[0][0][1][3] &#x3D; 1;
+		rep(i, 0, B) rep(j, 0, C) rep(k, 0, D)&#123;
+			if(i + j + k &#x3D;&#x3D; 1) continue;
+			if(i &gt; 0) dp[i][j][k][1] &#x3D; (dp[i - 1][j][k][2] +0ll+ dp[i - 1][j][k][3]) % MOD;
+			if(j &gt; 0) dp[i][j][k][2] &#x3D; (dp[i][j - 1][k][1] +0ll+ dp[i][j - 1][k][3]) % MOD;
+			if(k &gt; 0) dp[i][j][k][3] &#x3D; (dp[i][j][k - 1][2] +0ll+ dp[i][j][k - 1][1]) % MOD;
+		&#125;
+		printf(&quot;%d\n&quot;, ans2 &#x3D; int(( dp[B][C][D][1] +0ll+ dp[B][C][D][2] +0ll+ dp[B][C][D][3] ) % MOD));
+	&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h3 id="b.-二">B. 二</h3>
+<div class="note info"><p><span class="math inline">\(N\)</span>个二元组<span class="math inline">\((a_i,b_i)\)</span>，定义<span class="math inline">\(c_1=a_1+b_1,c_i=b_i+max⁡(c_{i-1},\sum_{j=1}^ia_j)\)</span>。现在你可以随意重排这<span class="math inline">\(N\)</span>个二元组，求<span class="math inline">\(c_N\)</span>的最小值 <span class="math inline">\(N \le 10^6; A, B \le N\)</span></p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>考虑相邻两个二元组 <span class="math inline">\((a_1, b_1) (a_2, b_2)\)</span> 应该怎么比较大小。 分别列出 <span class="math inline">\((a_1, b_1)\)</span> 在 <span class="math inline">\((a_2, b_2)\)</span> 之前的答案和交换之后的答案。</p>
+<p>如果 <span class="math inline">\((a_1, b_1)\)</span> 在 <span class="math inline">\((a_2, b_2)\)</span> 之前：设这两个二元组之前所有二元组中 <span class="math inline">\(a\)</span> 的和为 <span class="math inline">\(x\)</span>，设上一个二元组的 <span class="math inline">\(C\)</span> 值为 <span class="math inline">\(y\)</span>。 根据定义 <span class="math inline">\(C_1 = b_1 + \max(y, a_1 + x)\)</span>，<span class="math inline">\(C_2 = b_2 + max(C_1, x + a_1 + a_2)\)</span> 化简后得到 <span class="math inline">\(C_2 = \max(y + b_1 + b_2, x + a_1 + b_1 + b_2, x + a_1 + a_2 + b_2)\)</span> 易知 交换后 <span class="math inline">\(C_2&#39; = \max(y + b_1 + b_2, x + a_2 + b_1 + b_2, x + a_1 + a_2 + b_1)\)</span> 现在需要比较 <span class="math inline">\(C_2\)</span> 和 <span class="math inline">\(C_2&#39;\)</span> 的大小。相当于对 <span class="math inline">\(6\)</span> 个式子取最大值，看最大值出现在哪边。相同的项 <span class="math inline">\(y + b_1 + b_2\)</span> 可以消去，如果其为最大值，那么两个式子谁在前谁在后无所谓，如果其不是最大值，那么也没有影响。 消去每一项中相同的 <span class="math inline">\(x\)</span>。</p>
+<p><span class="math inline">\(C_2 = \max(a_1 + b_1 + b_2, a_1 + a_2 + b_2)\)</span></p>
+<p><span class="math inline">\(C_2&#39; = \max(a_2 + b_1 + b_2, a_1 + a_2 + b_1)\)</span></p>
+<p>提出共同的项： <span class="math inline">\(C_2 = a_1 + b_2 + \max(b_1,a_2)\)</span></p>
+<p><span class="math inline">\(C_2&#39; = a_2 + b_1 + \max(b_2, a_1)\)</span></p>
+<p>假设 <span class="math inline">\(C_2 &lt; C_2&#39;\)</span></p>
+<p>则 <span class="math inline">\(a_1 + b_2 + \max(b_1,a_2) &lt; a_2 + b_1 + \max(b_2, a_1)\)</span></p>
+<p>移项得 <span class="math inline">\(a_1 + b_2 - \max(b_2,a_1) &lt; a_2 + b_1 - \max(b_1, a_2)\)</span></p>
+<p>得出 <span class="math inline">\(\min(a_1, b_2) &lt; \min(a_2, b_1)\)</span></p>
+<p>一种特殊情况是取等的时候：<del>举几个栗子得出</del> 结论是取等时比较 <span class="math inline">\(a_1 &lt; a_2\)</span>。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">bool CMP(pair&lt;int, int&gt; x, pair&lt;int, int &gt; y)&#123;
+	int r0 &#x3D; min(x.first, y.second);
+	int r1 &#x3D; min(y.first, x.second);
+	if(r0 !&#x3D; r1) return r0 &lt; r1;
+	return x.first &lt; y.first;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details>
+<h3 id="c.-三-1">C. 三</h3>
+<div class="note info"><p>给定 <span class="math inline">\(N\)</span> 个数，<span class="math inline">\(M\)</span> 次操作，操作有以下四种： - 1、区间加一个数。 - 2、区间乘一个数。 - 3、区间变成一个数。 - 4、求所有子区间的平均值的和(<span class="math inline">\(MOD = 10^9 + 7\)</span>)。 <span class="math inline">\(a_i, N,Q \le 10^5\)</span></p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p><span class="math inline">\(Ans = \sum_{i=1}^{n}\limits{\sum_{j=i}^{n}\limits{\frac{\sum_{k=i}^{j}\limits{a_k}}{j-i+1}}}\)</span> 考虑每个数字的贡献 <span class="math inline">\(Ans = \sum_{k=1}^{n}\limits{a_k \times \sum_{i=1}^{n}\limits{\sum_{j=i}^{n}\limits{\frac{1}{j-i+1}}}}\)</span> 算出贡献，线段树维护即可。可以考虑 <span class="math inline">\(k\)</span> 每增加 1 贡献会变化多少。也可以发现贡献类似于一个梯形，可以直接算。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">void work()&#123; cerr &lt;&lt; &quot;FUCK&quot; &lt;&lt; endl;
+	S[1] &#x3D; 1; rep(i, 2, n) S[i] &#x3D; (S[i - 1] +0ll+ inv(i)) % MOD;
+	int ans &#x3D; 0, dp &#x3D; 0;
+	rep(i, 1, n)&#123;
+		int last &#x3D; i - 1; dp &#x3D; (dp -0ll- S[last] + MOD) % MOD;
+		dp &#x3D; (dp -0ll- (S[n] -0ll- S[n - last] +0ll+ MOD) % MOD +0ll+ MOD) % MOD;
+		dp &#x3D; (dp +0ll+ (S[n] -0ll- S[i] +0ll+ MOD) % MOD) % MOD;
+		dp &#x3D; ( dp +0ll+ S[i]) % MOD; &#x2F;&#x2F; 这里的 dp 就是位置为 i 的数字对答案贡献的系数。
+		ans &#x3D; (ans +0ll+ dp *1ll* A[i] % MOD) % MOD;
+	&#125;
+	printf(&quot;%d&quot;, ans);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details>
+<h3 id="d.-四-1">D. 四</h3>
+<div class="note info"><p>众所周知，小葱同学擅长计算，尤其擅长计算组合数，但这个题和组合数没什么关系。</p>
+<p>皮克敏们打完工了，是时候将所有皮克敏处理掉了。现在皮克敏们躲在一棵树上（点和边的任意位置都有可能），你可以选择若干叶子节点释放毒气，毒气会以每单位时间一单位的距离沿着边蔓延开来。为了能够灭绝皮克敏，你需要保证树上每个位置都充满了毒气。但是仅仅是求一个最小的灭绝皮克敏的时间实在太无趣了，你想要知道你有多少种不同的方法能够灭绝皮克敏，两个方法不同当且仅当两种方法灭绝所有皮克敏的时间不同。</p>
+<p><span class="math inline">\(N \le 200\)</span> 第一行一个整数 <span class="math inline">\(N\)</span> 代表树上点的个数。</p>
+<p>接下来 <span class="math inline">\(N−1\)</span> 行每行三个整数 <span class="math inline">\(s,e,d\)</span> 代表一条边的两端和长度。</p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>答案只能是某两个叶子之间的距离或者距离 $ / 2$ 。 枚举两个叶子，把 - 这个叶子之间的距离（只在一边放毒气）（如果能成为答案） - 两个叶子之间距离 $ / 2$（两个叶子上都放毒气）（如果能成为答案） 加入答案集合。 最后输出答案集合的大小。</p>
+<p>枚举两个叶子，判断其距离是否能成为答案。考虑哪些其他叶子放毒气能让这个距离尽可能成为答案，就是那些放上毒气不会影响这两个枚举的叶子之间毒气传播时间的叶子都放上毒气，然后跑一遍最短路，算全树被毒气覆盖的时间是否等于当前枚举的叶子。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const int _ &#x3D; 510;
+pair&lt;pair&lt;int, int&gt;, int &gt; E[_];
+int n, m;
+int M[_][_];
+set&lt;int&gt; Ans;
+queue&lt;int&gt;Q; bool inQ[_];
+int SPFA()&#123;
+	static int dis[_]; memset(dis, 0x3f, sizeof(dis));
+	rep(i, 1, n) if(inQ[i]) dis[i] &#x3D; 0;
+	while(!Q.empty())&#123;
+		int now &#x3D; Q.front(); Q.pop(); inQ[now] &#x3D; 0;
+		for(int i &#x3D; head[now]; i ;i &#x3D; edge[i].nxt)&#123;
+			int ex &#x3D; edge[i].node;
+			if(dis[now] + edge[i].w &lt; dis[ex]) &#123;
+				dis[ex] &#x3D; dis[now] + edge[i].w;
+				if(!inQ[ex]) Q.push(ex), inQ[ex] &#x3D; true;
+			&#125;
+		&#125;
+	&#125;
+	int MAX &#x3D; INT_MIN;
+	rep(i, 1, n - 1) &#123;
+		pair&lt;pair&lt;int, int&gt;, int&gt; now &#x3D; E[i];
+		int T &#x3D; min(dis[now.first.first] + now.second, dis[now.first.second] + now.second, (dis[now.first.first] + dis[now.first.second] + now.second) &#x2F; 2);
+		MAX &#x3D; max(MAX, T);
+	&#125;
+	return MAX;
+&#125;
+int ind[_];
+bool work1(int x, int y, int D) &#123;
+	Q.push(x); inQ[x] &#x3D; 1;
+	rep(i, 1, n) &#123; if(i &#x3D;&#x3D; x || i &#x3D;&#x3D; y) continue; if(M[i][y] &gt;&#x3D; D &amp;&amp; ind[i] &#x3D;&#x3D; 1) Q.push(i), inQ[i] &#x3D; 1; &#125;
+	return SPFA() &#x3D;&#x3D; D;
+&#125;
+bool work2(int x, int y, int D)&#123;
+	Q.push(x); Q.push(y); inQ[x] &#x3D; inQ[y] &#x3D; 1;
+	rep(i, 1, n)&#123;
+		if(x &#x3D;&#x3D; i || y &#x3D;&#x3D; i) continue;
+		if(max(M[x][i], M[y][i]) &#x2F; 2 &gt;&#x3D; D &amp;&amp; ind[i] &#x3D;&#x3D; 1) Q.push(i), inQ[i] &#x3D; 1;
+	&#125;
+	return SPFA() &#x3D;&#x3D; D;
+&#125;
+
+int main()&#123;
+	memset(M, 0x3f, sizeof(M));
+	rep(i, 1, n) M[i][i] &#x3D; 0;
+	Read(n); rep(i, 1, n - 1) &#123; int u, v, w; Read(u)(v)(w); ind[u] ++; ind[v]++; w &lt;&lt;&#x3D; 1; add(u, v, w); add(v, u, w); M[u][v] &#x3D; M[v][u] &#x3D; w; E[i] &#x3D; make_pair(make_pair(u, v), w); &#125;
+	rep(k, 1, n) rep(i, 1, n) rep(j, 1, n) M[i][j] &#x3D; M[j][i] &#x3D; min(M[i][j], M[i][k] + M[k][j]);
+	rep(i, 1, n) rep(j, 1, n)&#123; if(i &#x3D;&#x3D; j) continue; if(ind[i] !&#x3D; 1 || ind[j] !&#x3D; 1) continue;
+		if(!Ans.count(M[i][j])      &amp;&amp; work1(i, j, M[i][j]))      Ans.insert(M[i][j]);
+		if(!Ans.count(M[i][j] &gt;&gt; 1) &amp;&amp; work2(i, j, M[i][j] &gt;&gt; 1)) Ans.insert(M[i][j] &gt;&gt; 1);
+
+	&#125;
+	printf(&quot;%d&quot;, int(Ans.size()));
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details>
+<h2 id="round-6">Round 6</h2>
+<h3 id="a.-一-2">A. 一</h3>
+<div class="note info"><p>现在我们有两队皮克敏，个数分别为<span class="math inline">\(n_1,n_2\)</span>，现在我们要杀掉这些皮克敏，按照如下规则操作：对于第<span class="math inline">\(i\)</span>轮杀皮克敏的操作，我们首先选择皮克敏较多的那一队，如果一样就选择第一队，然后杀掉这队中的<span class="math inline">\(i\)</span>个皮克敏，如果不够，游戏结束，记做游戏在第<span class="math inline">\(i\)</span>轮结束。问最后两队各剩下多少个皮克敏？ <span class="math inline">\(n \le 10^{16}\)</span></p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>分成两阶段，一阶段是只杀多的那队，直到比另一队少。二阶段是两队交替着杀，可以证明，如果经过了第一阶段，那么第二阶段一定是交替着杀。 <del>杀就完了。</del> 分别二分即可，当然第一步也可以直接解方程。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">LL A, B;
+inline LL check(LL x) &#123; return x * (x + 1) &gt;&gt; 1; &#125;
+LL Get(LL res)&#123;
+	LL L &#x3D; 0, R &#x3D; 1e9, ans &#x3D; 0;
+	while(L &lt; R)&#123;
+		LL mid &#x3D; L + ((R - L + 1) &gt;&gt; 1);
+		if(check(mid) &lt;&#x3D; res) ans &#x3D; mid, L &#x3D; mid;
+		else R &#x3D; mid - 1;
+	&#125;
+	return ans;
+&#125;
+LL Start &#x3D; 0; LL tA, tB;
+bool check0(LL Round, LL A, LL B)&#123;
+	LL dA, dB; bool sf &#x3D; false;
+	if(A &lt; B) sf &#x3D; true, swap(A, B);
+	if(Round &amp; 1) &#123;
+		dA &#x3D; (Start + (Start + Round - 1)) * (Round &#x2F; 2 + 1) &gt;&gt; 1;
+		dB &#x3D; (Start + 1 + (Start + Round - 2)) * (Round &#x2F; 2) &gt;&gt; 1;
+	&#125; else &#123;
+		dA &#x3D; (Start + (Start + Round - 2)) * (Round &#x2F; 2) &gt;&gt; 1;
+		dB &#x3D; (Start + 1 + (Start + Round - 1)) * (Round &#x2F; 2) &gt;&gt; 1;
+	&#125; A -&#x3D; dA; B -&#x3D; dB;
+	if(sf) swap(A, B);
+	tA &#x3D; A; tB &#x3D; B;
+	return A &gt;&#x3D; 0 &amp;&amp; B &gt;&#x3D; 0;
+&#125;
+void doit()&#123;
+	Read(A)(B);
+	LL d &#x3D; max(A, B) - min(A, B);
+	LL Round &#x3D; Get(d); LL del &#x3D; check(Round);
+	if(A &lt; B) B -&#x3D; del; else A -&#x3D; del;
+	if(A &#x3D;&#x3D; B) &#123;
+		if(A &lt; Round + 1) return (void)printf(&quot;%lld %lld %lld\n&quot;, Round + 1, A, B);
+		else Round ++, A -&#x3D; Round;
+	&#125; else &#123;
+		if(max(A, B) &lt; Round + 1) return (void)printf(&quot;%lld %lld %lld\n&quot;, Round + 1, A, B);
+		else Round ++, (A &gt; B ? A -&#x3D; Round : B -&#x3D; Round);
+	&#125;
+	LL L &#x3D; 0, R &#x3D; 1e9, ans &#x3D; 0; Start &#x3D; Round + 1;
+	while(L &lt; R) &#123;
+		LL mid &#x3D; L + ((R - L + 1) &gt;&gt; 1);
+		if(check0(mid, A, B)) ans &#x3D; mid, L &#x3D; mid;
+		else R &#x3D; mid - 1;
+	&#125; check0(ans, A, B);
+	printf(&quot;%lld %lld %lld\n&quot;, ans + Round + 1, tA, tB);
+&#125;
+int main()&#123;
+	int T &#x3D; read(); cerr &lt;&lt; &quot;std&#39;s T &#x3D; &quot; &lt;&lt; T &lt;&lt; endl;
+	while(T--) doit();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details>
+<h3 id="b.-二-1">B. 二</h3>
+<div class="note info"><p>现在有三组N个数记做<span class="math inline">\(A,B,C\)</span>，定义函数<span class="math inline">\(f(A,B)=\sum_{i=1}^NA_i\times B_i\)</span>。现在给定<span class="math inline">\(A,B\)</span>，并告诉你<span class="math inline">\(f(A,C)=x\)</span>，现在想求在满足<span class="math inline">\(∑_{i=1}^NC_i=1,0\leq C_i\leq1\)</span>的情况下<span class="math inline">\(f(B,C)\)</span>的最大值。 对于<span class="math inline">\(100\%\)</span>的数据，<span class="math inline">\(1\leq N,M\leq 100,1\leq A_i,B_i\leq100\)</span></p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>[skip] 结论是只有两个点有用，只枚举两个点即可。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+
+</details>
+<h3 id="c.-三-2">C. 三</h3>
+<div class="note info"><p>众所周知，小葱同学擅长计算，尤其擅长计算组合数，但这个题和组合数没什么关系。</p>
+<p>现在有一个 <span class="math inline">\(N\)</span> 的排列，将其每个数看做一个集合。定义一种对两个集合的运算为：<span class="math inline">\(f(s_1,s_2 )=\sum_{x\in s_1}[\exists y\in s_2,y &lt; x]\)</span> 也可以用这样一段伪代码去理解： <pre class="line-numbers language-python" data-language="python"><code class="language-python">Ans&#x3D;0
+For x in s1:
+    Able &#x3D; False
+    For y in s2:
+        If y&lt;x:
+            Able&#x3D;True
+    If Able:
+        Ans++
+Return Ans<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 现在你每次可以合并两个相邻的集合将其变为两个集合的并集，其代价为<span class="math inline">\(f(s_1,s_2)+f(s_2,s_1)\)</span>。求最小代价，将所有集合合并为一个集合。 <span class="math inline">\(N \le 10^2\)</span></p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>函数 <span class="math inline">\(f(A, B)\)</span> 其实就是 <span class="math inline">\(A\)</span> 中有多少元素大于 <span class="math inline">\(\min{B_i}\)</span> 。按照定义区间 dp 即可，由于是小于 <span class="math inline">\(\mathcal{O}(n^2)\)</span> 级别的二维数点，可以使用二维前缀和。 查询最小值随手预处理一下 <code>ST</code> 表即可。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const int _ &#x3D; 600;
+int dp[_][_];
+int S[_][_];
+int n, A[_];
+int query(int L, int R, int up)&#123; &#x2F;&#x2F; how many elements in range[L, R] which is &gt; up
+	return S[n][R] - S[up][R] - S[n][L - 1] + S[up][L - 1];
+&#125;
+const int _S &#x3D; 4000;
+const int LOG &#x3D; 10;
+int ST[_S][LOG + 2];
+int Log[_S];
+void initQuery()&#123;
+	rep(i, 1, n) ST[i][0] &#x3D; A[i];
+	rep(j, 1, LOG) rep(i, 1, n) ST[i][j] &#x3D; min(ST[i][j - 1], ST[i + (1 &lt;&lt; (j - 1))][j - 1]);
+	Log[1] &#x3D; 0; rep(i, 2, n) Log[i] &#x3D; Log[i &gt;&gt; 1] + 1;
+&#125;
+int RMQ(int L, int R)&#123;
+	int Ln &#x3D; Log[R - L + 1];
+	return min(ST[L][Ln], ST[R - (1 &lt;&lt; Ln) + 1][Ln]);
+&#125;
+int calc(int L0, int R0, int L1, int R1)&#123;
+	int min0 &#x3D; RMQ(L0, R0), min1 &#x3D; RMQ(L1, R1);
+	return query(L0, R0, min1) + query(L1, R1, min0);
+&#125;
+int main()&#123;
+	Read(n); rep(i, 1, n) Read(A[i]); initQuery();
+	rep(i, 1, n) S[A[i]][i]++;
+	rep(i, 1, n) rep(j, 1, n) S[i][j] +&#x3D; S[i - 1][j] + S[i][j - 1] - S[i - 1][j - 1];
+	memset(dp, 0x3f, sizeof(dp)); rep(i, 1, n) dp[i][i] &#x3D; 0;
+	rep(Len, 2, n)&#123;
+		rep(L, 1, n)&#123;
+			int R &#x3D; L + Len - 1; if(R &gt; n) break;
+			int &amp;ans &#x3D; dp[L][R];
+			rep(k, L, R - 1) ans &#x3D; min(ans, dp[L][k] + dp[k + 1][R] + calc(L, k, k + 1, R));
+		&#125;
+	&#125;
+	printf(&quot;%d&quot;, dp[1][n]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details>
+<h3 id="d.-四-2">D. 四</h3>
+<div class="note info"><p>给定 <span class="math inline">\(1-N\)</span> 的排列但其中 <span class="math inline">\(M\)</span> 个位置的值被删去了（用 <span class="math inline">\(0\)</span> 表示），现在你需要将其复原，问有多少种方案能够使得复原的序列的逆序对个数在 <span class="math inline">\([L,R]\)</span> 之间</p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>折半搜索，中间 <span class="math inline">\(\mathcal{O}(n^2)\)</span> 合并。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+
+</details>
+<h2 id="round-7">Round 7</h2>
+<p>AK。 ### A. 一 <div class="note info"><p>有一个<span class="math inline">\(n\times n\)</span>的矩阵，矩阵中的每个数都是整数。现在要从矩阵中取<span class="math inline">\(m\)</span>个数，要求每一行最多取一个数，每一列也最多取一个数。这<span class="math inline">\(m\)</span>个数的和最大能是多少？ <span class="math inline">\(n \le 15, m \le 3, A_{i,j} \le 10^5\)</span></p>
+</div> <details class="note success"><summary><p>Solution</p>
+</summary>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const int _ &#x3D; 20;
+int n, m, A[_][_];
+int main()&#123;
+	Read(n)(m); rep(i, 1, n) rep(j, 1, n) Read(A[i][j]);
+	if(m &#x3D;&#x3D; 1) &#123;
+		int MAX &#x3D; 0; rep(i, 1, n) rep(j, 1, n) MAX &#x3D; max(MAX, A[i][j]);
+		printf(&quot;%d&quot;, MAX);
+	&#125; else if(m &#x3D;&#x3D; 2)&#123;
+		int MAX &#x3D; 0;
+		rep(a, 1, n) rep(b, 1, n) rep(c, 1, n) rep(d, 1, n)&#123;
+			if(a &#x3D;&#x3D; c || b &#x3D;&#x3D; d) continue;
+			MAX &#x3D; max(MAX, A[a][b] + A[c][d]);
+		&#125;
+		printf(&quot;%d&quot;, MAX);
+	&#125; else if(m &#x3D;&#x3D; 3)&#123;
+		int MAX &#x3D; 0;
+		rep(a, 1, n) rep(b, 1, n) rep(c, 1, n) rep(d, 1, n) rep(e, 1, n) rep(f, 1, n)&#123;
+			if(a &#x3D;&#x3D; c || c &#x3D;&#x3D; e || a &#x3D;&#x3D; e || b &#x3D;&#x3D; d || d &#x3D;&#x3D; f || b &#x3D;&#x3D; f) continue;
+			MAX &#x3D; max(MAX, A[a][b] + A[c][d] + A[e][f]);
+		&#125;
+		printf(&quot;%d&quot;, MAX);
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details> ### B. 二 <div class="note info"><p>有多少整数大于等于<span class="math inline">\(x\)</span>，小于等于<span class="math inline">\(y\)</span>，而且是7的倍数，又不是2,3,5的倍数呢？ <span class="math inline">\(x,y \le 10^{18}\)</span></p>
+</div> <details class="note success"><summary><p>Solution</p>
+</summary>
+<p>容斥原理 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">LL calc(LL R)&#123;
+	LL ans &#x3D; 0;
+	ans +&#x3D; R &#x2F; 7; ans -&#x3D; R &#x2F; 14; ans -&#x3D; R &#x2F; 21; ans -&#x3D; R &#x2F; 35; ans +&#x3D; R &#x2F; 42; ans +&#x3D; R &#x2F; 70; ans +&#x3D; R &#x2F; 105; ans -&#x3D; R &#x2F; 210;
+	return ans;
+&#125;
+int main()&#123;
+	LL L, R; Read(L)(R);
+	printf(&quot;%lld&quot;, calc(R) - calc(L - 1));
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details> ### C. 三 <div class="note info"><p>给出一个<span class="math inline">\(n\)</span>个点<span class="math inline">\(m\)</span>条边的图。</p>
+<p>现在想要选择两个整数<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>，满足<span class="math inline">\(1 \leq a &lt; b &lt; n\)</span>，然后把编号在区间<span class="math inline">\([1,a]\)</span>中的点染成蓝色，把编号在区间<span class="math inline">\([a+1,b]\)</span>中的点染成红色，编号在区间<span class="math inline">\([b+1,n]\)</span>中的点染成蓝色。</p>
+<p>如果一条边的两个端点颜色不同，我们称这条边为双色边，否则称之为单色边。</p>
+<p>如何选择<span class="math inline">\(a,b\)</span>，能够最小化双色边的数量？ <span class="math inline">\(n, m \le 10^5\)</span></p>
+</div></p>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>经典套路，按顺序枚举 <span class="math inline">\(a\)</span>，线段树维护 <span class="math inline">\(b\)</span> 的每一个取值时的双色边数量，枚举 <span class="math inline">\(a\)</span> 的过程中维护 <span class="math inline">\(b\)</span> 的取值，更新答案即可。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n, m;
+const int _ &#x3D; 3e5 + 100;
+vector&lt;int&gt; ToL[_];
+vector&lt;int&gt; ToR[_];
+namespace SegmentTree&#123;	&#x2F;&#x2F; maintain the number of double-color edge;
+					  	&#x2F;&#x2F; the min number ;
+	const int _ &#x3D; 2e6 + 100;
+	int ch[_][2], v[_], tag_add[_], tot &#x3D; 0;
+	#define ls(o) (ch[o][0])
+	#define rs(o) (ch[o][1])
+	#define maintain(o) (v[o] &#x3D; min(v[ls(o)], v[rs(o)]))
+	#define make (tot++, ch[tot][0] &#x3D; ch[tot][1] &#x3D; v[tot] &#x3D; tag_add[tot] &#x3D; 0, tot)
+	int Groot()&#123; return make; &#125;
+	void build(int o, int L, int R)&#123;
+		if(L &#x3D;&#x3D; R) return (void)(v[o] &#x3D; 0); int mid &#x3D; (L + R) &gt;&gt; 1;
+		ls(o) &#x3D; make; rs(o) &#x3D; make;
+		build(ls(o), L, mid); build(rs(o), mid + 1, R);
+		maintain(o);
+	&#125;
+	void tar(int o, int _v)&#123; tag_add[o] +&#x3D; _v; v[o] +&#x3D; _v; &#125;
+	void push(int o) &#123; if(!tag_add[o]) return ; tar(ls(o), tag_add[o]); tar(rs(o), tag_add[o]); tag_add[o] &#x3D; 0; &#125;
+	void update(int o, int nowl, int nowr, int L, int R, int Val)&#123;
+		if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return tar(o, Val);
+		int mid &#x3D; (nowl + nowr) &gt;&gt; 1; push(o);
+		if(L &lt;&#x3D; mid) update(ls(o), nowl, mid, L, R, Val);
+		if(R  &gt; mid) update(rs(o), mid + 1, nowr, L, R, Val);
+		maintain(o);
+	&#125;
+	int query(int o, int nowl, int nowr, int L, int R)&#123;
+		if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return v[o];
+		int mid &#x3D; (nowl + nowr) &gt;&gt; 1; push(o);
+		int ans &#x3D; INT_MAX;
+		if(L &lt;&#x3D; mid) ans &#x3D; min(ans, query(ls(o), nowl, mid, L, R));
+		if(R  &gt; mid) ans &#x3D; min(ans, query(rs(o), mid + 1, nowr, L, R));
+		return ans;
+	&#125;
+&#125; 	using SegmentTree::update; 	using SegmentTree::build;
+  	using SegmentTree::query;	using SegmentTree::Groot;
+int main()&#123;
+	Read(n)(m);
+	int root &#x3D; Groot(); build(root, 1, n); int ans &#x3D; INT_MAX;
+	rep(i, 1, m)&#123;
+		int u, v; Read(u)(v); if(u &gt; v) swap(u, v);
+		ToL[v].push_back(u); ToR[u].push_back(v); update(root, 1, n, u, v - 1, 1);
+	&#125;
+	rep(i, 1, n - 2) &#123;
+		update(root, 1, n, i + 1, n - 1, -int(ToL[i].size()));
+		rep(j, 0, ToR[i].size() - 1) update(root, 1, n, i, ToR[i][j] - 1, -1), update(root, 1, n, ToR[i][j], n, 1);
+		ans &#x3D; min(ans, query(root, 1, n, i + 1, n - 1));
+	&#125;
+	printf(&quot;%d&quot;, ans);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details>
+<h3 id="d.-四-3">D. 四</h3>
+<div class="note info"><p><span class="math inline">\(n\)</span>个小伙伴（编号从0到<span class="math inline">\(n−1\)</span>）围坐一圈玩游戏。按照顺时针方向给<span class="math inline">\(n\)</span>个位置编号，从0到<span class="math inline">\(n−1\)</span>。最初，第0号小伙伴在第0号位置，第1号小伙伴在第1号位置，<span class="math inline">\(\dots\)</span>，依此类推。游戏规则如下： - 有一个序列<span class="math inline">\(A=\{a_1,\dots,a_m\}\)</span>，其中每个数互不相同，且都是<span class="math inline">\([1,n-1]\)</span>中的正整数。 - 每一轮从<span class="math inline">\(A\)</span>中选择一个数<span class="math inline">\(a\)</span>，第0号位置上的小伙伴顺时针走到第<span class="math inline">\(a\)</span>号位置，第1号位置小伙伴走到第<span class="math inline">\(a+1\)</span>号位置。依此类推，第<span class="math inline">\(n-a\)</span>号位置上的小伙伴走到第0号位置，第<span class="math inline">\(n-a+1\)</span>号位置上的小伙伴走到第1号位置，<span class="math inline">\(\dots\)</span>，第<span class="math inline">\(n-1\)</span>号位置上的小伙伴顺时针走到第<span class="math inline">\(a-1\)</span>号位置。也就是说，第<span class="math inline">\(i\)</span>号位置上的小伙伴走到第<span class="math inline">\((i+a)\mod\ n\)</span>号位置</p>
+<p>游戏进行<span class="math inline">\(t\)</span>轮。由于每一轮都需要从<span class="math inline">\(A\)</span>中的<span class="math inline">\(m\)</span>个数中选一个数，所以游戏共有<span class="math inline">\(m^t\)</span>种玩法。其中有多少种玩法能够使得游戏结束时，第0号小伙伴所在的位置编号是<span class="math inline">\(d\)</span>的倍数？（0也是<span class="math inline">\(d\)</span>的倍数）、 对 <span class="math inline">\(10^9 + 7\)</span>取模。 <span class="math inline">\(1\le m \le n \le 1000, 1 \le t \le 10^9, 1 \le d \le n\)</span>。</p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>设 <span class="math inline">\(dp[i]\)</span> 为进行若干轮之后在位置 <span class="math inline">\(i\)</span> 的方案数。 转移显然是卷积。 包装了循环卷积的定义。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">namespace subtask_acceptable_solution&#123;
+	const int _ &#x3D; 1500;
+	struct Matrix&#123;
+		int dp[_];
+		Matrix ()&#123; memset(dp, 0, sizeof(dp)); &#125;
+		Matrix operator * (const Matrix &amp; rhs) &#123;
+			Matrix Res;
+			rep(i, 0, n - 1) rep(j, 0, n - 1) Res.dp[(i + j) % n] &#x3D; (Res.dp[(i + j) % n] +0ll+ dp[i] *1ll* rhs.dp[j] % MOD) % MOD;
+			return Res;
+		&#125;
+	&#125;;
+	Matrix pow(Matrix a, int b)&#123;
+		Matrix ans &#x3D; a; b--;
+		while(b)&#123;
+			if(b &amp; 1) ans &#x3D; ans * a;
+			a &#x3D; a * a;
+			b &gt;&gt;&#x3D; 1;
+		&#125;
+		return ans;
+	&#125;
+	void work()&#123;
+		Matrix a;
+		rep(i, 1, m) a.dp[A[i]] ++;
+		Matrix Ans &#x3D; pow(a, t);
+		int ans &#x3D; 0;
+		for(int i &#x3D; 0; i &lt; n; i +&#x3D; d) ans &#x3D; (ans +0ll+ Ans.dp[i]) % MOD;
+		printf(&quot;%d\n&quot;, ans);
+	&#125;
+&#125;
+int main()&#123; &#x2F;&#x2F;freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);
+	Read(n)(m)(t)(d); rep(i, 1, m) A[i] &#x3D; read() % n;
+	subtask_acceptable_solution::work();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
+</details>
+<h2 id="round-8">Round 8</h2>
+<h3 id="a.-双挂">A. 双挂</h3>
+<div class="note info"><p>今年期中考试考了《程序设计》、《算法设计》和《数据结构》共三门课。由于考试太难了，好多同学都挂科了。班里一共<span class="math inline">\(n\)</span>个人，其中<span class="math inline">\(a\)</span>个人挂了《程序设计》，<span class="math inline">\(b\)</span>个人挂了《算法设计》，<span class="math inline">\(c\)</span>个人挂了《数据结构》。</p>
+<p>如果一个同学挂了恰好两门课，那么我们就说他“双挂”了。 给出<span class="math inline">\(n,a,b,c\)</span>，问最少有多少同学“双挂”了。</p>
+<p><span class="math inline">\(0 \le a, b, c \le n, n \le 10^9\)</span></p>
+</div>
+<details class="note success"><summary><p>solution</p>
+</summary>
+<p>设三门课挂科的人对应集合分别为 <span class="math inline">\(\mathbb{A}, \mathbb{B}, \mathbb{C}\)</span></p>
+<p>显然并不是所有人都会挂科目。</p>
+<p><span class="math inline">\(|\mathbb{A} \cup \mathbb{B} \cup \mathbb{C}| = |\mathbb{A}| + |\mathbb{B}| + |\mathbb{C}| - |\mathbb{A} \cap \mathbb{B}| - |\mathbb{A} \cap \mathbb{C}| - |\mathbb{B} \cap \mathbb{C}| + |\mathbb{A} \cap \mathbb{B} \cap \mathbb{C}| \le n\)</span></p>
+<p>移项得</p>
+<p>为了方便：设 <span class="math inline">\(S = \mathbb{A} \cap \mathbb{B} \cap \mathbb{C}\)</span></p>
+<p><span class="math inline">\(\left(|\mathbb{A} \cap \mathbb{B}| - |S|\right) + \left(|\mathbb{A} \cap \mathbb{C}| - |S|\right) + \left(|\mathbb{B} \cap \mathbb{C}| - |S|\right) \ge |\mathbb{A}| + |\mathbb{B}| + |\mathbb{C}| + |S| - n - 3|S|\)</span></p>
+<p>答案取值为 <span class="math inline">\(|\mathbb{A}| + |\mathbb{B}| + |\mathbb{C}| -2|S| - n\)</span>，其中 <span class="math inline">\(|S|\)</span> 越大 答案越小，其最大取值就是 <span class="math inline">\(\max{ \{ \mathbb{A}, \mathbb{B}, \mathbb{C} \} }\)</span> <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">LL n, a, b, c; Read(n)(a)(b)(c);
+printf(&quot;%lld&quot;, max(0LL, a + b + c - 2 * min(a, min(b, c)) - n));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+
+</details>
+<h3 id="b.-ddl选手">B. DDL选手</h3>
+<div class="note info"><p>DDL选手总是在最后做作业。</p>
+<p>有<span class="math inline">\(n\)</span>个作业，第<span class="math inline">\(i\)</span>个作业的DDL时间是<span class="math inline">\(d_i\)</span>，做这个作业需要<span class="math inline">\(t_i\)</span>的时间。</p>
+<p>做作业要一心一意，所以不能同时做两个作业。如果现在开始做第<span class="math inline">\(i\)</span>个作业，那么接下来<span class="math inline">\(t_i\)</span>的时间都要做这个作业，不能做别的。</p>
+<p>DDL选手总是先做DDL时间早的作业。如果两个作业的DDL时间一样，那么DDL选手会先做其中编号小的</p>
+<p>为DDL选手设计每个作业开始做的时间，使得DDL选手先做DDL早的作业（如果两个作业的DDL时间一样，那么先做其中编号小的），而且每个作业都能在DDL时间之前做完（时间是连续的，“之前”的意思是，最晚恰好这个时间完成。）。在保证完成的前提下，尽可能把开始做作业的时间往后推。（也就是如果有多个方案可以做完作业，选择开始时间最晚的方案。可以证明，最优方案中，每一个作业的开始时间都不早于其他方案的开始时间。输出这个最优方案。）</p>
+<p><span class="math inline">\(n \le 10^5, t_i \le 10^4\)</span></p>
+</div>
+<details class="note success"><summary><p>solution</p>
+</summary>
+<p>依照题意反向模拟。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const int _ &#x3D; 2e5 + 100;
+#define int long long
+struct HomeWork_t&#123;
+	int d, t, id;
+&#125;H[_]; int n ;
+int Ans[_];
+bool CMP(const HomeWork_t &amp; A, const HomeWork_t &amp; B) &#123; return (A.d &lt; B.d) || (A.d &#x3D;&#x3D; B.d &amp;&amp; A.id &lt; B.id); &#125;
+#undef int
+int main()&#123;
+	Read(n); rep(i, 1, n) Read(H[i].d)(H[i].t), H[i].id &#x3D; i;
+	sort(H + 1, H + 1 + n, CMP);
+	#define int long long
+	int Last &#x3D; LLONG_MAX;
+	for(int i &#x3D; n; i &gt;&#x3D; 1; i--)&#123;
+		if(Last &gt;&#x3D; H[i].d) &#123;
+			Last &#x3D; H[i].d - H[i].t;
+			Ans[H[i].id] &#x3D; Last;
+		&#125; else &#123;
+			Last &#x3D; (Last) - H[i].t;
+			Ans[H[i].id] &#x3D; Last;
+		&#125;
+	&#125;
+	rep(i, 1, n) printf(&quot;%lld\n&quot;, Ans[i]);
+	#undef int
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h3 id="c.-约数链">C. 约数链</h3>
+<div class="note info"><p>如果<span class="math inline">\(n\)</span>个数<span class="math inline">\(a_1,\dots,a_n\)</span>满足：对于<span class="math inline">\(1\leq i &lt; n\)</span>，<span class="math inline">\(a_i\)</span>是<span class="math inline">\(a_{i+1}\)</span>的约数，那么<span class="math inline">\(a_1,\dots,a_n\)</span>被称为一个约数链。一个约数链的权值是它所包含的<span class="math inline">\(n\)</span>个数的乘积。</p>
+<p>给出<span class="math inline">\(n,m\)</span>，只允许使用不超过<span class="math inline">\(m\)</span>的正整数组成长为<span class="math inline">\(n\)</span>的约数链，会有非常多的方式。求所有这些方式得到的约数链的权值之和。 <span class="math inline">\(n \le 10, m \le 10^7\)</span></p>
+</div>
+<details class="note success"><summary><p>solution</p>
+</summary>
+<p>可以 <strong>dp</strong> 一下，设 <span class="math inline">\(dp[n][k]\)</span> 为长度为 <span class="math inline">\(n\)</span> 的约数链，结尾是 <span class="math inline">\(k\)</span> 的权值和。 转移为刷表。复杂度做到 <span class="math inline">\(\mathcal{O}(nm\log m)\)</span>。根本过不去。</p>
+<p>设 <span class="math inline">\(f_n(k) = dp[n][k]\)</span> 其中 函数 <span class="math inline">\(f_k(x)\)</span> 为积性函数。</p>
+<p>对于 <span class="math inline">\(a \perp b\)</span> 设 <span class="math inline">\(c = a \times b\)</span> 对于 <span class="math inline">\(f_n(c)\)</span> 所统计的方案中的每一个数字都可以质因数分解成两组，一组是只属于 <span class="math inline">\(a\)</span> 的质因子，另一组是只属于 <span class="math inline">\(b\)</span> 的质因子。手举几个栗子就能发现符合积性函数的性质。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const int _ &#x3D; 1e7 + 100;
+const int MOD &#x3D; 1e9 + 7;
+int np[_], prime[int(1e6)], tot &#x3D; 0, Mid[_];
+void Init(int n)&#123;
+	Mid[1] &#x3D; 0; np[1] &#x3D; 1;
+	for(int i &#x3D; 2; i &lt;&#x3D; n; i++)&#123;
+		if(!np[i]) prime[++tot] &#x3D; i, Mid[i] &#x3D; i;
+		for(int j &#x3D; 1; j &lt;&#x3D; tot &amp;&amp; prime[j] * i &lt;&#x3D; n; j++)&#123;
+			int x &#x3D; prime[j] * i;
+			np[x] &#x3D; 1; Mid[x] &#x3D; prime[j];
+			if(i % prime[j] &#x3D;&#x3D; 0) break;
+		&#125;
+	&#125;
+
+&#125;
+int n, m;
+int dp[int(20)][int(30)]; int Ans[_];
+long long t &#x3D; 1;
+int main()&#123; &#x2F;&#x2F;freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);
+	Init(1e7 + 2); Read(n)(m);
+	rep(S, 1, tot)&#123;
+		int now &#x3D; prime[S];
+		memset(dp, 0, sizeof(dp));
+		t &#x3D; 1; for(int j &#x3D; 0; t &lt;&#x3D; m; j++, t *&#x3D; now) dp[1][j] &#x3D; t;
+		rep(i, 2, n)&#123;
+			t &#x3D; 1; for(int j &#x3D; 0; t &lt;&#x3D; m; j++, t *&#x3D; now) &#123;
+				int &amp;ans &#x3D; dp[i][j] &#x3D; 0;
+				rep(k, 0, j) ans &#x3D; (ans +0ll+ dp[i - 1][k] *1ll* t % MOD) % MOD;
+			&#125;
+		&#125;
+		t &#x3D; 1; for(int j &#x3D; 0; t &lt;&#x3D; m; j++, t *&#x3D; now) Ans[t] &#x3D; dp[n][j];
+	&#125;
+	Ans[1] &#x3D; 1;
+	rep(i, 2, m)&#123;
+		if(Ans[i]) continue;
+		int A &#x3D; i, B &#x3D; 1;
+		while(A % Mid[i] &#x3D;&#x3D; 0) A &#x2F;&#x3D; Mid[i], B *&#x3D; Mid[i];
+		Ans[i] &#x3D; (Ans[A] *1ll* Ans[B]) % MOD;
+	&#125;
+	int ans &#x3D; 0;
+	rep(i, 1, m) ans &#x3D; (ans +0ll+ Ans[i]) % MOD;
+	printf(&quot;%d&quot;, ans);
+
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h3 id="d.-连通">D. 连通</h3>
+<div class="note info"><p>给出一张无向图，求有多少种方案使得删除三条边，使原图不连通。</p>
+<p><span class="math inline">\(n,m \le 2000\)</span></p>
+</div>
+<details class="note success"><summary><p>solution</p>
+</summary>
+<p>考虑枚举删除的第一条边是那条，然后问题转化成了 求在一张图中删除两条边使图不连通的方案数。 先删去一条边，考虑剩下的图的形态， - 图已经不连通了，那答案的贡献就是每条边两两配对的方案数 - 图是联通的，考虑对图建一个生成树，考虑删边的方式 - 删除两条非树边 一定不合法，之前的树仍然存在，保证了图的连通性。 - 删除一条树边，一条非树边 被计入答案，当且仅当，这条树边被这条非树边唯一覆盖。这里的正确性显然。 - 删除两条非树边 被计入答案，当且仅当，这两条边被相同的一组非树边覆盖。 - 证明可以考虑，对于原树来说，如果删除两条树边，断成三份，如果两条边被相同的一组非树边覆盖，没有边可以联通断开的中间部分。 - 考虑如何实现，对每一条非树边赋一个随机权值，然后树边的权值定义为覆盖其的每一条非树边的权值异或和。统计删除两条边后图不联通的方案数，就转化为，统计有多少种方案选出两条边，使其权值相同。 树上差分即可，异或有自反性，其标记在 LCA 处自动消失。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const int _ &#x3D; 4100;
+int head[_];
+struct edges&#123;
+	int node;
+	int nxt;
+&#125;edge[_]; int tot &#x3D; 1;
+const int MOD &#x3D; 1e9 + 7;
+int n, m;
+int ToEid[_];
+int ToNid[_];
+int book[_];
+u64 tag[int(2100)];
+bool vis[int(2100)];
+u64 EVal[int(2100)];
+void add(int u, int v)&#123;
+	tot++;
+	edge[tot].node &#x3D; v;
+	edge[tot].nxt  &#x3D; head[u];
+	head[u]        &#x3D; tot;
+&#125;
+u64 gen()&#123;
+	u64 A &#x3D; rand() *1ull* rand() * rand() *1ull* rand();
+	u64 B &#x3D; rand() *1ull* rand() * rand() *1ull* rand();
+	return A + B + rand();
+&#125;
+void dfs0(int now, int f)&#123;
+	vis[now] &#x3D; 1;
+	for(int i &#x3D; head[now]; i ; i &#x3D; edge[i].nxt)&#123;
+		int ex &#x3D; edge[i].node; if(ex &#x3D;&#x3D; f) continue; if(book[i]) continue;
+		if(!vis[ex]) dfs0(ex, now);
+		else &#123;
+			if( EVal[ToNid[i]]) continue;
+			u64 g &#x3D; EVal[ToNid[i]] &#x3D; gen();
+			tag[now] ^&#x3D; g; tag[ex] ^&#x3D; g;
+		&#125;
+	&#125;
+&#125;
+void dfs1(int now, int f)&#123;
+	u64 &amp;ntag &#x3D; tag[now];
+	for(int i &#x3D; head[now]; i ; i &#x3D; edge[i].nxt)&#123;
+		int ex &#x3D; edge[i].node; if(ex &#x3D;&#x3D; f) continue; if(book[i]) continue;
+		if(!EVal[ToNid[i]]) dfs1(ex, now), EVal[ToNid[i]] &#x3D; tag[ex], ntag ^&#x3D; tag[ex];
+	&#125;
+&#125;
+map&lt;u64, int&gt; M;
+const int inv6 &#x3D; 166666668;
+int main()&#123;&#x2F;&#x2F; freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);
+	Read(n)(m); int *seed &#x3D; new int; srand(*seed + n + m);
+	rep(i, 1, m)&#123;
+		int u, v; Read(u)(v);
+		ToEid[i] &#x3D; tot + 1; ToNid[tot + 1] &#x3D; ToNid[tot + 2] &#x3D; i;
+		add(u, v); add(v, u);
+	&#125;
+	int Pans &#x3D; 0;
+	rep(i, 1, m)&#123;
+		int rs &#x3D; ToEid[i];
+		book[rs] &#x3D; book[rs ^ 1] &#x3D; 1;
+		memset(tag, 0, sizeof(tag)); memset(vis, 0, sizeof(vis)); memset(EVal, 0, sizeof(EVal)); M.clear();
+		dfs0(1, 1);
+
+		bool pass &#x3D; true;
+		rep(j, 1, n)  if(!vis[j]) &#123; pass &#x3D; false; break; &#125;
+		if(!pass) &#123; int t &#x3D; m - 1; Pans &#x3D; (Pans +0ll+ (t * (t - 1))) % MOD; book[rs] &#x3D; book[rs ^ 1] &#x3D; 0; continue; &#125;
+		dfs1(1, 1);
+		rep(j, 1, m) if(i !&#x3D; j) M[EVal[j]] ++;
+		int ans &#x3D; 0;
+		for(map&lt;u64, int&gt; :: iterator i &#x3D; M.begin(); i !&#x3D; M.end(); i++)&#123;
+			if(i-&gt;first &#x3D;&#x3D; 0ull)
+				ans &#x3D; (ans +0ll+ (i-&gt;second *1ll* (i-&gt;second - 1)) % MOD) % MOD,
+				ans &#x3D; (ans +0ll+ (((m - 1) - (i-&gt;second)) *2ll* (i-&gt;second)) % MOD) % MOD;
+			else
+				ans &#x3D; (ans +0ll+ (i-&gt;second *1ll* (i-&gt;second - 1)) % MOD) % MOD;
+		&#125;
+		Pans &#x3D; (ans +0ll+ Pans) % MOD;
+		book[rs] &#x3D; book[rs ^ 1] &#x3D; 0;
+	&#125;
+	printf(&quot;%d&quot;, int(Pans *1ll* inv6 % MOD));
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h2 id="round-9">Round 9</h2>
+<p>降智场。 ### A. 最大公约数 <div class="note info"><p>给出一个长度为 <span class="math inline">\(n\)</span> 的序列。 设 <span class="math inline">\(k = \max_{i &lt; j}{\operatorname{gcd}(A_i, A_j)}\)</span>， 求出： - <span class="math inline">\(k\)</span> - <span class="math inline">\(\sum_{i &lt; j}\limits{[\operatorname{gcd}(A_i, A_j)=k]}\)</span> - <span class="math inline">\(\sum_{i &lt; j}\limits{[\operatorname{gcd}(A_i, A_j)=k]A_i \times A_j}\)</span></p>
+</div> <details class="note success"><summary><p>Solution</p>
+</summary>
+<p>枚举一下 <span class="math inline">\(gcd\)</span> 可能以这个数字为 <span class="math inline">\(gcd\)</span> 的两个数字一定是 <span class="math inline">\(gcd\)</span> 的倍数。 从大到小枚举 <span class="math inline">\(gcd\)</span> 查询有多少倍数，如果大于 <span class="math inline">\(2\)</span> ，这个 <span class="math inline">\(gcd\)</span> 就可以。 剩余的两项在得到 <span class="math inline">\(k\)</span> 的基础上判断即可。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const int MOD &#x3D; 998244353;
+const int _ &#x3D; 2e6 + 100;
+const int inv2 &#x3D; 499122177;
+int book[_];
+int A[_], n, MAX &#x3D; 0;
+int K &#x3D; 0;
+int main()&#123;
+	Read(n); rep(i, 1, n) Read(A[i]), book[A[i]]++, MAX &#x3D; max(MAX, A[i]);
+	for(int i &#x3D; MAX; i &gt;&#x3D; 1; i--)&#123;
+		int cnt &#x3D; 0;
+		for(int j &#x3D; i; j &lt;&#x3D; MAX; j +&#x3D; i) cnt +&#x3D; book[j];
+		if(cnt &gt;&#x3D; 2) &#123; K &#x3D; i; break; &#125;
+	&#125;
+	int SUM &#x3D; 0, ans1 &#x3D; 0, ans2 &#x3D; 0;
+	for(int i &#x3D; K; i &lt;&#x3D; MAX; i +&#x3D; K)&#123;
+		if(!book[i]) continue;
+		ans1 +&#x3D; book[i]; SUM &#x3D; (SUM +0ll+ book[i] *1ll* i % MOD) % MOD;
+	&#125;
+	ans1 &#x3D; ((ans1 *1ll* (ans1 - 1)) % MOD *1ll* inv2) % MOD;
+	for(int i &#x3D; K; i &lt;&#x3D; MAX; i +&#x3D; K)&#123;
+		if(!book[i]) continue;
+		ans2 &#x3D; (ans2 +0ll+ ( (SUM -0ll- i + MOD) % MOD *1ll* i % MOD *1ll* book[i]) % MOD ) % MOD;
+	&#125;
+	printf(&quot;%d %d %d\n&quot;, K, ans1, ans2 *1ll* inv2 % MOD);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details></p>
+<h3 id="b.-紧急出口">B. 紧急出口</h3>
+<div class="note info"><p>在一个走廊里共有 <span class="math inline">\(N\)</span> 个楼梯，其中 <span class="math inline">\(N\)</span> 个楼梯之间有 <span class="math inline">\(N-1\)</span> 个间隔， 个间隔会贴有一个紧急出口的指示牌指向左侧或者右侧。</p>
+<p>问在所有的 <span class="math inline">\(2N−1\)</span> 种指示牌的贴法当中，有多少种贴法满足恰好有 <span class="math inline">\(M\)</span> 个楼梯(包括最左最右)的左右侧的紧急出口标识都不指向自己。</p>
+<p>输出的答案对 <span class="math inline">\(998244353\)</span> 取模。 <span class="math inline">\(N \le 10^3, M \le 10^9\)</span></p>
+</div>
+<details class="note success"><summary><p>Solutiuon</p>
+</summary>
+<h4 id="倍增dp">倍增DP</h4>
+<div class="note danger">
+<p>
+待填
+</p>
+</div>
+<h4 id="隔板法">
+隔板法
+</h4>
+<p>
+称 “左右侧的紧急出口标识都不指向自己的点” 为关键点。
+</p>
+<p>
+考虑如果选定了一个点是关键点，那么他们两边就形如 <code>&lt; o &gt;</code> ，可以发现相邻的两个关键点 <span class="math inline">(O_1, O_2)</span> 之间贴牌的方案一定形如 <span class="math inline">(...&lt; O_1 &gt; o &gt; ... &gt; o &lt; ... &lt; o &lt; O_2 &gt;...)</span> 显然，其实是把原序列分成连续的 <span class="math inline">(2m)</span> 段，每段内方向相同，相邻两段方向相反。 隔板即可。
+</p>
+<p>
+<p>考虑组合数的通项公式，项数只有 <span class="math inline">(m)</span> 项。 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n, m; Read(n)(m); printf(&quot;%d&quot;, C(n, 2 * m - 1));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+
+</details></p>
+<h3 id="c.-合影">C. 合影</h3>
+<div class="note info"><p>众所周知， ACM ICPC 是三人组队参赛的比赛。现在在 ICPC WF2020 现场，有 <span class="math inline">\(k\)</span> 支参赛队伍要站成一排拍照！</p>
+<p>摄影师小Z想促进队伍间的交流，于是小Z要求每个队伍的3个队员不能都挨在一起</p>
+<p>现在小Z想问一问你，这 <span class="math inline">\(k\)</span> 支队伍有多少种拍照方式呢？由于数字很大，所以对 <span class="math inline">\(998244353\)</span> 取模就好~ <span class="math inline">\(k \le 10^6\)</span></p>
+</div>
+<details class="note success"><summary><p>Solution</p>
+</summary>
+<p>要求是每一队的三个队员不能全部挨在一起。 无法直接全部满足，考虑容斥。</p>
+<p>假如所有人按任意顺序排列有 <span class="math inline">\((3k)!\)</span> 种排列方式。</p>
+<p>显然会算入了不合法的情况，考虑去除这些 钦定哪一队全部挨在一起了，如果强制某一队挨在一起可以吧那一队捆成一个人 这样的方案数为 <span class="math inline">\((3k - 2)!\)</span>，算入答案就是 <span class="math inline">\(\dbinom{k}{1}(3k - 2)!(3!)^1\)</span> 最后一个是因为同一队中的队员也有顺序。</p>
+<p>显然会去除多了，如果有多队同时不合法，这些方案会被去除多次，钦定哪两队全部挨在一起了，算入答案就是 <span class="math inline">\(\dbinom{k}{2}(3k - 4)!(3!)^2\)</span>。</p>
+<p>显然加多了……</p>
+<p>然后就是容斥原理了。</p>
+<p>答案应该是 <span class="math inline">\(\sum_{i=0}^{k}\limits{(-1)^i\dbinom{k}{i}(3k - 2i)!(3!)^i}\)</span></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int C(int n, int m)&#123; return frac[n] *1ll* ifrac[n - m] % MOD *1ll* ifrac[m] % MOD; &#125;
+int main()&#123;
+	int k; Read(k); Init((k + 1) * 3);
+	int ans &#x3D; 0;
+	rep(i, 0, k)&#123;
+		int tans &#x3D; 0;
+		tans &#x3D; C(k, i) *1ll* frac[3 * k - 2 * i] % MOD *1ll* pow(6, i, MOD) % MOD;
+		tans &#x3D; (i &amp; 1) ? MOD - tans : tans;
+		ans &#x3D; (ans +0ll+ tans) % MOD;
+	&#125;
+	printf(&quot;%d&quot;, ans);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h3 id="d.-路径">D. 路径</h3>
+<div class="note info"><p>给定一个<span class="math inline">\(n\)</span>个顶点的无根树，顶点编号 <span class="math inline">\(1 ~ n\)</span>。</p>
+<p>同时给定树上的 <span class="math inline">\(k\)</span> 条带权路径，要求支持以下操作:</p>
+<ul>
+<li><code>1 k</code> ，删除第 <span class="math inline">\(k\)</span> 条带权路径。</li>
+<li><code>2 k v</code> ，将第 <span class="math inline">\(k\)</span> 条带权路径的权值修改为 <span class="math inline">\(v\)</span> 。</li>
+<li><code>3 p</code> ，给定一个树上节点 <span class="math inline">\(p\)</span> ，询问所有没有被删去的带权路径中，不与该节点相交的所有路径中的最小权值。 <span class="math inline">\(n, k, q \le 10^5\)</span></li>
+</ul>
+</div>
+<details class="note success"><summary><p>solution</p>
+</summary>
+<h4 id="做法一树剖-stdset-维护标记-标记永久化线段树">做法一：树剖 + <code>std::set</code> 维护标记 标记永久化线段树</h4>
+<span class="math inline">\(\mathcal{O}((k + q)\log_2^3{n})\)</span> 先树剖，路径补集仍然是线段树上 <span class="math inline">\(\log_2(n)\)</span> 段，可以在这些段里面加入可选的边，为了防止删除重复，<code>std::set</code> 内层数据类型为 <code>pair&lt;int, int&gt;</code> 分别存储路径的权值和编号。然后就直接做就好了。 <del>后记：被出题人卡成了 <span class="math inline">\(30\)</span> ……。</del>
+<details class="note warning">
+<summary>
+<p>
+code
+</p>
+<p></summary> <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#define rep(i, l, r) for(int i &#x3D; l, __ &#x3D; r; i &lt;&#x3D; __; i++)
+using namespace std;
+int n, k, p;
+const int _ &#x3D; 2e6 + 100;
+int head[_];
+struct edges&#123;
+	int node;
+	int nxt;
+&#125;edge[_]; int tot &#x3D; 0;
+void add(int u, int v) &#123;
+	tot++;
+	edge[tot].node &#x3D; v;
+	edge[tot].nxt  &#x3D; head[u];
+	head[u]        &#x3D; tot;
+&#125;
+struct Path&#123; int u, v, Val; Path(int a, int b, int c) &#123; u &#x3D; a; v &#x3D; b; Val &#x3D; c; &#125; Path()&#123;&#125; &#125; P[_];
+
+int dfn[_], rnk[_], dfc, dep[_], top[_], fa[_], si[_], son[_];
+void dfs0(int now, int f, int dp)&#123;
+	fa[now] &#x3D; f;  dep[now] &#x3D; dp; int &amp;Mid &#x3D; son[now] &#x3D; 0; int &amp;Si &#x3D; si[now] &#x3D; 1;
+	for(int i &#x3D; head[now]; i ; i &#x3D; edge[i].nxt)&#123;
+		int ex &#x3D; edge[i].node; if(ex &#x3D;&#x3D; f) continue;
+		dfs0(ex, now, dp + 1); Si +&#x3D; si[ex]; if(si[ex] &gt; si[Mid]) Mid &#x3D; ex;
+	&#125;
+&#125;
+void dfs1(int now, int f, int tp)&#123;
+	dfn[now] &#x3D; ++dfc;  top[now] &#x3D; tp;
+	if(son[now]) dfs1(son[now], now, tp);
+	for(int i &#x3D; head[now]; i ; i &#x3D; edge[i].nxt)&#123;
+		int ex &#x3D; edge[i].node; if(ex &#x3D;&#x3D; f || ex &#x3D;&#x3D; son[now]) continue;
+		dfs1(ex, now, ex);
+	&#125;
+&#125;
+
+namespace SegmentTree&#123;
+	const int _ &#x3D; 3e6 + 100;
+	int ch[_][2]; set&lt;pair&lt;int ,int&gt;, less &lt;pair&lt;int ,int&gt; &gt; &gt; v[_];
+	int tot &#x3D; 0;
+	#define ls(o) (ch[o][0])
+	#define rs(o) (ch[o][1])
+	#define make (tot++, ch[tot][0] &#x3D; ch[tot][1] &#x3D; 0, v[tot].clear(), tot)
+	int Groot()&#123; return make; &#125;
+	void build(int o, int L, int R)&#123;
+		if(L &#x3D;&#x3D; R) return (void)v[o].insert(make_pair(INT_MAX, -1));
+		int mid &#x3D; (L + R) &gt;&gt; 1;
+		ls(o) &#x3D; make; rs(o) &#x3D; make; v[o].insert(make_pair(INT_MAX, -1));
+		build(ls(o), L, mid); build(rs(o), mid + 1, R);
+	&#125;
+	void update_add(int o, int nowl, int nowr, int L, int R, int V, int id)&#123;
+		if(L &gt; R) return ;
+		if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return (void)v[o].insert(make_pair(V, id));
+		int mid &#x3D; (nowl + nowr) &gt;&gt; 1;
+		if(L &lt;&#x3D; mid) update_add(ls(o), nowl, mid, L, R, V, id);
+		if(R  &gt; mid) update_add(rs(o), mid + 1, nowr, L, R, V, id);
+	&#125;
+	void update_del(int o, int nowl, int nowr, int L, int R, int V, int id)&#123;
+		if(L &gt; R) return ;
+		if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return (void)v[o].erase(make_pair(V, id));
+		int mid &#x3D; (nowl + nowr) &gt;&gt; 1;
+		if(L &lt;&#x3D; mid) update_del(ls(o), nowl, mid, L, R, V, id);
+		if(R  &gt; mid) update_del(rs(o), mid + 1, nowr, L, R, V, id);
+	&#125;
+	pair&lt;int, int &gt; query(int o, int nowl, int nowr, int p, pair&lt;int, int &gt; ans &#x3D; make_pair(INT_MAX, -1))&#123;
+		if(nowl &#x3D;&#x3D; nowr) return min(ans, *(v[o].begin()));
+		int mid &#x3D; (nowl + nowr) &gt;&gt; 1; ans &#x3D; min(ans, *(v[o].begin()));
+		return p &lt;&#x3D; mid ? query(ls(o), nowl, mid, p, ans) : query(rs(o), mid + 1, nowr, p, ans);
+	&#125;
+&#125; using SegmentTree::query; 	using SegmentTree::update_add; using SegmentTree::Groot;
+  using SegmentTree::build;		using SegmentTree::update_del;
+#define fi first
+#define se second
+vector&lt;pair&lt;int, int &gt; &gt; TMP;
+int root &#x3D; 0;
+void AddWithoutPath(int u, int v, int Val, int id)&#123;
+	TMP.clear();
+	while(top[u] !&#x3D; top[v])&#123;
+		if(dep[top[u]] &lt; dep[top[v]]) swap(u, v);
+		TMP.push_back(make_pair(dfn[top[u]], dfn[u])); u &#x3D; fa[top[u]];
+	&#125;
+	if(dep[u] &lt; dep[v]) swap(u, v);
+	TMP.push_back(make_pair(dfn[v], dfn[u]));
+	sort(TMP.begin(), TMP.end());
+	rep(i, 0, TMP.size() - 2) update_add(root, 1, n, TMP[i].se + 1, TMP[i + 1].fi - 1, Val, id);
+	update_add(root, 1, n, 1, TMP[0].fi - 1, Val, id);
+	update_add(root, 1, n, TMP[TMP.size() - 1].se + 1, n, Val, id);
+&#125;
+void DelWithoutPath(int u, int v, int Val, int id)&#123;
+	TMP.clear();
+	while(top[u] !&#x3D; top[v])&#123;
+		if(dep[top[u]] &lt; dep[top[v]]) swap(u, v);
+		TMP.push_back(make_pair(dfn[top[u]], dfn[u])); u &#x3D; fa[top[u]];
+	&#125;
+	if(dep[u] &lt; dep[v]) swap(u, v);
+	TMP.push_back(make_pair(dfn[v], dfn[u]));
+	sort(TMP.begin(), TMP.end());
+	rep(i, 0, TMP.size() - 2) update_del(root, 1, n, TMP[i].se + 1, TMP[i + 1].fi - 1, Val, id);
+	update_del(root, 1, n, 1, TMP[0].fi - 1, Val, id);
+	update_del(root, 1, n, TMP[TMP.size() - 1].se + 1, n, Val, id);
+&#125;
+int main()&#123; &#x2F;&#x2F; freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);
+	Read(n)(k)(p);
+	rep(i, 1, n - 1)&#123;
+		int u, v; Read(u)(v);
+		add(u, v); add(v, u);
+	&#125;
+	rep(i, 1, k) &#123;
+		int p, q, v; Read(p)(q)(v);
+		P[i] &#x3D; Path(p, q, v);
+	&#125;
+	dfs0(1, 1, 1); dfs1(1, 1, 1);
+	root &#x3D; Groot(); build(root, 1, n);
+	rep(i, 1, k) AddWithoutPath(P[i].u, P[i].v, P[i].Val, i);
+	while(p--)&#123;
+		int opt, k; Read(opt)(k);
+		if(opt &#x3D;&#x3D; 1)&#123;
+			DelWithoutPath(P[k].u, P[k].v, P[k].Val, k);
+		&#125; else if(opt &#x3D;&#x3D; 2)&#123;
+			DelWithoutPath(P[k].u, P[k].v, P[k].Val, k);
+			Read(P[k].Val);
+			AddWithoutPath(P[k].u, P[k].v, P[k].Val, k);
+		&#125; else &#123;
+			pair&lt;int, int &gt; r &#x3D; query(root, 1, n, dfn[k]);
+			printf(&quot;%d\n&quot;, r.first &lt; INT_MAX ? r.first : -1);
+		&#125;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+</details>
+<h4 id="做法二线段树维护路径交集-二分最小值">
+做法二：线段树维护路径交集 + 二分最小值
+</h4>
+<blockquote>
+<p>
+巧妙绝伦的做法。
+</p>
+</blockquote>
+<p>
+要求回答的是：不与节点 <span class="math inline">(p)</span> 相交的所有路径中的最小权值。
+</p>
+<p>
+考虑二分一个最小权值 <span class="math inline">(x)</span>，然后判断是所有权值小于 <span class="math inline">(x)</span> 的路径是不是全都和点 <span class="math inline">(p)</span> 有交。
+</p>
+<p>
+如果把所有路径按照权值排序，那么成为答案的那条路径之前的路径一定都和点 <span class="math inline">(p)</span> 有交，这就可以直接二分答案了。
+</p>
+<p>
+但是路径需要支持删除和修改。 显然需要数据结构。
+</p>
+<p>
+一个显然的事实是：两条路径的交 也是一条路径（定义一个点或者空都属于路径）。
+</p>
+<p>
+线段树就可以快速求出一段路径区间内所有路径的交集路径。
+</p>
+<p>
+所有路径按照权值排好序后的一个前缀全部和点 <span class="math inline">(p)</span> 有交，等价于，这个前缀所有的路径的交集和点 <span class="math inline">(p)</span> 有交。
+</p>
+<p>
+对于删除操作，可以考虑在线段树对应操作上打删除标记。对于修改操作，因为没有强制在线，可以考虑一开始把这条路径的所有权值排好序后加入线段树，然后对于当前无用的版本，打上删除标记即可。对于一次修改，转化成一次删除和一次恢复操作。
+</p>
+<p>
+当然平衡树可以轻易完成这样的工作，在平衡树上维护树上路径交集，写不出来啊…
+</p>
+<p>
+这样就可以直接用线段树求出某个前缀的所有路径的交集路径了。线段树合并信息时，需要询问 <code>LCA</code>，算上二分，这样的单次询问复杂度可以做到 <span class="math inline">((k w n))</span>（倍增 <code>LCA</code>），或者 <span class="math inline">((k w))</span>（<span class="math inline">((n) - (1))</span> <code>LCA</code>）。
+</p>
+<p>
+注意到线段树本身就是一个分治的结构，可以直接在线段树上二分，这样就可以做到 <span class="math inline">((k n))</span>（倍增 <code>LCA</code>），或者 <span class="math inline">((k))</span>（<span class="math inline">((n) - (1))</span> <code>LCA</code>）。
+</p>
+<p>
+我的实现是 倍增 <code>LCA</code> + 线段树二分，算上预处理，总时间复杂度为 <span class="math inline">((n(n) + q(q+k)n))</span>
+<details class="note warning">
+<summary>
+<p>
+code
+</p>
+<p></summary> <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">const int _ &#x3D; 2e5 + 100;
+int head[_], tot &#x3D; 0;
+struct edges&#123;
+	int node;
+	int nxt;
+&#125;edge[_];
+void add(int u, int v)&#123;
+	tot++;
+	edge[tot].node &#x3D; v;
+	edge[tot].nxt  &#x3D; head[u];
+	head[u]        &#x3D; tot;
+&#125;
+int n, k, q;
+const int LOG &#x3D; 18;
+int fa[_][LOG + 2], dep[_];
+void dfs0(int now, int f, int dp)&#123;
+	fa[now][0] &#x3D; f; dep[now] &#x3D; dp;
+	for(int i &#x3D; head[now]; i ; i &#x3D; edge[i].nxt)&#123;
+		int ex &#x3D; edge[i].node; if(ex &#x3D;&#x3D; f) continue;
+		dfs0(ex, now, dp + 1);
+	&#125;
+&#125;
+map &lt; pair&lt;int, int&gt; , int &gt;  Mem;
+int LCA(int u, int v)&#123;
+	pair&lt;int, int&gt; P &#x3D; make_pair(min(u, v), max(u, v));
+	if(Mem.count(P)) return Mem[P];
+	if(dep[u] &lt; dep[v]) swap(u, v);
+	int d &#x3D; dep[u] - dep[v];
+	int x &#x3D; u, y &#x3D; v;
+	rep(i, 0, LOG) if(d &amp; (1 &lt;&lt; i)) x &#x3D; fa[x][i];
+	if(x &#x3D;&#x3D; y) return x;
+	for(int i &#x3D; LOG; i &gt;&#x3D; 0; i--)&#123;
+		if(fa[x][i] &#x3D;&#x3D; fa[y][i]) continue;
+		x &#x3D; fa[x][i]; y &#x3D; fa[y][i];
+	&#125;
+	return Mem[P] &#x3D; fa[x][0];
+&#125;
+
+void InitQuery()&#123;
+	dfs0(1, 1, 1);
+	rep(j, 1, LOG) rep(i, 1, n) fa[i][j] &#x3D; fa[fa[i][j - 1]][j - 1];
+&#125;
+struct Path_t&#123;
+	int id, u, v, w, ver;
+	Path_t(int a, int b, int c, int d, int e) &#123; id &#x3D; a; u &#x3D; b; v &#x3D; c; w &#x3D; d; ver &#x3D; e; &#125;
+	Path_t() &#123; &#125;
+&#125;;
+bool CMP(const Path_t &amp; A, const Path_t &amp; B) &#123; return A.w &lt; B.w; &#125;
+struct Q_t&#123;
+	int type, a, b;
+	Q_t(int x, int y, int z) &#123; type &#x3D; x; a &#x3D; y; b &#x3D; z; &#125;
+	Q_t() &#123;&#125;
+&#125;Q[_];
+int nowv[_];
+vector&lt;Path_t&gt; P;
+vector&lt;int&gt; Pv[_];
+int dis(int u, int v) &#123; return dep[u] + dep[v] - (dep[LCA(u, v)] &lt;&lt; 1); &#125;
+pair&lt;int, int&gt; cross(int u0, int v0, int u1, int v1) &#123;
+	int t0 &#x3D; LCA(u0, v0);
+	int t1 &#x3D; LCA(u0, u1);
+	int t2 &#x3D; LCA(u0, v1);
+	int t3 &#x3D; LCA(v0, u1);
+	int t4 &#x3D; LCA(v0, v1);
+	int target0 &#x3D; t0; &#x2F;&#x2F; t0 t1 t3
+	if(dep[target0] &lt; dep[t1]) target0 &#x3D; t1;
+	if(dep[target0] &lt; dep[t3]) target0 &#x3D; t3;
+	int target1 &#x3D; t0; &#x2F;&#x2F; t0 t2 t4
+	if(dep[target1] &lt; dep[t2]) target1 &#x3D; t2;
+	if(dep[target1] &lt; dep[t4]) target1 &#x3D; t4;
+	if(target1 &#x3D;&#x3D; target0 &amp;&amp; dis(target1, u1) + dis(target1, v1) !&#x3D; dis(u1, v1)) return make_pair(-1, -1);
+	else return make_pair(target0, target1);
+&#125;
+bool crossx(int u, int v, int x) &#123; if(u &#x3D;&#x3D; -1 || v &#x3D;&#x3D; -1) return false;  return dis(u, v) &#x3D;&#x3D; dis(u, x) + dis(v, x); &#125;
+namespace SegmentTree&#123; &#x2F;&#x2F; To maintain the merge path
+	struct Node_t&#123;
+		int u, v;
+		bool isDel, isNul;
+		void clear()&#123;
+			isDel &#x3D; false; isNul &#x3D; true; u &#x3D; v &#x3D; 0;
+		&#125;
+	&#125;;
+	const int _ &#x3D; 1e6 + 100;
+	int ch[_][2], tot &#x3D; 0; Node_t v[_];
+	#define ls(o) (ch[o][0])
+	#define rs(o) (ch[o][1])
+	#define make (tot++, ch[tot][0] &#x3D; ch[tot][1] &#x3D; 0, v[tot].clear(), tot)
+	int Groot() &#123; return make; &#125;
+	void maintain(int o) &#123;
+		v[o].isDel &#x3D; (v[ls(o)].isDel &amp;&amp; v[rs(o)].isDel);
+		v[o].isNul &#x3D; (v[ls(o)].isNul || v[rs(o)].isNul);
+		if(!v[o].isDel &amp;&amp; !v[o].isNul)&#123;
+			if(v[ls(o)].isDel &amp;&amp; !v[rs(o)].isDel) v[o].u &#x3D; v[rs(o)].u, v[o].v &#x3D; v[rs(o)].v;
+			else if(v[rs(o)].isDel &amp;&amp; !v[ls(o)].isDel) v[o].u &#x3D; v[ls(o)].u, v[o].v &#x3D; v[ls(o)].v;
+			else &#123;
+				pair&lt;int, int&gt; R &#x3D; cross(v[ls(o)].u, v[ls(o)].v, v[rs(o)].u, v[rs(o)].v);
+				if(R.first &#x3D;&#x3D; -1) &#123;
+					v[o].isNul &#x3D; true;
+				&#125;
+				v[o].u &#x3D; R.first; v[o].v &#x3D; R.second;
+			&#125;
+		&#125;
+	&#125;
+	void build(int o, int L, int R)&#123;
+		if(L &#x3D;&#x3D; R) &#123;
+			v[o].isNul &#x3D; false;
+			v[o].isDel &#x3D; (P[L - 1].ver !&#x3D; 1);
+			v[o].u     &#x3D; P[L - 1].u;
+			v[o].v     &#x3D; P[L - 1].v;
+			return ;
+		&#125; ls(o) &#x3D; make; rs(o) &#x3D; make;
+		int mid &#x3D; (L + R) &gt;&gt; 1;
+		build(ls(o), L, mid); build(rs(o), mid + 1, R);
+		maintain(o);
+	&#125;
+	void update(int o, int nowl, int nowr, int p, bool V)&#123;
+		if(nowl &#x3D;&#x3D; nowr) return (void)(v[o].isDel &#x3D; V);
+		int mid &#x3D; (nowl + nowr) &gt;&gt; 1;
+		if(p &lt;&#x3D; mid) update(ls(o), nowl, mid, p, V);
+		if(p  &gt; mid) update(rs(o), mid + 1, nowr, p, V);
+		maintain(o);
+	&#125;
+	int query(int o, int nowl, int nowr, int x)&#123;
+		if(!v[o].isNul &amp;&amp; !v[o].isDel &amp;&amp; crossx(v[o].u, v[o].v, x)) return -1;
+		if(nowl &#x3D;&#x3D; nowr) return P[nowl - 1].w;
+		bool r0 &#x3D; !(v[ls(o)].isNul || !crossx(v[ls(o)].u, v[ls(o)].v, x)) || v[ls(o)].isDel;
+		bool r1 &#x3D; !(v[rs(o)].isNul || !crossx(v[rs(o)].u, v[rs(o)].v, x)) || v[rs(o)].isDel;
+		int mid &#x3D; (nowl + nowr) &gt;&gt; 1;
+		if(!r0) return query(ls(o), nowl, mid, x); else if(!r1) return query(rs(o), mid + 1, nowr, x); else return -1;
+	&#125;
+&#125;  using SegmentTree::build; using SegmentTree::Groot;
+   using SegmentTree::query; using SegmentTree::update;
+
+int main() &#123; freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);
+	Read(n)(k)(q); rep(i, 1, n - 1) &#123; int u, v; Read(u)(v); add(u, v); add(v, u); &#125; InitQuery();
+	rep(i, 1, k)&#123;
+		int u, v, w; Read(u)(v)(w);
+		P.push_back(Path_t(i, u, v, w, 1)); nowv[i] &#x3D; 1;
+	&#125;
+	rep(i, 1, q)&#123;
+		int type, a, b; Read(type)(a);
+		if(type &#x3D;&#x3D; 2) Read(b), Q[i] &#x3D; Q_t(type, a, b);
+		else Q[i] &#x3D; Q_t(type, a, 0);
+	&#125;
+	rep(i, 1, q)&#123;
+		Q_t &amp;now &#x3D; Q[i];
+		if(now.type &#x3D;&#x3D; 2) P.push_back(Path_t(now.a, P[now.a - 1].u, P[now.a - 1].v, now.b, ++nowv[now.a]));
+	&#125;
+
+	rep(i, 1, k) Pv[i].resize(nowv[i] + 2);
+	sort(P.begin(), P.end(), CMP);
+	rep(i, 0, P.size() - 1) Pv[P[i].id][P[i].ver] &#x3D; i + 1;
+	int root &#x3D; Groot(), U; U &#x3D; P.size(); build(root, 1, U);
+	rep(i, 1, k) nowv[i] &#x3D; 1;
+	rep(i, 1, q)&#123;
+		Q_t &amp;now &#x3D; Q[i];
+		if(now.type &#x3D;&#x3D; 1)&#123;
+			int Pl &#x3D; Pv[now.a][nowv[now.a]];
+			update(root, 1, U, Pl, 1);
+		&#125; else if(now.type &#x3D;&#x3D; 2)&#123;
+			int Pl0 &#x3D; Pv[now.a][  nowv[now.a]];
+			int Pl1 &#x3D; Pv[now.a][++nowv[now.a]];
+			update(root, 1, U, Pl0, 1);
+			update(root, 1, U, Pl1, 0);
+		&#125; else &#123;
+			printf(&quot;%d\n&quot;, query(root, 1, U, now.a));
+		&#125;
+	&#125;
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+</details>
+#### 做法三：CDQ 分治
+<div class="note warning">
+<p>
+学了再说。
+</p>
+</div>
+</p>
+
+</details>
+<p>QAQ /kel</p>
+
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+
+
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/oi-blog/「琐记」NOIP-2020-考前/" rel="prev" title="「琐记」NOIP 2020 考前">
+                  <i class="fa fa-chevron-left"></i> 「琐记」NOIP 2020 考前
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/oi-blog/「学习总结」数据结构/" rel="next" title="「学习总结」数据结构">
+                  「学习总结」数据结构 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 –
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">舒雨墨</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="/oi-blog/js/utils.js"></script><script src="/oi-blog/js/schemes/muse.js"></script><script src="/oi-blog/js/next-boot.js"></script>
+
+
+<script src="/oi-blog/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('.gitalk-container', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5d4b0a361ccf7199b58f',
+      clientSecret: 'ff21340eedfb4a1c940eaddf8e180f0260c33088',
+      repo        : 'ShuYuMo2003.github.io',
+      owner       : 'ShuYuMo2003',
+      admin       : ['ShuYuMo2003'],
+      id          : '9f2ab8e5b325171d402ec1d0077283cb',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render(document.querySelector('.gitalk-container'));
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

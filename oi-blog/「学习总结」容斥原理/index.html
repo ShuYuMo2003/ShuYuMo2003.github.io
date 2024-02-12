@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/oi-blog/images/apple-touch-icon-next.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/oi-blog/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/oi-blog/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/oi-blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/oi-blog/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=sans-serif:300,300italic,400,400italic,700,700italic%7CUbuntu:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7C'Open+Sans':300,300italic,400,400italic,700,700italic%7C'Microsoft+YaHei':300,300italic,400,400italic,700,700italic%7Csans-serif;:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https:/ShuYuMo2003.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="容斥原理 用于解决一类，在已知任意 \(m\) 个集合交集大小的情况下，多个集合求并集大小的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「学习总结」容斥原理">
+<meta property="og:url" content="%E3%80%8C%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E3%80%8D%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="Shu Yu Mo&#39;s blog">
+<meta property="og:description" content="容斥原理 用于解决一类，在已知任意 \(m\) 个集合交集大小的情况下，多个集合求并集大小的问题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-24T09:29:33.000Z">
+<meta property="article:modified_time" content="2021-08-27T11:42:44.027Z">
+<meta property="article:author" content="舒雨墨">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="容斥原理">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="「学习总结」容斥原理/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>「学习总结」容斥原理 | Shu Yu Mo's blog</title>
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/oi-blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Shu Yu Mo's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">远行者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/oi-blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/oi-blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/oi-blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/oi-blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/oi-blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-latex-syntax"><a href="/oi-blog/LaTeX-syntax.html" rel="section"><i class="fa fa-heart fa-fw"></i>LaTeX-syntax</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+
+
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+
+          <hr/>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">容斥原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AF%81%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">定义及证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E6%95%B0%E9%97%AE%E9%A2%98%E7%9A%84%E8%BD%AC%E5%8C%96"><span class="nav-number">1.2.</span> <span class="nav-text">计数问题的转化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86%E6%A0%97%E9%A2%98%E4%BB%AC"><span class="nav-number">1.3.</span> <span class="nav-text">容斥原理栗题（们）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E4%B8%80"><span class="nav-number">1.3.1.</span> <span class="nav-text">栗题一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E4%BA%8C"><span class="nav-number">1.3.2.</span> <span class="nav-text">栗题二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E4%B8%89"><span class="nav-number">1.3.3.</span> <span class="nav-text">栗题三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E5%9B%9B"><span class="nav-number">1.3.4.</span> <span class="nav-text">栗题四</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E5%85%AD"><span class="nav-number">1.3.5.</span> <span class="nav-text">栗题六</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E4%B8%83"><span class="nav-number">1.3.6.</span> <span class="nav-text">栗题七</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0%E5%81%9A%E6%B3%95"><span class="nav-number">1.3.6.1.</span> <span class="nav-text">朴素做法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%81%9A%E6%B3%95"><span class="nav-number">1.3.6.2.</span> <span class="nav-text">优化做法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E5%AE%B9%E6%96%A5%E5%8E%9F%E7%90%86"><span class="nav-number">1.4.</span> <span class="nav-text">扩展容斥原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#min-max-%E5%AE%B9%E6%96%A5"><span class="nav-number">1.5.</span> <span class="nav-text">Min-max 容斥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pkuwc2018%E9%9A%8F%E6%9C%BA%E6%B8%B8%E8%B5%B0"><span class="nav-number">1.5.1.</span> <span class="nav-text">「PKUWC2018」随机游走</span></a></li></ol></li></ol></li></ol></div>
+
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+
+
+
+<div class="post-block">
+
+
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="/oi-blog/「学习总结」容斥原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/oi-blog/images/avatar.jpg">
+      <meta itemprop="name" content="舒雨墨">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shu Yu Mo's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「学习总结」容斥原理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-24 17:29:33" itemprop="dateCreated datePublished" datetime="2021-01-24T17:29:33+08:00">2021-01-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 19:42:44" itemprop="dateModified" datetime="2021-08-27T19:42:44+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/oi-blog/categories/学习总结/" itemprop="url" rel="index"><span itemprop="name">学习总结</span></a>
+        </span>
+    </span>
+
+
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+
+
+
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>容斥原理</strong> 用于解决一类，在已知任意 <span class="math inline">\(m\)</span> 个集合交集大小的情况下，多个集合求并集大小的问题。 <a id="more"></a></p>
+<h1 id="容斥原理">容斥原理</h1>
+<h2 id="定义及证明">定义及证明</h2>
+<p>设 <span class="math inline">\(U\)</span> 中元素有 <span class="math inline">\(n\)</span> 种不同的属性，而第 <span class="math inline">\(i\)</span> 种属性称为 <span class="math inline">\(P_i\)</span> ，拥有属性 <span class="math inline">\(P_i\)</span> 的元素构成集合 <span class="math inline">\(S_i\)</span> ，那么</p>
+<p><span class="math display">\[
+\begin{equation}
+\left|\bigcup_{i=1}^{n}S_i\right|=\sum_{m=1}^n(-1)^{m-1}\sum_{a_i&lt;a_{i+1} }\left|\bigcap_{i=1}^mS_{a_i}\right|
+\end{equation}
+\]</span> 其中 <span class="math inline">\(a\)</span> 为任意长度为 <span class="math inline">\(m\)</span> 且 值域为 <span class="math inline">\([1, n]\)</span> 的不重无序数列。</p>
+<p>通过定义可知，<strong>容斥原理</strong> 用于解决一类，在已知任意 <span class="math inline">\(m\)</span> 个集合交集大小的情况下，多个集合求并集大小的问题。</p>
+<p>对于有限制条件的计数问题，可以转化成求<strong>集合交并大小</strong>问题，进而通过<strong>容斥原理</strong>解决。</p>
+<p>关于容斥原理的证明，其实就是要保证并集中的每一个元素对答案的贡献为 <span class="math inline">\(1\)</span> 。</p>
+<p>对于元素 <span class="math inline">\(x\)</span>，假设它出现在 <span class="math inline">\(T_1,T_2,\cdots,T_m\)</span> 的集合中，那么它的出现次数为</p>
+<p><span class="math display">\[
+\begin{split}
+Cnt=&amp;|\{T_i\}|-|\{T_i\cap T_j|i&lt;j\}|+\cdots+(-1)^{k-1}\left|\left\{\bigcap_{i=1}^{k}T_{a_i}|a_i&lt;a_{i+1}\right\}\right|\\
+&amp;+\cdots+(-1)^{m-1}|\{T_1\cap\cdots\cap T_m\}|\\
+=&amp;C_m^1-C_m^2+\cdots+(-1)^{m-1}C_m^m\\
+=&amp;C_m^0-\sum_{i=0}^m(-1)^iC_m^i\\
+=&amp;1-(1-1)^m=1
+\end{split}
+\]</span></p>
+<h2 id="计数问题的转化">计数问题的转化</h2>
+<p>可以考虑把具有相同属性的计数对象放入同一集合。然后根据题目要求，求出同时具有某些属性的技术对象个数（即：属性对应的集合交集）。 <span class="math display">\[
+\begin{equation}
+\left|\bigcap_{i=1}^{n}S_i\right|=|U|-\left|\bigcup_{i=1}^n\overline{S_i}\right|
+\end{equation}
+\]</span> 由于容斥原理本身是求集合并集大小，但是可以通过 上式 转化为求集合交集大小问题。</p>
+<h2 id="容斥原理栗题们">容斥原理栗题（们）</h2>
+<h3 id="栗题一">栗题一</h3>
+<p>详见<a target="_blank" rel="noopener" href="https://oi-wiki.org/math/inclusion-exclusion-principle/#_5">不定方程非负整数解计数</a>。</p>
+<div class="note info"><p>对于限制元素数量下界的要求，处理方式都可以采用，直接对总数减去这个元素的下界，计算取值时直接不考虑下界即可。</p>
+</div>
+<h3 id="栗题二">栗题二</h3>
+<div class="note info"><p>对于一个 <span class="math inline">\(1\)</span>~<span class="math inline">\(n\)</span> 的排列 <span class="math inline">\(P\)</span>，若 <span class="math inline">\(\forall i ,P_i \not = i\)</span> 则称其为错位排列。给出 <span class="math inline">\(n\)</span> ，求长度为 <span class="math inline">\(n\)</span> 的错位排列个数。</p>
+</div>
+<p>考虑全集 <span class="math inline">\(|\mathbb{U}|=n!\)</span> ，元素属性就是 <span class="math inline">\(P_i \not = i\)</span>，答案就是 <span class="math inline">\(\left|\bigcap_{i=1}^{n}\limits{S_i}\right|\)</span>。</p>
+<p>考虑到： <span class="math display">\[
+\begin{equation}
+\left|\bigcap_{i=1}^{n}S_i\right|=|\mathbb{U}|-\left|\bigcup_{i=1}^n\overline{S_i}\right|
+\end{equation}
+\]</span> 易知：<span class="math inline">\(\overline{S_i}\)</span> 就是所有 <span class="math inline">\(P_i = i\)</span> 的排列。</p>
+<p>考虑到： <span class="math display">\[
+\begin{split}
+\left|\bigcup_{i=1}^n\overline{S_i}\right|&amp;=\sum_{k=1}^{n}\limits{(-1)^{k-1}\sum_{a_1,\dots ,a_k}\limits{ \left|\bigcap_{i=1}^{k}\limits{S_{a_i}}\right|  }}\\
+&amp;=\sum_{k=1}^{n}\limits{(-1)^{k-1}\dbinom{n}{k}(n-k)!}\\
+\end{split}
+\]</span> 综合上式，得出长度为 <span class="math inline">\(n\)</span> 的错位排列数为：</p>
+<p><span class="math display">\[
+D_n=n!-\sum_{k=1}^{n}\limits{(-1)^{k-1}\dbinom{n}{k}(n-k)!}
+\]</span></p>
+<h3 id="栗题三">栗题三</h3>
+<div class="note info"><p>A 和 B 喜欢对图（不一定连通）进行染色，而他们的规则是，相邻的结点必须染同一种颜色。</p>
+<p>今天 A 和 B 玩游戏，对于 <span class="math inline">\(n\)</span> 阶 <strong>完全图</strong> <span class="math inline">\(G=(V,E)\)</span> 。他们定义一个估价函数 <span class="math inline">\(F(S)\)</span> ，其中 S 是边集， <span class="math inline">\(S\subseteq E\)</span> .</p>
+<p><span class="math inline">\(F(S)\)</span> 的值是对图 <span class="math inline">\(G&#39;=(V,S)\)</span> 用 <span class="math inline">\(m\)</span> 种颜色染色的总方案数。</p>
+<p>他们的另一个规则是，如果 <span class="math inline">\(|S|\)</span> 是奇数，那么 A 的得分增加 <span class="math inline">\(F(S)\)</span> ，否则 B 的得分增加 <span class="math inline">\(F(S)\)</span> . 问 A 和 B 的得分差值。</p>
+</div>
+<p><del>出题人千辛万苦凑出的式子</del></p>
+<p>考虑形式化的定义答案： <span class="math display">\[
+Ans=\sum_{S\subseteq E}(-1)^{|S|-1}F(S)
+\]</span> 设集合 <span class="math inline">\(Q_{(i, j)}\)</span> 中的元素为所有 <span class="math inline">\((i, j)\)</span> 有边相连的图的染色方案。考虑到相邻的节点（有边相连）必须染成相同的颜色，所以两节点 <span class="math inline">\(i, j\)</span> 有边相连即 节点 <span class="math inline">\(i, j\)</span> 染成相同的颜色。</p>
+<p>易知： <span class="math display">\[
+F(S)=\left|\bigcap_{e\in S}\limits{Q_e}\right|
+\]</span> 带入原式即：（这里用到了容斥原理的逆用） <span class="math display">\[
+\begin{split}
+Ans&amp;=\sum_{S\subseteq E}(-1)^{|S|-1}\left|\bigcap_{e\in S}\limits{Q_e}\right|\\
+&amp;=\left|\bigcup_{e\in E}\limits{Q_e}\right|
+\end{split}
+\]</span> 答案变成：对一张完全图染色，存在任意两个点同色的方案数。</p>
+<p>考虑到两两点都异色的染色方案数为 <span class="math inline">\(A_m^n\)</span>。</p>
+<p>所以答案为： <span class="math display">\[
+m^n-A_m^n
+\]</span> 其实容斥原理本质上是集合间交集和并集大小之间的转化。</p>
+<h3 id="栗题四">栗题四</h3>
+<div class="note info"><p>求出： <span class="math display">\[
+\sum_{i=1}^n \sum_{j=1}^n \gcd(i, j)
+\]</span> 其中：<span class="math inline">\(n \le 10^5\)</span></p>
+</div>
+<p>考虑枚举 <code>gcd</code> ，设函数 <span class="math inline">\(f(g)\)</span> 为 <strong>以 g 为最大公约数的数对个数</strong>。 易知： <span class="math display">\[
+f(g) = \lfloor\frac{n}{g}\rfloor^2 - \sum_{i=2}^{i \times g \le n}f(i \times g)
+\]</span> 考虑到当 <span class="math inline">\(g &gt; \frac{n}{2}\)</span> 时，可以直接得到答案。其余的值逆向递推即可。 ### 栗题五 <a target="_blank" rel="noopener" href="https://oi-wiki.org/math/inclusion-exclusion-principle/#_14">容斥原理推导欧拉函数通项公式</a></p>
+<h3 id="栗题六">栗题六</h3>
+<div class="note info"><p>询问 <span class="math inline">\(1-n\)</span> 中有多少数字可以表示成 <span class="math inline">\(x^y, y &gt; 1\)</span> 的形式。其中 <span class="math inline">\(n \le 10^{18}\)</span></p>
+</div>
+<p>枚举 <span class="math inline">\(x\)</span> 的复杂度为 <span class="math inline">\(\mathcal{O}(\sqrt n)\)</span> 的。考虑枚举 <span class="math inline">\(y\)</span> ，这样的复杂度仅为 <span class="math inline">\(\mathcal{O}(\log n)\)</span>。枚举一个 <span class="math inline">\(y\)</span> 后，合法的数字有 <span class="math inline">\(\sqrt[y](n)\)</span> 个。</p>
+<p>易知，当 <span class="math inline">\(y\)</span> 不等于质数积时，贡献为 0。例如 <span class="math inline">\(y=4\)</span> 时，这里的答案一定被 <span class="math inline">\(y=2\)</span> 时算过一次了。</p>
+<p>其余的情况，根据容斥原理的套路，可以发现，容斥系数为 <span class="math inline">\(-\mu(y)\)</span> 。 <strong>莫比乌斯函数</strong>也被称之为<strong>数论容斥系数</strong>。</p>
+<h3 id="栗题七">栗题七</h3>
+<div class="note info"><p>DAG 计数。给出点数 <span class="math inline">\(n\)</span> ，输出 <span class="math inline">\(n\)</span> 个点的带标号 DAG 的数量，对大质数取模。 其中 <span class="math inline">\(n\le 5 \times 10^3\)</span></p>
+</div>
+<p>考虑到对于一个 DAG 来说，将其入度为 0 的点剖去之后，剩下的图也是一个 DAG 。这样就成功划分了子问题。</p>
+<h4 id="朴素做法">朴素做法</h4>
+<p>设 <span class="math inline">\(f(i, j)\)</span> 表示 <span class="math inline">\(i\)</span> 个点的 DAG，有 <span class="math inline">\(j\)</span> 个点的入度为 <span class="math inline">\(0\)</span>，考虑转移：枚举剥去这 <span class="math inline">\(j\)</span> 个点后会剩下多少个入度为 0 的点。 <span class="math display">\[
+f(i, j) = \dbinom{i}{j} \sum_{k=1}^{i-j}\limits{(2^j-1)^k 2^{j(i-j-k)}f(i-j, k)}
+\]</span> 后面的式子分别为：</p>
+<ul>
+<li><span class="math inline">\(\dbinom{i}{j}\)</span> ：在 <span class="math inline">\(i\)</span> 个标号中选出 <span class="math inline">\(j\)</span> 个充当入度为 <span class="math inline">\(0\)</span> 的点。</li>
+<li><span class="math inline">\((2^j-1)^k\)</span>：对于这 <span class="math inline">\(k\)</span> 个入度为 0 的点，他们可以和之前的 <span class="math inline">\(j\)</span> 个点随意连边（除了不连任何边的情况）。</li>
+<li><span class="math inline">\(2^{j(i-j-k)}\)</span>：对于这 <span class="math inline">\(j\)</span> 个点，还可以与除这 <span class="math inline">\(k\)</span> 个点剩下的 <span class="math inline">\(i-j-k\)</span> 个点任意连边，一共有 <span class="math inline">\(i \times (i-j-k)\)</span> 条边可以连。 这样的做法是 <span class="math inline">\(\mathcal{O}(n^3)\)</span> 的</li>
+</ul>
+<h4 id="优化做法">优化做法</h4>
+<div class="note info"><p>容斥原理的一般化： 对于两个集合函数 <span class="math inline">\(f(S), g(S)\)</span>： <span class="math display">\[
+f(S) = \sum_{T \subseteq S}\limits{g(T)}\ \ \Longleftrightarrow\ \ g(S) = \sum_{T \subseteq S}\limits{(-1)^{|S| - |T|}f(T)}
+\]</span></p>
+<p><span class="math display">\[
+f(S) = \sum_{T \supseteq S}\limits{g(T)}\ \ \Longleftrightarrow\ \ g(S) = \sum_{T \supseteq S}\limits{(-1)^{|S| - |T|}f(T)}
+\]</span> 前面的式子是 <code>FMT</code> 莫比乌斯变换所加速的式子。</p>
+</div>
+<p>设：<span class="math inline">\(f(n, S)\)</span> 为 <span class="math inline">\(n\)</span> 个点的 DAG 中 <span class="math inline">\(S\)</span> 中的点度数为 <span class="math inline">\(0\)</span>，类似地，<span class="math inline">\(g(n, S)\)</span> 为 <span class="math inline">\(n\)</span> 个点的 DAG 中 至少 <span class="math inline">\(S\)</span> 中的点度数为 <span class="math inline">\(0\)</span>（钦点）。 易知： <span class="math display">\[
+\begin{equation}
+g(n, S) = 2^{|S|(n - |S|)}g(n, \varnothing)
+\end{equation}
+\]</span></p>
+<p>其中 <span class="math inline">\(g, f\)</span> 有如下关系。 <span class="math display">\[
+\begin{equation}
+g(n, S)=\sum_{T \supseteq S}f(n, T)
+\end{equation}
+\]</span> 根据容斥原理一般公式： <span class="math display">\[
+\begin{equation}
+f(n, S) = \sum_{T \supseteq S}(-1)^{|S| - |T|}g(n, T)
+\end{equation}
+\]</span></p>
+<p>目的是求出 <span class="math inline">\(g(n, \varnothing)\)</span>： <span class="math display">\[
+\begin{split}
+g(n, \varnothing) &amp;=\sum_{T \not = \varnothing}f(n, T)\\
+&amp;=\sum_{i=1}^{n}\sum_{T, |T|=i}f(n, T)
+\end{split}
+\]</span> 带入 <span class="math inline">\(g, f\)</span> 的关系式： <span class="math display">\[
+\begin{split}
+g(n, \varnothing) &amp;=\sum_{T \not = \varnothing}f(n, T)\\
+&amp;=\sum_{i=1}^{n}\sum_{T, |T|=i}f(n, T)\\
+&amp;=\sum_{i=1}^{n}\sum_{T, |T|=i}  \sum_{S \supseteq T}(-1)^{|S| - |T|}g(n, S)   \\
+&amp;=\sum_{i=1}^{n}\sum_{T, |T|=i}  \sum_{S \supseteq T}(-1)^{|S| - |T|}2^{|S|(n-|S|)}g(n-|S|, \varnothing)   \\
+&amp;=\sum_{i=1}^{n}\sum_{T, |T|=i}  \sum_{S \supseteq T}(-1)^{|S| - i}2^{|S|(n-|S|)}g(n-|S|, \varnothing)   \\
+&amp;=\sum_{i=1}^{n}\sum_{T, |T|=i}  \sum_{k=i}^{n}\dbinom{n-i}{k-i}(-1)^{k - i}2^{k(n-k)}g(n-k, \varnothing)   \\
+&amp;=\sum_{i=1}^{n} \dbinom{n}{i}  \sum_{k=i}^{n}\dbinom{n-i}{k-i}(-1)^{k - i}2^{k(n-k)}g(n-k, \varnothing)   \\\
+&amp;=\sum_{k=1}^{n}2^{k(n-k)}g(n-k, \varnothing)\sum_{i=1}^{k}\dbinom{n}{i}\dbinom{n-i}{k-i}(-1)^{k-i} \\
+&amp;=\sum_{k=1}^{n}2^{k(n-k)}g(n-k, \varnothing)\sum_{i=1}^{k}\dbinom{n}{k}\dbinom{k}{i}(-1)^{k-i} \\
+&amp;=\sum_{k=1}^{n}2^{k(n-k)}g(n-k, \varnothing)\dbinom{n}{k}\sum_{i=1}^{k}\dbinom{k}{i}(-1)^{k-i} \\
+&amp;=\sum_{k=1}^{n}2^{k(n-k)}g(n-k, \varnothing)\dbinom{n}{k}\left[\left (\sum_{i=0}^{k}\dbinom{k}{i}(-1)^{k-i}1^i \right)- (-1)^k\right] \\
+&amp;=\sum_{k=1}^{n}2^{k(n-k)}g(n-k, \varnothing)\dbinom{n}{k}\left[\left ( 1-1 \right)^k- (-1)^k\right] \\
+&amp;=\sum_{k=1}^{n}2^{k(n-k)}\dbinom{n}{k}(-1)^{k-1} g(n-k, \varnothing)\\
+\end{split}
+\]</span></p>
+<p>这样的做法是 <span class="math inline">\(\mathcal{O}(n^2)\)</span> 的。</p>
+<h2 id="扩展容斥原理">扩展容斥原理</h2>
+<h2 id="min-max-容斥">Min-max 容斥</h2>
+<p><span class="math display">\[
+\begin{equation}\label{max_min}
+\operatorname{max} S = \sum_{T \subseteq S} (-1)^{|T| - 1} \operatorname{min} T
+\end{equation}
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}
+\operatorname{min} S = \sum_{T \subseteq S} (-1)^{|T| - 1} \operatorname{max} T
+\end{equation}
+\]</span></p>
+<h3 id="pkuwc2018随机游走">「PKUWC2018」随机游走</h3>
+<div class="note info"><p>给定一棵 <span class="math inline">\(n\)</span> 个结点的树，你从点 <span class="math inline">\(x\)</span> 出发，每次等概率随机选择一条与所在点相邻的边走过去。</p>
+<p>有 <span class="math inline">\(Q\)</span> 次询问，每次询问给定一个集合 <span class="math inline">\(S\)</span>，求如果从 <span class="math inline">\(x\)</span> 出发一直随机游走，直到点集 <span class="math inline">\(S\)</span> 中所有点都至少经过一次的话，期望游走几步。</p>
+<p>特别地，点 <span class="math inline">\(x\)</span>（即起点）视为一开始就被经过了一次。</p>
+<p>答案对 $998244353 $ 取模。</p>
+<p>对于 <span class="math inline">\(100\%\)</span> 的数据，有 <span class="math inline">\(1\leq n\leq 18\)</span>，<span class="math inline">\(1\leq Q\leq 5000\)</span>，<span class="math inline">\(1\leq k\leq n\)</span></p>
+</div>
+<p>设 <span class="math inline">\(A_i\)</span> 表示到达从 <span class="math inline">\(x\)</span> 点出发第一次到达点 <span class="math inline">\(i\)</span> 的期望时间。</p>
+<p>易知：答案就是 <span class="math inline">\(E\left(\max_{i\in S}\limits{(x_i)}\right)\)</span>。需要注意的是： <span class="math inline">\(E\left(\max_{i\in S}\limits{(x_i)}\right) \not = \max_{i \in S}\limits{\left(E(x_i)\right)}\)</span>， 详见<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/command-block/min-max-rong-chi-xiao-ji">博文</a></p>
+<blockquote>
+<p>这是非常有用的，因为期望下的 <span class="math inline">\(\max\)</span> 和 <span class="math inline">\(\min\)</span> 是很难求的。</p>
+<p>假设有 <span class="math inline">\(a,b\)</span> 两个不相关变量，则 <span class="math inline">\(E(\max(a,b))≠\max(E(a),E(b))\)</span>。</p>
+<p>例子：抛硬币，<span class="math inline">\(a=b=\begin{cases}0(50\%) \\ 1(50\%)\end{cases}\)</span> ,则 <span class="math inline">\(E(a)=E(b)=\dfrac{1}{2}\)</span></p>
+<p>那么 <span class="math inline">\(\max(a,b)=\begin{cases}\max(0,0)(25\%)\\ \max(0,1)(25\%)\\ \max(1,0)(25\%)\\ \max(1,1)(25\%)\end{cases}\)</span> ,则 <span class="math inline">\(E(\max(a,b))=0.75\)</span></p>
+<p>但是 <span class="math inline">\(\max(E(a),E(b))=0.5\)</span>所以期望不能大力拆 <span class="math inline">\(\max\)</span> 或 <span class="math inline">\(\min\)</span> 。</p>
+<p>——引用自 command_block 的博客。</p>
+</blockquote>
+<p>由 <span class="math inline">\((\ref{max_min})\)</span> 可知： <span class="math display">\[
+\begin{equation}
+E\left(\max_{i \in S}\limits{x_i}\right)=\sum_{T \subseteq S}(-1)^{|T|-1}E\left(\min_{i \in T}x_i\right)
+\end{equation}
+\]</span></p>
+<p>考虑如何求出 <span class="math inline">\(E\left(\min_{i \in T}\limits{x_i}\right)\)</span></p>
+<p>相当于从点 <span class="math inline">\(x\)</span> 出发，首次到达 <span class="math inline">\(T\)</span> 中的任意一点的期望时间。</p>
+<p>设 <span class="math inline">\(f(i)\)</span> 表示从结点 <span class="math inline">\(i\)</span> 出发，到达 <span class="math inline">\(T\)</span> 首次中的点的期望时间。</p>
+<p>对于 <span class="math inline">\(i \in T, f(i)=0\)</span></p>
+<p>对于 <span class="math inline">\(i \notin T, f(i) = \dfrac{1}{deg_i}\left(\sum_{v}\limits{\left(f(v) + 1\right)} + f(fa_i) + 1\right)\)</span></p>
+<p><del>据说是</del>经典套路：</p>
+<p>待定系数法，设 <span class="math inline">\(f(i)=A_i \times f(fa_i) + B_i\)</span> <span class="math display">\[
+\begin{split}
+f(i) &amp;= \dfrac{1}{deg_i}\left(\sum_{v}\limits{\left(f(v) + 1\right)} + f(fa_i) + 1\right) \\\\
+&amp;= \dfrac{1}{deg_i}\left(\sum_{v}\limits{\left(A_vf(i)+B_v + 1\right)} + f(fa_i) + 1\right) \\\\
+&amp;= \dfrac{1}{deg_i -\sum{A_v}} f(fa_i)+\dfrac{deg_i+\sum{B_v}}{deg_i-\sum{A_v}}
+\end{split}
+\]</span> 所以：<span class="math inline">\(A_i = \dfrac{1}{deg_i -\sum{A_v}}, B_i=\dfrac{deg_i+\sum{B_v}}{deg_i-\sum{A_v}}\)</span></p>
+<p>特殊的：对于 <span class="math inline">\(i \in T\)</span> , <span class="math inline">\(A_i = B_i = 0\)</span>。</p>
+<p>这里的 <span class="math inline">\(A, B\)</span> 可以直接通过树上 dp 求出。同时，可以递推出 <span class="math inline">\(f(i)\)</span> 的值。</p>
+<p>设 <span class="math inline">\(F(T) = (-1)^{|T|-1}f(x)\)</span> ,答案就是 $ _{T S}$</p>
+<p>考虑到这东西是子集和变换，使用 FMT (快速莫比乌斯变换) 预处理即可。然后 <span class="math inline">\(O(1)\)</span> 回答。</p>
+
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/oi-blog/tags/数学/" rel="tag"># 数学</a>
+              <a href="/oi-blog/tags/容斥原理/" rel="tag"># 容斥原理</a>
+          </div>
+
+
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/oi-blog/「杂题记录」「CTSC2017」吉夫特/" rel="prev" title="「杂题记录」「CTSC2017」吉夫特">
+                  <i class="fa fa-chevron-left"></i> 「杂题记录」「CTSC2017」吉夫特
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/oi-blog/「学习总结」正睿-计数选讲/" rel="next" title="「学习总结」正睿 计数选讲">
+                  「学习总结」正睿 计数选讲 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 –
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">舒雨墨</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="/oi-blog/js/utils.js"></script><script src="/oi-blog/js/schemes/muse.js"></script><script src="/oi-blog/js/next-boot.js"></script>
+
+
+<script src="/oi-blog/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('.gitalk-container', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5d4b0a361ccf7199b58f',
+      clientSecret: 'ff21340eedfb4a1c940eaddf8e180f0260c33088',
+      repo        : 'ShuYuMo2003.github.io',
+      owner       : 'ShuYuMo2003',
+      admin       : ['ShuYuMo2003'],
+      id          : '30b3f5bb9172a8943197ce3deaed9945',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render(document.querySelector('.gitalk-container'));
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

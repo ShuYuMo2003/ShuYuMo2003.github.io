@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/oi-blog/images/apple-touch-icon-next.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/oi-blog/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/oi-blog/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/oi-blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/oi-blog/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=sans-serif:300,300italic,400,400italic,700,700italic%7CUbuntu:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7C'Open+Sans':300,300italic,400,400italic,700,700italic%7C'Microsoft+YaHei':300,300italic,400,400italic,700,700italic%7Csans-serif;:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https:/ShuYuMo2003.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="构造题都是好题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「学习总结」构造题选">
+<meta property="og:url" content="%E3%80%8C%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E3%80%8D%E6%9E%84%E9%80%A0%E9%A2%98%E9%80%89/index.html">
+<meta property="og:site_name" content="Shu Yu Mo&#39;s blog">
+<meta property="og:description" content="构造题都是好题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:/ShuYuMo/Passage%20Text/Passage/images/gouzao_0.png">
+<meta property="article:published_time" content="2021-01-19T07:35:06.000Z">
+<meta property="article:modified_time" content="2021-08-27T11:42:44.027Z">
+<meta property="article:author" content="舒雨墨">
+<meta property="article:tag" content="构造题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:/ShuYuMo/Passage%20Text/Passage/images/gouzao_0.png">
+
+
+<link rel="canonical" href="「学习总结」构造题选/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>「学习总结」构造题选 | Shu Yu Mo's blog</title>
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/oi-blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Shu Yu Mo's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">远行者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/oi-blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/oi-blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/oi-blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/oi-blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/oi-blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-latex-syntax"><a href="/oi-blog/LaTeX-syntax.html" rel="section"><i class="fa fa-heart fa-fw"></i>LaTeX-syntax</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+
+
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+
+          <hr/>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E9%A2%98%E9%80%89"><span class="nav-number">1.</span> <span class="nav-text">构造题选</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%83%AD%E8%BA%AB%E4%B8%80"><span class="nav-number">1.1.</span> <span class="nav-text">热身一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%83%AD%E8%BA%AB%E4%BA%8C"><span class="nav-number">1.2.</span> <span class="nav-text">热身二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%83%AD%E8%BA%AB%E4%B8%89"><span class="nav-number">1.3.</span> <span class="nav-text">热身三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E4%B8%80"><span class="nav-number">1.4.</span> <span class="nav-text">栗题一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E4%BA%8C"><span class="nav-number">1.5.</span> <span class="nav-text">栗题二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E4%B8%89"><span class="nav-number">1.6.</span> <span class="nav-text">栗题三</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E5%9B%9B"><span class="nav-number">1.7.</span> <span class="nav-text">栗题四</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E4%BA%94"><span class="nav-number">1.8.</span> <span class="nav-text">栗题五</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E5%85%AD"><span class="nav-number">1.9.</span> <span class="nav-text">栗题六</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E4%B8%83"><span class="nav-number">1.10.</span> <span class="nav-text">栗题七</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E5%85%AB"><span class="nav-number">1.11.</span> <span class="nav-text">栗题八</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E4%B9%9D"><span class="nav-number">1.12.</span> <span class="nav-text">栗题九</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E5%8D%81"><span class="nav-number">1.13.</span> <span class="nav-text">栗题十</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E5%8D%81%E4%B8%80"><span class="nav-number">1.14.</span> <span class="nav-text">栗题十一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E5%8D%81%E4%B8%80-1"><span class="nav-number">1.15.</span> <span class="nav-text">栗题十一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%97%E9%A2%98%E5%8D%81%E4%BA%8C"><span class="nav-number">1.16.</span> <span class="nav-text">栗题十二</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%81%9A%E6%B3%95%E4%B8%80"><span class="nav-number">1.16.1.</span> <span class="nav-text">做法一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%81%9A%E6%B3%95%E4%BA%8C"><span class="nav-number">1.16.2.</span> <span class="nav-text">做法二</span></a></li></ol></li></ol></li></ol></div>
+
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+
+
+
+<div class="post-block">
+
+
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="/oi-blog/「学习总结」构造题选/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/oi-blog/images/avatar.jpg">
+      <meta itemprop="name" content="舒雨墨">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shu Yu Mo's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「学习总结」构造题选
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-19 15:35:06" itemprop="dateCreated datePublished" datetime="2021-01-19T15:35:06+08:00">2021-01-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 19:42:44" itemprop="dateModified" datetime="2021-08-27T19:42:44+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/oi-blog/categories/学习总结/" itemprop="url" rel="index"><span itemprop="name">学习总结</span></a>
+        </span>
+    </span>
+
+
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+
+
+
+    <div class="post-body" itemprop="articleBody">
+          <p>构造题都是好题</p>
+<a id="more"></a>
+<h2 id="构造题选">构造题选</h2>
+<h3 id="热身一">热身一</h3>
+<p>构造三个长度为 <span class="math inline">\(n\)</span> ,的排列使得 <span class="math inline">\(a_i + b_i \equiv c_i \pmod n\)</span> 无解输出 -1</p>
+<p>对等式两边分别求和。当 <span class="math inline">\(n\)</span> 为 偶数时，等式左边的值为 <span class="math inline">\(n(n-1) \equiv 0 \pmod n\)</span> ，等式右边的值为 <span class="math inline">\(\frac{n(n-1)}{2} \equiv \frac{n}{2} \pmod n\)</span> ，显然无解。<span class="math inline">\(n\)</span> 为奇数时，直接取 <span class="math inline">\(a=b={0, 1, 2,\cdots n-1}\)</span></p>
+<h3 id="热身二">热身二</h3>
+<p>一个 <span class="math inline">\(2n\)</span> 个点的完全图，把这些边分成 <span class="math inline">\(2n-1\)</span> 组，每组 <span class="math inline">\(n\)</span> 条边，且每组都是一个匹配。 （同一组内任意两条边没有公共点）。 <span class="math inline">\(n \le 1000\)</span></p>
+<p>对于一条边 <span class="math inline">\((u, v)\)</span> ，放入 第 <span class="math inline">\((u, v)\pmod {2n-1}\)</span> 组即可。</p>
+<h3 id="热身三">热身三</h3>
+<p>一个 <span class="math inline">\(2^n - 1\)</span> 个点的完全图，你需要找出尽量多的不交三元环。<span class="math inline">\(n\le 10\)</span></p>
+<p>分析答案上界 <span class="math inline">\(\frac{(2^n-1)(2^n-2)}{6}\)</span>.发现是整数，应该能取到。</p>
+<p>三元环可以用 <span class="math inline">\((u, v,w)\)</span> 表示，枚举 <span class="math inline">\(u, v\)</span> ，取出所有 <span class="math inline">\(u \oplus v\oplus w=0\)</span> 的三元环即可。考虑这样算出的答案需要除以 <span class="math inline">\(3!\)</span>。和上界相同，证明这种取法最优。</p>
+<h3 id="栗题一">栗题一</h3>
+<p>给出一张大小为 <span class="math inline">\(n\le 1000\)</span> 的完全图，给出一种方案，使得选出最多边互不相交的生成树.</p>
+<p>分析答案上界为 <span class="math inline">\(\frac{n(n-1)}{2(n-1)} = \lfloor\frac{n}{2}\rfloor\)</span>。</p>
+<p>归纳构造：</p>
+<ul>
+<li>假设 <span class="math inline">\(n=2k\)</span>个点已经构造好了，考虑加入一个点 <span class="math inline">\(n=2k+1\)</span>。这样就随便找 <span class="math inline">\(k\)</span> 个点，然后分别在每个点中选出不同的 <span class="math inline">\(k\)</span> 个树 和新点连边即可。</li>
+<li>假设 <span class="math inline">\(n=2k\)</span>个点已经构造好了，考虑加入两个点 <span class="math inline">\(n=2k+2\)</span>，记作 <span class="math inline">\(a, b\)</span>。考虑将 <span class="math inline">\(n\)</span> 个点分为 <span class="math inline">\(A, B\)</span> 两组，<span class="math inline">\(a\)</span> 和 <span class="math inline">\(A\)</span> 中的点，<span class="math inline">\(b\)</span> 和 <span class="math inline">\(B\)</span> 中的点分别连边，然后考虑上界多出了一颗树，这时就可以：<span class="math inline">\(a\)</span> 连 <span class="math inline">\(b\)</span> ，然后 <span class="math inline">\(a\)</span> 连 <span class="math inline">\(B\)</span> ，<span class="math inline">\(b\)</span> 连 <span class="math inline">\(A\)</span>。就多构造了一棵树。</li>
+</ul>
+<h3 id="栗题二">栗题二</h3>
+<p>平面上有 <span class="math inline">\(n \le 100\)</span> 个蓝色的点，需要加上 <span class="math inline">\(k\)</span> 个红色的点，使得任意三个蓝点组成的三角形内部都必须至少有一个红点，红点必须在内部，不能在边上。最小化 <span class="math inline">\(k\)</span> 的大小。</p>
+<p>分析出答案下界为 <span class="math inline">\((2n-2-\text{凸包上的点数})\)</span>.</p>
+<p>考虑到，一堆点，依次求出凸包，对于相邻两层凸包之间进行三角剖分，三角形个数为相邻两凸包点数和。最内层的凸包能划分出 <span class="math inline">\(n-2\)</span> 个三角形，设 <span class="math inline">\(l_i\)</span> 为从外到内第 <span class="math inline">\(i\)</span> 层凸包上的点数。考虑到答案为 <span class="math inline">\((l_1+l_2) + (l_2+l_3)+(l_3+l_4) +\cdots+(l_{k-1}+l_k)+(l_k - 2)=2n-2-l_1\)</span>。因为这样划分出来的三角形两两不交，所以这一定是答案的一个下界。</p>
+<p>考虑如何构造能到达答案的下界。</p>
+<p>随机一个向量<span class="math inline">\((x_0, y_0)\)</span>，长度为无限小，在每一个点 <span class="math inline">\((x_i, y_i) \pm (x_0, y_0)\)</span> 处放置两个红点，这样的答案是 <span class="math inline">\(2n\)</span> 的，因为 三角形内角和为 <span class="math inline">\(180^o\)</span> ，一个点和与其对应的两个红点构成的角，角度为 <span class="math inline">\(180^o\)</span> ，在随机意义下，每个三角形内部必然有且仅有一个点。对于凸包外的点可以删除，易知，可删的点有 <span class="math inline">\(\text{凸包上的点数}-2\)</span> 个。这样构造可以达到下界。</p>
+<h3 id="栗题三">栗题三</h3>
+<p>给出一张 <span class="math inline">\(n\times n\)</span> （<span class="math inline">\(n\le 40\)</span>）的方格表，每个格子里面有一个字母。每次可以把某一行所有字母右循环平移若干格，某一列的所有字母下循环平移若干格。若某行有连续的三个字母 <span class="math inline">\(k, e, y\)</span> 则形成一个键，在 <span class="math inline">\(10000\)</span> 次操作中最大化键的数量。</p>
+<ul>
+<li>当 <span class="math inline">\(3 \not | \ n\)</span> 时，方法显然，每一行一定要形成 <span class="math inline">\(keykeykey\cdots\)</span> 的形式，考虑像魔方一样的依次把每一列填成该填的字母，注意如果这一个格子无法填成想要的字母（后面没有这样的字母了），优先把后面与 <span class="math inline">\(k, e, y\)</span> 不同的<del>垃圾</del>字母填入。</li>
+<li>当 <span class="math inline">\(3\ |\ n\)</span> 时，前面的操作一样做，只需要特殊考虑最后一列怎么做，如果只剩下最后一列没有排好，相当于考虑如何交换最后一列的任意两个格子上的字母。考虑将倒数第二列的最后一行当作转移点，对最后一列执行交换操作，就跟某种排序算法一样即可。</li>
+</ul>
+<h3 id="栗题四">栗题四</h3>
+<p>给定一个 <span class="math inline">\(1\)</span> ~ <span class="math inline">\(n^2+n\)</span> 的排列，选出一个长度为 <span class="math inline">\(2n\)</span> 的子序列，使得子序列中 <span class="math inline">\(\forall k\in n\)</span> 有第 <span class="math inline">\(2k\)</span> 小的和 <span class="math inline">\(2k-1\)</span> 小的数字相邻。</p>
+<p>把排列分成 <span class="math inline">\(n\)</span> 段，每段 <span class="math inline">\(n+1\)</span> 个数字。依次求出每段里面最小和次小值。找到次小值最小的一段，把这一段的最小值和次小值放入答案序列，然后删除这一段。再把其他段中比这个次小值小的数字删除，重复上面的操作。可以证明，最后的删除操作，会在每一段中至多删去 <span class="math inline">\(1\)</span> 个数字（由于选定的段是次小值最小的一段），所以保证答案存在。</p>
+<h3 id="栗题五">栗题五</h3>
+<p>给出一个 <span class="math inline">\(2n\times m\)</span> 的棋盘，有 <span class="math inline">\(n\times m\)</span> 个红格子，有 <span class="math inline">\(n\times m\)</span> 个蓝格子，保证右下角为蓝色，左上角为红色，任意两个同色的格子中心都有一条边。要求给每条边定向，需要保证最后所有边的矢量和为 <span class="math inline">\(0\)</span>.</p>
+<ul>
+<li><span class="math inline">\(n\times m\)</span> 为奇数，对蓝色和红色的连通块，分别跑欧拉回路。</li>
+<li><span class="math inline">\(n\times m\)</span> 为偶数，去掉左上和右下的格点，剩下的点跑欧拉回路，然后考虑所有端点为左上、右下格点的边的方向。依次考虑每一对关于棋盘中心对称的点对。
+<ul>
+<li>若两个点对颜色不同，分别和左上、右下的格点连边即可抵消</li>
+<li>若两个点对颜色相同，则同时向自己颜色的格点连边。这样连边，两个向量和为指向这个颜色的顶点的对角线。易知这样的点对数量相同，所以最后也可以相互抵消。</li>
+</ul></li>
+</ul>
+<h3 id="栗题六">栗题六</h3>
+<p>给定一个环，环上的每个点是三种颜色 (RGB) 之一，若一个点左右两边的点颜色不一样，就可以将这个点改变成任意颜色。给出两个环，问能否在 <span class="math inline">\(10n\)</span> 次操作内把一个环变成另一个，给出方案 。 <span class="math inline">\(5 \le n \le 10^5\)</span>。</p>
+<p>一个经典套路就是，考虑到操作可逆，可以考虑如何把两个环同时操作，变成同一个。</p>
+<p>先考虑把两个环变成 “每个位置都可以操作的形式”，从某个可操作的位置开始操作，让它变成与左右两边距离为 <span class="math inline">\(2\)</span> 的点颜色不同的颜色。然后再操作左或右边的点，依次进行这样的操作，就可以把这个环变成“每个位置都可以操作的形式”。</p>
+<p>然后依次考虑把其中一个环的每个位置变成另外一个环的对应位置的颜色。同时需要保证任意一个位置的颜色可变，即：保证任意距离为 2 的位置颜色不同。为了方便考虑，可以把一个环根据位置下标的奇偶拆成两个环，问题变成了修改一个位置的颜色后，和两边位置的颜色都不同，如果改后不能保证，可以先修改两边位置的颜色。由于目标环也保证了任意位置颜色可逆，所以对于当前环的这种策略的操作，一定存在合法地操作。</p>
+<h3 id="栗题七">栗题七</h3>
+<p><img src="D:\ShuYuMo\Passage%20Text\Passage\images\gouzao_0.png" /></p>
+<p>nb 题目不做评价……</p>
+<p>想办法每次把最大值放到右下角，每次从没排好序的最后一行开始，依次让每行的最后一列成为一行中的最大值，然后对最后一列当成行，把最大值移动到第一行的最后一列，然后转一圈，移动到没排好序的右下角。注意没有保证任意元素不同，判断比较麻烦。</p>
+<h3 id="栗题八">栗题八</h3>
+<p>存在 <span class="math inline">\(n\)</span> 个数字。给出 <span class="math inline">\(n\)</span>，和 <span class="math inline">\(m\)</span> 个限制，限制形如 <span class="math inline">\(a_i, a_j\)</span> 两个数字的最大值或最小值为 <span class="math inline">\(w\)</span>。构造一种合法的方案。 <span class="math inline">\(n \le 10^5\)</span>。</p>
+<p>根据每个限制，可以给每个数字确定一个上界和下界。一定存在一种赋值方案，使得每个变量要么取上界，要么取下界。因为如果一个数字取下界和上界构成的开区间中的值，这个数字没有贡献，所以取要么取上界要么取下界的方案一定合法。</p>
+<p>直接 2-SAT，判断每个数值取上界还是下界。</p>
+<h3 id="栗题九">栗题九</h3>
+<p>给出一张 DAG，保证每个点入度不超过 <span class="math inline">\(2\)</span>，保证出度为 <span class="math inline">\(0\)</span> 的点有且仅有一个。每个点都有一些权值，这些权值均为 (0 / 1)，初始时，每个入度为 <span class="math inline">\(0\)</span> 的节点有一个权值，其他点的权值为其他两个子节点权值的与非（先取 and 再取 not）， 钦定一些入度为 <span class="math inline">\(0\)</span> 的节点权值，使其满足如下条件。（设：叶子节点为入度为 0 的点，根节点为出度为 0 的点 233） - 没有钦定的叶子节点全取 <span class="math inline">\(1\)</span> 时，和叶子节点全取 <span class="math inline">\(1\)</span> 时，根节点取值相同。 - 没有钦定的叶子节点全取 <span class="math inline">\(0\)</span> 时，和叶子节点全取 <span class="math inline">\(0\)</span> 时，根节点取值相同。 构造一种钦定方案，使得钦定的点数量尽可能多。</p>
+<p>首先确定一下：叶子节点全部取 <span class="math inline">\(0\)</span> 时，根节点的取值 <span class="math inline">\(A\)</span>。叶子节点全取 <span class="math inline">\(1\)</span> 时，根点的取值 <span class="math inline">\(B\)</span>。 - 如果 <span class="math inline">\(A = B\)</span>，那么最优答案一定是钦定所有叶子节点为同一值。 - 如果 <span class="math inline">\(A\not = B\)</span>，设 <span class="math inline">\(f(i)\)</span> 表示，当编号小于等于 <span class="math inline">\(i\)</span> 的叶子赋值为 <span class="math inline">\(1\)</span> 其余的赋值为 <span class="math inline">\(0\)</span> 时根节点的取值。试图确定一个 <span class="math inline">\(i\)</span> 使得 <span class="math inline">\(f(i) = A\)</span> 且 $ f(i + 1)=B$ 这时最优的方案就是钦定 <span class="math inline">\([1, i]\)</span> 和 <span class="math inline">\([i + 2, n]\)</span> 这些点，这样 钦定的点有 <span class="math inline">\(n - 1\)</span> 个，已经取到了当前情况下的最优解。 - 讨论一下 <span class="math inline">\(i\)</span> 的存在性，因为 <span class="math inline">\(f(0) \not = f(n)\)</span> 所以一定存在一个 <span class="math inline">\(i\)</span> 使得函数值发生改变。 - 考虑一下如何求这个 <span class="math inline">\(i\)</span> 值，可以<strong>二分</strong>。虽然函数不满足单调性，但是我们也不关心某个极值，只是希望快速求一个拐点，根据二分值处的函数取值，一样能够确定拐点一定在区间的哪边。(界值定理)</p>
+<h3 id="栗题十">栗题十</h3>
+<p>一个 <span class="math inline">\(n\)</span> 个点的简单无向图（无重边，无自环但不一定联通），你可以询问若干次，每次询问一棵 <span class="math inline">\(n\)</span> 个点的树，交互库会返回这棵树里面有多少边和无向图中的点有<strong>多少</strong>条边重合。</p>
+<p>首先确定节点 <span class="math inline">\(1\)</span> 和哪些节点有边相连，只需要构造一个除掉节点 <span class="math inline">\(1\)</span> 的链，然后枚举 <span class="math inline">\(i\)</span>，让节点 <span class="math inline">\(1\)</span> 和 节点 <span class="math inline">\(i\)</span> 连边， 查询答案，考虑这些答案的最大值和最小值，取到最大值的边存在，取到最小值的边不存在 （若最大值最小值相同，则边要么都存在，要么都不存在，问一个菊花即可确定）。</p>
+<p>考虑确定剩下的点 <span class="math inline">\(i\)</span> 和哪些点有连边，考虑像线段树一样查询 和下标为某一区间 <span class="math inline">\([l, r]\)</span> 的点是否有边相连，直接向这些点 <span class="math inline">\([l, r]\)</span> 连边，其余的点向 <span class="math inline">\(1\)</span> 连边，由于 <span class="math inline">\(1\)</span> 和哪些点有边相连是已知的，所以可以直接算出点 <span class="math inline">\(i\)</span> 向 <span class="math inline">\([l, r]\)</span> 中的点有无连边，依次递归即可。</p>
+<h3 id="栗题十一">栗题十一</h3>
+<p><a target="_blank" rel="noopener" href="http://www.zhengruioi.com/contest/717/problem/1599">「正睿联赛集训」Round 2 矩阵</a></p>
+<h3 id="栗题十一-1">栗题十一</h3>
+<p>需要值域分块学后待补。</p>
+<h3 id="栗题十二">栗题十二</h3>
+<p>「CF1364E」给定一个 <span class="math inline">\([0, n-1]\)</span> 的排列 p，每次询问 <span class="math inline">\((i, j)\)</span>返回 <span class="math inline">\(p_i | p_j\)</span>，最多 <span class="math inline">\(4269\)</span> 次询问，推出这个排列。 <span class="math inline">\(n\le 2048\)</span>。</p>
+<p>考虑到确定哪一个位置为 <span class="math inline">\(0\)</span> 即可确定所有位置的数字。</p>
+<h4 id="做法一">做法一</h4>
+<p>随机选择一个数字，让它或上其他所有数字，显然它和 <span class="math inline">\(0\)</span> 取或能够取到最小值。再随机一个数字让这个数字和这些上一次取到最小值的数字取或，继续找到最小值，重复以上操作，直到最小值唯一。 每次迭代，二进制中 <span class="math inline">\(1\)</span> 的个数期望减半，花费大概是 <span class="math inline">\(\mathcal{O}(n+\sqrt n + \cdots)\)</span> 常熟较大</p>
+<h4 id="做法二">做法二</h4>
+<p>从前往后扫一遍，同时维护两个位置 <span class="math inline">\(a, b\)</span> 表示前缀中可能为 <span class="math inline">\(0\)</span> 的位置为 <span class="math inline">\(a,b\)</span>， 考虑加入一个数字 <span class="math inline">\(c\)</span> 如何维护:</p>
+<ul>
+<li><span class="math inline">\(a | c &gt; a | b\)</span> 则 <span class="math inline">\(c\)</span> 不可能为 <span class="math inline">\(0\)</span>.</li>
+<li><span class="math inline">\(a | c &lt; a | b\)</span> 则 <span class="math inline">\(b\)</span> 不可能为 <span class="math inline">\(0\)</span>.</li>
+<li><span class="math inline">\(a | c = a | b\)</span> 则 <span class="math inline">\(a\)</span> 不可能为 <span class="math inline">\(0\)</span>.</li>
+</ul>
+<p>注意到其实前两种操作只需要询问一次，而后一种操作虽然需要询问多次，<span class="math inline">\(a|c = a|b\)</span> 的概率非常小。 可以考虑 <span class="math inline">\(random\_shuffle\)</span> 之后再做防止被卡。</p>
+
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/oi-blog/tags/构造题/" rel="tag"># 构造题</a>
+          </div>
+
+
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/oi-blog/「杂题记录」括号序列（格路计数）/" rel="prev" title="「杂题记录」括号序列（格路计数）">
+                  <i class="fa fa-chevron-left"></i> 「杂题记录」括号序列（格路计数）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/oi-blog/「杂题记录」出题人/" rel="next" title="「杂题记录」出题人">
+                  「杂题记录」出题人 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 –
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">舒雨墨</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="/oi-blog/js/utils.js"></script><script src="/oi-blog/js/schemes/muse.js"></script><script src="/oi-blog/js/next-boot.js"></script>
+
+
+<script src="/oi-blog/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('.gitalk-container', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5d4b0a361ccf7199b58f',
+      clientSecret: 'ff21340eedfb4a1c940eaddf8e180f0260c33088',
+      repo        : 'ShuYuMo2003.github.io',
+      owner       : 'ShuYuMo2003',
+      admin       : ['ShuYuMo2003'],
+      id          : 'ba764032a7b7f7f2c4a8ae85c55fe2c4',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render(document.querySelector('.gitalk-container'));
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
