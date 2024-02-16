@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CS231N 笔记 - Shu Yu Mo&#39;s Blog</title>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Shu Yu Mo">
+<meta name="description" content="吾輩は猫である.名前はまだない.">
+<meta name="keywords" content="ML,CNN,GAN,NN,code,C++,C,python,XMUM,ShuYuMo">
+
+<link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml">
+
+    <meta charset="utf-8">
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="renderer" content="webkit">
+    <meta name="theme-color" content="#ffffff">
+    
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/journal.css?46548406">
+
+<link rel="icon" href="/img/favicon.ico">
+
+
+<link id="hljsThemeLight" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/atom-one-light.min.css" crossorigin="anonymous">
+<link disabled id="hljsThemeDark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/atom-one-dark.min.css" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif|Noto+Serif+SC|Fira+Code|Montserrat">
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Material+Icons">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+<div id="top"></div>
+
+<div id="app">
+<div class="single-column-drawer-container" ref="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            <a class="a-block drawer-menu-item false" href="/">
+                Home
+            </a>
+
+            
+                
+                    <a class="a-block drawer-menu-item false"
+                       href="/search">
+                        Search
+                    </a>
+                
+                    <a class="a-block drawer-menu-item false"
+                       href="/categories">
+                        Categories
+                    </a>
+                
+                    <a class="a-block drawer-menu-item false"
+                       href="/tags">
+                        Tags
+                    </a>
+                
+                    <a class="a-block drawer-menu-item false"
+                       href="/archives">
+                        Archive
+                    </a>
+                
+                    <a class="a-block drawer-menu-item false"
+                       href="/about">
+                        About
+                    </a>
+                
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav ref="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div ref="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a ref="navTitle" class="navbar-brand" href="/">
+            Shu Yu Mo&#39;s Blog
+        </a>
+    </div>
+</nav>
+<div class="single-column-header-container" ref="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="/">
+        <div class="single-column-header-title">Shu Yu Mo&#39;s Blog</div>
+        <div class="single-column-header-subtitle">YTQ 貓貓 數學 程式碼</div>
+    </a>
+</div>
+
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head false" href="/">
+        <div class="nav-title">
+            Shu Yu Mo's.
+        </div>
+        <div class="nav-subtitle">
+            YTQ 貓貓 數學 程式碼
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        
+            
+                <a class="a-block nav-link-item false"
+                   href="/search">
+                    Search
+                </a>
+            
+                <a class="a-block nav-link-item false"
+                   href="/categories">
+                    Categories
+                </a>
+            
+                <a class="a-block nav-link-item false"
+                   href="/tags">
+                    Tags
+                </a>
+            
+                <a class="a-block nav-link-item false"
+                   href="/archives">
+                    Archive
+                </a>
+            
+                <a class="a-block nav-link-item false"
+                   href="/about">
+                    About
+                </a>
+            
+        
+    </div>
+
+    
+    <div class="nav-footer">
+        <!--button class="nav-footer-button" type="button" v-if="window.matchMedia('(prefers-color-scheme: dark)').matches">
+            <i class="material-icons footer-button">dark_mode</i>
+        </button>
+        <button class="nav-footer-button" type="button" v-else>
+            <i class="material-icons footer-button">light_mode</i>
+        </button><br-->
+        Built with <a href="https://hexo.io/" target="_blank">Hexo</a><br>
+        
+        Theme <a href="https://github.com/ce-amtic/hexo-theme-journal" target="_blank" rel="noreferrer noopener">Journal.</a> by <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a><br>
+        
+        &copy; 2024 <a href="">Shu Yu Mo</a>
+    </div>
+</div>
+
+<div ref="extraContainer" class="extra-container">
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+
+        
+    </div>
+</div>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        showProcessingMessages: false,
+        messageStyle: "none",
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+            inlineMath:  [ ["$", "$"], ["\\(", "\\)"] ],
+            displayMath: [ ["$$","$$"], ["\\[", "\\]"]  ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            ignoreClass: "comment-content"
+        },
+        "HTML-CSS": {
+            availableFonts: ["STIX","TeX"],
+            showMathMenu: true
+        }
+    });
+    MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+<div ref="streamContainer" class="stream-container">
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            <div class="post-head-wrapper-text-only"
+                 style="background-image: url('')">
+                <div class="post-title">
+                    CS231N 笔记
+                    <div class="post-meta">
+                        <time datetime="2024-02-13T17:31:22.000Z" itemprop="datePublished">
+                            2024-02-14 01:31
+                        </time>&nbsp;
+                        
+    
+                        
+                        
+                        <i class="material-icons no-hover" style="">label</i>
+                        
+                        <a href='/tags/机器学习/'>机器学习</a>, 
+                        
+                        <a href='/tags/笔记整理/'>笔记整理</a>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="post-body-wrapper">
+                <div class="post-body">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E9%87%8D%E8%A6%81%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">两个重要函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%97%E5%88%86%E5%87%BD%E6%95%B0-score-function"><span class="toc-number">1.1.</span> <span class="toc-text">得分函数 (Score Function)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0-loss-function"><span class="toc-number">1.2.</span> <span class="toc-text">损失函数 (Loss Function)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#multiclass-support-vector-machine-loss"><span class="toc-number">1.2.1.</span> <span class="toc-text">Multiclass Support Vector Machine loss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#softmax-loss"><span class="toc-number">1.2.2.</span> <span class="toc-text">Softmax Loss</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%98%E5%8C%96-optimization"><span class="toc-number">2.</span> <span class="toc-text">优化 (Optimization)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%84-architecture"><span class="toc-number">3.</span> <span class="toc-text">结构 （Architecture）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E5%85%83"><span class="toc-number">3.1.</span> <span class="toc-text">神经元</span></a></li></ol></li></ol>
+                    <h1 id="两个重要函数">两个重要函数</h1>
+<p>CNN 可以视作以下两个函数的集合.</p>
+<h2 id="得分函数-score-function">得分函数 (Score Function)</h2>
+<p><span class="math inline">\(f(\vec{x}; W)\)</span>.其中 <span class="math inline">\(\vec{x}\)</span> 为输入网络的数据，<span class="math inline">\(W\)</span> 为网络中的所有参数.本质上参数是网络的固有特性.</p>
+<p>得分函数可以简单理解为输入一个向量，输出一个向量的函数，输出的向量为的第 <span class="math inline">\(i\)</span> 维，为第 <span class="math inline">\(i\)</span> 种类别的得分.</p>
+<p>得分函数是整个神经网络的抽象.</p>
+<h2 id="损失函数-loss-function">损失函数 (Loss Function)</h2>
+<p>用于衡量 <strong>得分函数</strong> <em>给分</em> 的优劣程度.损失 (Loss) 是相对于某组特定的 <strong>数据</strong> 来说的.</p>
+<p>对于 CNN <strong>数据</strong> 可以抽象为 输入数据 (input) <span class="math inline">\(\{\vec{x_i}\}\)</span> 和 标签 (label) <span class="math inline">\(\{y_i\}\)</span>，其中 <em>输入数据</em> 和 <em>标签</em> 一一对应，设长度为 <span class="math inline">\(N\)</span>，损失函数可以定义为 <span class="math inline">\(L(W; \{\vec{x_i}\}, \{y_i\})\)</span>.</p>
+<p>有不同的若干种常见的 <em>损失函数</em> 的定义方式：</p>
+<h3 id="multiclass-support-vector-machine-loss">Multiclass Support Vector Machine loss</h3>
+<p><span class="math display">\[
+  L_i(W; \vec{x_i}, y_i) = \sum_{j\not=y_i}\max{(0, f(\vec{x_i};W)_j - f(\vec{x_i};W)_{y_i} + \Delta)}
+\]</span> 其中 <span class="math inline">\(L_i\)</span> 为对于第 <span class="math inline">\(i\)</span> 组数据的 "损失". <span class="math inline">\(\Delta\)</span> 为 <strong>超参数 (Hyperparameter)</strong> 可以理解为期望下第 <span class="math inline">\(y_i\)</span> 类得分的显著性水平。</p>
+<figure>
+<img src="\img\margin.jpg" alt="" /><figcaption>margin</figcaption>
+</figure>
+<p>对于整体损失还需要加入 <strong>正则损失 (Regularization Loss)</strong> 项，正则损失定义为 <span class="math display">\[
+R(W) = \begin{cases}
+\sum_{i, j, k, \cdots} (W_{i, j, k, \cdots})^2  &amp; \text{L2 Regularization} \\
+\sum_{i, j, k, \cdots} |W_{i, j, k, \cdots}|  &amp; \text{L1 Regularization} \\
+\sum_{i, j, k, \cdots} \beta(W_{i, j, k, \cdots})^2 + |W_{i, j, k, \cdots}|  &amp; \text{Elastic Net Regularization} \\
+\end{cases}
+\]</span> 主要为了鼓励参数稀疏，减轻模型复杂度，在一定程度上减轻过拟合。</p>
+<p>对于一组数据 <span class="math inline">\(\{\vec{x_i}\}, \{y_i\}\)</span> 其 <em>整体损失函数</em> <span class="math inline">\(L\left(W, \{\vec{x_i}\}, \{y_i\}\right)\)</span> 的定义为: <span class="math display">\[
+ L\left(W; \{\vec{x_i}\}, \{y_i\}\right)=\frac{1}{N}\sum_{i}L_i + \alpha R(W)
+\]</span> 其中 <span class="math inline">\(\alpha\)</span> 为超参数。</p>
+<h3 id="softmax-loss">Softmax Loss</h3>
+<p>定义为： <span class="math display">\[
+    L_i(W; \vec{x_i}, y_i) = -\log\left(\frac{\exp{f(\vec{x_i};W)_{y_i}}}{\sum_{j}\exp{f(\vec{x_i};W)_{j}}}\right)=-f(\vec{x_i};W)_{y_i}+\log\left(\sum_{j}\exp{f(\vec{x_i};W)_{j}}\right)
+\]</span></p>
+<p>一个计算上的技巧是，可以对 <span class="math inline">\(f(\vec{x_i};W) \leftarrow f(\vec{x_i}; W) - \max_j{\{f(\vec{x_i};W)\}_j}\)</span>，在计算上 <span class="math inline">\(L_i\)</span> 结果不变. 可以防止 <span class="math inline">\(\exp\)</span> 计算是函数值过大导致溢出。</p>
+<p>其 <em>整体损失函数</em> 的定义和上述相同。 <span class="math display">\[
+ L\left(W; \{\vec{x_i}\}, \{y_i\}\right)=\frac{1}{N}\sum_{i}L_i + \alpha R(W)
+\]</span></p>
+<p>两种计算 Loss 的主要方法没有明显优势劣势。</p>
+<ul>
+<li>对于 SVM Loss ，其目标是 <em>正确类别</em> 的得分要高于 <em>其他类比</em> 一个特定值即可。如果高于之后就不会对模型产生影响。</li>
+<li>对于 Softmax Loss，他会不断使得模型增加 <em>正确类别</em> 得分的显著性。</li>
+</ul>
+<p>SVM Loss 可能会把更多的精力放在相似类别分辨的细化上</p>
+<blockquote>
+<p><strong>CS231n note 原文</strong> <div class="plain-text"> For example, a car classifier which is likely spending most of its “effort” on the difficult problem of separating cars from trucks should not be influenced by the frog examples, which it already assigns very low scores to, and which likely cluster around a completely different side of the data cloud. (cs231n, 2024). </div></blockquote></p>
+<blockquote>
+<p><strong>Loss 函数可以可视化</strong> <div class="plain-text"> 若其输入的参数量为 <span class="math inline">\(N\)</span>，则考虑在 <span class="math inline">\(N\)</span> 维空间中取一平面，生成 Loss 值在这一平面上的 heatmap.</p>
+<p>具体考虑生成两随机向量 <span class="math inline">\(\vec{W_1}, \vec{W_2}\)</span>，和一个随机平面中心点 <span class="math inline">\(W\)</span>，定义 <span class="math display">\[
+l&#39;(a, b) = L\left(W + aW_1+ bW_2; \{\vec{x_i}\}, \{y_i\}\right)\]</span></p>
+<p>绘制 <span class="math inline">\(l&#39;(a, b)\)</span> 的热图即可。 </div></blockquote></p>
+<h1 id="优化-optimization">优化 (Optimization)</h1>
+<p>通过调整参数的取值，使得整个网络的 Loss 值更低。</p>
+<p>本质是数值方法优化多变量函数，可以使用梯度下降法（Stochastic Gradient Descent）。梯度 <span class="math inline">\(\nabla_{w}L\)</span> ，可以在每次算出 Loss 的时候通过反向传播求出 （Back Propagation）。</p>
+<ul>
+<li>正向过程（Forward）：从网络第一层出发，代入网络每一层网络，最终计算出结果向量和 Loss 值。</li>
+<li>反向过程（Backword）：从 Loss 值出发，利用 Chain Rule 推知 <span class="math inline">\(\nabla_{W}L\)</span>。</li>
+</ul>
+<h1 id="结构-architecture">结构 （Architecture）</h1>
+<h2 id="神经元">神经元</h2>
+<p>数学上定义为一个多自变量函数。如神经元输入量为 <span class="math inline">\(n\)</span>，第 <span class="math inline">\(i\)</span> 个突触的输入数据为 <span class="math inline">\(x_i\)</span> 则： <span class="math display">\[
+ \sigma\left(\sum_{i}^{n}{w_ix_i} + b\right)
+\]</span> 其中 <span class="math inline">\(\sigma(x)\)</span> 为激活函数</p>
+
+                </div>
+            </div>
+    
+            
+<nav class="post-pagination">
+    
+    <a class="newer-posts" href="/9000/01/01/catcatcat/">
+        Previous post<br>吾輩は猫である
+    </a>
+    
+    <span class="page-number"></span>
+    
+    <a class="older-posts" href="/2024/02/12/test-by-old-page/">
+        Next post<br>整数模 n 乘法群
+    </a>
+    
+</nav>
+
+
+    
+            
+
+<div class="post-comment-wrapper-giscus">
+    <div class="giscus"></div>
+</div>
+
+
+
+        </div>
+    </div>
+    <div class="single-column-footer">
+    <!--button class="nav-footer-button" type="button" v-if="localStorage.theme === 'dark'" v-on:click="toggleDark">
+        Light Mode
+    </button>
+    <button class="nav-footer-button" type="button" v-else v-on:click="toggleDark">
+        Dark Mode
+    </button><br-->
+    Built with <a href="https://hexo.io/" target="_blank">Hexo</a><br>
+    
+    Theme <a href="https://github.com/ce-amtic/hexo-theme-journal" target="_blank" rel="noreferrer noopener">Journal.</a> by <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a><br>
+    
+    &copy; 2024 <a href="http://example.com">Shu Yu Mo</a>
+</div>
+</div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/14.2.1/smooth-scroll.min.js" crossorigin="anonymous"></script>
+<script src="/js/journal.min.js?40121084"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+<script src="/js/clipboard.js"></script>
+<script src="/js/darkmode.js"></script>
+
+
+
+
+<script id="myGiscusApp"></script>
+<script data-theme="preferred_color_scheme"
+        src="https://giscus.app/client.js"
+        
+        data-repo="ShuYuMo2003/ShuYuMo2003.github.io"
+        
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyOTMyMjg2NDc="
+        
+        data-category="General"
+        
+        data-category-id="DIC_kwDOEXpQZ84CdJZB"
+        
+        data-mapping="pathname"
+        
+        data-reactions-enabled="1"
+        
+        data-emit-metadata="1"
+        
+        data-theme="light"
+        
+        data-lang="en"
+        
+        data-input-position="top"
+        data-strict="1"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+</body>
+</html>
