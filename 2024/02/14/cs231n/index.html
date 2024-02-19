@@ -4,11 +4,11 @@
 <html lang="en">
 
 <head>
-    <title>CS231N 笔记 - Shu Yu Mo&#39;s Blog</title>
+    <title>初见神经网络 - Shu Yu Mo&#39;s Blog</title>
 <meta charset="utf-8">
 <meta name="X-UA-Compatible" content="IE=edge">
 <meta name="author" content="Shu Yu Mo">
-<meta name="description" content="吾輩は猫である.名前はまだない.">
+<meta name="description" content="学习 CS231N 的笔记。神经网络基础，特指于 CNN 的一些基础知识的整理，方便个人梳理思路">
 <meta name="keywords" content="ML,CNN,GAN,NN,code,C++,C,python,XMUM,ShuYuMo">
 
 <link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml">
@@ -22,7 +22,7 @@
     
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
-<link rel="stylesheet" href="/css/journal.css?46548406">
+<link rel="stylesheet" href="/css/journal.css?88223653">
 
 <link rel="icon" href="/img/favicon.ico">
 
@@ -201,7 +201,7 @@
             <div class="post-head-wrapper-text-only"
                  style="background-image: url('')">
                 <div class="post-title">
-                    CS231N 笔记
+                    初见神经网络
                     <div class="post-meta">
                         <time datetime="2024-02-13T17:31:22.000Z" itemprop="datePublished">
                             2024-02-14 01:31
@@ -223,7 +223,7 @@
     
             <div class="post-body-wrapper">
                 <div class="post-body">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E9%87%8D%E8%A6%81%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">两个重要函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%97%E5%88%86%E5%87%BD%E6%95%B0-score-function"><span class="toc-number">1.1.</span> <span class="toc-text">得分函数 (Score Function)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0-loss-function"><span class="toc-number">1.2.</span> <span class="toc-text">损失函数 (Loss Function)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#multiclass-support-vector-machine-loss"><span class="toc-number">1.2.1.</span> <span class="toc-text">Multiclass Support Vector Machine loss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#softmax-loss"><span class="toc-number">1.2.2.</span> <span class="toc-text">Softmax Loss</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%98%E5%8C%96-optimization"><span class="toc-number">2.</span> <span class="toc-text">优化 (Optimization)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%84-architecture"><span class="toc-number">3.</span> <span class="toc-text">结构 （Architecture）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E5%85%83"><span class="toc-number">3.1.</span> <span class="toc-text">神经元</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E9%87%8D%E8%A6%81%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">两个重要函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%97%E5%88%86%E5%87%BD%E6%95%B0-score-function"><span class="toc-number">1.1.</span> <span class="toc-text">得分函数 (Score Function)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0-loss-function"><span class="toc-number">1.2.</span> <span class="toc-text">损失函数 (Loss Function)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#multiclass-support-vector-machine-loss"><span class="toc-number">1.2.1.</span> <span class="toc-text">Multiclass Support Vector Machine loss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#softmax-loss"><span class="toc-number">1.2.2.</span> <span class="toc-text">Softmax Loss</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%98%E5%8C%96-optimization"><span class="toc-number">2.</span> <span class="toc-text">优化 (Optimization)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84-architecture"><span class="toc-number">3.</span> <span class="toc-text">神经网络结构 （Architecture）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E5%85%83"><span class="toc-number">3.1.</span> <span class="toc-text">神经元</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text">常用激活函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E7%8E%B0%E5%8A%9Brepresentational-power"><span class="toc-number">3.3.</span> <span class="toc-text">表现力（Representational Power）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86data-pre-processing"><span class="toc-number">3.4.</span> <span class="toc-text">数据预处理（Data Pre-Processing）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%83%E5%80%BC%E5%88%9D%E5%A7%8B%E5%8C%96weight-initialization"><span class="toc-number">3.5.</span> <span class="toc-text">权值初始化（Weight Initialization）</span></a></li></ol></li></ol>
                     <h1 id="两个重要函数">两个重要函数</h1>
 <p>CNN 可以视作以下两个函数的集合.</p>
 <h2 id="得分函数-score-function">得分函数 (Score Function)</h2>
@@ -279,11 +279,38 @@ l&#39;(a, b) = L\left(W + aW_1+ bW_2; \{\vec{x_i}\}, \{y_i\}\right)\]</span></p>
 <li>正向过程（Forward）：从网络第一层出发，代入网络每一层网络，最终计算出结果向量和 Loss 值。</li>
 <li>反向过程（Backword）：从 Loss 值出发，利用 Chain Rule 推知 <span class="math inline">\(\nabla_{W}L\)</span>。</li>
 </ul>
-<h1 id="结构-architecture">结构 （Architecture）</h1>
+<h1 id="神经网络结构-architecture">神经网络结构 （Architecture）</h1>
+<p>神经网络的计算传递结构本质上是一个 DAG （Directed Acyclic Graph）.</p>
 <h2 id="神经元">神经元</h2>
 <p>数学上定义为一个多自变量函数。如神经元输入量为 <span class="math inline">\(n\)</span>，第 <span class="math inline">\(i\)</span> 个突触的输入数据为 <span class="math inline">\(x_i\)</span> 则： <span class="math display">\[
  \sigma\left(\sum_{i}^{n}{w_ix_i} + b\right)
-\]</span> 其中 <span class="math inline">\(\sigma(x)\)</span> 为激活函数</p>
+\]</span> 其中 <span class="math inline">\(\sigma(x)\)</span> 为激活函数。</p>
+<blockquote>
+<p><strong>As Linear Classifier</strong> <div class="plain-text"> 单个神经元可以当成一个 <em>线性分类器</em> 因为从激活函数的角度观察，神经元有能力喜欢或者不喜欢某种信号，即 <em>激活函数</em> 存在阈值。 </div></blockquote></p>
+<h2 id="常用激活函数">常用激活函数</h2>
+<ul>
+<li>Sigmoid / tanh 不太行。</li>
+<li>ReLU （Rectified Linear Unit）: <span class="math inline">\(f(x) = \max(0, x)\)</span> 当训练学习率（Learning Rate）过大导致其参数变化过大，会使得其永远不可能被激活，导致神经元死亡 （Dying ReLU）。 可以通过调小 Learning Rate 规避。</li>
+<li>Leaky ReLU：<span class="math inline">\(f(x) = [x &lt; 0](\alpha x) + [x \ge 0]x\)</span> 可能对 Dying ReLU 有帮助。</li>
+<li>Maxout: <span class="math inline">\(f(x) = (w_1x+b_1, w_2x+b_2)\)</span>，其实是 ReLU 和 Leaky ReLU，综合了 ReLU 的优点，规避了其缺点。但是增加了参数数量</li>
+</ul>
+<p>选择策略： - 可以优先考虑 ReLU. 但是要设置合理的 Learning Rate - 如果其效果不好，可以试一下 Leaky ReLU 和 Maxout. - 别用 Sigmoid，慎用 tanh</p>
+<h2 id="表现力representational-power">表现力（Representational Power）</h2>
+<p>具有一层以上 隐藏层（Hidden Layer）的 训练好的 神经网络 <span class="math inline">\(g(x)\)</span>，对于任意 <span class="math inline">\(f(x)\)</span>，有： <span class="math display">\[
+ \forall x\ \forall \epsilon&gt;0, \left|f(x)-g(x)\right| &lt; \epsilon
+\]</span> 对于一层以上的神经网络在数学上可以表示任何函数。</p>
+<p>但是实践中使用层数较多的神经网络有更多优势，如便于训练和理解。</p>
+<p><img src="/img/layer_sizes.jpeg" /></p>
+<p>模型的实际表现能力也会随层数增多而增强。</p>
+<p>层数过多确实会在训练中造成过拟合的风险，但是减少层数不是缓解过拟合的方法，后面会有更常用的减轻过拟合的方法，例如提高正则系数（Regularization Rate） <span class="math inline">\(\alpha\)</span></p>
+<p>对于全连接神经网络，当层数大于 <span class="math inline">\(3\)</span> 时，增加层数带来的表现力的增加收益会减轻。 但是对于 CNN 却不是这样，CNN 层数增加往往都能换来更强的神经网络表现力。</p>
+<h2 id="数据预处理data-pre-processing">数据预处理（Data Pre-Processing）</h2>
+<ul>
+<li>中心化（Mean subtraction）：使得数据 zero-centered <span class="math inline">\(\vec{x} \leftarrow (\vec{x} - \text{mean}{(\vec{x})})\)</span></li>
+<li>正态化（Normalization ）： 使得中心化后的数据服从正态分布 <span class="math inline">\(\vec{x} \leftarrow (\vec{x}\ / \ \text{std}{(\vec{x})})\)</span>。 一般是对于单位不同的数据进行处理，CNN 中对于图像来说，影响不大。</li>
+<li>PCA 和 白化（Whitening）: 略 没看懂</li>
+</ul>
+<h2 id="权值初始化weight-initialization">权值初始化（Weight Initialization）</h2>
 
                 </div>
             </div>
@@ -338,7 +365,7 @@ l&#39;(a, b) = L\left(W + aW_1+ bW_2; \{\vec{x_i}\}, \{y_i\}\right)\]</span></p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/14.2.1/smooth-scroll.min.js" crossorigin="anonymous"></script>
-<script src="/js/journal.min.js?40121084"></script>
+<script src="/js/journal.min.js?27603579"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
 <script src="/js/clipboard.js"></script>
 <script src="/js/darkmode.js"></script>
