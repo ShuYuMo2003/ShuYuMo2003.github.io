@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>吾輩は猫である</title>
+    <url>/9000/01/01/catcatcat/</url>
+    <content><![CDATA[<p>这是一个新博客。</p>
+<p>为了和之前搞 OI 时写的博客做一个区分，应该会写点更有意思的东西吧。</p>
+<p>feature picture 是我在大学图书馆拍的夕阳。</p>
+<p><a href="/oi-blog">原先的博客仍然保留在本站</a>。</p>
+<p>然后给大家看点我的猫猫。</p>
+<p><br/> <br/> <br/></p>
+<p><img src="/img/catcat/cat001.jpg" /> <img src="/img/catcat/cat002.jpg" /> <img src="/img/catcat/cat003.jpg" /> <img src="/img/catcat/cat004.jpg" /> <img src="/img/catcat/cat005.jpg" /></p>
+]]></content>
+      <tags>
+        <tag>cat</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>初见神经网络</title>
     <url>/2024/02/14/cs231n/</url>
     <content><![CDATA[<h1 id="两个重要函数">两个重要函数</h1>
@@ -120,25 +135,12 @@ l&#39;(a, b) = L\left(W + aW_1+ bW_2; \{\vec{x_i}\}, \{y_i\}\right)\]</span></p>
 <blockquote>
 <p><strong>回归问题的一些注意 CS231N 原文</strong> <div class="plain-text"> When faced with a regression task, first consider if it is absolutely necessary. Instead, have a strong preference to discretizing your outputs to bins and perform classification over them whenever possible.</p>
 </div></blockquote>
+<h1 id="训练细节">训练细节</h1>
+<p><a href="https://cs231n.github.io/neural-networks-3/">细节</a></p>
 ]]></content>
       <tags>
         <tag>机器学习</tag>
         <tag>笔记整理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>吾輩は猫である</title>
-    <url>/9000/01/01/catcatcat/</url>
-    <content><![CDATA[<p>这是一个新博客。</p>
-<p>为了和之前搞 OI 时写的博客做一个区分，应该会写点更有意思的东西吧。</p>
-<p>feature picture 是我在大学图书馆拍的夕阳。</p>
-<p><a href="/oi-blog">原先的博客仍然保留在本站</a>。</p>
-<p>然后给大家看点我的猫猫。</p>
-<p><br/> <br/> <br/></p>
-<p><img src="/img/catcat/cat001.jpg" /> <img src="/img/catcat/cat002.jpg" /> <img src="/img/catcat/cat003.jpg" /> <img src="/img/catcat/cat004.jpg" /> <img src="/img/catcat/cat005.jpg" /></p>
-]]></content>
-      <tags>
-        <tag>cat</tag>
       </tags>
   </entry>
   <entry>
