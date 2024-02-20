@@ -16,103 +16,6 @@
       </tags>
   </entry>
   <entry>
-    <title>初见神经网络</title>
-    <url>/2024/02/14/cs231n/</url>
-    <content><![CDATA[<h1 id="两个重要函数">两个重要函数</h1>
-<p>CNN 可以视作以下两个函数的集合.</p>
-<h2 id="得分函数-score-function">得分函数 (Score Function)</h2>
-<p><span class="math inline">\(f(\vec{x}; W)\)</span>.其中 <span class="math inline">\(\vec{x}\)</span> 为输入网络的数据，<span class="math inline">\(W\)</span> 为网络中的所有参数.本质上参数是网络的固有特性.</p>
-<p>得分函数可以简单理解为输入一个向量，输出一个向量的函数，输出的向量为的第 <span class="math inline">\(i\)</span> 维，为第 <span class="math inline">\(i\)</span> 种类别的得分.</p>
-<p>得分函数是整个神经网络的抽象.</p>
-<h2 id="损失函数-loss-function">损失函数 (Loss Function)</h2>
-<p>用于衡量 <strong>得分函数</strong> <em>给分</em> 的优劣程度.损失 (Loss) 是相对于某组特定的 <strong>数据</strong> 来说的.</p>
-<p>对于 CNN <strong>数据</strong> 可以抽象为 输入数据 (input) <span class="math inline">\(\{\vec{x_i}\}\)</span> 和 标签 (label) <span class="math inline">\(\{y_i\}\)</span>，其中 <em>输入数据</em> 和 <em>标签</em> 一一对应，设长度为 <span class="math inline">\(N\)</span>，损失函数可以定义为 <span class="math inline">\(L(W; \{\vec{x_i}\}, \{y_i\})\)</span>.</p>
-<p>有不同的若干种常见的 <em>损失函数</em> 的定义方式：</p>
-<h3 id="multiclass-support-vector-machine-loss">Multiclass Support Vector Machine loss</h3>
-<p><span class="math display">\[
-  L_i(W; \vec{x_i}, y_i) = \sum_{j\not=y_i}\max{(0, f(\vec{x_i};W)_j - f(\vec{x_i};W)_{y_i} + \Delta)}
-\]</span> 其中 <span class="math inline">\(L_i\)</span> 为对于第 <span class="math inline">\(i\)</span> 组数据的 "损失". <span class="math inline">\(\Delta\)</span> 为 <strong>超参数 (Hyperparameter)</strong> 可以理解为期望下第 <span class="math inline">\(y_i\)</span> 类得分的显著性水平。</p>
-<figure>
-<img src="\img\margin.jpg" alt="" /><figcaption>margin</figcaption>
-</figure>
-<p>对于整体损失还需要加入 <strong>正则损失 (Regularization Loss)</strong> 项，正则损失定义为 <span class="math display">\[
-R(W) = \begin{cases}
-\sum_{i, j, k, \cdots} (W_{i, j, k, \cdots})^2  &amp; \text{L2 Regularization} \\
-\sum_{i, j, k, \cdots} |W_{i, j, k, \cdots}|  &amp; \text{L1 Regularization} \\
-\sum_{i, j, k, \cdots} \beta(W_{i, j, k, \cdots})^2 + |W_{i, j, k, \cdots}|  &amp; \text{Elastic Net Regularization} \\
-\end{cases}
-\]</span> 主要为了鼓励参数稀疏，减轻模型复杂度，在一定程度上减轻过拟合。</p>
-<p>对于一组数据 <span class="math inline">\(\{\vec{x_i}\}, \{y_i\}\)</span> 其 <em>整体损失函数</em> <span class="math inline">\(L\left(W, \{\vec{x_i}\}, \{y_i\}\right)\)</span> 的定义为: <span class="math display">\[
- L\left(W; \{\vec{x_i}\}, \{y_i\}\right)=\frac{1}{N}\sum_{i}L_i + \alpha R(W)
-\]</span> 其中 <span class="math inline">\(\alpha\)</span> 为超参数。</p>
-<h3 id="softmax-loss">Softmax Loss</h3>
-<p>定义为： <span class="math display">\[
-    L_i(W; \vec{x_i}, y_i) = -\log\left(\frac{\exp{f(\vec{x_i};W)_{y_i}}}{\sum_{j}\exp{f(\vec{x_i};W)_{j}}}\right)=-f(\vec{x_i};W)_{y_i}+\log\left(\sum_{j}\exp{f(\vec{x_i};W)_{j}}\right)
-\]</span></p>
-<p>一个计算上的技巧是，可以对 <span class="math inline">\(f(\vec{x_i};W) \leftarrow f(\vec{x_i}; W) - \max_j{\{f(\vec{x_i};W)\}_j}\)</span>，在计算上 <span class="math inline">\(L_i\)</span> 结果不变. 可以防止 <span class="math inline">\(\exp\)</span> 计算是函数值过大导致溢出。</p>
-<p>其 <em>整体损失函数</em> 的定义和上述相同。 <span class="math display">\[
- L\left(W; \{\vec{x_i}\}, \{y_i\}\right)=\frac{1}{N}\sum_{i}L_i + \alpha R(W)
-\]</span></p>
-<p>两种计算 Loss 的主要方法没有明显优势劣势。</p>
-<ul>
-<li>对于 SVM Loss ，其目标是 <em>正确类别</em> 的得分要高于 <em>其他类比</em> 一个特定值即可。如果高于之后就不会对模型产生影响。</li>
-<li>对于 Softmax Loss，他会不断使得模型增加 <em>正确类别</em> 得分的显著性。</li>
-</ul>
-<p>SVM Loss 可能会把更多的精力放在相似类别分辨的细化上</p>
-<blockquote>
-<p><strong>CS231n note 原文</strong> <div class="plain-text"> For example, a car classifier which is likely spending most of its “effort” on the difficult problem of separating cars from trucks should not be influenced by the frog examples, which it already assigns very low scores to, and which likely cluster around a completely different side of the data cloud. (cs231n, 2024). </div></blockquote></p>
-<blockquote>
-<p><strong>Loss 函数可以可视化</strong> <div class="plain-text"> 若其输入的参数量为 <span class="math inline">\(N\)</span>，则考虑在 <span class="math inline">\(N\)</span> 维空间中取一平面，生成 Loss 值在这一平面上的 heatmap.</p>
-<p>具体考虑生成两随机向量 <span class="math inline">\(\vec{W_1}, \vec{W_2}\)</span>，和一个随机平面中心点 <span class="math inline">\(W\)</span>，定义 <span class="math display">\[
-l&#39;(a, b) = L\left(W + aW_1+ bW_2; \{\vec{x_i}\}, \{y_i\}\right)\]</span></p>
-<p>绘制 <span class="math inline">\(l&#39;(a, b)\)</span> 的热图即可。 </div></blockquote></p>
-<h1 id="优化-optimization">优化 (Optimization)</h1>
-<p>通过调整参数的取值，使得整个网络的 Loss 值更低。</p>
-<p>本质是数值方法优化多变量函数，可以使用梯度下降法（Stochastic Gradient Descent）。梯度 <span class="math inline">\(\nabla_{w}L\)</span> ，可以在每次算出 Loss 的时候通过反向传播求出 （Back Propagation）。</p>
-<ul>
-<li>正向过程（Forward）：从网络第一层出发，代入网络每一层网络，最终计算出结果向量和 Loss 值。</li>
-<li>反向过程（Backword）：从 Loss 值出发，利用 Chain Rule 推知 <span class="math inline">\(\nabla_{W}L\)</span>。</li>
-</ul>
-<h1 id="神经网络结构-architecture">神经网络结构 （Architecture）</h1>
-<p>神经网络的计算传递结构本质上是一个 DAG （Directed Acyclic Graph）.</p>
-<h2 id="神经元">神经元</h2>
-<p>数学上定义为一个多自变量函数。如神经元输入量为 <span class="math inline">\(n\)</span>，第 <span class="math inline">\(i\)</span> 个突触的输入数据为 <span class="math inline">\(x_i\)</span> 则： <span class="math display">\[
- \sigma\left(\sum_{i}^{n}{w_ix_i} + b\right)
-\]</span> 其中 <span class="math inline">\(\sigma(x)\)</span> 为激活函数。</p>
-<blockquote>
-<p><strong>As Linear Classifier</strong> <div class="plain-text"> 单个神经元可以当成一个 <em>线性分类器</em> 因为从激活函数的角度观察，神经元有能力喜欢或者不喜欢某种信号，即 <em>激活函数</em> 存在阈值。 </div></blockquote></p>
-<h2 id="常用激活函数">常用激活函数</h2>
-<ul>
-<li>Sigmoid / tanh 不太行。</li>
-<li>ReLU （Rectified Linear Unit）: <span class="math inline">\(f(x) = \max(0, x)\)</span> 当训练学习率（Learning Rate）过大导致其参数变化过大，会使得其永远不可能被激活，导致神经元死亡 （Dying ReLU）。 可以通过调小 Learning Rate 规避。</li>
-<li>Leaky ReLU：<span class="math inline">\(f(x) = [x &lt; 0](\alpha x) + [x \ge 0]x\)</span> 可能对 Dying ReLU 有帮助。</li>
-<li>Maxout: <span class="math inline">\(f(x) = (w_1x+b_1, w_2x+b_2)\)</span>，其实是 ReLU 和 Leaky ReLU，综合了 ReLU 的优点，规避了其缺点。但是增加了参数数量</li>
-</ul>
-<p>选择策略： - 可以优先考虑 ReLU. 但是要设置合理的 Learning Rate - 如果其效果不好，可以试一下 Leaky ReLU 和 Maxout. - 别用 Sigmoid，慎用 tanh</p>
-<h2 id="表现力representational-power">表现力（Representational Power）</h2>
-<p>具有一层以上 隐藏层（Hidden Layer）的 训练好的 神经网络 <span class="math inline">\(g(x)\)</span>，对于任意 <span class="math inline">\(f(x)\)</span>，有： <span class="math display">\[
- \forall x\ \forall \epsilon&gt;0, \left|f(x)-g(x)\right| &lt; \epsilon
-\]</span> 对于一层以上的神经网络在数学上可以表示任何函数。</p>
-<p>但是实践中使用层数较多的神经网络有更多优势，如便于训练和理解。</p>
-<p><img src="/img/layer_sizes.jpeg" /></p>
-<p>模型的实际表现能力也会随层数增多而增强。</p>
-<p>层数过多确实会在训练中造成过拟合的风险，但是减少层数不是缓解过拟合的方法，后面会有更常用的减轻过拟合的方法，例如提高正则系数（Regularization Rate） <span class="math inline">\(\alpha\)</span></p>
-<p>对于全连接神经网络，当层数大于 <span class="math inline">\(3\)</span> 时，增加层数带来的表现力的增加收益会减轻。 但是对于 CNN 却不是这样，CNN 层数增加往往都能换来更强的神经网络表现力。</p>
-<h2 id="数据预处理data-pre-processing">数据预处理（Data Pre-Processing）</h2>
-<ul>
-<li>中心化（Mean subtraction）：使得数据 zero-centered <span class="math inline">\(\vec{x} \leftarrow (\vec{x} - \text{mean}{(\vec{x})})\)</span></li>
-<li>正态化（Normalization ）： 使得中心化后的数据服从正态分布 <span class="math inline">\(\vec{x} \leftarrow (\vec{x}\ / \ \text{std}{(\vec{x})})\)</span>。 一般是对于单位不同的数据进行处理，CNN 中对于图像来说，影响不大。</li>
-<li>PCA 和 白化（Whitening）: 略 没看懂</li>
-</ul>
-<h2 id="权值初始化weight-initialization">权值初始化（Weight Initialization）</h2>
-<p>一种很好的初始化方法为，使权值 <span class="math inline">\(W_i ~ 1\)</span></p>
-]]></content>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>笔记整理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>整数模 n 乘法群</title>
     <url>/2024/02/12/test-by-old-page/</url>
     <content><![CDATA[<p>老文章，加到新博客里面测试一下数学公式渲染。过段时间删掉。</p>
@@ -251,6 +154,123 @@ t \in \mathbb{Z}\ \ \  \text{s.t.}\ \  ut=v \pmod{\varphi(m)}
 ]]></content>
       <tags>
         <tag>数论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初见神经网络</title>
+    <url>/2024/02/14/cs231n/</url>
+    <content><![CDATA[<h1 id="两个重要函数">两个重要函数</h1>
+<p>CNN 可以视作以下两个函数的集合.</p>
+<h2 id="得分函数-score-function">得分函数 (Score Function)</h2>
+<p><span class="math inline">\(f(\vec{x}; W)\)</span>.其中 <span class="math inline">\(\vec{x}\)</span> 为输入网络的数据，<span class="math inline">\(W\)</span> 为网络中的所有参数.本质上参数是网络的固有特性.</p>
+<p>得分函数可以简单理解为输入一个向量，输出一个向量的函数，输出的向量为的第 <span class="math inline">\(i\)</span> 维，为第 <span class="math inline">\(i\)</span> 种类别的得分.</p>
+<p>得分函数是整个神经网络的抽象.</p>
+<h2 id="损失函数-loss-function">损失函数 (Loss Function)</h2>
+<p>用于衡量 <strong>得分函数</strong> <em>给分</em> 的优劣程度.损失 (Loss) 是相对于某组特定的 <strong>数据</strong> 来说的.</p>
+<p>对于 CNN <strong>数据</strong> 可以抽象为 输入数据 (input) <span class="math inline">\(\{\vec{x_i}\}\)</span> 和 标签 (label) <span class="math inline">\(\{y_i\}\)</span>，其中 <em>输入数据</em> 和 <em>标签</em> 一一对应，设长度为 <span class="math inline">\(N\)</span>，损失函数可以定义为 <span class="math inline">\(L(W; \{\vec{x_i}\}, \{y_i\})\)</span>.</p>
+<p>有不同的若干种常见的 <em>损失函数</em> 的定义方式：</p>
+<h3 id="multiclass-support-vector-machine-loss">Multiclass Support Vector Machine loss</h3>
+<p><span class="math display">\[
+  L_i(W; \vec{x_i}, y_i) = \sum_{j\not=y_i}\max{(0, f(\vec{x_i};W)_j - f(\vec{x_i};W)_{y_i} + \Delta)}
+\]</span> 其中 <span class="math inline">\(L_i\)</span> 为对于第 <span class="math inline">\(i\)</span> 组数据的 "损失". <span class="math inline">\(\Delta\)</span> 为 <strong>超参数 (Hyperparameter)</strong> 可以理解为期望下第 <span class="math inline">\(y_i\)</span> 类得分的显著性水平。</p>
+<figure>
+<img src="\img\margin.jpg" alt="" /><figcaption>margin</figcaption>
+</figure>
+<p>对于整体损失还需要加入 <strong>正则损失 (Regularization Loss)</strong> 项，正则损失定义为 <span class="math display">\[
+R(W) = \begin{cases}
+\sum_{i, j, k, \cdots} (W_{i, j, k, \cdots})^2  &amp; \text{L2 Regularization} \\
+\sum_{i, j, k, \cdots} |W_{i, j, k, \cdots}|  &amp; \text{L1 Regularization} \\
+\sum_{i, j, k, \cdots} \beta(W_{i, j, k, \cdots})^2 + |W_{i, j, k, \cdots}|  &amp; \text{Elastic Net Regularization} \\
+\end{cases}
+\]</span> 主要为了鼓励参数稀疏，减轻模型复杂度，在一定程度上减轻过拟合。</p>
+<p>对于一组数据 <span class="math inline">\(\{\vec{x_i}\}, \{y_i\}\)</span> 其 <em>整体损失函数</em> <span class="math inline">\(L\left(W, \{\vec{x_i}\}, \{y_i\}\right)\)</span> 的定义为: <span class="math display">\[
+ L\left(W; \{\vec{x_i}\}, \{y_i\}\right)=\frac{1}{N}\sum_{i}L_i + \alpha R(W)
+\]</span> 其中 <span class="math inline">\(\alpha\)</span> 为超参数。</p>
+<h3 id="softmax-loss">Softmax Loss</h3>
+<p>定义为： <span class="math display">\[
+    L_i(W; \vec{x_i}, y_i) = -\log\left(\frac{\exp{f(\vec{x_i};W)_{y_i}}}{\sum_{j}\exp{f(\vec{x_i};W)_{j}}}\right)=-f(\vec{x_i};W)_{y_i}+\log\left(\sum_{j}\exp{f(\vec{x_i};W)_{j}}\right)
+\]</span></p>
+<p>一个计算上的技巧是，可以对 <span class="math inline">\(f(\vec{x_i};W) \leftarrow f(\vec{x_i}; W) - \max_j{\{f(\vec{x_i};W)\}_j}\)</span>，在计算上 <span class="math inline">\(L_i\)</span> 结果不变. 可以防止 <span class="math inline">\(\exp\)</span> 计算是函数值过大导致溢出。</p>
+<p>其 <em>整体损失函数</em> 的定义和上述相同。 <span class="math display">\[
+ L\left(W; \{\vec{x_i}\}, \{y_i\}\right)=\frac{1}{N}\sum_{i}L_i + \alpha R(W)
+\]</span></p>
+<p>两种计算 Loss 的主要方法没有明显优势劣势。</p>
+<ul>
+<li>对于 SVM Loss ，其目标是 <em>正确类别</em> 的得分要高于 <em>其他类比</em> 一个特定值即可。如果高于之后就不会对模型产生影响。</li>
+<li>对于 Softmax Loss，他会不断使得模型增加 <em>正确类别</em> 得分的显著性。</li>
+</ul>
+<p>SVM Loss 可能会把更多的精力放在相似类别分辨的细化上</p>
+<blockquote>
+<p><strong>CS231n note 原文</strong> <div class="plain-text"> For example, a car classifier which is likely spending most of its “effort” on the difficult problem of separating cars from trucks should not be influenced by the frog examples, which it already assigns very low scores to, and which likely cluster around a completely different side of the data cloud. (cs231n, 2024). </div></blockquote></p>
+<blockquote>
+<p><strong>Loss 函数可以可视化</strong> <div class="plain-text"> 若其输入的参数量为 <span class="math inline">\(N\)</span>，则考虑在 <span class="math inline">\(N\)</span> 维空间中取一平面，生成 Loss 值在这一平面上的 heatmap.</p>
+<p>具体考虑生成两随机向量 <span class="math inline">\(\vec{W_1}, \vec{W_2}\)</span>，和一个随机平面中心点 <span class="math inline">\(W\)</span>，定义 <span class="math display">\[
+l&#39;(a, b) = L\left(W + aW_1+ bW_2; \{\vec{x_i}\}, \{y_i\}\right)\]</span></p>
+<p>绘制 <span class="math inline">\(l&#39;(a, b)\)</span> 的热图即可。 </div></blockquote></p>
+<h1 id="优化-optimization">优化 (Optimization)</h1>
+<p>通过调整参数的取值，使得整个网络的 Loss 值更低。</p>
+<p>本质是数值方法优化多变量函数，可以使用梯度下降法（Stochastic Gradient Descent）。梯度 <span class="math inline">\(\nabla_{w}L\)</span> ，可以在每次算出 Loss 的时候通过反向传播求出 （Back Propagation）。</p>
+<ul>
+<li>正向过程（Forward）：从网络第一层出发，代入网络每一层网络，最终计算出结果向量和 Loss 值。</li>
+<li>反向过程（Backword）：从 Loss 值出发，利用 Chain Rule 推知 <span class="math inline">\(\nabla_{W}L\)</span>。</li>
+</ul>
+<h1 id="神经网络结构-architecture">神经网络结构 （Architecture）</h1>
+<p>神经网络的计算传递结构本质上是一个 DAG （Directed Acyclic Graph）.</p>
+<h2 id="神经元">神经元</h2>
+<p>数学上定义为一个多自变量函数。如神经元输入量为 <span class="math inline">\(n\)</span>，第 <span class="math inline">\(i\)</span> 个突触的输入数据为 <span class="math inline">\(x_i\)</span> 则： <span class="math display">\[
+ \sigma\left(\sum_{i}^{n}{w_ix_i} + b\right)
+\]</span> 其中 <span class="math inline">\(\sigma(x)\)</span> 为激活函数。</p>
+<blockquote>
+<p><strong>As Linear Classifier</strong> <div class="plain-text"> 单个神经元可以当成一个 <em>线性分类器</em> 因为从激活函数的角度观察，神经元有能力喜欢或者不喜欢某种信号，即 <em>激活函数</em> 存在阈值。 </div></blockquote></p>
+<h2 id="常用激活函数">常用激活函数</h2>
+<ul>
+<li>Sigmoid / tanh 不太行。</li>
+<li>ReLU （Rectified Linear Unit）: <span class="math inline">\(f(x) = \max(0, x)\)</span> 当训练学习率（Learning Rate）过大导致其参数变化过大，会使得其永远不可能被激活，导致神经元死亡 （Dying ReLU）。 可以通过调小 Learning Rate 规避。</li>
+<li>Leaky ReLU：<span class="math inline">\(f(x) = [x &lt; 0](\alpha x) + [x \ge 0]x\)</span> 可能对 Dying ReLU 有帮助。</li>
+<li>Maxout: <span class="math inline">\(f(x) = (w_1x+b_1, w_2x+b_2)\)</span>，其实是 ReLU 和 Leaky ReLU，综合了 ReLU 的优点，规避了其缺点。但是增加了参数数量</li>
+</ul>
+<p>选择策略： - 可以优先考虑 ReLU. 但是要设置合理的 Learning Rate - 如果其效果不好，可以试一下 Leaky ReLU 和 Maxout. - 别用 Sigmoid，慎用 tanh</p>
+<h2 id="表现力representational-power">表现力（Representational Power）</h2>
+<p>具有一层以上 隐藏层（Hidden Layer）的 训练好的 神经网络 <span class="math inline">\(g(x)\)</span>，对于任意 <span class="math inline">\(f(x)\)</span>，有： <span class="math display">\[
+ \forall x\ \forall \epsilon&gt;0, \left|f(x)-g(x)\right| &lt; \epsilon
+\]</span> 对于一层以上的神经网络在数学上可以表示任何函数。</p>
+<p>但是实践中使用层数较多的神经网络有更多优势，如便于训练和理解。</p>
+<p><img src="/img/layer_sizes.jpeg" /></p>
+<p>模型的实际表现能力也会随层数增多而增强。</p>
+<p>层数过多确实会在训练中造成过拟合的风险，但是减少层数不是缓解过拟合的方法，后面会有更常用的减轻过拟合的方法，例如提高正则系数（Regularization Rate） <span class="math inline">\(\alpha\)</span></p>
+<p>对于全连接神经网络，当层数大于 <span class="math inline">\(3\)</span> 时，增加层数带来的表现力的增加收益会减轻。 但是对于 CNN 却不是这样，CNN 层数增加往往都能换来更强的神经网络表现力。</p>
+<h2 id="数据预处理data-pre-processing">数据预处理（Data Pre-Processing）</h2>
+<ul>
+<li>中心化（Mean subtraction）：使得数据 zero-centered <span class="math inline">\(\vec{x} \leftarrow (\vec{x} - \text{mean}{(\vec{x})})\)</span></li>
+<li>正态化（Normalization ）： 使得中心化后的数据服从正态分布 <span class="math inline">\(\vec{x} \leftarrow (\vec{x}\ / \ \text{std}{(\vec{x})})\)</span>。 一般是对于单位不同的数据进行处理，CNN 中对于图像来说，影响不大。</li>
+<li>PCA 和 白化（Whitening）: 略 没看懂</li>
+</ul>
+<h2 id="权值初始化weight-initialization">权值初始化（Weight Initialization）</h2>
+<p>设 <span class="math inline">\(X \sim(N(0, 1))\)</span></p>
+<p>一种很好的初始化方法为，使权值 <span class="math inline">\(W_i \leftarrow X / \sqrt{n}\)</span> 其中 <span class="math inline">\(n\)</span> 为上一层的节点数。</p>
+<p>对于使用 ReLU 的网络，一种效果更好的初始化方法为，使权值 <span class="math inline">\(W_i \leftarrow X \times \sqrt{2/n}\)</span> 其中 <span class="math inline">\(n\)</span> 为上一层的节点数。</p>
+<p>考虑积极使用 <strong>Batch Normalization</strong> 能够极大的增加权值初始化的鲁棒性。</p>
+<h2 id="正则化regularization">正则化（Regularization）</h2>
+<p>防止网络过拟合。</p>
+<ul>
+<li><p>L2 regularization</p></li>
+<li><p>L1 regularization</p></li>
+<li><p>Max norm constraints：强制设置参数上界</p></li>
+<li><p>Dropout：使得每次训练的时候强制部分神经元不激活，假设激活某一个特定神经元的概率为 <span class="math inline">\(p\)</span></p>
+<p>两种方法：</p>
+<ul>
+<li><strong>Dropout</strong> 训练时按 <span class="math inline">\(p\)</span> 的概率激活神经元，预测时每层节点数值扩大到 <span class="math inline">\(1/p\)</span> 倍。</li>
+<li><strong>Inverted Dropout</strong>，训练时按 <span class="math inline">\(p\)</span> 的概率激活神经元，并且将节点数值扩大到 <span class="math inline">\(1/p\)</span> 倍，预测时正常计算。</li>
+</ul></li>
+</ul>
+<p>实践中更常用的方法是：L2 Regularization。 如果过拟合严重，考虑 Inverted Dropout (<span class="math inline">\(p=0.5\)</span>)</p>
+<h2 id="损失函数loss-function">损失函数（Loss Function）</h2>
+<p>对于 Batch Train，损失函数的定义一般为 <span class="math inline">\(L=\frac{1}{N}\sum_{i}L_i\)</span>.</p>
+<p>对于种类较多的 Loss Function，计算 Softmax 开销较大。可以尝试采用 https://arxiv.org/pdf/1310.4546.pdf 中的方法</p>
+]]></content>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>笔记整理</tag>
       </tags>
   </entry>
 </search>
