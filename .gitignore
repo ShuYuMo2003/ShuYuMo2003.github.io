@@ -38,7 +38,3 @@ deepseek_key.txt
 
 # Node modules (if any)
 node_modules/
-
-# Build artifacts
-*.pdf
-pdf/
