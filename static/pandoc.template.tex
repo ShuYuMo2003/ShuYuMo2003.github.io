@@ -1,0 +1,82 @@
+% ==============================================================
+%  Pandoc + Custom  LaTeX Template      (save as mymerged.latex)
+% ==============================================================
+
+$if(classoption)$
+\documentclass[$for(classoption)$$classoption$$sep$,$endfor$]{article}
+$else$
+\documentclass{article}
+$endif$
+
+% ---------- Font & Language (your original) ----------
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\setmainfont{$if(mainfont)$$mainfont$$else$TeX Gyre Pagella$endif$}
+\setCJKmainfont{$if(cjkmainfont)$$cjkmainfont$$else$Noto Serif CJK SC$endif$}
+\setmathfont{$if(mathfont)$$mathfont$$else$Latin Modern Math$endif$}
+
+% ---------- Math, layout, graphics (your original) ----------
+\usepackage{amsmath,amsthm}
+\usepackage[$if(geometry)$$geometry$$else$a4paper,margin=2cm$endif$]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+
+% ---------- Hyperref (your original) ----------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue
+}
+
+% ---------- Pandoc default helpers ----------
+\usepackage{ifxetex,ifluatex}
+\usepackage{setspace}
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+\usepackage{microtype}
+
+% tightlist comes from Pandoc default, keep to avoid errors
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% ---------- CSL citations ----------
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\newenvironment{cslreferences}%
+  {$if(csl-hanging-indent)$
+   \setlength{\parindent}{0pt}
+   \everypar{\setlength{\hangindent}{\cslhangindent}}$endif$}%
+  {\par}
+$endif$
+
+% ---------- Extra header includes (from YAML or -H) ----------
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+% ==============================================================
+\begin{document}
+% ---------- Title block ----------
+$if(title)$
+  {\centering\huge\bfseries $title$\par}
+$endif$
+$if(author)$
+  {\centering\large $for(author)$$author$$sep$ \and $endfor$\par}
+$endif$
+$if(date)$
+  {\centering$date$\par}
+$endif$
+$if(title)$\bigskip\bigskip$endif$
+
+% ---------- Body ----------
+$body$
+
+% ---------- Bibliography ----------
+$if(bibliography)$
+  \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plain$endif$}
+  \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$endif$
+
+\end{document}

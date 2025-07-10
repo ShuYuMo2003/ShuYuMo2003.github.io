@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{unicode-math}
+% \setmathfont{Libertinus Math}
+\setmathfont{Latin Modern Math}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = blue
+}
+
+%--------- copy from btex ---------%
+
+{{ predefine | safe}}
+
+\begin{document}
+
+{{ content | safe }}
+
+\end{document}

@@ -1,0 +1,801 @@
+<!-- Academic Blog Template
+MIT License - Copyright (c) 2025 Su Jiayi <sujiayi2003@gmail.com>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <!-- Primary Meta Tags -->
+        <title>ShuYuMo&#39;s Blog | Jiayi Su</title>
+        <meta name="description" content="一些奇奇怪怪的 INFP 随碎碎念。">
+        <meta name="keywords" content="nb1, nb2, nb3">
+        <meta name="author" content="Su Jiayi">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="ShuYuMo&#39;s Blog | Jiayi Su">
+        <meta property="og:description" content="一些奇奇怪怪的 INFP 随碎碎念。">
+        <meta property="og:image" content="../static/images/header.jpg">
+        
+        <!-- Stylesheets -->
+        <link rel="stylesheet" type="text/css" href="../static/css/default.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/syntax.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+        
+        <!-- Google Analytics -->
+        
+    </head>
+    <body>
+        <!-- Skip to main content for accessibility -->
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        
+        <div id="main">
+            <div class="main-container">
+                <!-- Header -->
+                <header id="header">
+                    <div class="header-content">
+                        <h1 class="header-title">
+                            <a href="./">ShuYuMo&#39;s Blog</a>
+                        </h1>
+                        <p class="header-subtitle">一些奇奇怪怪的 INFP 随碎碎念。</p>
+                        <div class="header-accent"></div>
+                    </div>
+                </header>
+                
+                <!-- Content Layout -->
+                <div class="content-wrapper">
+                    <!-- Sidebar -->
+                    <nav id="sidebar">
+                        <div class="profile-section">
+                            <a href="./" class="profile-avatar-link">
+                                <img src="../static/images/header.jpg" alt="ShuYuMo&#39;s header" class="profile-avatar" loading="lazy" />
+                            </a>
+                            <div class="profile-info">
+                                <h3 class="profile-name">Jiayi Su (ShuYuMo)</h3>
+            </div>
+            </div>
+
+                        <div class="nav-header">
+                            <h2>🧭 Navigation</h2>
+                            <span class="nav-subtitle">Explore the site</span>
+                        </div>
+                        <nav class="nav-menu">
+                            
+                            
+                            <a href="./_post.html" 
+                               
+                               class="nav-item">
+                                <span class="nav-icon">📄</span>
+                                <span class="nav-text">Posts</span>
+                                
+                            </a>
+                            
+                            
+                            <a href="./_archive.html" 
+                               
+                               class="nav-item">
+                                <span class="nav-icon">📄</span>
+                                <span class="nav-text">Archive</span>
+                                
+                            </a>
+                            
+                            
+                            <a href="./_category.html" 
+                               
+                               class="nav-item">
+                                <span class="nav-icon">📄</span>
+                                <span class="nav-text">Category</span>
+                                
+                            </a>
+                            
+                            
+                            <a href="./_about.html" 
+                               
+                               class="nav-item">
+                                <span class="nav-icon">📄</span>
+                                <span class="nav-text">About</span>
+                                
+                            </a>
+                            
+                        </nav>
+                    </nav>
+
+                    <!-- Main Content -->
+                    <main id="content">
+                        <div id="main-content">
+                            
+                                <article>
+                                    <!-- Article Header with Title and Actions -->
+                                    <div class="article-header">
+                                        <div class="article-title-section">
+                                            
+                                                <h1 class="article-title">二分图 and 网络流</h1>
+                                            
+                                            
+                                            <!-- Article Meta Information -->
+                                            <div class="article-meta">
+                                                
+                                                    <div class="meta-item">
+                                                        <span class="meta-icon">📅</span>
+                                                        <span class="meta-label">Last Updated: </span>
+                                                        <span class="meta-value">2020-10-04</span>
+                                                    </div>
+                                                
+                                                
+                                                
+                                                    <div class="meta-item">
+                                                        <span class="meta-icon">📊</span>
+                                                        <span class="meta-label">Word Count: </span>
+                                                        <span class="meta-value">503</span>
+                                                    </div>
+                    
+
+                                                
+                                                    <div class="meta-item">
+                                                        <span class="meta-icon">⏱️</span>
+                                                        <span class="meta-label">Estimated Reading Time: </span>
+                                                        <span class="meta-value">3 minutes</span>
+                                                    </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="article-actions">
+                    
+                                                <a href="../pdf/oi-blog_「学习总结」二分图-and-网络流.pdf" 
+                                                   target="_blank" 
+                                                   rel="noopener"
+                                                   class="action-btn pdf-btn">
+                                                    📄 PDF
+                                                </a>
+                                            
+                                            
+                                            
+                                                <a href="../src/oi-blog/「学习总结」二分图-and-网络流.md" 
+                                                   target="_blank" 
+                                                   rel="noopener"
+                                                   class="action-btn source-btn">
+                                                    📝 Source
+                                                </a>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <!-- Article Content -->
+                                    <div class="article-content">
+                                        <p>一些简单的关于图论的定义和胡扯…</p>
+<!-- more -->
+<h2 id="总览">总览</h2>
+<h3 id="二分图最大匹配">二分图最大匹配</h3>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>m</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n m)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">nm</span><span class="mclose">)</span></span></span></span></li>
+<li>Dinic:
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><msqrt><mo stretchy="false">(</mo></msqrt><mi>n</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(m \sqrt(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mopen" style="padding-left:1em;">(</span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.28em' viewBox='0 0 400000 1296' preserveAspectRatio='xMinYMin slice'><path d='M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span><span class="mord mathnormal">n</span><span class="mclose">))</span></span></span></span></li>
+</ul>
+<h3 id="二分图最大带权匹配">二分图最大带权匹配</h3>
+<ul>
+<li>KM算法
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>N</mi><mn>3</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N^3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></li>
+</ul>
+<h3 id="定义">定义</h3>
+<ul>
+<li>最大独立集：在图里选最多的点，使得不存在两个选了的点之间有边。</li>
+<li>最小点覆盖：在图里选最少的点，使得每个边连接的两个点至少一个点被选。</li>
+<li>最长反链：点集 G 中一个极大的子集 W ， 使得 W
+中的点互不可到达。</li>
+<li>传递闭包：定义有向图
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span></span></span></span>
+的传递闭包为
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>A[i, j]</mtext><mo>=</mo><mtext>[点 i 和 点 j 有通路]</mtext></mrow><annotation encoding="application/x-tex">\text{A[i, j]} = \text{[点 i 和 点 j 有通路]}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">A[i, j]</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">[</span><span class="mord cjk_fallback">点</span><span class="mord"> i </span><span class="mord cjk_fallback">和</span><span class="mord"> </span><span class="mord cjk_fallback">点</span><span class="mord"> j </span><span class="mord cjk_fallback">有通路</span><span class="mord">]</span></span></span></span></span>
+<!-- more --></li>
+</ul>
+<h3 id="定理">定理</h3>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>最长反链</mtext><mo>=</mo><mtext>最小链覆盖</mtext></mrow><annotation encoding="application/x-tex">\text{最长反链} = \text{最小链覆盖}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">最长反链</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">最小链覆盖</span></span></span></span></span>
+（dilworth 定理）</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>二分图最小点覆盖</mtext><mo>=</mo><mtext>最大匹配</mtext></mrow><annotation encoding="application/x-tex">\text{二分图最小点覆盖} = \text{最大匹配}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">二分图最小点覆盖</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">最大匹配</span></span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>最小点覆盖</mtext><mo>+</mo><mtext>最大独立集</mtext><mo>=</mo><mtext>点数</mtext></mrow><annotation encoding="application/x-tex">\text{最小点覆盖} + \text{最大独立集} = \text{点数}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord cjk_fallback">最小点覆盖</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">最大独立集</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">点数</span></span></span></span></span>,<code>最小覆盖集</code>
+与 <code>最大独立集</code> 互为<code>补集</code>,
+其<code>并集</code>为点集</li>
+<li>Hall定理： 设一个二分图的左右部分分别为 X、Y, 且 |X| = |Y|</li>
+<li>矩阵树定理证明：<a
+href="https://loj.ac/article/2458">有向图矩阵树定理的一个简单组合证明</a></li>
+</ul>
+<h3 id="小问题">小问题</h3>
+<ul>
+<li>求 DAG 最小链覆盖（最长反链）：传递闭包 + 拆点二分图匹配</li>
+</ul>
+<h2 id="栗题">栗题</h2>
+<h3 id="loj">4.2（LOJ）</h3>
+<p>给出一个保证左部满匹配的二分图，保证左部每个点的度数不超过2，边有边权。
+支持： - 修改边权 - 查询最大带权匹配 (强制保证任意时刻左侧满匹配)</p>
+<p>对左侧点分类： - 度数为 1
+：这条边必须成为匹配边，可直接删除这个点和对应的右边点 - 度数为 2
+：左侧点 u
+可直接删掉，在右侧对应的两个点之间直接连两条有向边，给这条边定向，只想哪个点就相当与选哪个点与点
+u 相连的边。 - 不难发现这样形成的一张图应该是，若干个 树 和 基环树
+组成的森林。根据查询给边定向，其中要求一个点入度数最多为一。树仅需选择一个边定向，在同一个树上的其他边都能被强制定向。对于基环树，环上边需要决定是顺时针还是逆时针，环外的边要指出环</p>
+                                    </div>
+
+                                    <!-- Article Footer -->
+                                    <div class="article-footer">
+                                                                            
+                                        <section class="post-history">
+                                            <div class="history-header">
+                                                <h2>📚 Version History</h2>
+                                                <span class="history-desc">Source Code Change History</span>
+                                            </div>
+                                            <div class="version-list">
+                                                
+                                                    <div class="version-item">
+                                                        <div class="version-header">
+                                                            <span class="version-badge">v1</span>
+                                                            <time class="version-time" datetime="2020-10-04 14:15:07">
+                                                                📅 2020-10-04 14:15:07
+                                                            </time>
+                                                        </div>
+                                                        <div class="version-hash-container">
+                                                            <span class="hash-label">🔗 Source Hash:</span>
+                                                            <code class="version-hash" title="Source Code Hash (962b12d5a7867279220e44b5cef26d039ed8496efbe5a4c6e0727153796a5e2e)">962b12d5a7867279220e44b5cef26d039ed8496efbe5a4c6e0727153796a5e2e</code>
+                                                        </div>
+                                                    </div>
+                                                
+                                            </div>
+                                        </section>
+                    
+
+                    
+                                            <details class="build-logs">
+                                                <summary>Build Logs</summary>
+                                                <pre class="logs-content">Build Log - Filtered
+================================================
+
+📋 Information:
+• Path information has been filtered for privacy protection
+• File names are preserved for debugging purposes  
+• All build status and error messages are kept intact
+
+🔍 Filter Rules:
+• /absolute/path/file.ext → .../file.ext
+• /home/username → .../[user]
+• /tmp/files → .../[temp]
+• /usr/share/packages → .../[system]
+
+================================================
+
+html log:
+CMD: ['pandoc', '-s', 'cache/oi-blog_「学习总结」二分图-and-网络流.md', '--filter', 'pandoc-crossref', '--filter', 'pandoc-katex', '--template=cache/pandoc_html_template.html', '-o', 'cache.../oi-blog_「学习总结」二分图-and-网络流.md.html', '--metadata', '--verbose', '--highlight-style=tango']
+STDOUT: 
+STDERR: WARNING: pandoc-crossref was compiled with pandoc 3.6.2 but is being run through 3.6.4. This is not supported. Strange things may (and likely will) happen silently.
+
+====================================================================================================
+pdf log:
+CMD: ['pandoc', '-s', 'cache.../8b2da43ef7.pdf.md', '-o', 'cache/8b2da43ef7.pdf', '-H', 'static/pandoc.header.tex', '--pdf-engine=xelatex', '--verbose']
+STDOUT: 
+STDERR: [INFO] Loaded static.../pandoc.header.tex from static.../pandoc.header.tex
+[INFO] Not rendering RawBlock (Format "html") "<!-- more -->"
+[INFO] Not rendering RawInline (Format "html") "<!-- more -->"
+[INFO] [makePDF] Temp dir:
+  .../[temp]
+[INFO] [makePDF] Command line:
+  xelatex "-halt-on-error" "-interaction" "nonstopmode" "-output-directory" ".../[temp] ".../[temp]
+[INFO] [makePDF] Relevant environment variables:
+  ("TEXINPUTS",".../[temp]
+  ("TEXMFOUTPUT",".../[temp]
+  ("SHELL","/bin/bash")
+  ("PWD",".../[user]/projects/blog")
+  ("HOME",".../[user]
+  ("LANG","zh_CN.UTF-8")
+  ("PATH",".../[user]/.local/bin:.../[user]/.cargo/bin:.../[user]/miniconda3/envs/myblog/bin:.../[user]/miniconda3/condabin:.../[temp]
+[INFO] [makePDF] Source:
+  % Options for packages loaded elsewhere
+  \PassOptionsToPackage{unicode}{hyperref}
+  \PassOptionsToPackage{hyphens}{url}
+  \PassOptionsToPackage{space}{xeCJK}
+  \documentclass[
+  ]{article}
+  \usepackage{xcolor}
+  \usepackage[a4paper,margin=2cm]{geometry}
+  \usepackage{amsmath,amssymb}
+  \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+  \usepackage{iftex}
+  \ifPDFTeX
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{textcomp} % provide euro and other symbols
+  \else % if luatex or xetex
+    \usepackage{unicode-math} % this also loads fontspec
+    \defaultfontfeatures{Scale=MatchLowercase}
+    \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \fi
+  \usepackage{lmodern}
+  \ifPDFTeX\else
+    % xetex/luatex font selection
+    \setmainfont[]{Latin Modern Roman}
+    \ifXeTeX
+      \usepackage{xeCJK}
+      \setCJKmainfont[]{AR PL UKai CN}
+    \fi
+    \ifLuaTeX
+      \usepackage[]{luatexja-fontspec}
+      \setmainjfont[]{AR PL UKai CN}
+    \fi
+  \fi
+  % Use upquote if available, for straight quotes in verbatim environments
+  \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+  \IfFileExists{microtype.sty}{% use microtype if available
+    \usepackage[]{microtype}
+    \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+  }{}
+  \usepackage{setspace}
+  \makeatletter
+  \@ifundefined{KOMAClassName}{% if non-KOMA class
+    \IfFileExists{parskip.sty}{%
+      \usepackage{parskip}
+    }{% else
+      \setlength{\parindent}{0pt}
+      \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+  }{% if KOMA class
+    \KOMAoptions{parskip=half}}
+  \makeatother
+  \setlength{\emergencystretch}{3em} % prevent overfull lines
+  \providecommand{\tightlist}{%
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+  % \usepackage{xeCJK}
+  % \setCJKmainfont{AR PL UKai CN}
+  % \usepackage{unicode-math}
+  
+  \setmathfont{Latin Modern Math}
+  \usepackage{bookmark}
+  \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+  \urlstyle{same}
+  \hypersetup{
+    pdftitle={二分图 and 网络流},
+    pdfauthor={Jiayi Su (ShuYuMo)},
+    hidelinks,
+    pdfcreator={LaTeX via pandoc}}
+  
+  \title{二分图 and 网络流}
+  \author{Jiayi Su (ShuYuMo)}
+  \date{2020-10-04 14:15:07}
+  
+  \begin{document}
+  \maketitle
+  
+  \setstretch{1.3}
+  一些简单的关于图论的定义和胡扯…
+  
+  \subsection{总览}\label{ux603bux89c8}
+  
+  \subsubsection{二分图最大匹配}\label{ux4e8cux5206ux56feux6700ux5927ux5339ux914d}
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    \(O(n m)\)
+  \item
+    Dinic: \(O(m \sqrt(n))\)
+  \end{itemize}
+  
+  \subsubsection{二分图最大带权匹配}\label{ux4e8cux5206ux56feux6700ux5927ux5e26ux6743ux5339ux914d}
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    KM算法 \(O(N^3)\)
+  \end{itemize}
+  
+  \subsubsection{定义}\label{ux5b9aux4e49}
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    最大独立集：在图里选最多的点，使得不存在两个选了的点之间有边。
+  \item
+    最小点覆盖：在图里选最少的点，使得每个边连接的两个点至少一个点被选。
+  \item
+    最长反链：点集 G 中一个极大的子集 W ， 使得 W 中的点互不可到达。
+  \item
+    传递闭包：定义有向图 \(G\) 的传递闭包为
+    \(\text{A[i, j]} = \text{[点 i 和 点 j 有通路]}\)
+  \end{itemize}
+  
+  \subsubsection{定理}\label{ux5b9aux7406}
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\text{最长反链} = \text{最小链覆盖}\) （dilworth 定理）
+  \item
+    \(\text{二分图最小点覆盖} = \text{最大匹配}\)
+  \item
+    \(\text{最小点覆盖} + \text{最大独立集} = \text{点数}\),\texttt{最小覆盖集}
+    与 \texttt{最大独立集} 互为\texttt{补集}, 其\texttt{并集}为点集
+  \item
+    Hall定理： 设一个二分图的左右部分分别为 X、Y, 且 \textbar X\textbar{}
+    = \textbar Y\textbar{}
+  \item
+    矩阵树定理证明：\href{https://loj.ac/article/2458}{有向图矩阵树定理的一个简单组合证明}
+  \end{itemize}
+  
+  \subsubsection{小问题}\label{ux5c0fux95eeux9898}
+  
+  \begin{itemize}
+  \tightlist
+  \item
+    求 DAG 最小链覆盖（最长反链）：传递闭包 + 拆点二分图匹配
+  \end{itemize}
+  
+  \subsection{栗题}\label{ux6817ux9898}
+  
+  \subsubsection{4.2（LOJ）}\label{loj}
+  
+  给出一个保证左部满匹配的二分图，保证左部每个点的度数不超过2，边有边权。
+  支持： - 修改边权 - 查询最大带权匹配 (强制保证任意时刻左侧满匹配)
+  
+  对左侧点分类： - 度数为 1
+  ：这条边必须成为匹配边，可直接删除这个点和对应的右边点 - 度数为 2
+  ：左侧点 u
+  可直接删掉，在右侧对应的两个点之间直接连两条有向边，给这条边定向，只想哪个点就相当与选哪个点与点
+  u 相连的边。 - 不难发现这样形成的一张图应该是，若干个 树 和 基环树
+  组成的森林。根据查询给边定向，其中要求一个点入度数最多为一。树仅需选择一个边定向，在同一个树上的其他边都能被强制定向。对于基环树，环上边需要决定是顺时针还是逆时针，环外的边要指出环
+  
+  \end{document}
+[INFO] [makePDF] LaTeX run number 1
+[INFO] [makePDF] LaTeX output
+  This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  (.../input.tex
+  LaTeX2e <2023-11-01> patch level 1
+  L3 programming layer <2024-01-22>
+  (.../article.cls
+  Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+  (.../[system]
+  (.../xcolor.sty
+  (.../color.cfg)
+  (.../xetex.def)
+  (.../[system]
+  (.../geometry.sty
+  (.../keyval.sty)
+  (.../ifvtex.sty
+  (.../iftex.sty)))
+  (.../amsmath.sty
+  For additional information on amsmath, use the `?' option.
+  (.../amstext.sty
+  (.../amsgen.sty))
+  (.../amsbsy.sty)
+  (.../amsopn.sty))
+  (.../amssymb.sty
+  (.../amsfonts.sty))
+  (.../unicode-math.sty
+  (.../expl3.sty
+  (.../l3backend-xetex.def))
+  (.../unicode-math-xetex.sty
+  (.../xparse.sty)
+  (.../l3keys2e.sty)
+  (.../fontspec.sty
+  (.../fontspec-xetex.sty
+  (.../fontenc.sty)
+  (.../fontspec.cfg)))
+  (.../fix-cm.sty
+  (.../ts1enc.def))
+  (.../unicode-math-table.tex)))
+  (.../lmodern.sty)
+  (.../xeCJK.sty
+  (.../ctexhook.sty)
+  (.../xtemplate.sty)
+  (.../xeCJK.cfg))
+  (.../upquote.sty
+  (.../textcomp.sty))
+  (.../microtype.sty
+  (.../etoolbox.sty)
+  (.../microtype-xetex.def)
+  (.../microtype.cfg))
+  (.../setspace.sty)
+  (.../parskip.sty
+  (.../kvoptions.sty
+  (.../ltxcmds.sty)
+  (.../kvsetkeys.sty)))
+  (.../bookmark.sty
+  (.../hyperref.sty
+  (.../kvdefinekeys.sty)
+  (.../pdfescape.sty
+  (.../pdftexcmds.sty
+  (.../infwarerr.sty)))
+  (.../hycolor.sty)
+  (.../auxhook.sty)
+  (.../nameref.sty
+  (.../refcount.sty)
+  (.../gettitlestring.sty))
+  (.../pd1enc.def)
+  (.../intcalc.sty)
+  (.../puenc.def)
+  (.../url.sty)
+  (.../bitset.sty
+  (.../bigintcalc.sty))
+  (.../atbegshi-ltx.sty))
+  (.../hxetex.def
+  (.../stringenc.sty)
+  (.../rerunfilecheck.sty
+  (.../atveryend-ltx.sty)
+  (.../uniquecounter.sty)))
+  (.../bkm-dvipdfm.def))
+  (.../xurl.sty)
+  No file input.aux.
+  *geometry* driver: auto-detecting
+  *geometry* detected driver: xetex
+  (.../mt-LatinModernRoman.cfg)
+  
+  Package hyperref Warning: Rerun to get /PageLabels entry.
+  
+  (.../omllmm.fd)
+  (.../umsa.fd)
+  (.../mt-msa.cfg)
+  (.../umsb.fd)
+  (.../mt-msb.cfg)
+  
+  LaTeX Font Warning: Font shape `TU/ARPLUKaiCN(0)/b/n' undefined
+  (Font)              using `TU/ARPLUKaiCN(0)/m/n' instead on input line 78.
+  
+  
+  Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
+  (xeCJK)                
+  (xeCJK)                Try to use `\setCJKmonofont[<...>]{<...>}' to define
+  (xeCJK)                it.
+  
+  [1] [2] (.../input.aux)
+  
+  LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+  
+  
+  LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+  
+   )
+  Output written on .../input.pdf (2 pages).
+  Transcript written on .../input.log.
+[INFO] [makePDF] Rerun needed
+  Package hyperref Warning: Rerun to get /PageLabels entry.
+  LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+[INFO] [makePDF] LaTeX run number 2
+[INFO] [makePDF] LaTeX output
+  This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex)
+   restricted \write18 enabled.
+  entering extended mode
+  (.../input.tex
+  LaTeX2e <2023-11-01> patch level 1
+  L3 programming layer <2024-01-22>
+  (.../article.cls
+  Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+  (.../[system]
+  (.../xcolor.sty
+  (.../color.cfg)
+  (.../xetex.def)
+  (.../[system]
+  (.../geometry.sty
+  (.../keyval.sty)
+  (.../ifvtex.sty
+  (.../iftex.sty)))
+  (.../amsmath.sty
+  For additional information on amsmath, use the `?' option.
+  (.../amstext.sty
+  (.../amsgen.sty))
+  (.../amsbsy.sty)
+  (.../amsopn.sty))
+  (.../amssymb.sty
+  (.../amsfonts.sty))
+  (.../unicode-math.sty
+  (.../expl3.sty
+  (.../l3backend-xetex.def))
+  (.../unicode-math-xetex.sty
+  (.../xparse.sty)
+  (.../l3keys2e.sty)
+  (.../fontspec.sty
+  (.../fontspec-xetex.sty
+  (.../fontenc.sty)
+  (.../fontspec.cfg)))
+  (.../fix-cm.sty
+  (.../ts1enc.def))
+  (.../unicode-math-table.tex)))
+  (.../lmodern.sty)
+  (.../xeCJK.sty
+  (.../ctexhook.sty)
+  (.../xtemplate.sty)
+  (.../xeCJK.cfg))
+  (.../upquote.sty
+  (.../textcomp.sty))
+  (.../microtype.sty
+  (.../etoolbox.sty)
+  (.../microtype-xetex.def)
+  (.../microtype.cfg))
+  (.../setspace.sty)
+  (.../parskip.sty
+  (.../kvoptions.sty
+  (.../ltxcmds.sty)
+  (.../kvsetkeys.sty)))
+  (.../bookmark.sty
+  (.../hyperref.sty
+  (.../kvdefinekeys.sty)
+  (.../pdfescape.sty
+  (.../pdftexcmds.sty
+  (.../infwarerr.sty)))
+  (.../hycolor.sty)
+  (.../auxhook.sty)
+  (.../nameref.sty
+  (.../refcount.sty)
+  (.../gettitlestring.sty))
+  (.../pd1enc.def)
+  (.../intcalc.sty)
+  (.../puenc.def)
+  (.../url.sty)
+  (.../bitset.sty
+  (.../bigintcalc.sty))
+  (.../atbegshi-ltx.sty))
+  (.../hxetex.def
+  (.../stringenc.sty)
+  (.../rerunfilecheck.sty
+  (.../atveryend-ltx.sty)
+  (.../uniquecounter.sty)))
+  (.../bkm-dvipdfm.def))
+  (.../xurl.sty)
+  (.../input.aux)
+  *geometry* driver: auto-detecting
+  *geometry* detected driver: xetex
+  (.../mt-LatinModernRoman.cfg)
+  (.../omllmm.fd)
+  (.../umsa.fd)
+  (.../mt-msa.cfg)
+  (.../umsb.fd)
+  (.../mt-msb.cfg)
+  
+  LaTeX Font Warning: Font shape `TU/ARPLUKaiCN(0)/b/n' undefined
+  (Font)              using `TU/ARPLUKaiCN(0)/m/n' instead on input line 78.
+  
+  
+  Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
+  (xeCJK)                
+  (xeCJK)                Try to use `\setCJKmonofont[<...>]{<...>}' to define
+  (xeCJK)                it.
+  
+  [1] [2] (.../input.aux)
+  
+  LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+  
+   )
+  Output written on .../input.pdf (2 pages).
+  Transcript written on .../input.log.
+</pre>
+                                            </details>
+                    
+                                    </div>
+                                </article>
+                
+
+                
+
+                
+
+                
+
+            
+
+                
+                        </div>
+                    </main>
+            </div>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <p>© 2025 ShuYuMo's Blog by Jiayi Su. All rights reserved.</p>  Powered by <b>MonoPy</b> - Single-Script Blog Generator in Python.
+                </footer>
+            </div>
+        </div>
+        
+        <!-- Back to top button -->
+        <button id="back-to-top" 
+                aria-label="Back to top" 
+                title="Back to top"
+                style="display: none;">
+            ↑
+        </button>
+        
+        <!-- JavaScript -->
+        <script>
+            // Back to top functionality
+            (function() {
+                const backToTopButton = document.getElementById('back-to-top');
+                const scrollThreshold = 300;
+                
+                function toggleBackToTop() {
+                    if (window.scrollY > scrollThreshold) {
+                        backToTopButton.style.display = 'block';
+                    } else {
+                        backToTopButton.style.display = 'none';
+                    }
+                }
+                
+                function scrollToTop() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                window.addEventListener('scroll', toggleBackToTop);
+                backToTopButton.addEventListener('click', scrollToTop);
+            })();
+            
+            // Clean up redundant spans in code blocks
+            document.querySelectorAll('pre code').forEach(codeBlock => {
+                // Find all line spans
+                const lineSpans = codeBlock.querySelectorAll('span[id^="cb"]');
+                
+                lineSpans.forEach(lineSpan => {
+                    // Check if this line has nested spans that can be simplified
+                    const children = Array.from(lineSpan.childNodes);
+                    
+                    // Skip the anchor link (first child is usually the line number anchor)
+                    let contentStart = 0;
+                    if (children[0] && children[0].tagName === 'A') {
+                        contentStart = 1;
+                    }
+                    
+                    // If there's only one span child after the anchor, unwrap it
+                    const contentChildren = children.slice(contentStart);
+                    if (contentChildren.length === 1 && contentChildren[0].tagName === 'SPAN') {
+                        const spanChild = contentChildren[0];
+                        // Move the span's contents directly to the line span
+                        while (spanChild.firstChild) {
+                            lineSpan.insertBefore(spanChild.firstChild, spanChild);
+                        }
+                        // Remove the now-empty span
+                        spanChild.remove();
+                    }
+                });
+            });
+            
+            // Code copy functionality
+            document.querySelectorAll('pre code').forEach(block => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.setAttribute('aria-label', 'Copy code to clipboard');
+                
+                button.addEventListener('click', function() {
+                    navigator.clipboard.writeText(block.textContent).then(() => {
+                        button.textContent = 'Copied!';
+                        setTimeout(() => button.textContent = 'Copy', 2000);
+                    }).catch(() => {
+                        // Fallback for older browsers
+                        const textArea = document.createElement('textarea');
+                        textArea.value = block.textContent;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        button.textContent = 'Copied!';
+                        setTimeout(() => button.textContent = 'Copy', 2000);
+                    });
+                });
+                
+                const pre = block.parentNode;
+                pre.style.position = 'relative';
+                pre.appendChild(button);
+            });
+        </script>
+    </body>
+</html>

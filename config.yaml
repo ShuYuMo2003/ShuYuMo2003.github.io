@@ -1,0 +1,29 @@
+site_title: ShuYuMo's Blog | Jiayi Su
+
+author: Jiayi Su (ShuYuMo)
+
+basic_keywords:
+  - nb1
+  - nb2
+  - nb3
+  
+basic_description: 一些奇奇怪怪的 INFP 随碎碎念。
+
+header_path: images/header.jpg
+header_alt: ShuYuMo's header
+header_desc: ShuYuMo's Blog
+
+footer: "© 2025 ShuYuMo's Blog by Jiayi Su. All rights reserved."
+
+google_analysis_id:
+
+btex_server_host: 127.0.0.1
+btex_server_port: 7200
+
+# AI Abstract Generation Settings
+ai_abstract:
+  enabled: true
+  use_deepseek: true 
+  model_name: "deepseek-chat"  
+  max_chars: 400                 
+  

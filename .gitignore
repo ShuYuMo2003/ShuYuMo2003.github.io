@@ -1,0 +1,44 @@
+# Cache files
+cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environments
+venv/
+env/
+.env
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+
+# API keys (keep secure)
+deepseek_key.txt
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node modules (if any)
+node_modules/
+
+# Build artifacts
+*.pdf
+pdf/
