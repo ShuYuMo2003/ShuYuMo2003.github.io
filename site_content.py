@@ -79,6 +79,11 @@ class AwardItem:
 
 
 @dataclass(slots=True)
+class ServiceItem:
+    text: str
+
+
+@dataclass(slots=True)
 class SiteData:
     page_title: str
     profile: Profile
@@ -86,6 +91,7 @@ class SiteData:
     news: list[NewsItem] = field(default_factory=list)
     publications: list[Publication] = field(default_factory=list)
     experiences: list[ExperienceItem] = field(default_factory=list)
+    services: list[ServiceItem] = field(default_factory=list)
     awards: list[AwardItem] = field(default_factory=list)
     publication_note: str | None = None
     footer_note: str | None = None
@@ -225,16 +231,32 @@ SITE = SiteData(
             logo_path="assets/images/Xiamen_University_logo.svg.png",
         ),
         ExperienceItem(
+            institution="Shanghai Jiao Tong University",
+            role="Research Assistant",
+            period="2025.02 - 2025.05",
+            details=[
+                "Research focus: DiT inference optimization",
+            ],
+            logo_path="assets/images/Sjtu-logo-standard-red.png",
+        ),
+        ExperienceItem(
             institution="Galbot",
-            role="Embodied Large Model Researcher",
+            role="Large Embodied Model Researcher",
             period="2025.08 - present",
-            details=[],
+            details=["VLA & Simulation Pipe Engineer"],
             logo_path="assets/images/galbot.jpg",
         ),
     ],
+    services=[
+        ServiceItem(text="CVPR 2026 Reviewer"),
+        ServiceItem(text="ICME 2025 Reviewer"),
+    ],
     awards=[
-        # AwardItem(text="2025 Outstanding Student Award"),
-        # AwardItem(text="2024 Department Fellowship"),
+        AwardItem(text="2022-2025 First-Class Scholarship (XMUM)"),
+        AwardItem(text="2025 Dean's List Award (XMUM, CST Department)"),
+        AwardItem(text='2021 <a href="https://www.noi.cn/">National Olympiad in Informatics (NOI)</a>, Winter Camp, Silver Medal'),
+        AwardItem(text='2021 <a href="https://www.noi.cn/">National Olympiad in Informatics (NOI)</a>, Bronze Medal'),
+        AwardItem(text='2020-2022 <a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E5%9B%BD%E9%9D%92%E5%B0%91%E5%B9%B4%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E8%81%94%E8%B5%9B">National Olympiad in Informatics in Provinces (NOIP)</a> First Prize, Rank 10 in Shandong Province'),
     ],
     publication_note="*: joint first author; &dagger; project lead; &#9993; corresponding author(s)",
     footer_note='Style adapted from <a style="font-size: x-small" href="https://jonbarron.info/">Jon Barron</a>.',

@@ -92,7 +92,7 @@
             <br>
             <span style="font-size: 0.95em; line-height: 1.4;">
               {%- for author in publication.authors -%}
-              {% if author.url %}<a href="{{ author.url }}" target="_blank" style="font-size: 0.95em;">{% if author.highlight %}<span class="author-highlight"><b>{{ author.name }}</b></span>{% else %}{{ author.name }}{% endif %}</a>{% else %}{% if author.highlight %}<span class="author-highlight"><b style="font-size: 0.95em;">{{ author.name }}</b></span>{% else %}<span style="font-size: 0.95em;">{{ author.name }}</span>{% endif %}{% endif %}{% if author.suffixes %}<sup class="author-suffix">{% for suffix in author.suffixes %}{{ suffix | safe }}{% if not loop.last %}, {% endif %}{% endfor %}</sup>{% endif %}{% if not loop.last %}, {% endif %}
+              {% if author.url %}<a href="{{ author.url }}" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">{% if author.highlight %}<span class="author-highlight"><b>{{ author.name }}</b></span>{% else %}{{ author.name }}{% endif %}</a>{% else %}{% if author.highlight %}<span class="author-highlight"><b style="font-size: 0.95em;">{{ author.name }}</b></span>{% else %}<span style="font-size: 0.95em;">{{ author.name }}</span>{% endif %}{% endif %}{% if author.suffixes %}<sup class="author-suffix">{% for suffix in author.suffixes %}{{ suffix | safe }}{% if not loop.last %}, {% endif %}{% endfor %}</sup>{% endif %}{% if not loop.last %}, {% endif %}
               {%- endfor -%}
             </span>
             <br>
@@ -100,7 +100,7 @@
             {% if publication.links %}
             <br>
             {%- for link in publication.links -%}
-            {% if link.url %}<a href="{{ link.url }}" target="_blank">{{ link.label }}</a>{% else %}{{ link.label }}{% endif %}{% if not loop.last %} / {% endif %}
+            {% if link.url %}<a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>{% else %}{{ link.label }}{% endif %}{% if not loop.last %} / {% endif %}
             {%- endfor -%}
             {% endif %}
             {% if publication.summary %}
@@ -147,6 +147,23 @@
           </td>
         </tr>
         {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+
+      {% if site.services %}
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+        <tbody>
+        <tr>
+          <td style="padding-bottom: 20px; padding-top: 30px">
+            <heading>Service</heading>
+            <ul>
+              {% for service in site.services %}
+              <li>{{ service.text | safe }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
         </tbody>
       </table>
       {% endif %}
