@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/oi-blog/images/apple-touch-icon-next.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/oi-blog/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/oi-blog/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/oi-blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/oi-blog/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=sans-serif:300,300italic,400,400italic,700,700italic%7CUbuntu:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7C'Open+Sans':300,300italic,400,400italic,700,700italic%7C'Microsoft+YaHei':300,300italic,400,400italic,700,700italic%7Csans-serif;:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https:/ShuYuMo2003.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="CF505E Mr. Kitayuta vs. Bamboos  给定 \(n\) 个数（竹子的高度） \(h_{1 \dots n}\)。 你需要进行 \(m\) 轮操作，每轮操作为 \(k\) 次修改，每次修改可以选择一个数 \(h_i\) 修改为 \(\max(h_i - p, 0)\)（砸到地下）。 每轮操作后每个 \(h_i\) 将会被修改为 \(h_i + a_i\)（每天竹子会生长）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「题单」IOI2020国家集训队作业 Part 1">
+<meta property="og:url" content="%E3%80%8C%E6%9D%82%E9%A2%98%E8%AE%B0%E5%BD%95%E3%80%8DIOI2020%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F%E4%BD%9C%E4%B8%9A-Part-1/index.html">
+<meta property="og:site_name" content="Shu Yu Mo&#39;s blog">
+<meta property="og:description" content="CF505E Mr. Kitayuta vs. Bamboos  给定 \(n\) 个数（竹子的高度） \(h_{1 \dots n}\)。 你需要进行 \(m\) 轮操作，每轮操作为 \(k\) 次修改，每次修改可以选择一个数 \(h_i\) 修改为 \(\max(h_i - p, 0)\)（砸到地下）。 每轮操作后每个 \(h_i\) 将会被修改为 \(h_i + a_i\)（每天竹子会生长）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-19T09:05:04.000Z">
+<meta property="article:modified_time" content="2021-08-27T11:42:44.027Z">
+<meta property="article:author" content="舒雨墨">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="「杂题记录」IOI2020国家集训队作业-Part-1/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>「题单」IOI2020国家集训队作业 Part 1 | Shu Yu Mo's blog</title>
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/oi-blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Shu Yu Mo's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">远行者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/oi-blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/oi-blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/oi-blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/oi-blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/oi-blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-latex-syntax"><a href="/oi-blog/LaTeX-syntax.html" rel="section"><i class="fa fa-heart fa-fw"></i>LaTeX-syntax</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+
+
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+
+          <hr/>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cf505e-mr.-kitayuta-vs.-bamboos"><span class="nav-number">1.</span> <span class="nav-text">CF505E Mr. Kitayuta vs. Bamboos</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cf521d-shop"><span class="nav-number">2.</span> <span class="nav-text">CF521D Shop</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">2.1.</span> <span class="nav-text">code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cf526f-pudding-monsters"><span class="nav-number">3.</span> <span class="nav-text">CF526F Pudding Monsters</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#code-1"><span class="nav-number">3.1.</span> <span class="nav-text">code</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cf521e-cycling-city"><span class="nav-number">4.</span> <span class="nav-text">CF521E Cycling City</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cf547d-mike-and-fish"><span class="nav-number">5.</span> <span class="nav-text">CF547D Mike and Fish</span></a></li></ol></div>
+
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+
+
+
+<div class="post-block">
+
+
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="/oi-blog/「杂题记录」IOI2020国家集训队作业-Part-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/oi-blog/images/avatar.jpg">
+      <meta itemprop="name" content="舒雨墨">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shu Yu Mo's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「题单」IOI2020国家集训队作业 Part 1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-19 17:05:04" itemprop="dateCreated datePublished" datetime="2020-10-19T17:05:04+08:00">2020-10-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 19:42:44" itemprop="dateModified" datetime="2021-08-27T19:42:44+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/oi-blog/categories/杂题记录/" itemprop="url" rel="index"><span itemprop="name">杂题记录</span></a>
+        </span>
+    </span>
+
+
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+
+
+
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="cf505e-mr.-kitayuta-vs.-bamboos">CF505E Mr. Kitayuta vs. Bamboos</h1>
+<ul>
+<li>给定 <span class="math inline">\(n\)</span> 个数（竹子的高度） <span class="math inline">\(h_{1 \dots n}\)</span>。</li>
+<li>你需要进行 <span class="math inline">\(m\)</span> 轮操作，每轮操作为 <span class="math inline">\(k\)</span> 次修改，每次修改可以选择一个数 <span class="math inline">\(h_i\)</span> 修改为 <span class="math inline">\(\max(h_i - p, 0)\)</span>（砸到地下）。</li>
+<li>每轮操作后每个 <span class="math inline">\(h_i\)</span> 将会被修改为 <span class="math inline">\(h_i + a_i\)</span>（每天竹子会生长）。</li>
+<li>你需要最小化最终 <span class="math inline">\(h_{1 \dots n}\)</span> 中的最大值。</li>
+<li><span class="math inline">\(n \le 10^5\)</span>，<span class="math inline">\(m \le 5 \times 10^3\)</span>，<span class="math inline">\(k \le 10\)</span> <a id="more"></a> 要求最小化最大值，考虑二分一个最大的高度，将问题转化成可行性问题，即，给出一个高度，问能否使这些竹子最终不超过这个高度。</li>
+</ul>
+<p>考虑限制这个问题不平凡的因素：因为每次降低竹子高度的时候不能保证竹子一定降低 p ，也就是说，“砸竹子”这一动作存在浪费。我们考虑尽可能的让“砸竹子”这一动作更少的浪费，即：尽可能在后面的时间点砸竹子，但是无法保证到底是在哪一次砸竹子，有可能已经结束了，没有形式化的计算流程。</p>
+<p>可以考虑反向思考，即：假设已经长到 二分的高度。每次生长操作相当于每次会下落 <span class="math inline">\(a_i\)</span>，而每次砸的操作相当于提升了 <span class="math inline">\(p\)</span> 的高度。</p>
+<p>开始时，对每一个竹子计算出其需要多少次会下落到负高度，用堆维护，每次取出最快的可能下落到负高度的 k 个竹子，进行 “拔高” 操作。然后判断最后的高度是否大于等于<span class="math inline">\(h_i\)</span>。</p>
+<p>其实二分的本质是为了确定“尽可能的靠后砸竹子”的标准。反向思考是为了便于贪心处理策略。 ## code <details class="note info"><summary><p>CF505E Mr. Kitayuta vs. Bamboos</p>
+</summary>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n, m, k, p;
+int H[_], A[_];
+#define mp make_pair
+#define fi first
+#define se second
+int height[_];
+bool check(int MaxH)&#123;
+	fill(height + 1, height + 1 + n, MaxH);
+	priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt; &gt; , greater&lt;pair&lt;int, int&gt; &gt; &gt; Q;
+	while(!Q.empty()) Q.pop();
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++) if(MaxH - m * A[i] &lt; H[i]) Q.push(mp( MaxH &#x2F; A[i], i ));
+
+	for(int i &#x3D; 1; i &lt;&#x3D; m; i++) &#123;
+		for(int j &#x3D; 1; j &lt;&#x3D; k; j++)&#123;
+			if(Q.empty()) return true;
+			pair&lt;int, int&gt; now &#x3D; Q.top(); Q.pop();
+			if(now.fi &lt; i) return false;
+			height[now.se] +&#x3D; p;
+			now.fi &#x3D; height[now.se] &#x2F; A[now.se];
+			if(height[now.se] - m * A[now.se] &lt; H[now.se]) Q.push(now);
+		&#125;
+	&#125;
+	return Q.empty();
+&#125;
+signed main()&#123;
+	n &#x3D; read(), m &#x3D; read(), k &#x3D; read(), p &#x3D; read(); &#x2F;&#x2F; 竹子数 天数 修改次数 最大降低高度
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++) H[i] &#x3D; read(), A[i] &#x3D; read();
+
+	int L &#x3D; 0, ans &#x3D; 0, R &#x3D; 1LL &lt;&lt; 60; for(int i &#x3D; 1; i &lt;&#x3D; n; i++) L &#x3D; min(L, A[i]);
+	while(L &lt; R)&#123;
+		int mid &#x3D; (L + R) &gt;&gt; 1;
+		if(check(mid)) ans &#x3D; mid, R &#x3D; mid;
+		else L &#x3D; mid + 1;
+	&#125;
+	printf(&quot;%lld\n&quot;, ans);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details></p>
+<h1 id="cf521d-shop">CF521D Shop</h1>
+<ul>
+<li>有 <span class="math inline">\(k\)</span> 个正整数 <span class="math inline">\(a_{1\dots k}\)</span>。</li>
+<li>有 <span class="math inline">\(n\)</span> 个操作，每个操作给定正整数 <span class="math inline">\(b\)</span>，有三种可能：将 <span class="math inline">\(a_i\)</span> 赋值为 <span class="math inline">\(b\)</span>，将 <span class="math inline">\(a_i\)</span> 加上 <span class="math inline">\(b\)</span>，将 <span class="math inline">\(a_i\)</span> 乘以 <span class="math inline">\(b\)</span>。</li>
+<li>你可以从 <span class="math inline">\(n\)</span> 个操作中选择最多 <span class="math inline">\(m\)</span> 个操作，并按照一定顺序执行。</li>
+<li>你的目标是最大化 <span class="math inline">\(\prod_{i=1}^k a_i\)</span> 的值。</li>
+<li><span class="math inline">\(k,n \le 10^5\)</span>。</li>
+</ul>
+<p>化归思想，考虑如果只有乘法，那一定是把操作数字从大到小排序，然后以此操作。</p>
+<p>考虑操作顺序，最优的操作一定是先赋值，再加法，最后乘法。其中赋值只可能选相应位置最大的赋值，加法也是从大到小考虑。</p>
+<p>显然赋值可以直接转化成加法，而加法如果从大到小考虑也可以直接转化成乘法（乘一个实数）。</p>
+<p>这样就把所有操作转化成了乘法。 贪心考虑即可。</p>
+<p>最后输出有顺序，应按照上面的策略（先赋值，再加法，最后乘法）以此输出（操作顺序）。</p>
+<h2 id="code">code</h2>
+<details class="note info"><summary><p>CF521D Shop</p>
+</summary>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;climits&gt;
+#include &lt;cstring&gt;
+#include &lt;cstdio&gt;
+#include &lt;cmath&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+using namespace std;
+const int _ &#x3D; 1e5 + 100;
+#define LL long long
+int read() &#123; int x; scanf(&quot;%d&quot;, &amp;x); return x; &#125;
+int n, m, k;
+int v[_];
+pair&lt;int, int&gt; Give[_];
+vector&lt;pair&lt;int, int &gt; &gt; add[_];
+vector&lt;pair&lt;double, int&gt; &gt; mul[_];
+vector&lt;pair&lt;double, int&gt; &gt; All;
+int T[_];
+int id[_];
+#define double long double
+bool ICMP  (const pair&lt;int, int&gt; &amp; x, const pair&lt;int, int&gt; &amp; y) &#123; return (x &gt; y); &#125;
+bool ICMP_D(const pair&lt;double, int&gt; &amp; x, const pair&lt;double, int&gt; &amp; y) &#123; return (x &gt; y); &#125;
+bool MAGIC(const int &amp;x, const int &amp;y) &#123; return T[x] &lt; T[y]; &#125;
+int main()&#123;
+	k &#x3D; read(), n &#x3D; read(), m &#x3D; read();
+	for(int i &#x3D; 1; i &lt;&#x3D; k; i++) v[i] &#x3D; read();
+
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;
+		int type &#x3D; read(); T[i] &#x3D; type;
+		int a &#x3D; read(), b &#x3D; read();
+		if(type &#x3D;&#x3D; 1)&#123;
+			Give[a] &#x3D; max(Give[a], make_pair(b, i));
+		&#125; else if(type &#x3D;&#x3D; 2)&#123;
+			add[a].push_back(make_pair(b, i));
+		&#125; else &#123;
+			mul[a].push_back(make_pair((double)(b), i));
+		&#125;
+	&#125;
+	for(int i &#x3D; 1; i &lt;&#x3D; k; i++)
+		if(Give[i].first)
+			add[i].push_back(make_pair(Give[i].first - v[i], Give[i].second));
+	for(int i &#x3D; 1; i &lt;&#x3D; k; i++) sort(add[i].begin(), add[i].end(), ICMP);
+	for(int i &#x3D; 1; i &lt;&#x3D; k; i++)&#123;
+		LL now &#x3D; v[i];
+		for(int j &#x3D; 0; j &lt; add[i].size(); j++)&#123;
+			mul[i].push_back(
+				make_pair(
+					(double)(now +0ll+ add[i][j].first) &#x2F; (double)(now),
+					add[i][j].second
+				)
+			); now +&#x3D; add[i][j].first;
+		&#125;
+	&#125;
+	for(int i &#x3D; 1; i &lt;&#x3D; k; i++) for(int j &#x3D; 0; j &lt; mul[i].size(); j++) All.push_back(mul[i][j]);
+	sort(All.begin(), All.end(), ICMP_D);
+	int tot &#x3D; 0;
+	for(int i &#x3D; 0; i &lt; All.size(); i++) if(All[i].first &gt; 1) &#123; tot++; &#125;
+	tot &#x3D; min(tot, m);
+	for(int i &#x3D; 1; i &lt;&#x3D; tot; i++) id[i] &#x3D; All[i - 1].second;
+	sort(id + 1, id + 1 + tot, MAGIC);	printf(&quot;%d\n&quot;, tot);
+	for(int i &#x3D; 1; i &lt;&#x3D; tot; i++) printf(&quot;%d%c&quot;, id[i], &quot; \n&quot;[i &#x3D;&#x3D; n]);
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h1 id="cf526f-pudding-monsters">CF526F Pudding Monsters</h1>
+<ul>
+<li>给定一个 <span class="math inline">\(n \times n\)</span> 的棋盘，其中有 <span class="math inline">\(n\)</span> 个棋子，每行每列恰好有一个棋子。</li>
+<li>求有多少个 <span class="math inline">\(k \times k\)</span> 的子棋盘中恰好有 <span class="math inline">\(k\)</span> 个棋子。</li>
+<li><span class="math inline">\(n \le 3 \times 10^5\)</span>。</li>
+</ul>
+<p>每行每列<strong>恰好有一个</strong>棋子的棋盘，可以抽象成一个排列。 而操作也是对于一个排列的一段进行操作的。</p>
+<p>题意可以转化为： - 给出一个排列 - 求连续段数量，即连续的一段，且段中的元素排好序之后必须是公差为<span class="math inline">\(1\)</span>的等差数列.</p>
+<p><strong>连续段计数</strong></p>
+<p>考虑如何刻画“<strong>连续的一段，且段中的元素排好序之后必须是公差为<span class="math inline">\(1\)</span>的等差数列</strong>”这个条件，可以形式化的定义：</p>
+<p><span class="math display">\[\operatorname{MaxVal} - \operatorname{MinVal} = (R - L)\]</span></p>
+<p>即</p>
+<p><span class="math display">\[f_{R}(L) = \operatorname{MaxVal} - \operatorname{MinVal} - (R - L) = 0\]</span></p>
+<p>这个条件成立的基础在于，所求数列不能有重复元素，而且也保证了函数<span class="math inline">\(f_x(L) \ge 0\)</span>, 查询时只需要维护<strong>最小值</strong>以及最小值的<strong>数量</strong>即可。</p>
+<p>可以考虑枚举一个端点，比如右端点 <span class="math inline">\(R\)</span>，然后查找有多少符合条件的左端点 <span class="math inline">\(L\)</span> ，用线段树维护<span class="math inline">\(f_R(x)\)</span>在每个点处的函数值。</p>
+<p>考虑当<span class="math inline">\(f_x(L)\)</span> 移动到 <span class="math inline">\(f_{x + 1}(L)\)</span> 时， 值的变化。变化的值有 <span class="math inline">\(R\)</span> , 可能变化的有<span class="math inline">\(MaxVal, MinVal\)</span>。用单调栈实时维护更新后会波及哪些元素的最小值。事实上，单调栈处理的过程就是在动态维护一个后缀最小。</p>
+<p>这里有几个与其有相似之处的题目，但是可能做法并不一样，遇到不要想成一样的题目： - <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5278">算术天才⑨与等差数列</a> (不保证序列中一定元素不重复) - 考虑判断一个序列排好序后是否为等差数列 - 准确做法 - <span class="math inline">\(\max−\min=(r−l)k\)</span> - 相邻两数差的绝对值的 <span class="math inline">\(\operatorname{gcd}\)</span>是 <span class="math inline">\(k\)</span> - 区间 <span class="math inline">\([l,r]\)</span> 内的数不重复 - 概率性做法 - hash思想，维护 <span class="math inline">\(n\)</span> 次方和 - <a target="_blank" rel="noopener" href="http://www.zhengruioi.com/contest/718/problem/1615">树上排列(ZROI)</a> (同样不保证元素一定不重复) - 给定一颗 <span class="math inline">\(n\)</span> 个点的树。每个点都一个正整数点权 <span class="math inline">\(A_i\)</span> ，你需要支持以下两种操作： - 1、询问点 <span class="math inline">\(x\)</span> 和点 <span class="math inline">\(y\)</span> 之间的路径上的所有点（包括点 <span class="math inline">\(x\)</span> 和点 <span class="math inline">\(y\)</span> ）的点权是否构成一个从 <span class="math inline">\(1\)</span> 开始的排列（即若这条链长度为 <span class="math inline">\(len\)</span> ，那么问点权集合为 <span class="math inline">\({1,2,⋯,len}\)</span> ）。 - 2、将 <span class="math inline">\(A_x\)</span> 修改为 <span class="math inline">\(y\)</span> 。 - 由于在树上难以判断某区间内的数字不重复，Hash维护n次方和。 - 给出一个没有重复元素的序列，询问某区间中的元素是否能加入小于<span class="math inline">\(k\)</span>个元素使其拍好序后构成一个等差数列。 - 条件变成了 <span class="math display">\[f_{R}(L) = \operatorname{MaxVal} - \operatorname{MinVal} - (R - L) \ge k\]</span> - <a target="_blank" rel="noopener" href="http://www.zhengruioi.com/problem/1532">count(ZROI)</a>已知一个集合<span class="math inline">\(S\)</span>中的最大元素为 <span class="math inline">\(N\)</span>， 且这个集合中的元素可以构成一个等差数列，给出一些形如<span class="math inline">\(x \in S\)</span>、<span class="math inline">\(x \notin S\)</span>的限制。求最终的集合有多少种情况。 - 考虑刻画一个等差数列需要什么参数：公差，和每个元素$$ 公差的值。枚举这两个参数，依次计数即可。</p>
+<p>（引用正睿的两道题目，不知道是不是有版权问题，如果有，会立即删除（<del>顺便给正睿OI打个广告</del>））。</p>
+<h2 id="code-1">code</h2>
+<details class="note info"><summary><p>CF526F Pudding Monsters</p>
+</summary>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">int n;
+int A[_];
+#define fir first
+#define sec second
+namespace SegmentTree&#123;
+    const int _ &#x3D; 3e6 + 100;
+    struct Node&#123;
+        int MIN;
+        int sMIN;
+        int tar;
+        Node operator + (const Node &amp; rhs) const &#123;
+            Node res;
+            res.MIN  &#x3D; min(MIN, rhs.MIN);
+            res.sMIN &#x3D; MIN &#x3D;&#x3D; rhs.MIN ? ( sMIN + rhs.sMIN) : (MIN &lt; rhs.MIN ? sMIN : rhs.sMIN) ;
+            return res;
+        &#125;
+    &#125;v[_];
+    int tot &#x3D; 0;
+    int ch[_][2];
+    #define ls(o) (ch[o][0])
+    #define rs(o) (ch[o][1])
+    #define make (tot++, ch[tot][0] &#x3D; ch[tot][1] &#x3D; v[tot].MIN &#x3D; v[tot].sMIN &#x3D; 0, tot)
+    int Groot() &#123; return make; &#125;
+    void maintain(int o) &#123;
+        v[o].MIN  &#x3D; min(v[ls(o)].MIN, v[rs(o)].MIN);
+        v[o].sMIN &#x3D; v[ls(o)].MIN &#x3D;&#x3D; v[rs(o)].MIN ? v[ls(o)].sMIN + v[rs(o)].sMIN : ( v[ls(o)].MIN &lt; v[rs(o)].MIN ? v[ls(o)].sMIN : v[rs(o)].sMIN );
+    &#125;
+    void tar(int o, int x) &#123; v[o].MIN +&#x3D; x; v[o].tar +&#x3D; x; &#125;
+    void pushdown(int o)&#123;
+        if(v[o].tar)&#123;
+            tar(ls(o), v[o].tar); tar(rs(o), v[o].tar);
+            v[o].tar &#x3D; 0;
+        &#125;
+    &#125;
+    void build(int o, int L, int R)&#123;
+        if(L &#x3D;&#x3D; R) &#123; v[o].MIN &#x3D; 0; v[o].sMIN &#x3D; 1; return; &#125;
+        int mid &#x3D; (L + R) &gt;&gt; 1;
+        ls(o) &#x3D; make; rs(o) &#x3D; make;
+        build(ls(o), L, mid); build(rs(o), mid + 1, R);
+        maintain(o);
+    &#125;
+    void update(int o, int nowl, int nowr, int L, int R, int x)&#123;
+        if(L &gt; R) return ;
+        if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return tar(o, x);
+        int mid &#x3D; (nowl + nowr) &gt;&gt; 1;  pushdown(o);
+        if(L &lt;&#x3D; mid) update(ls(o), nowl, mid, L, R, x);
+        if(R  &gt; mid) update(rs(o), mid + 1, nowr, L, R, x);
+        maintain(o);
+    &#125;
+    Node query(int o, int nowl, int nowr, int L, int R) &#123;
+        if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return v[o];
+        int mid &#x3D; (nowl + nowr) &gt;&gt; 1; pushdown(o);
+        Node Ans; Ans.MIN &#x3D; INT_MAX;
+        if(L &lt;&#x3D; mid) Ans &#x3D; Ans + query(ls(o), nowl, mid, L, R);
+        if(R  &gt; mid) Ans &#x3D; Ans + query(rs(o), mid + 1, nowr, L, R);
+        return Ans;
+    &#125;
+    int query(int o, int L, int R)&#123;
+        Node res &#x3D; query(o, 1, n, L, R);
+        return res.MIN &#x3D;&#x3D; 0 ? res.sMIN : 0;
+    &#125;
+&#125;  using SegmentTree::Groot; using SegmentTree::build; using SegmentTree::query; using SegmentTree::update;
+namespace Mon_Stack&#123;
+    int t0t &#x3D; 0, t1t &#x3D; 0;
+    pair&lt;int, int&gt; S0[_], S1[_];
+    int work(int *A, int n)&#123;
+        int Ans &#x3D; 0;
+        int root &#x3D; Groot();
+        build(root, 1, n);
+        S0[0].fir &#x3D; S1[0].fir &#x3D; 0;
+        for(int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+            update(root, 1, n, 1, i - 1, -1);
+            while(t0t !&#x3D; 0 &amp;&amp; S0[t0t].sec &gt;&#x3D; A[i]) &#123; update(root, 1, n, S0[t0t - 1].fir + 1, S0[t0t].fir,  S0[t0t].sec); t0t--; &#125;
+            while(t1t !&#x3D; 0 &amp;&amp; S1[t1t].sec &lt;&#x3D; A[i]) &#123; update(root, 1, n, S1[t1t - 1].fir + 1, S1[t1t].fir, -S1[t1t].sec); t1t--; &#125;
+            update(root, 1, n, S0[t0t].fir + 1, i, -A[i]);
+            update(root, 1, n, S1[t1t].fir + 1, i, A[i]);
+            int t &#x3D; query(root, 1, i);
+            Ans +&#x3D; t;
+            S0[++t0t] &#x3D; make_pair(i, A[i]); S1[++t1t] &#x3D; make_pair(i, A[i]);
+        &#125;
+        return Ans;
+    &#125;
+&#125; using Mon_Stack::work;
+signed main()&#123;
+    n &#x3D; read(); for(int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123; int x &#x3D; read(), y &#x3D; read(); A[x] &#x3D; y; &#125;
+    printf(&quot;%lld\n&quot;, work(A, n));
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<details class="note info"><summary><p>count(ZROI)</p>
+</summary>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;climits&gt;
+#include &lt;cmath&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;cstdio&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+#define int long long
+const int MOD &#x3D; 1e9 + 7;
+const int _M &#x3D; 2e5 + 100;
+inline int read() &#123; char c &#x3D; getchar(); int sign &#x3D; 1; int x &#x3D; 0; while(c &gt; &#39;9&#39; || c &lt; &#39;0&#39;) &#123; if(c&#x3D;&#x3D;&#39;-&#39;)sign &#x3D; -1; c &#x3D; getchar(); &#125; while(c &lt;&#x3D; &#39;9&#39; &amp;&amp; c &gt;&#x3D; &#39;0&#39;) &#123; x *&#x3D; 10; x +&#x3D; c - &#39;0&#39;; c &#x3D; getchar(); &#125; return x * sign; &#125;
+int MAX, m;
+int have[_M], tht &#x3D; 0;
+int none[_M], tnt &#x3D; 0;
+int d[_M], tdt &#x3D; 0;
+int c[_M];&#x2F;&#x2F;tct &#x3D; tdt
+bool CanBe[_M];
+int ToL[_M];
+int ToR[_M];
+void divide(int s, int x) &#123;
+    for(int i &#x3D; 1; i * i &lt;&#x3D; x; i++)&#123;
+        if(x % i &#x3D;&#x3D; 0) d[++tdt] &#x3D; i, c[tdt] &#x3D; s % i;
+        if(i * i !&#x3D; x) d[++tdt] &#x3D; x &#x2F; i, c[tdt] &#x3D; s % d[tdt];
+    &#125;
+    for(int i &#x3D; 1; i &lt;&#x3D; tdt; i++) CanBe[i] &#x3D; true;
+&#125;
+signed main()&#123;
+    int t;
+    MAX &#x3D; read(), m &#x3D; read();
+    for(int i &#x3D; 1; i &lt;&#x3D; m; i++)&#123;
+        int type &#x3D; read();
+        if(type &#x3D;&#x3D; 1) have[++tht] &#x3D; read();
+        else          none[++tnt] &#x3D; read();
+    &#125;
+    sort(have + 1, have + 1 + tht); sort(none + 1, none + 1 + tnt);
+    int maxd &#x3D; INT_MAX, Sta;
+    for(int i &#x3D; 2; i &lt;&#x3D; tht; i++) &#123;
+        if(maxd &gt; have[i] - have[i - 1])&#123;
+            maxd &#x3D; have[i] - have[i - 1];
+            Sta &#x3D; have[i - 1];
+        &#125;
+    &#125;
+    divide(Sta, maxd);
+
+    &#x2F;* 公差 及 特征 检查   *&#x2F;
+    for(int i &#x3D; 1; i &lt;&#x3D; tht; i++)&#123;
+        for(int j &#x3D; 1; j &lt;&#x3D; tdt; j++)&#123;
+            if(!CanBe[j]) continue;
+            if(have[i] % d[j] !&#x3D; c[j]) CanBe[j] &#x3D; false;
+        &#125;
+    &#125;
+    for(int i &#x3D; 2; i &lt;&#x3D; tht; i++)&#123;
+        int D &#x3D; have[i] - have[i - 1];
+        for(int j &#x3D; 1; j &lt;&#x3D; tdt; j++)&#123;
+            if(!CanBe[j]) continue;
+            if(D % d[j] !&#x3D; 0) CanBe[j] &#x3D; false;
+        &#125;
+    &#125;
+    t &#x3D; 0;
+    for(int i &#x3D; 1; i &lt;&#x3D; tdt; i++)&#123;
+        if(!CanBe[i]) continue;
+        d[++t] &#x3D; d[i];
+        c[  t] &#x3D; c[i];
+        CanBe[t] &#x3D; true;
+    &#125; tdt &#x3D; t;
+    &#x2F;* 公差 及 特征 检查   完成*&#x2F;
+    for(int i &#x3D; 1; i &lt;&#x3D; tdt; i++) &#123;
+        if(CanBe[i]) &#123;
+            ToL[i] &#x3D; (c[i] &#x3D;&#x3D; 0 ? d[i] : c[i]) - 1;
+            int t &#x3D; MAX % d[i];
+            if(t &#x3D;&#x3D; c[i]) ToR[i] &#x3D; MAX + 1;
+            if(t  &gt; c[i]) ToR[i] &#x3D; MAX - (t - c[i]) + 1;
+            if(t  &lt; c[i]) ToR[i] &#x3D; MAX - d[i] + (c[i] - t) + 1;
+        &#125;
+    &#125;
+    t &#x3D; 0;
+    for(int i &#x3D; 1; i &lt;&#x3D; tdt; i++)&#123;
+        if(!CanBe[i]) continue;
+        d[++t] &#x3D; d[i];
+        c[  t] &#x3D; c[i];
+        CanBe[t] &#x3D; true;
+    &#125; tdt &#x3D; t;
+    int MINS &#x3D; have[1], MAXE &#x3D; have[tht];
+    for(int i &#x3D; 1; i &lt;&#x3D; tnt; i++)&#123;
+        int now &#x3D; none[i];
+        for(int j &#x3D; 1; j &lt;&#x3D; tdt; j++)&#123;
+            if(!CanBe[j]) continue;
+            if(now % d[j] &#x3D;&#x3D; c[j])&#123;
+                if(now &lt; MINS)
+                    ToL[j] &#x3D; max(ToL[j], now);
+                else if(now &gt; MAXE)
+                    ToR[j] &#x3D; min(ToR[j], now);
+                else CanBe[j] &#x3D; false;
+            &#125;
+        &#125;
+    &#125;
+    for(int i &#x3D; 1; i &lt;&#x3D; tdt; i++) if(ToL[i] &gt; MINS || ToR[i] &lt; MAXE) CanBe[i] &#x3D; false; else ToL[i]++, ToR[i] --;
+    &#x2F;* 非法数字存在性检查 *&#x2F;
+    int ans &#x3D; 0;
+    for(int i &#x3D; 1; i &lt;&#x3D; tdt; i++)&#123;
+        if(!CanBe[i]) continue;
+        int k &#x3D; (  (MINS - ToL[i]) &#x2F; d[i] + 1) * ( (ToR[i] - MAXE) &#x2F; d[i] + 1) % MOD; &#x2F;&#x2F; TODO;
+        ans &#x3D; (ans + k) % MOD;
+    &#125;
+    printf(&quot;%lld&quot;, ans);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<details class="note info"><summary><p>A.20联赛集训day3 树上排列(维护15次方和hash)</p>
+</summary>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;climits&gt;
+#include &lt;cstring&gt;
+#include &lt;cmath&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+inline int read() &#123; char c &#x3D; getchar(); int sign &#x3D; 1; int x &#x3D; 0; while(c &gt; &#39;9&#39; || c &lt; &#39;0&#39;) &#123; if(c&#x3D;&#x3D;&#39;-&#39;)sign &#x3D; -1; c &#x3D; getchar(); &#125; while(c &lt;&#x3D; &#39;9&#39; &amp;&amp; c &gt;&#x3D; &#39;0&#39;) &#123; x *&#x3D; 10; x +&#x3D; c - &#39;0&#39;; c &#x3D; getchar(); &#125; return x * sign; &#125;
+using namespace std;
+const int _ &#x3D; 6e5 + 100;
+const int base &#x3D; 15;
+const int MOD &#x3D; 1020031005;
+int SS[_];
+int pow(int a, int b &#x3D; base)&#123; int ans &#x3D; 1; while(b)&#123; if(b &amp; 1) ans &#x3D; (ans *1ll* a) % MOD; a &#x3D; (a *1ll* a) % MOD; b &gt;&gt;&#x3D; 1; &#125; return ans; &#125;
+
+int head[_];
+int NodeVal[_];
+struct edges&#123;
+	int node;
+	int nxt;
+&#125;edge[_];
+int tot &#x3D; 0;
+void add(int u, int v)&#123;
+	tot++;
+	edge[tot].node &#x3D; v;
+	edge[tot].nxt  &#x3D; head[u];
+	head[u]        &#x3D; tot;
+&#125;
+
+int n, q;
+int dep[_], fa[_], dfn[_], rnk[_], top[_], son[_], si[_], dfc &#x3D; 0;
+void dfs0(int now, int f, int dp)&#123;
+	int &amp;S &#x3D; si[now] &#x3D; 1; int &amp;Mid &#x3D; son[now] &#x3D; 0; fa[now] &#x3D; f; dep[now] &#x3D; dp;
+	for(int i &#x3D; head[now]; i ; i &#x3D; edge[i].nxt)&#123;
+		int ex &#x3D; edge[i].node; if(ex &#x3D;&#x3D; f) continue;
+		dfs0(ex, now, dp + 1); S +&#x3D; si[ex];
+		if(si[ex] &gt; si[Mid]) Mid &#x3D; ex;
+	&#125; if(!Mid) Mid &#x3D; 0;
+&#125;
+void dfs1(int now, int f, int tp)&#123;
+	dfn[now] &#x3D; ++dfc; rnk[dfc] &#x3D; now;
+	top[now] &#x3D; tp;
+	if(son[now]) dfs1(son[now], now, tp);
+	for(int i &#x3D; head[now]; i ; i &#x3D; edge[i].nxt)&#123;
+		int ex &#x3D; edge[i].node; if(ex &#x3D;&#x3D; f || ex &#x3D;&#x3D; son[now]) continue;
+		dfs1(ex, now, ex);
+	&#125;
+&#125;
+void clear()&#123;
+	memset(head, 0, sizeof(head));
+	dfn[0] &#x3D; rnk[0] &#x3D; si[0] &#x3D; top[0] &#x3D; fa[0] &#x3D; son[0] &#x3D; 0;
+	tot &#x3D; 0;
+	dfc &#x3D; 0;
+&#125;
+namespace SegmentTree&#123;
+	const int _ &#x3D; 3e6 + 100;
+	int tot &#x3D; 0;
+	int ch[_][2];
+	int v[_];
+	#define make (tot++, ch[tot][0] &#x3D; ch[tot][1] &#x3D; v[tot] &#x3D; 0, tot);
+	#define ls(x) (ch[x][0])
+	#define rs(x) (ch[x][1])
+	#define maintain(o) (v[o] &#x3D; (v[ls(o)] +0ll+ v[rs(o)]) % MOD )
+	void init_s() &#123; tot &#x3D; 0; &#125;
+	int  Groot()&#123; return make; &#125;
+	void build(int o, int L, int R)&#123;
+		if(L &#x3D;&#x3D; R) return (void)(v[o] &#x3D; pow(NodeVal[rnk[L]]));
+		int mid &#x3D; (L + R) &gt;&gt; 1;
+		ls(o) &#x3D; make; rs(o) &#x3D; make;
+		build(ls(o), L, mid); build(rs(o), mid + 1, R);
+		maintain(o);
+	&#125;
+	void update(int o, int nowl, int nowr, int p, int x)&#123;
+		if(nowl &#x3D;&#x3D; nowr) return (void)(v[o] &#x3D; pow(x));
+		int mid &#x3D; (nowl + nowr) &gt;&gt; 1;
+		if(p &lt;&#x3D; mid) update(ls(o), nowl, mid, p, x);
+		if(p  &gt; mid) update(rs(o), mid + 1, nowr, p, x);
+		maintain(o);
+	&#125;
+	int query(int o, int nowl, int nowr, int L, int R)&#123;
+		if(L &gt; R) return 0;
+		if(L &lt;&#x3D; nowl &amp;&amp; nowr &lt;&#x3D; R) return v[o];
+		int mid &#x3D; (nowl + nowr) &gt;&gt; 1;
+		int ans &#x3D; 0;
+		if(L &lt;&#x3D; mid) ans &#x3D; (ans +0ll+ query(ls(o), nowl, mid, L, R)) % MOD;
+		if(R  &gt; mid) ans &#x3D; (ans +0ll+ query(rs(o), mid + 1, nowr, L, R)) % MOD;
+		return ans;
+	&#125;
+&#125; using SegmentTree::Groot; using SegmentTree::init_s; using SegmentTree::build; using SegmentTree::update; using SegmentTree::query;
+int root &#x3D; 0;
+int LCA;
+int QueryOnPath(int x, int y)&#123;
+	int ans &#x3D; 0;
+	while(top[x] !&#x3D; top[y])&#123;
+		if(dep[top[x]] &gt; dep[top[y]]) swap(x, y);
+		ans &#x3D; (ans +0ll+ query(root, 1, n, dfn[top[y]], dfn[y])) % MOD;
+		y &#x3D; fa[top[y]];
+	&#125;
+	if(dep[x] &lt; dep[y]) swap(x, y); LCA &#x3D; y;
+	ans &#x3D; (ans +0ll+ query(root, 1, n, dfn[y], dfn[x])) % MOD;
+	return ans;
+&#125;
+void doit()&#123;
+	clear();
+	n &#x3D; read(), q &#x3D; read();
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++) NodeVal[i] &#x3D; read();
+	for(int i &#x3D; 1; i &lt;  n; i++)&#123; int u &#x3D; read(), v &#x3D; read(); add(u, v); add(v, u); &#125;
+	dfs0(1, 1, 1);
+	dfs1(1, 1, 1);
+	init_s(); root &#x3D; Groot();
+	build(root, 1, n);
+	while(q--)&#123;
+		int opt &#x3D; read(), x &#x3D; read(), y &#x3D; read();
+		if(opt &#x3D;&#x3D; 1)&#123;
+			int r &#x3D; QueryOnPath(x, y);
+			int Len &#x3D; dep[x] + dep[y] - (dep[LCA] &lt;&lt; 1) + 1;
+			puts(SS[Len] &#x3D;&#x3D; r ? &quot;Yes&quot; : &quot;No&quot;);
+		&#125; else&#123;
+			update(root, 1, n, dfn[x], y);
+		&#125;
+	&#125;
+&#125;
+int main()&#123;
+	for(int i &#x3D; 1; i &lt;&#x3D; 3e5; i++) SS[i] &#x3D; ( SS[i - 1] +0ll+ pow(i) ) % MOD;
+	int T &#x3D; read();
+	while(T--) doit();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</details>
+<h1 id="cf521e-cycling-city">CF521E Cycling City</h1>
+<ul>
+<li>给定一张 <span class="math inline">\(n\)</span> 个点 <span class="math inline">\(m\)</span> 条边的无向简单图。</li>
+<li>问图中能否找到两个点，满足这两个点之间有至少三条完全不相交的简单路径。</li>
+<li><span class="math inline">\(n,m \le 2 \times 10^5\)</span>，图不保证连通</li>
+</ul>
+<p>考虑生成树，对原图做一个生成树，考虑每个在生成树外的边，覆盖在树上，树上边被覆盖两次的，即为一种方案</p>
+<p>由于树的拓扑结构比图要简单很多，直接思考图的生成树解决图内问题是一个常见思路。</p>
+<h1 id="cf547d-mike-and-fish">CF547D Mike and Fish</h1>
+<p><strong>待填</strong></p>
+
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/oi-blog/tags/题解/" rel="tag"># 题解</a>
+          </div>
+
+
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/oi-blog/「比赛总结」洛谷-10-月赛/" rel="prev" title="「比赛总结」洛谷 10 月赛">
+                  <i class="fa fa-chevron-left"></i> 「比赛总结」洛谷 10 月赛
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/oi-blog/「比赛总结」「CSP-2020」退役有感/" rel="next" title="「CSP 2020」退役有感">
+                  「CSP 2020」退役有感 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 –
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">舒雨墨</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="/oi-blog/js/utils.js"></script><script src="/oi-blog/js/schemes/muse.js"></script><script src="/oi-blog/js/next-boot.js"></script>
+
+
+<script src="/oi-blog/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('.gitalk-container', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5d4b0a361ccf7199b58f',
+      clientSecret: 'ff21340eedfb4a1c940eaddf8e180f0260c33088',
+      repo        : 'ShuYuMo2003.github.io',
+      owner       : 'ShuYuMo2003',
+      admin       : ['ShuYuMo2003'],
+      id          : 'e79f0200dcefe9ff26e801c45830c796',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render(document.querySelector('.gitalk-container'));
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

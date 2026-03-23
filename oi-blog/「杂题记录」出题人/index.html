@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/oi-blog/images/apple-touch-icon-next.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/oi-blog/images/favicon-32x32-next.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/oi-blog/images/favicon-16x16-next.ico">
+  <link rel="mask-icon" href="/oi-blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/oi-blog/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=sans-serif:300,300italic,400,400italic,700,700italic%7CUbuntu:300,300italic,400,400italic,700,700italic%7CRoboto:300,300italic,400,400italic,700,700italic%7C'Open+Sans':300,300italic,400,400italic,700,700italic%7C'Microsoft+YaHei':300,300italic,400,400italic,700,700italic%7Csans-serif;:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"https:/ShuYuMo2003.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"left","width":250,"display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+<meta name="description" content="给出长度为 \(n\) 的序列 \(a_i\) ，需要构造一个序列 \(b_i\) ，使得 \(\forall i, \exists x,y \in [1, n],s.t.b_x + b_y &#x3D; a_i\) 要求输出序列 \(b_i\) 和方案（\(a_i\) 由哪两个 \(b_j\) 构成） 。无解输出 \(-1\). d3A \(n \le 30\)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「杂题记录」出题人">
+<meta property="og:url" content="%E3%80%8C%E6%9D%82%E9%A2%98%E8%AE%B0%E5%BD%95%E3%80%8D%E5%87%BA%E9%A2%98%E4%BA%BA/index.html">
+<meta property="og:site_name" content="Shu Yu Mo&#39;s blog">
+<meta property="og:description" content="给出长度为 \(n\) 的序列 \(a_i\) ，需要构造一个序列 \(b_i\) ，使得 \(\forall i, \exists x,y \in [1, n],s.t.b_x + b_y &#x3D; a_i\) 要求输出序列 \(b_i\) 和方案（\(a_i\) 由哪两个 \(b_j\) 构成） 。无解输出 \(-1\). d3A \(n \le 30\)">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-19T07:35:06.000Z">
+<meta property="article:modified_time" content="2021-08-27T11:42:44.027Z">
+<meta property="article:author" content="舒雨墨">
+<meta property="article:tag" content="搜索">
+<meta property="article:tag" content="双向搜索">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="「杂题记录」出题人/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>「杂题记录」出题人 | Shu Yu Mo's blog</title>
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/oi-blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Shu Yu Mo's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">远行者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/oi-blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/oi-blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/oi-blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/oi-blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/oi-blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-latex-syntax"><a href="/oi-blog/LaTeX-syntax.html" rel="section"><i class="fa fa-heart fa-fw"></i>LaTeX-syntax</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+
+
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+
+          <hr/>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">分析</span></a></li></ol></div>
+
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="舒雨墨"
+      src="/oi-blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">舒雨墨</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/oi-blog/archives/">
+
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/oi-blog/categories/">
+
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/oi-blog/tags/">
+
+        <span class="site-state-item-count">60</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ShuYuMo2003" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ShuYuMo2003" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/44615" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;44615" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:sujiayi2003@gmail.com" title="E-Mail → mailto:sujiayi2003@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/JiaYiSu5" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;JiaYiSu5" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+
+
+
+<div class="post-block">
+
+
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="/oi-blog/「杂题记录」出题人/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/oi-blog/images/avatar.jpg">
+      <meta itemprop="name" content="舒雨墨">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shu Yu Mo's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「杂题记录」出题人
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-19 15:35:06" itemprop="dateCreated datePublished" datetime="2021-01-19T15:35:06+08:00">2021-01-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-27 19:42:44" itemprop="dateModified" datetime="2021-08-27T19:42:44+08:00">2021-08-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/oi-blog/categories/杂题记录/" itemprop="url" rel="index"><span itemprop="name">杂题记录</span></a>
+        </span>
+    </span>
+
+
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+
+
+
+    <div class="post-body" itemprop="articleBody">
+          <p>给出长度为 <span class="math inline">\(n\)</span> 的序列 <span class="math inline">\(a_i\)</span> ，需要构造一个序列 <span class="math inline">\(b_i\)</span> ，使得 <span class="math inline">\(\forall i, \exists x,y \in [1, n],s.t.b_x + b_y = a_i\)</span> 要求输出序列 <span class="math inline">\(b_i\)</span> 和方案（<span class="math inline">\(a_i\)</span> 由哪两个 <span class="math inline">\(b_j\)</span> 构成） 。无解输出 <span class="math inline">\(-1\)</span>. d3A</p>
+<p><span class="math inline">\(n \le 30\)</span></p>
+<a id="more"></a>
+<h2 id="分析">分析</h2>
+<p>一道搜索<strong>模板题</strong>。</p>
+<p>考虑如果能够构造出一个 <span class="math inline">\(a_i\)</span> 的一个子序列 <span class="math inline">\(a&#39;\)</span> 的对应长度的序列 <span class="math inline">\(b&#39;\)</span> 那么每次增加一个元素 <span class="math inline">\(a_k\)</span> 都可以直接构造 <span class="math inline">\(b_k\)</span>。</p>
+<p>如果 <span class="math inline">\(a_i\)</span> 存在偶数，可以直接构造 <span class="math inline">\(b_i = \frac{a_i}{2}\)</span> 。其他的元素直接构造即可。</p>
+<p>如果 <span class="math inline">\(a_i\)</span> 全部为奇数，考虑将 <span class="math inline">\(b_i\)</span> 中的元素看成点，<span class="math inline">\(a_i\)</span> 看成边，这样就有 <span class="math inline">\(n\)</span> 个点 <span class="math inline">\(n\)</span> 条边，一定存在一个环，只要找到这个环，剩下的元素就可以直接构造了</p>
+<p>设：环上一个元素 <span class="math inline">\(b_k\)</span>，那么对于任意一个环外的元素 <span class="math inline">\(i\)</span> ，可以直接构造成 <span class="math inline">\(b_i = a_i - b_k\)</span>。</p>
+<p>不妨设 环的大小为 <span class="math inline">\(k\)</span>， <span class="math inline">\(a_i = b_i + b_{i + 1}\)</span>，<span class="math inline">\(a_k = b_k + b_1\)</span> 。则：<span class="math inline">\(\sum_{i=1}^{k}a_i = 2 \sum_{i = 1}^{k}b_i\)</span>，易知： <span class="math inline">\(2 | k\)</span>。</p>
+<p>可以直接拆成 <span class="math inline">\(a_1 + a_3 + \cdots+a_{k-1} = \sum_{i = 1}^{k}\limits{b_i}=a_2+a_4+\cdots a_k\)</span></p>
+<p>传 统 艺 能 。直接搜索每个点 <span class="math inline">\(a_i\)</span> 是属于上式中的左边、右边 或者 不属于环上的点。要求满足左边的点权和等于右边的点权和。复杂度 <span class="math inline">\(\mathcal{O}(3^n)\)</span>.</p>
+<p>考虑把 <span class="math inline">\(a_i\)</span> 拆成两段，分别搜索，记录最终方案，然后线性合并。即：折半搜索。</p>
+<p>复杂度 <span class="math inline">\(\mathcal{O}(3^{n/2})\)</span> 。</p>
+<p>赛后因为太菜不会线性合并，带了一个 <span class="math inline">\(\log\)</span> 卡成了 30 <del>体验很好</del>。后来写 hash 挂链优化掉了一个 <span class="math inline">\(\log\)</span> ，内存占用 <span class="math inline">\(2\operatorname{GiB}\)</span>，然后人就没了。至今任然 30。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;cmath&gt;
+#include &lt;climits&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+#define GG() return (void)puts(&quot;No&quot;)
+using namespace std;
+#define LL long long
+#define int long long
+const int _ &#x3D; 1e2 + 5;
+int n, A[_];
+
+namespace subtask0&#123;void work()&#123;
+	int target &#x3D; 0;
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++) if(A[i] % 2) ; else &#123; target &#x3D; i; break; &#125;
+	cout &lt;&lt; (&quot;Yes&quot;) &lt;&lt; endl;
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;
+		if(i &#x3D;&#x3D; target) &#123;
+			cout &lt;&lt; (A[i] &#x2F; 2) &lt;&lt; &quot; &quot;;
+		&#125; else &#123;
+			cout &lt;&lt; (A[i] - (A[target] &#x2F; 2)) &lt;&lt; &quot; &quot;;
+		&#125;
+	&#125; cout &lt;&lt; endl;
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123;
+		if(i &#x3D;&#x3D; target) &#123;
+			cout &lt;&lt; target &lt;&lt; &quot; &quot; &lt;&lt; target &lt;&lt; endl;
+		&#125; else &#123;
+			cout &lt;&lt; target &lt;&lt; &quot; &quot; &lt;&lt; i &lt;&lt; endl;
+		&#125;
+	&#125;
+&#125;&#125;
+
+namespace subtask1&#123;
+
+
+struct status_t&#123;
+	LL S;
+	int A0; &#x2F;&#x2F; the sum of.
+	int A1; &#x2F;&#x2F; the sum of.
+	int sum0; &#x2F;&#x2F; the number of.
+	int sum1; &#x2F;&#x2F; the number of.
+	status_t() &#123; sum0 &#x3D; sum1 &#x3D; S &#x3D; A0 &#x3D; A1 &#x3D; 0; &#125;
+&#125; ;
+
+vector&lt;status_t&gt; reta, retb;
+
+void d( int now, status_t st, const int &amp; ed, vector&lt;status_t&gt; &amp; ret)&#123;
+	if(now &gt; ed) &#123;
+		ret.push_back(st);
+		return ;
+	&#125;
+	status_t ext;
+	ext &#x3D; st; ext.S *&#x3D; 3; ext.S +&#x3D; 0; ext.A0 +&#x3D; A[now]; ext.sum0 ++;
+	d(now + 1, ext, ed, ret);
+
+	ext &#x3D; st; ext.S *&#x3D; 3; ext.S +&#x3D; 1; ext.A1 +&#x3D; A[now]; ext.sum1 ++;
+	d(now + 1, ext, ed, ret);
+
+	ext &#x3D; st; ext.S *&#x3D; 3; ext.S +&#x3D; 2;
+	d(now + 1, ext, ed, ret);
+&#125;
+
+
+
+map&lt;pair&lt;int, int&gt;, status_t&gt; M;
+#define none (-20031006)
+int mid;
+
+void output(status_t A, status_t B)&#123;
+	vector&lt;int&gt; Node0, Node1, nodes;
+	for(int i &#x3D; 0, id &#x3D; mid, tmp &#x3D; A.S;       i &lt; mid; i++, id--, tmp &#x2F;&#x3D; 3) &#123; if(tmp % 3 &#x3D;&#x3D; 0) Node0.push_back(id); if(tmp % 3 &#x3D;&#x3D; 1) Node1.push_back(id); &#125;
+	for(int i &#x3D; 0, id &#x3D; n  , tmp &#x3D; B.S; i &lt; (n - mid); i++, id--, tmp &#x2F;&#x3D; 3) &#123; if(tmp % 3 &#x3D;&#x3D; 0) Node0.push_back(id); if(tmp % 3 &#x3D;&#x3D; 1) Node1.push_back(id); &#125;
+	for(int i &#x3D; 0; i &lt; (int)Node0.size(); i++) nodes.push_back(Node0[i]), nodes.push_back(Node1[i]);
+	static int Ans[_];  for(int i &#x3D; 1; i &lt;&#x3D; n; i++) Ans[i] &#x3D; none;
+	static pair&lt;int, int&gt; Out[_];
+	Ans[nodes[0]] &#x3D; 0;
+	for(int i &#x3D; 0; i &lt; (int)nodes.size(); i++)&#123;
+		Ans[nodes[(i + 1) % nodes.size()]] &#x3D; ::A[nodes[i]] - Ans[nodes[i]];
+		Out[nodes[i]] &#x3D; make_pair(nodes[i], nodes[(i + 1) % nodes.size()]);
+	&#125;
+	static vector&lt;int&gt; ext;
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++)&#123; if(Ans[i] !&#x3D; none) continue;
+		Ans[i] &#x3D; ::A[i];
+		Out[i] &#x3D; make_pair(nodes[0], i);
+	&#125;
+	cout &lt;&lt; (&quot;Yes&quot;) &lt;&lt; endl;
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++) cout &lt;&lt; Ans[i] &lt;&lt; &quot; &quot;; cout &lt;&lt; endl;
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++) cout &lt;&lt; Out[i].first &lt;&lt; &quot; &quot; &lt;&lt; Out[i].second &lt;&lt; endl;
+&#125;
+
+
+void work()&#123;
+	mid &#x3D; (n &gt;&gt; 1);
+	reta.clear(); retb.clear();
+	d(1, status_t(), mid, reta);
+	d(mid + 1, status_t(), n, retb);
+	if(reta.size() &#x3D;&#x3D; 0 || retb.size() &#x3D;&#x3D; 0) GG();
+	for(int i &#x3D; 0; i &lt; (int)reta.size(); i++) &#123; pair&lt;int, int&gt; Key; Key &#x3D; make_pair(reta[i].sum0 - reta[i].sum1, reta[i].A0 - reta[i].A1); M[Key] &#x3D; reta[i]; &#125;
+	for(int i &#x3D; 0; i &lt; (int)retb.size(); i++) &#123;
+		pair&lt;int, int&gt; Key; Key &#x3D; make_pair(retb[i].sum1 - retb[i].sum0, retb[i].A1 - retb[i].A0);
+		if(M.count(Key)) ; else continue;
+		status_t A &#x3D; M[Key], B &#x3D; retb[i];
+		if(A.sum0 + A.sum1 &#x3D;&#x3D; 0 || B.sum0 + B.sum1 &#x3D;&#x3D; 0) continue;
+		if((A.sum0 + B.sum0 + A.sum1 + B.sum1) % 2) ;
+		else return output(A, B);
+	&#125;
+	GG();
+&#125; &#125;
+signed main()&#123;
+	&#x2F;&#x2F; freopen(&quot;.in&quot;, &quot;r&quot;, stdin);
+	ios::sync_with_stdio(false);
+	cin &gt;&gt; n; for(int i &#x3D; 1; i &lt;&#x3D; n; i++) cin &gt;&gt; A[i];
+	int pass &#x3D; false;
+	for(int i &#x3D; 1; i &lt;&#x3D; n; i++) if(A[i] % 2) ; else &#123; pass &#x3D; true; break; &#125;
+	if(pass) subtask0::work();
+	else subtask1::work();
+	return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+    </div>
+
+
+
+
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/oi-blog/tags/搜索/" rel="tag"># 搜索</a>
+              <a href="/oi-blog/tags/双向搜索/" rel="tag"># 双向搜索</a>
+          </div>
+
+
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/oi-blog/「学习总结」构造题选/" rel="prev" title="「学习总结」构造题选">
+                  <i class="fa fa-chevron-left"></i> 「学习总结」构造题选
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/oi-blog/「琐记」字符串复习/" rel="next" title="「琐记」字符串复习">
+                  「琐记」字符串复习 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2018 –
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">舒雨墨</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="/oi-blog/js/utils.js"></script><script src="/oi-blog/js/schemes/muse.js"></script><script src="/oi-blog/js/next-boot.js"></script>
+
+
+<script src="/oi-blog/js/local-search.js"></script>
+
+
+
+
+
+  <script>
+    NProgress.configure({
+      showSpinner: true
+    });
+    NProgress.start();
+    document.addEventListener('readystatechange', () => {
+      if (document.readyState === 'interactive') {
+        NProgress.inc(0.8);
+      }
+      if (document.readyState === 'complete') {
+        NProgress.done();
+      }
+    });
+    document.addEventListener('pjax:send', () => {
+      NProgress.start();
+    });
+    document.addEventListener('pjax:success', () => {
+      NProgress.done();
+    });
+  </script>
+
+
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments('.gitalk-container', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/gh/ShuYuMo2003/gitalk@master/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5d4b0a361ccf7199b58f',
+      clientSecret: 'ff21340eedfb4a1c940eaddf8e180f0260c33088',
+      repo        : 'ShuYuMo2003.github.io',
+      owner       : 'ShuYuMo2003',
+      admin       : ['ShuYuMo2003'],
+      id          : 'e9b4cbe4b5574c870fc9332945890d50',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render(document.querySelector('.gitalk-container'));
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
