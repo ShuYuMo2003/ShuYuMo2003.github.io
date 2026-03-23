@@ -1,0 +1,6 @@
+name: academic_site_py312
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - jinja2

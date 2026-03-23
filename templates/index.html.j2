@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>{{ site.page_title }}</title>
+
+  <meta name="author" content="{{ site.profile.name }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
+</head>
+
+<body>
+<table style="width: 100%; max-width: 1080px; border: 0px; border-spacing: 0px; border-collapse: separate; margin-right: auto; margin-left: auto; ">
+  <tbody>
+  <tr style="padding: 0px">
+    <td style="padding: 0px">
+
+      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+        <tr style="padding:0px">
+          <td style="padding:2.5%;width:63%;vertical-align:middle">
+            <p style="text-align: center; font-family: serif, 'Lato', Verdana, Helvetica, sans-serif; font-size: 38px; line-height: 0.7; margin-bottom: 54px">
+              <name>{{ site.profile.name }}{% if site.profile.name_zh %} | {{ site.profile.name_zh }}{% endif %}</name>
+            </p>
+            {% for line in site.profile.title_lines %}
+            <p>{{ line | safe }}</p>
+            {% endfor %}
+            {% for paragraph in site.profile.bio_paragraphs %}
+            <p>{{ paragraph | safe }}</p>
+            {% endfor %}
+            {% if site.profile.links %}
+            <p style="text-align:center">
+              {%- for link in site.profile.links -%}
+              <a href="{{ link.url }}">{{ link.label }}</a>{% if not loop.last %} &nbsp/&nbsp {% endif %}
+              {%- endfor -%}
+            </p>
+            {% endif %}
+          </td>
+          <td style="padding:2.5%;width:40%;max-width:40%">
+            <a href="{{ site.profile.portrait_path }}"><img style="width:100%;max-width:100%" alt="profile photo" src="{{ site.profile.portrait_path }}" class="hoverZoomLink"></a>
+          </td>
+        </tr>
+      </tbody></table>
+
+      {% if site.news %}
+      <div class="section">
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody>
+            <tr>
+              <td style="padding-bottom: 5px; padding-top: 20px">
+                <heading>News</heading>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <ul>
+          {% for item in site.news %}
+          <li>{% if item.is_new %}<b style="color: green; background-color: #ffff42">NEW</b> {% endif %}[{{ item.date_label }}] {{ item.text | safe }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if site.publications %}
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+        <tbody>
+        <tr>
+          <td style="padding-bottom: 5px; padding-top: 20px">
+            <heading>Publications</heading>
+          </td>
+        </tr>
+        {% if site.publication_note %}
+        <tr>
+          <td style="padding-bottom: 10px; padding-top: 5px; font-size: 18px">
+            {{ site.publication_note | safe }}
+          </td>
+        </tr>
+        {% endif %}
+        </tbody>
+      </table>
+
+      <table style="width: 100%; border: 0px; border-spacing: 0px; border-collapse: separate; margin-right: auto; margin-left: auto; ">
+        <tbody>
+        {% for publication in site.publications %}
+        <tr>
+          <td style="padding: 8px; padding-bottom: 30px; width: 28%; vertical-align: middle">
+            <img style="width: 100%; max-width: 100%; max-height: 220px; object-fit: contain;" src="{{ publication.image_path }}" alt="{{ publication.title }}">
+          </td>
+          <td style="padding: 20px; padding-bottom: 30px; width: 72%; vertical-align: middle">
+            <papertitle>{{ publication.title }}</papertitle>
+            <br>
+            <span style="font-size: 0.95em; line-height: 1.4;">
+              {%- for author in publication.authors -%}
+              {% if author.url %}<a href="{{ author.url }}" target="_blank" style="font-size: 0.95em;">{% if author.highlight %}<span class="author-highlight"><b>{{ author.name }}</b></span>{% else %}{{ author.name }}{% endif %}</a>{% else %}{% if author.highlight %}<span class="author-highlight"><b style="font-size: 0.95em;">{{ author.name }}</b></span>{% else %}<span style="font-size: 0.95em;">{{ author.name }}</span>{% endif %}{% endif %}{% if author.suffixes %}<sup class="author-suffix">{% for suffix in author.suffixes %}{{ suffix | safe }}{% if not loop.last %}, {% endif %}{% endfor %}</sup>{% endif %}{% if not loop.last %}, {% endif %}
+              {%- endfor -%}
+            </span>
+            <br>
+            <em>{{ publication.venue }}</em>, {{ publication.year }}
+            {% if publication.links %}
+            <br>
+            {%- for link in publication.links -%}
+            {% if link.url %}<a href="{{ link.url }}" target="_blank">{{ link.label }}</a>{% else %}{{ link.label }}{% endif %}{% if not loop.last %} / {% endif %}
+            {%- endfor -%}
+            {% endif %}
+            {% if publication.summary %}
+            <p style="margin-bottom: 10px; margin-top: 10px">
+              {{ publication.summary | safe }}
+            </p>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+
+      {% if site.experiences %}
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+        <tbody>
+        <tr>
+          <td style="padding-bottom: 20px; padding-top: 30px">
+            <heading>Experience</heading>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <table width="100%" align="center" border="0">
+        <tbody>
+        {% for experience in site.experiences %}
+        <tr>
+          <td class="experience-logo-cell" style="padding: 0px; padding-left: 55px; padding-right: 55px; width: 25%; vertical-align: middle">
+            <div class="experience-logo-frame">
+              <img class="experience-logo-image" src="{{ experience.logo_path }}" alt="{{ experience.institution }}">
+            </div>
+          </td>
+          <td style="padding: 20px; padding-top: 15px; padding-bottom: 15px" width="75%" vertical-align="middle">
+            <papertitle>{{ experience.institution }}</papertitle>
+            <br>
+            {{ experience.role }}
+            <br>
+            <p style="margin-bottom: 0">{{ experience.period }}</p>
+            {% for detail in experience.details %}
+            <p style="margin-bottom: 0">{{ detail | safe }}</p>
+            {% endfor %}
+          </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+
+      {% if site.awards %}
+      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+        <tbody>
+        <tr>
+          <td style="padding-bottom: 20px; padding-top: 30px">
+            <heading>Awards &amp; Honors</heading>
+            <ul>
+              {% for award in site.awards %}
+              <li>{{ award.text | safe }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      {% endif %}
+
+      {% if site.footer_note %}
+      <table style="width: 100%; border: 0px; border-spacing: 0px; border-collapse: separate; margin-right: auto; margin-left: auto; ">
+        <tbody>
+        <tr>
+          <td style="padding: 0px; padding-top: 0px">
+            <br>
+            <p style="text-align: right; font-size: x-small;">
+              {{ site.footer_note | safe }}
+            </p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      {% endif %}
+    </td>
+  </tr>
+</table>
+</body>
+
+</html>

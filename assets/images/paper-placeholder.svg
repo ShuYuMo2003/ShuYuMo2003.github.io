@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Paper Placeholder</title>
+  <desc id="desc">Placeholder teaser image for a publication.</desc>
+  <rect width="640" height="360" fill="#eef2f5"/>
+  <rect x="42" y="42" width="556" height="276" rx="18" fill="#d7e0e8"/>
+  <path d="M110 238l76-76 64 52 96-108 128 132" fill="none" stroke="#5a7080" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="205" cy="126" r="28" fill="#5a7080"/>
+  <text x="50%" y="88%" text-anchor="middle" font-family="Verdana, sans-serif" font-size="26" fill="#425666">Replace with paper image</text>
+</svg>

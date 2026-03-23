@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" role="img" aria-labelledby="title desc">
+  <title id="title">Experience Placeholder</title>
+  <desc id="desc">Placeholder logo image for an institution.</desc>
+  <rect width="360" height="200" fill="#f4f5f0"/>
+  <rect x="45" y="38" width="270" height="124" rx="18" fill="#d8dccd"/>
+  <path d="M90 130h180M90 100h180M90 70h120" stroke="#718067" stroke-width="12" stroke-linecap="round"/>
+  <text x="50%" y="88%" text-anchor="middle" font-family="Verdana, sans-serif" font-size="20" fill="#59684f">Replace with logo</text>
+</svg>
