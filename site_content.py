@@ -137,6 +137,7 @@ SITE = SiteData(
         links=[
             LinkItem(label="Email", url="mailto:CST2209162@xmu.edu.my"),
             LinkItem(label="Github", url="https://github.com/ShuYuMo2003"),
+            LinkItem(label="OI Blog", url="oi-blog/index.html"),
             LinkItem(label="Luogu", url="https://www.luogu.com.cn/user/44615"),
         ],
         portrait_path="assets/images/me.jpg",
