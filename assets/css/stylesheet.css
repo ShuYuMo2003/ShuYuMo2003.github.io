@@ -66,6 +66,13 @@
 html {
   --accent-green: #1f6b45;
   --accent-green-hover: #2c8758;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 a {
@@ -86,17 +93,43 @@ tr,
 p,
 a {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 21px;
-  line-height: 1.55;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  padding: 20px 18px 40px;
+  color: #111;
+  background: #fff;
+}
+
+img {
+  display: block;
+}
+
+p {
+  margin: 0 0 1.05em;
+}
+
+ul {
+  margin: 0.5em 0 0;
+  padding-left: 1.2em;
 }
 
 bio {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 21px;
-  line-height: 1.55;
+  font-size: 19px;
+  line-height: 1.5;
 }
 
-
+name {
+  display: block;
+  font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  font-size: clamp(2.5rem, 4.6vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
 
 heading {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
@@ -177,4 +210,189 @@ span.highlight {
   text-decoration-thickness: 1px;
   text-underline-offset: 0.1em;
   letter-spacing: 0.01em;
+}
+
+.page-shell {
+  width: 100%;
+}
+
+.intro-section {
+  padding: 18px 0 10px;
+}
+
+.intro-heading {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.intro-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 30%);
+  gap: 30px;
+  align-items: start;
+}
+
+.intro-text {
+  min-width: 0;
+}
+
+.intro-links {
+  margin-top: 1.35em;
+  text-align: center;
+}
+
+.intro-photo {
+  width: 100%;
+}
+
+.intro-photo a {
+  display: block;
+}
+
+.intro-photo img {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+ .intro-bio {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+}
+
+@media (min-width: 901px) {
+  .intro-text > p:not(.intro-links) {
+    font-size: 20px;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 900px) {
+  body,
+  td,
+  th,
+  tr,
+  p,
+  a,
+  bio {
+    font-size: 17px;
+    line-height: 1.45;
+  }
+
+  body {
+    padding: 18px 14px 32px;
+  }
+
+  heading {
+    font-size: 27px;
+  }
+
+  papertitle {
+    font-size: 19px;
+    line-height: 1.35;
+  }
+
+  .intro-heading {
+    margin-bottom: 20px;
+  }
+
+  .intro-content {
+    gap: 18px;
+    grid-template-columns: minmax(0, 1fr) minmax(140px, 32vw);
+  }
+
+  .intro-links {
+    line-height: 1.7;
+  }
+
+  .paper-row,
+  .experience-row {
+    display: block;
+  }
+
+  .paper-media,
+  .paper-body,
+  .experience-logo-cell,
+  .experience-text {
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .paper-media {
+    padding: 0 0 12px 0 !important;
+  }
+
+  .paper-media img {
+    max-width: 300px !important;
+    max-height: none !important;
+    margin: 0 auto;
+  }
+
+  .paper-body {
+    padding: 0 0 26px 0 !important;
+  }
+
+  .experience-logo-cell {
+    padding: 0 0 12px 0 !important;
+  }
+
+  .experience-text {
+    padding: 0 0 20px 0 !important;
+  }
+
+  .experience-logo-frame {
+    width: 104px;
+  }
+}
+
+@media (max-width: 620px) {
+  name {
+    font-size: clamp(2.1rem, 8.5vw, 2.7rem);
+    line-height: 1.12;
+  }
+
+  .intro-content {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-photo {
+    order: -1;
+    max-width: 190px;
+    margin: 0 auto;
+  }
+
+  .intro-links {
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  body,
+  td,
+  th,
+  tr,
+  p,
+  a,
+  bio {
+    font-size: 16px;
+    line-height: 1.42;
+  }
+
+  heading {
+    font-size: 24px;
+  }
+
+  .intro-section {
+    padding-top: 8px;
+  }
+
+  .intro-heading {
+    margin-bottom: 16px;
+  }
+
+  .intro-photo {
+    max-width: 170px;
+  }
 }

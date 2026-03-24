@@ -20,36 +20,36 @@
 </head>
 
 <body>
-<table style="width: 100%; max-width: 1080px; border: 0px; border-spacing: 0px; border-collapse: separate; margin-right: auto; margin-left: auto; ">
+<table class="page-shell" style="width: 100%; max-width: 1080px; border: 0px; border-spacing: 0px; border-collapse: separate; margin-right: auto; margin-left: auto; ">
   <tbody>
   <tr style="padding: 0px">
     <td style="padding: 0px">
 
-      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-        <tr style="padding:0px">
-          <td style="padding:2.5%;width:63%;vertical-align:middle">
-            <p style="text-align: center; font-family: serif, 'Lato', Verdana, Helvetica, sans-serif; font-size: 38px; line-height: 0.7; margin-bottom: 54px">
-              <name>{{ site.profile.name }}{% if site.profile.name_zh %} | {{ site.profile.name_zh }}{% endif %}</name>
-            </p>
+      <section class="intro-section">
+        <div class="intro-heading">
+          <name>{{ site.profile.name }}{% if site.profile.name_zh %} | {{ site.profile.name_zh }}{% endif %}</name>
+        </div>
+        <div class="intro-content">
+          <div class="intro-text">
             {% for line in site.profile.title_lines %}
             <p>{{ line | safe }}</p>
             {% endfor %}
             {% for paragraph in site.profile.bio_paragraphs %}
-            <p>{{ paragraph | safe }}</p>
+            <p class="intro-bio">{{ paragraph | safe }}</p>
             {% endfor %}
             {% if site.profile.links %}
-            <p style="text-align:center">
+            <p class="intro-links">
               {%- for link in site.profile.links -%}
               <a href="{{ link.url }}">{{ link.label }}</a>{% if not loop.last %} &nbsp/&nbsp {% endif %}
               {%- endfor -%}
             </p>
             {% endif %}
-          </td>
-          <td style="padding:2.5%;width:40%;max-width:40%">
-            <a href="{{ site.profile.portrait_path }}"><img style="width:100%;max-width:100%" alt="profile photo" src="{{ site.profile.portrait_path }}" class="hoverZoomLink"></a>
-          </td>
-        </tr>
-      </tbody></table>
+          </div>
+          <div class="intro-photo">
+            <a href="{{ site.profile.portrait_path }}"><img alt="profile photo" src="{{ site.profile.portrait_path }}" class="hoverZoomLink"></a>
+          </div>
+        </div>
+      </section>
 
       {% if site.news %}
       <div class="section">
@@ -88,14 +88,14 @@
         </tbody>
       </table>
 
-      <table style="width: 100%; border: 0px; border-spacing: 0px; border-collapse: separate; margin-right: auto; margin-left: auto; ">
+      <table class="publication-list" style="width: 100%; border: 0px; border-spacing: 0px; border-collapse: separate; margin-right: auto; margin-left: auto; ">
         <tbody>
         {% for publication in site.publications %}
-        <tr>
-          <td style="padding: 8px; padding-bottom: 30px; width: 28%; vertical-align: middle">
+        <tr class="paper-row">
+          <td class="paper-media" style="padding: 8px; padding-bottom: 30px; width: 28%; vertical-align: middle">
             <img style="width: 100%; max-width: 100%; max-height: 220px; object-fit: contain;" src="{{ publication.image_path }}" alt="{{ publication.title }}">
           </td>
-          <td style="padding: 20px; padding-bottom: 30px; width: 72%; vertical-align: middle">
+          <td class="paper-body" style="padding: 20px; padding-bottom: 30px; width: 72%; vertical-align: middle">
             <papertitle>{{ publication.title }}</papertitle>
             <br>
             <span style="font-size: 0.95em; line-height: 1.4;">
@@ -134,16 +134,16 @@
         </tbody>
       </table>
 
-      <table width="100%" align="center" border="0">
+      <table class="experience-list" width="100%" align="center" border="0">
         <tbody>
         {% for experience in site.experiences %}
-        <tr>
+        <tr class="experience-row">
           <td class="experience-logo-cell" style="padding: 0px; padding-left: 55px; padding-right: 55px; width: 25%; vertical-align: middle">
             <div class="experience-logo-frame">
               <img class="experience-logo-image" src="{{ experience.logo_path }}" alt="{{ experience.institution }}">
             </div>
           </td>
-          <td style="padding: 20px; padding-top: 15px; padding-bottom: 15px" width="75%" vertical-align="middle">
+          <td class="experience-text" style="padding: 20px; padding-top: 15px; padding-bottom: 15px" width="75%" vertical-align="middle">
             <papertitle>{{ experience.institution }}</papertitle>
             <br>
             {{ experience.role }}
