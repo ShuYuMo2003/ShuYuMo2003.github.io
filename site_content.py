@@ -172,7 +172,7 @@ SITE = SiteData(
                 author_ref("Zhizheng Zhang", suffixes=["&#9993;"]),
                 author_ref("He Wang", suffixes=["&#9993;"]),
             ],
-            venue="preprint",
+            venue="RSS 2026",
             year=2026,
             image_path="assets/images/papers/stereovla.jpg",
             links=[
@@ -202,24 +202,24 @@ SITE = SiteData(
             ],
             summary="ArtFormer introduces a novel transformer-based framework that generates diverse, high-quality 3D articulated objects from text description or single image."
         ),
-        Publication(
-            title="Robust 3D Human Pose Estimation with Unsynchronized Cross-View Fusion",
-            authors=[
-                "Liu Yuhang",
-                "Huibin Kang",
-                "Hengan Liu",
-                author_ref("Jiayi Su", highlight=True),
-                "Keng-Lun Chang",
-                "Jiaqing Lyu",
-                "Bo Wan",
-            ],
-            venue="ICME Workshop",
-            year=2025,
-            image_path="assets/images/papers/human_pose_estm.jpg",
-            links=[
-                PublicationLink(label="paper", url="https://www.computer.org/csdl/proceedings-article/icmew/2025/11152122/29TBBn6CN8Y"),
-            ]
-        ),
+        # Publication(
+        #     title="Robust 3D Human Pose Estimation with Unsynchronized Cross-View Fusion",
+        #     authors=[
+        #         "Liu Yuhang",
+        #         "Huibin Kang",
+        #         "Hengan Liu",
+        #         author_ref("Jiayi Su", highlight=True),
+        #         "Keng-Lun Chang",
+        #         "Jiaqing Lyu",
+        #         "Bo Wan",
+        #     ],
+        #     venue="ICME Workshop",
+        #     year=2025,
+        #     image_path="assets/images/papers/human_pose_estm.jpg",
+        #     links=[
+        #         PublicationLink(label="paper", url="https://www.computer.org/csdl/proceedings-article/icmew/2025/11152122/29TBBn6CN8Y"),
+        #     ]
+        # ),
     ],
     experiences=[
         ExperienceItem(
