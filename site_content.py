@@ -121,7 +121,7 @@ SITE = SiteData(
                 'I am currently an undergraduate student at '
                 '<a href="https://www.xmu.edu.my/">Xiamen U M</a> (2022-2026), '
                 'and will begin the joint Ph.D. program of <a href="http://www.ia.cas.cn/">CASIA</a> & '
-                '<a href="https://www.baai.ac.cn/">BAAI</a> & '
+                # '<a href="https://www.baai.ac.cn/">BAAI</a> & '
                 '<a href="https://www.galbot.com/">Galbot</a> & '
                 '<a href="https://pku-epic.github.io/">EPIC Lab</a> in summer 2026. '
                 'I am currently an intern at <a href="https://www.galbot.com/">Galbot</a>, under the supervision of '
