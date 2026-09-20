@@ -15,6 +15,53 @@
         link.setAttribute("target", "_blank");
         link.setAttribute("rel", "noopener noreferrer");
       });
+
+      var phdYearElement = document.getElementById("phd-year");
+      if (phdYearElement) {
+        var fallback = "first-year";
+        var ordinalWords = {
+          1: "first",
+          2: "second",
+          3: "third",
+          4: "fourth",
+          5: "fifth",
+          6: "sixth",
+          7: "seventh",
+          8: "eighth",
+          9: "ninth",
+          10: "tenth"
+        };
+
+        try {
+          var now = new Date();
+          var startYear = Number(phdYearElement.dataset.startYear);
+          var startMonth = Number(phdYearElement.dataset.startMonth);
+          var currentYear = now.getFullYear();
+          var currentMonth = now.getMonth() + 1;
+
+          if (!Number.isFinite(startYear) || !Number.isFinite(startMonth) ||
+              !Number.isFinite(currentYear) || !Number.isFinite(currentMonth) ||
+              startMonth < 1 || startMonth > 12) {
+            throw new Error("Invalid Ph.D. date");
+          }
+
+          var academicYearStart = currentMonth >= startMonth ? currentYear : currentYear - 1;
+          var yearNumber = Math.max(1, academicYearStart - startYear + 1);
+          var ordinal = ordinalWords[yearNumber];
+
+          if (!ordinal) {
+            var lastTwo = yearNumber % 100;
+            var lastOne = yearNumber % 10;
+            var suffix = lastTwo >= 11 && lastTwo <= 13 ? "th" :
+              lastOne === 1 ? "st" : lastOne === 2 ? "nd" : lastOne === 3 ? "rd" : "th";
+            ordinal = String(yearNumber) + suffix;
+          }
+
+          phdYearElement.textContent = ordinal + "-year";
+        } catch (error) {
+          phdYearElement.textContent = fallback;
+        }
+      }
     });
   </script>
 </head>
@@ -32,9 +79,9 @@
         <div class="intro-content">
           <div class="intro-text">
             <p>Hiii, there!</p>
-            <p>I am currently an undergraduate student at <a href="https://www.xmu.edu.my/">Xiamen U M</a> (2022-2026), and will begin the joint Ph.D. program of <a href="http://www.ia.cas.cn/">CASIA</a> & <a href="https://www.galbot.com/">Galbot</a> & <a href="https://pku-epic.github.io/">EPIC Lab</a> in summer 2026. I am currently an intern at <a href="https://www.galbot.com/">Galbot</a>, under the supervision of <a href="https://hughw19.github.io/">Prof. He Wang</a> and <a href="https://scholar.google.com/citations?user=X7M0I8kAAAAJ&hl=en">Prof. Zhizheng Zhang</a>.</p>
+            <p>I am currently a <span id="phd-year" data-start-year="2026" data-start-month="9">first-year</span> Ph.D. student at <a href="http://www.ia.cas.cn/">CASIA</a>, <a href="https://www.galbot.com/">Galbot</a>, and <a href="https://pku-epic.github.io/">EPIC Lab</a> (2026-present). Before that, I received my B.Sc. degree in Computer Science and Technology from <a href="https://www.xmu.edu.my/">Xiamen University</a> (2022-2026). I am currently an intern at <a href="https://www.galbot.com/">Galbot</a>, under the supervision of <a href="https://hughw19.github.io/">Prof. He Wang</a> and <a href="https://scholar.google.com/citations?user=X7M0I8kAAAAJ&hl=en">Prof. Zhizheng Zhang</a>.</p>
             <p class="intro-bio">I am interested in embodied AI, VLA for manipulation, world models, and video models for robotics.</p>
-            <p class="intro-bio">I am lucky to work closely with <a href="https://miyandoris.github.io/">Mi Yan</a>, <a href="https://jiangranlv.github.io/">Jiangran Lyu</a>, and <a href="https://shengliangd.github.io/about/">Shengliang Deng</a>, and grateful for their help during the early stage of my internship.</p>
+            <p class="intro-bio">I am lucky to work closely with <a href="https://miyandoris.github.io/">Mi Yan</a>, <a href="https://jiangranlv.github.io/">Jiangran Lyu</a>, and <a href="https://shengliangd.github.io/about/">Shengliang Deng</a>.</p>
             <p class="intro-links"><a href="mailto:CST2209162@xmu.edu.my">Email</a> &nbsp/&nbsp <a href="https://github.com/ShuYuMo2003">Github</a> &nbsp/&nbsp <a href="https://x.com/JiaYiSu8">X</a> &nbsp/&nbsp <a href="oi-blog/index.html">OI Blog</a> &nbsp/&nbsp <a href="https://www.luogu.com.cn/user/44615">Luogu</a></p>
           </div>
           <div class="intro-photo">
@@ -63,14 +110,44 @@
         <tbody>
         <tr class="paper-row">
           <td class="paper-media" style="padding: 8px; padding-bottom: 30px; width: 28%; vertical-align: middle">
+            <img style="width: 100%; max-width: 100%; max-height: 220px; object-fit: contain;" src="assets/images/papers/astra-front-page.png" alt="GPT 6 Astra as an Embodied Policy">
+          </td>
+          <td class="paper-body" style="padding: 20px; padding-bottom: 30px; width: 72%; vertical-align: middle">
+            <papertitle>GPT 6 Astra as an Embodied Policy</papertitle>
+            <br>
+            <span style="font-size: 0.95em; line-height: 1.4;"><a href="https://shuyumo2003.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;"><span class="author-highlight"><b>Jiayi Su</b></span></a><sup class="author-suffix">*</sup>, <a href="https://steveouo.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Yixin Zheng</a><sup class="author-suffix">*</sup>, <a href="https://miyandoris.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Mi Yan</a>, <a href="https://ericyi.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Li Yi</a>, <a href="https://scholar.google.com/citations?user=X7M0I8kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Zhizheng Zhang</a><sup class="author-suffix">&#9993;</sup>, <a href="https://hughw19.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">He Wang</a><sup class="author-suffix">&#9993;</sup></span>
+            <br>
+            <em>Technical Report</em>, 2026
+            <br><a href="https://anonymous-report-421.github.io/public-website/?view=1" target="_blank" rel="noopener noreferrer">project page</a> / <a href="https://github.com/anonymous-report-421/eval-of-gpt-6-astra-as-policy" target="_blank" rel="noopener noreferrer">code</a> / <a href="https://mp.weixin.qq.com/s/e8Tx4EL9qDDZNGcIwNmV5w" target="_blank" rel="noopener noreferrer">具身智能之心</a> / <a href="https://mp.weixin.qq.com/s/KPIVOsmAV3FAHmyo6do3dQ" target="_blank" rel="noopener noreferrer">腾讯科技</a> / <a href="https://mp.weixin.qq.com/s/TaGZRbPEFmw5VBmy26bq8g" target="_blank" rel="noopener noreferrer">智能纪元AGI</a> / <a href="https://mp.weixin.qq.com/s/cc6OYHSUtCI7qPZl46cBgA" target="_blank" rel="noopener noreferrer">human five</a>            <p style="margin-bottom: 10px; margin-top: 10px">
+              A technical report comparing direct GPT 6 Astra control with a hybrid π0.5 + GPT 6 Astra policy for zero-shot bimanual manipulation. On the selected RoboDojo tasks, the hybrid policy reaches 48% success and a 62.60 mean score, compared with 26% and 37.81 for direct control.
+            </p>
+          </td>
+        </tr>
+        <tr class="paper-row">
+          <td class="paper-media" style="padding: 8px; padding-bottom: 30px; width: 28%; vertical-align: middle">
+            <img style="width: 100%; max-width: 100%; max-height: 220px; object-fit: contain;" src="assets/images/papers/zeta.jpg" alt="ZETA: A Controlled Study of Zero-Shot Cross-Embodiment VLA Transfer for Tabletop Manipulation">
+          </td>
+          <td class="paper-body" style="padding: 20px; padding-bottom: 30px; width: 72%; vertical-align: middle">
+            <papertitle>ZETA: A Controlled Study of Zero-Shot Cross-Embodiment VLA Transfer for Tabletop Manipulation</papertitle>
+            <br>
+            <span style="font-size: 0.95em; line-height: 1.4;"><a href="https://miyandoris.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Mi Yan</a><sup class="author-suffix">*</sup>, <a href="https://openreview.net/profile?id=~Wenhao_Zhang28" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Wenhao Zhang</a><sup class="author-suffix">*</sup>, <a href="https://openreview.net/profile?id=~Zhiqi_Zhang3" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Zhiqi Zhang</a><sup class="author-suffix">*</sup>, <a href="https://openreview.net/profile?id=~Yu_Peng4" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Yu Peng</a><sup class="author-suffix">*</sup>, <a href="https://theone2006.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Tangxinyu Wang</a><sup class="author-suffix">*</sup>, <a href="https://openreview.net/profile?id=~Lingfei_Zhai1" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Lingfei Zhai</a>, <a href="https://shuyumo2003.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;"><span class="author-highlight"><b>Jiayi Su</b></span></a>, <a href="https://shengliangd.github.io/about/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Shengliang Deng</a>, <a href="https://openreview.net/profile?id=~Lin_Peng4" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Lin Peng</a>, <a href="https://openreview.net/profile?id=~Yaowei_Liu3" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Yaowei Liu</a>, <a href="https://chen01yx.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Yuxing Chen</a>, <a href="https://openreview.net/profile?id=~Zhiyuan_Wei4" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Zhiyuan Wei</a>, <a href="https://42jaylonw.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Jilong Wang</a>, <a href="https://jychen18.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Jiayi Chen</a>, <a href="https://jiangranlv.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Jiangran Lyu</a>, <a href="https://scholar.google.com/citations?user=X7M0I8kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Zhizheng Zhang</a><sup class="author-suffix">&#9993;</sup>, <a href="https://hughw19.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">He Wang</a><sup class="author-suffix">&#9993;</sup></span>
+            <br>
+            <em>CoRL</em>, 2026
+            <br><a href="https://theone2006.github.io/ZETA-Web/" target="_blank" rel="noopener noreferrer">project page</a> / <a href="https://arxiv.org/abs/2609.02546" target="_blank" rel="noopener noreferrer">paper</a> / <a href="https://github.com/MiYanDoris/ZETA" target="_blank" rel="noopener noreferrer">code</a>            <p style="margin-bottom: 10px; margin-top: 10px">
+              ZETA presents a controlled study of zero-shot cross-embodiment transfer for vision-language-action models in tabletop manipulation.
+            </p>
+          </td>
+        </tr>
+        <tr class="paper-row">
+          <td class="paper-media" style="padding: 8px; padding-bottom: 30px; width: 28%; vertical-align: middle">
             <img style="width: 100%; max-width: 100%; max-height: 220px; object-fit: contain;" src="assets/images/papers/stereovla.jpg" alt="StereoVLA: Enhancing Vision-Language-Action Models with Stereo Vision">
           </td>
           <td class="paper-body" style="padding: 20px; padding-bottom: 30px; width: 72%; vertical-align: middle">
             <papertitle>StereoVLA: Enhancing Vision-Language-Action Models with Stereo Vision</papertitle>
             <br>
-            <span style="font-size: 0.95em; line-height: 1.4;"><a href="https://shengliangd.github.io/about/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Shengliang Deng</a><sup class="author-suffix">*</sup>, <a href="https://miyandoris.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Mi Yan</a><sup class="author-suffix">*</sup>, <span style="font-size: 0.95em;">Yixin Zheng</span><sup class="author-suffix">*</sup>, <a href="https://shuyumo2003.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;"><span class="author-highlight"><b>Jiayi Su</b></span></a>, <span style="font-size: 0.95em;">Wenhao Zhang</span>, <span style="font-size: 0.95em;">Xiaoguang Zhao</span>, <a href="https://i.cs.hku.hk/~heming/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Heming Cui</a>, <a href="https://scholar.google.com/citations?user=X7M0I8kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Zhizheng Zhang</a><sup class="author-suffix">&#9993;</sup>, <a href="https://hughw19.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">He Wang</a><sup class="author-suffix">&#9993;</sup></span>
+            <span style="font-size: 0.95em; line-height: 1.4;"><a href="https://shengliangd.github.io/about/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Shengliang Deng</a><sup class="author-suffix">*</sup>, <a href="https://miyandoris.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Mi Yan</a><sup class="author-suffix">*</sup>, <a href="https://steveouo.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Yixin Zheng</a><sup class="author-suffix">*</sup>, <a href="https://shuyumo2003.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;"><span class="author-highlight"><b>Jiayi Su</b></span></a>, <a href="https://openreview.net/profile?id=~Wenhao_Zhang28" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Wenhao Zhang</a>, <span style="font-size: 0.95em;">Xiaoguang Zhao</span>, <a href="https://i.cs.hku.hk/~heming/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Heming Cui</a>, <a href="https://scholar.google.com/citations?user=X7M0I8kAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">Zhizheng Zhang</a><sup class="author-suffix">&#9993;</sup>, <a href="https://hughw19.github.io/" target="_blank" rel="noopener noreferrer" style="font-size: 0.95em;">He Wang</a><sup class="author-suffix">&#9993;</sup></span>
             <br>
-            <em>RSS 2026</em>, 2026
+            <em>RSS</em>, 2026
             <br><a href="https://arxiv.org/abs/2512.21970" target="_blank" rel="noopener noreferrer">arXiv</a> / <a href="https://github.com/shengliangd/StereoVLA" target="_blank" rel="noopener noreferrer">code</a> / <a href="https://huggingface.co/shengliangd/StereoVLA" target="_blank" rel="noopener noreferrer">checkpoint</a>            <p style="margin-bottom: 10px; margin-top: 10px">
               StereoVLA is powered by stereo vision and supports zero-shot deployment with high tolerance to camera pose variations.
             </p>
@@ -109,16 +186,30 @@
         <tr class="experience-row">
           <td class="experience-logo-cell" style="padding: 0px; padding-left: 55px; padding-right: 55px; width: 25%; vertical-align: middle">
             <div class="experience-logo-frame">
-              <img class="experience-logo-image" src="assets/images/Xiamen_University_logo.svg.png" alt="Xiamen University (Malaysia)">
+              <img class="experience-logo-image" src="assets/images/CAS-logo.png" alt="University of Chinese Academy of Sciences">
             </div>
           </td>
           <td class="experience-text" style="padding: 20px; padding-top: 15px; padding-bottom: 15px" width="75%" vertical-align="middle">
-            <papertitle>Xiamen University (Malaysia)</papertitle>
+            <papertitle>University of Chinese Academy of Sciences</papertitle>
             <br>
-            Undergraduate Student in CST
+            Ph.D. Student at CASIA (Institute of Automation)
             <br>
-            <p style="margin-bottom: 0">2022.09 - present</p>
-            <p style="margin-bottom: 0">Rank: 1/71; Grade: 97.0 / 100 (3.88 / 4.00)</p>
+            <p style="margin-bottom: 0">2026.09 - present</p>
+          </td>
+        </tr>
+        <tr class="experience-row">
+          <td class="experience-logo-cell" style="padding: 0px; padding-left: 55px; padding-right: 55px; width: 25%; vertical-align: middle">
+            <div class="experience-logo-frame">
+              <img class="experience-logo-image" src="assets/images/galbot.jpg" alt="Galbot">
+            </div>
+          </td>
+          <td class="experience-text" style="padding: 20px; padding-top: 15px; padding-bottom: 15px" width="75%" vertical-align="middle">
+            <papertitle>Galbot</papertitle>
+            <br>
+            Large Embodied Model Researcher
+            <br>
+            <p style="margin-bottom: 0">2025.08 - present</p>
+            <p style="margin-bottom: 0">VLA & Simulation Pipe Engineer</p>
           </td>
         </tr>
         <tr class="experience-row">
@@ -139,16 +230,16 @@
         <tr class="experience-row">
           <td class="experience-logo-cell" style="padding: 0px; padding-left: 55px; padding-right: 55px; width: 25%; vertical-align: middle">
             <div class="experience-logo-frame">
-              <img class="experience-logo-image" src="assets/images/galbot.jpg" alt="Galbot">
+              <img class="experience-logo-image" src="assets/images/Xiamen_University_logo.svg.png" alt="Xiamen University">
             </div>
           </td>
           <td class="experience-text" style="padding: 20px; padding-top: 15px; padding-bottom: 15px" width="75%" vertical-align="middle">
-            <papertitle>Galbot</papertitle>
+            <papertitle>Xiamen University</papertitle>
             <br>
-            Large Embodied Model Researcher
+            B.Sc. in Computer Science and Technology
             <br>
-            <p style="margin-bottom: 0">2025.08 - present</p>
-            <p style="margin-bottom: 0">VLA & Simulation Pipe Engineer</p>
+            <p style="margin-bottom: 0">2022.09 - 2026</p>
+            <p style="margin-bottom: 0">Rank: 1/71; Grade: 97.0 / 100 (3.88 / 4.00)</p>
           </td>
         </tr>
         </tbody>
@@ -174,11 +265,10 @@
           <td style="padding-bottom: 20px; padding-top: 30px">
             <heading>Awards &amp; Honors</heading>
             <ul>
-              <li>2022-2025 First-Class Scholarship (XMUM)</li>
-              <li>2025 Dean's List Award (XMUM, CST Department)</li>
+              <li>2022-2025 First-Class Scholarship (Xiamen University)</li>
               <li>2021 <a href="https://www.noi.cn/">National Olympiad in Informatics (NOI)</a>, Winter Camp, Silver Medal</li>
               <li>2021 <a href="https://www.noi.cn/">National Olympiad in Informatics (NOI)</a>, Bronze Medal</li>
-              <li>2020-2022 <a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E5%9B%BD%E9%9D%92%E5%B0%91%E5%B9%B4%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E8%81%94%E8%B5%9B">National Olympiad in Informatics in Provinces (NOIP)</a> First Prize, Rank 10 in Shandong Province</li>
+              <li>2020-2022 <a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E5%9B%BD%E9%9D%92%E5%B0%91%E5%B9%B4%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E8%81%94%E8%B5%9B">National Olympiad in Informatics in Provinces (NOIP)</a> First Prize, Rank 10</li>
             </ul>
           </td>
         </tr>

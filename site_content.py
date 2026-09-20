@@ -118,12 +118,12 @@ SITE = SiteData(
         title_lines=[
             'Hiii, there!',
             (
-                'I am currently an undergraduate student at '
-                '<a href="https://www.xmu.edu.my/">Xiamen U M</a> (2022-2026), '
-                'and will begin the joint Ph.D. program of <a href="http://www.ia.cas.cn/">CASIA</a> & '
-                # '<a href="https://www.baai.ac.cn/">BAAI</a> & '
-                '<a href="https://www.galbot.com/">Galbot</a> & '
-                '<a href="https://pku-epic.github.io/">EPIC Lab</a> in summer 2026. '
+                'I am currently a <span id="phd-year" data-start-year="2026" data-start-month="9">first-year</span> Ph.D. student at '
+                '<a href="http://www.ia.cas.cn/">CASIA</a>, '
+                '<a href="https://www.galbot.com/">Galbot</a>, and '
+                '<a href="https://pku-epic.github.io/">EPIC Lab</a> (2026-present). '
+                'Before that, I received my B.Sc. degree in Computer Science and Technology from '
+                '<a href="https://www.xmu.edu.my/">Xiamen University</a> (2022-2026). '
                 'I am currently an intern at <a href="https://www.galbot.com/">Galbot</a>, under the supervision of '
                 '<a href="https://hughw19.github.io/">Prof. He Wang</a> '
                 'and <a href="https://scholar.google.com/citations?user=X7M0I8kAAAAJ&hl=en">Prof. Zhizheng Zhang</a>.'
@@ -136,8 +136,7 @@ SITE = SiteData(
             (
                 'I am lucky to work closely with <a href="https://miyandoris.github.io/">Mi Yan</a>, '
                 '<a href="https://jiangranlv.github.io/">Jiangran Lyu</a>, and '
-                '<a href="https://shengliangd.github.io/about/">Shengliang Deng</a>, '
-                'and grateful for their help during the early stage of my internship.'
+                '<a href="https://shengliangd.github.io/about/">Shengliang Deng</a>.'
             )
         ],
         links=[
@@ -160,6 +159,83 @@ SITE = SiteData(
         # Plain strings are author ids; use author_ref(...) when you need highlight/suffix. 
         # suffixes: *: joint first author; &dagger; project lead; &#9993; corresponding author(s)
         Publication(
+            title="GPT 6 Astra as an Embodied Policy",
+            authors=[
+                author_ref("Jiayi Su", highlight=True, suffixes=["*"]),
+                author_ref("Yixin Zheng", suffixes=["*"]),
+                author_ref("Mi Yan"),
+                author_ref("Li Yi"),
+                author_ref("Zhizheng Zhang", suffixes=["&#9993;"]),
+                author_ref("He Wang", suffixes=["&#9993;"]),
+            ],
+            venue="Technical Report",
+            year=2026,
+            image_path="assets/images/papers/astra-front-page.png",
+            links=[
+                PublicationLink(
+                    label="project page",
+                    url="https://anonymous-report-421.github.io/public-website/?view=1",
+                ),
+                PublicationLink(
+                    label="code",
+                    url="https://github.com/anonymous-report-421/eval-of-gpt-6-astra-as-policy",
+                ),
+                PublicationLink(
+                    label="具身智能之心",
+                    url="https://mp.weixin.qq.com/s/e8Tx4EL9qDDZNGcIwNmV5w",
+                ),
+                PublicationLink(
+                    label="腾讯科技",
+                    url="https://mp.weixin.qq.com/s/KPIVOsmAV3FAHmyo6do3dQ",
+                ),
+                PublicationLink(
+                    label="智能纪元AGI",
+                    url="https://mp.weixin.qq.com/s/TaGZRbPEFmw5VBmy26bq8g",
+                ),
+                PublicationLink(
+                    label="human five",
+                    url="https://mp.weixin.qq.com/s/cc6OYHSUtCI7qPZl46cBgA",
+                ),
+            ],
+            summary=(
+                "A technical report comparing direct GPT 6 Astra control with a hybrid "
+                "π0.5 + GPT 6 Astra policy for zero-shot bimanual manipulation. On the "
+                "selected RoboDojo tasks, the hybrid policy reaches 48% success and a "
+                "62.60 mean score, compared with 26% and 37.81 for direct control."
+            ),
+        ),
+        Publication(
+            title="ZETA: A Controlled Study of Zero-Shot Cross-Embodiment VLA Transfer for Tabletop Manipulation",
+            authors=[
+                author_ref("Mi Yan", suffixes=["*"]),
+                author_ref("Wenhao Zhang", suffixes=["*"]),
+                author_ref("Zhiqi Zhang", suffixes=["*"]),
+                author_ref("Yu Peng", suffixes=["*"]),
+                author_ref("Tangxinyu Wang", suffixes=["*"]),
+                "Lingfei Zhai",
+                author_ref("Jiayi Su", highlight=True),
+                author_ref("Shengliang Deng"),
+                "Lin Peng",
+                "Yaowei Liu",
+                "Yuxing Chen",
+                "Zhiyuan Wei",
+                "Jilong Wang",
+                "Jiayi Chen",
+                author_ref("Jiangran Lyu"),
+                author_ref("Zhizheng Zhang", suffixes=["&#9993;"]),
+                author_ref("He Wang", suffixes=["&#9993;"]),
+            ],
+            venue="CoRL",
+            year=2026,
+            image_path="assets/images/papers/zeta.jpg",
+            links=[
+                PublicationLink(label="project page", url="https://theone2006.github.io/ZETA-Web/"),
+                PublicationLink(label="paper", url="https://arxiv.org/abs/2609.02546"),
+                PublicationLink(label="code", url="https://github.com/MiYanDoris/ZETA"),
+            ],
+            summary="ZETA presents a controlled study of zero-shot cross-embodiment transfer for vision-language-action models in tabletop manipulation.",
+        ),
+        Publication(
             title="StereoVLA: Enhancing Vision-Language-Action Models with Stereo Vision",
             authors=[
                 author_ref("Shengliang Deng", suffixes=["*"]),
@@ -172,7 +248,7 @@ SITE = SiteData(
                 author_ref("Zhizheng Zhang", suffixes=["&#9993;"]),
                 author_ref("He Wang", suffixes=["&#9993;"]),
             ],
-            venue="RSS 2026",
+            venue="RSS",
             year=2026,
             image_path="assets/images/papers/stereovla.jpg",
             links=[
@@ -223,13 +299,17 @@ SITE = SiteData(
     ],
     experiences=[
         ExperienceItem(
-            institution="Xiamen University (Malaysia)",
-            role="Undergraduate Student in CST",
-            period="2022.09 - present",
-            details=[
-                "Rank: 1/71; Grade: 97.0 / 100 (3.88 / 4.00)",
-            ],
-            logo_path="assets/images/Xiamen_University_logo.svg.png",
+            institution="University of Chinese Academy of Sciences",
+            role="Ph.D. Student at CASIA (Institute of Automation)",
+            period="2026.09 - present",
+            logo_path="assets/images/CAS-logo.png",
+        ),
+        ExperienceItem(
+            institution="Galbot",
+            role="Large Embodied Model Researcher",
+            period="2025.08 - present",
+            details=["VLA & Simulation Pipe Engineer"],
+            logo_path="assets/images/galbot.jpg",
         ),
         ExperienceItem(
             institution="Shanghai Jiao Tong University",
@@ -241,11 +321,13 @@ SITE = SiteData(
             logo_path="assets/images/Sjtu-logo-standard-red.png",
         ),
         ExperienceItem(
-            institution="Galbot",
-            role="Large Embodied Model Researcher",
-            period="2025.08 - present",
-            details=["VLA & Simulation Pipe Engineer"],
-            logo_path="assets/images/galbot.jpg",
+            institution="Xiamen University",
+            role="B.Sc. in Computer Science and Technology",
+            period="2022.09 - 2026",
+            details=[
+                "Rank: 1/71; Grade: 97.0 / 100 (3.88 / 4.00)",
+            ],
+            logo_path="assets/images/Xiamen_University_logo.svg.png",
         ),
     ],
     services=[
@@ -253,11 +335,10 @@ SITE = SiteData(
         ServiceItem(text="ICME 2025 Reviewer"),
     ],
     awards=[
-        AwardItem(text="2022-2025 First-Class Scholarship (XMUM)"),
-        AwardItem(text="2025 Dean's List Award (XMUM, CST Department)"),
+        AwardItem(text="2022-2025 First-Class Scholarship (Xiamen University)"),
         AwardItem(text='2021 <a href="https://www.noi.cn/">National Olympiad in Informatics (NOI)</a>, Winter Camp, Silver Medal'),
         AwardItem(text='2021 <a href="https://www.noi.cn/">National Olympiad in Informatics (NOI)</a>, Bronze Medal'),
-        AwardItem(text='2020-2022 <a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E5%9B%BD%E9%9D%92%E5%B0%91%E5%B9%B4%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E8%81%94%E8%B5%9B">National Olympiad in Informatics in Provinces (NOIP)</a> First Prize, Rank 10 in Shandong Province'),
+        AwardItem(text='2020-2022 <a href="https://zh.wikipedia.org/wiki/%E5%85%A8%E5%9B%BD%E9%9D%92%E5%B0%91%E5%B9%B4%E4%BF%A1%E6%81%AF%E5%AD%A6%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E8%81%94%E8%B5%9B">National Olympiad in Informatics in Provinces (NOIP)</a> First Prize, Rank 10'),
     ],
     publication_note="*: joint first author; &dagger; project lead; &#9993; corresponding author(s)",
     footer_note='Style adapted from <a style="font-size: x-small" href="https://jonbarron.info/">Jon Barron</a>.',
@@ -286,6 +367,62 @@ SITE = SiteData(
         "Mi Yan": AuthorDirectoryEntry(
             display_name="Mi Yan",
             url="https://miyandoris.github.io/",
+        ),
+        "Tangxinyu Wang": AuthorDirectoryEntry(
+            display_name="Tangxinyu Wang",
+            url="https://theone2006.github.io/",
+        ),
+        "Jiangran Lyu": AuthorDirectoryEntry(
+            display_name="Jiangran Lyu",
+            url="https://jiangranlv.github.io/",
+        ),
+        "Wenhao Zhang": AuthorDirectoryEntry(
+            display_name="Wenhao Zhang",
+            url="https://openreview.net/profile?id=~Wenhao_Zhang28",
+        ),
+        "Zhiqi Zhang": AuthorDirectoryEntry(
+            display_name="Zhiqi Zhang",
+            url="https://openreview.net/profile?id=~Zhiqi_Zhang3",
+        ),
+        "Yu Peng": AuthorDirectoryEntry(
+            display_name="Yu Peng",
+            url="https://openreview.net/profile?id=~Yu_Peng4",
+        ),
+        "Lingfei Zhai": AuthorDirectoryEntry(
+            display_name="Lingfei Zhai",
+            url="https://openreview.net/profile?id=~Lingfei_Zhai1",
+        ),
+        "Lin Peng": AuthorDirectoryEntry(
+            display_name="Lin Peng",
+            url="https://openreview.net/profile?id=~Lin_Peng4",
+        ),
+        "Yaowei Liu": AuthorDirectoryEntry(
+            display_name="Yaowei Liu",
+            url="https://openreview.net/profile?id=~Yaowei_Liu3",
+        ),
+        "Yuxing Chen": AuthorDirectoryEntry(
+            display_name="Yuxing Chen",
+            url="https://chen01yx.github.io/",
+        ),
+        "Zhiyuan Wei": AuthorDirectoryEntry(
+            display_name="Zhiyuan Wei",
+            url="https://openreview.net/profile?id=~Zhiyuan_Wei4",
+        ),
+        "Jilong Wang": AuthorDirectoryEntry(
+            display_name="Jilong Wang",
+            url="https://42jaylonw.github.io/",
+        ),
+        "Jiayi Chen": AuthorDirectoryEntry(
+            display_name="Jiayi Chen",
+            url="https://jychen18.github.io/",
+        ),
+        "Yixin Zheng": AuthorDirectoryEntry(
+            display_name="Yixin Zheng",
+            url="https://steveouo.github.io/",
+        ),
+        "Li Yi": AuthorDirectoryEntry(
+            display_name="Li Yi",
+            url="https://ericyi.github.io/",
         ),
         "Zhizheng Zhang": AuthorDirectoryEntry(
             display_name="Zhizheng Zhang",

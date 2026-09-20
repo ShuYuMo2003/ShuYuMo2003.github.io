@@ -15,6 +15,53 @@
         link.setAttribute("target", "_blank");
         link.setAttribute("rel", "noopener noreferrer");
       });
+
+      var phdYearElement = document.getElementById("phd-year");
+      if (phdYearElement) {
+        var fallback = "first-year";
+        var ordinalWords = {
+          1: "first",
+          2: "second",
+          3: "third",
+          4: "fourth",
+          5: "fifth",
+          6: "sixth",
+          7: "seventh",
+          8: "eighth",
+          9: "ninth",
+          10: "tenth"
+        };
+
+        try {
+          var now = new Date();
+          var startYear = Number(phdYearElement.dataset.startYear);
+          var startMonth = Number(phdYearElement.dataset.startMonth);
+          var currentYear = now.getFullYear();
+          var currentMonth = now.getMonth() + 1;
+
+          if (!Number.isFinite(startYear) || !Number.isFinite(startMonth) ||
+              !Number.isFinite(currentYear) || !Number.isFinite(currentMonth) ||
+              startMonth < 1 || startMonth > 12) {
+            throw new Error("Invalid Ph.D. date");
+          }
+
+          var academicYearStart = currentMonth >= startMonth ? currentYear : currentYear - 1;
+          var yearNumber = Math.max(1, academicYearStart - startYear + 1);
+          var ordinal = ordinalWords[yearNumber];
+
+          if (!ordinal) {
+            var lastTwo = yearNumber % 100;
+            var lastOne = yearNumber % 10;
+            var suffix = lastTwo >= 11 && lastTwo <= 13 ? "th" :
+              lastOne === 1 ? "st" : lastOne === 2 ? "nd" : lastOne === 3 ? "rd" : "th";
+            ordinal = String(yearNumber) + suffix;
+          }
+
+          phdYearElement.textContent = ordinal + "-year";
+        } catch (error) {
+          phdYearElement.textContent = fallback;
+        }
+      }
     });
   </script>
 </head>
