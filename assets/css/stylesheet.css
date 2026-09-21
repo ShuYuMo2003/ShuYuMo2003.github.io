@@ -179,12 +179,10 @@ span.highlight {
 }
 
 .experience-logo-frame {
-  width: min(132px, 100%);
-  aspect-ratio: 1 / 1;
+  /* Explicit dimensions avoid WebKit's intrinsic image height in table cells. */
+  width: 132px;
+  height: 132px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .experience-logo-image {
@@ -344,6 +342,7 @@ span.highlight {
 
   .experience-logo-frame {
     width: 104px;
+    height: 104px;
   }
 }
 
