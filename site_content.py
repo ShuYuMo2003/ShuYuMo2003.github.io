@@ -140,7 +140,7 @@ SITE = SiteData(
             )
         ],
         links=[
-            LinkItem(label="Email", url="mailto:CST2209162@xmu.edu.my"),
+            LinkItem(label="Email", url="mailto:sujiayi2003@gmail.com"),
             LinkItem(label="Github", url="https://github.com/ShuYuMo2003"),
             LinkItem(label="X", url="https://x.com/JiaYiSu8"),
             LinkItem(label="OI Blog", url="oi-blog/index.html"),
